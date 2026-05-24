@@ -640,6 +640,9 @@ p strong {
   border: 1px solid var(--border);
   border-radius: 8px;
   transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .topic-item:hover {
@@ -673,8 +676,27 @@ p strong {
   min-height: 44px;
   box-sizing: border-box;
   cursor: pointer;
-  width: 100%;
+  flex: 1;
   user-select: none;
+}
+
+.formula-shortcut {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 10;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formula-shortcut:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .checkbox-wrapper input[type="checkbox"] {
@@ -1324,16 +1346,17 @@ footer {
   text-transform: uppercase;
 }
 
-/* Colors for section categories */
-.formula-s1 .formula-sec-dot { background: var(--accent); }   .formula-s1 .formula-sec-title { color: var(--accent); }
-.formula-s2 .formula-sec-dot { background: var(--accent2); }  .formula-s2 .formula-sec-title { color: var(--accent2); }
-.formula-s3 .formula-sec-dot { background: var(--accent3); }  .formula-s3 .formula-sec-title { color: var(--accent3); }
-.formula-s4 .formula-sec-dot { background: var(--accent4); }  .formula-s4 .formula-sec-title { color: var(--accent4); }
-.formula-s5 .formula-sec-dot { background: var(--accent5); }  .formula-s5 .formula-sec-title { color: var(--accent5); }
-.formula-s6 .formula-sec-dot { background: var(--accent6); }  .formula-s6 .formula-sec-title { color: var(--accent6); }
-.formula-s7 .formula-sec-dot { background: var(--accent2); }  .formula-s7 .formula-sec-title { color: var(--accent2); }
-.formula-s8 .formula-sec-dot { background: var(--accent4); }  .formula-s8 .formula-sec-title { color: var(--accent4); }
-.formula-s9 .formula-sec-dot { background: var(--accent); }   .formula-s9 .formula-sec-title { color: var(--accent); }
+/* Priority-based coloring for formula categories */
+.formula-category-card.priority-high { border-left: 4px solid var(--accent3); }
+.formula-category-card.priority-medium { border-left: 4px solid var(--accent6); }
+.formula-category-card.priority-skip { border-left: 4px solid var(--muted); }
+
+.formula-category-card.priority-high .formula-sec-dot { background: var(--accent3); }
+.formula-category-card.priority-high .formula-sec-title { color: var(--accent3); }
+.formula-category-card.priority-medium .formula-sec-dot { background: var(--accent6); }
+.formula-category-card.priority-medium .formula-sec-title { color: var(--accent6); }
+.formula-category-card.priority-skip .formula-sec-dot { background: var(--muted); }
+.formula-category-card.priority-skip .formula-sec-title { color: var(--muted); }
 
 /* Subsections */
 .formula-sub {
@@ -1364,15 +1387,9 @@ footer {
   position: relative;
 }
 
-.formula-s1 .formula-box { border-left-color: var(--accent); }
-.formula-s2 .formula-box { border-left-color: var(--accent2); }
-.formula-s3 .formula-box { border-left-color: var(--accent3); }
-.formula-s4 .formula-box { border-left-color: var(--accent4); }
-.formula-s5 .formula-box { border-left-color: var(--accent5); }
-.formula-s6 .formula-box { border-left-color: var(--accent6); }
-.formula-s7 .formula-box { border-left-color: var(--accent2); }
-.formula-s8 .formula-box { border-left-color: var(--accent4); }
-.formula-s9 .formula-box { border-left-color: var(--accent); }
+.formula-category-card.priority-high .formula-box { border-left-color: var(--accent3); }
+.formula-category-card.priority-medium .formula-box { border-left-color: var(--accent6); }
+.formula-category-card.priority-skip .formula-box { border-left-color: var(--muted); }
 
 .formula-box .hi {
   font-weight: 600;
@@ -1432,12 +1449,7 @@ footer {
   vertical-align: middle;
   text-transform: uppercase;
 }
-.formula-s1 .formula-card-badge { background: rgba(232, 255, 71, 0.08); color: var(--accent); border: 1px solid rgba(232, 255, 71, 0.15); }
-.formula-s2 .formula-card-badge { background: rgba(71, 200, 255, 0.08); color: var(--accent2); border: 1px solid rgba(71, 200, 255, 0.15); }
-.formula-s3 .formula-card-badge { background: rgba(255, 107, 107, 0.08); color: var(--accent3); border: 1px solid rgba(255, 107, 107, 0.15); }
-.formula-s4 .formula-card-badge { background: rgba(176, 143, 255, 0.08); color: var(--accent4); border: 1px solid rgba(176, 143, 255, 0.15); }
-.formula-s5 .formula-card-badge { background: rgba(201, 123, 255, 0.08); color: var(--accent5); border: 1px solid rgba(201, 123, 255, 0.15); }
-.formula-s6 .formula-card-badge { background: rgba(255, 157, 92, 0.08); color: var(--accent6); border: 1px solid rgba(255, 157, 92, 0.15); }
-.formula-s7 .formula-card-badge { background: rgba(71, 200, 255, 0.08); color: var(--accent2); border: 1px solid rgba(71, 200, 255, 0.15); }
-.formula-s8 .formula-card-badge { background: rgba(176, 143, 255, 0.08); color: var(--accent4); border: 1px solid rgba(176, 143, 255, 0.15); }
-.formula-s9 .formula-card-badge { background: rgba(232, 255, 71, 0.08); color: var(--accent); border: 1px solid rgba(232, 255, 71, 0.15); }
+
+.formula-category-card.priority-high .formula-card-badge { background: rgba(255, 107, 107, 0.08); color: var(--accent3); border: 1px solid rgba(255, 107, 107, 0.15); }
+.formula-category-card.priority-medium .formula-card-badge { background: rgba(255, 157, 92, 0.08); color: var(--accent6); border: 1px solid rgba(255, 157, 92, 0.15); }
+.formula-category-card.priority-skip .formula-card-badge { background: rgba(122, 128, 144, 0.08); color: var(--muted); border: 1px solid rgba(122, 128, 144, 0.15); }

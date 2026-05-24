@@ -281,6 +281,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Bind all topic-level formula shortcut links
+  const formulaShortcuts = document.querySelectorAll('.formula-shortcut');
+  formulaShortcuts.forEach(shortcut => {
+    shortcut.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const targetId = shortcut.getAttribute('data-target');
+      if (targetId) {
+        switchSection('formulas');
+        // Scroll to target element
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          setTimeout(() => {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 50); // slight delay to ensure tab display transition completes
+        }
+      }
+    });
+  });
+
   // --- MOBILE BURGER TOGGLE ---
   function openSidebar() {
     sidebar.classList.add('active');
