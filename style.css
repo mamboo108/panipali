@@ -1273,9 +1273,9 @@ footer {
 
 /* FORMULA SHEET STYLING */
 .formula-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
   margin-top: 20px;
 }
 
@@ -1283,9 +1283,10 @@ footer {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 32px 24px;
+  padding: 36px 32px;
   box-shadow: var(--shadow-card);
   transition: border-color var(--transition-fast);
+  width: 100%;
 }
 
 .formula-category-card:hover {
@@ -1311,13 +1312,13 @@ footer {
 .formula-sec-title {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   color: var(--heading-color);
 }
 
 .formula-sec-id {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--muted);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1336,16 +1337,16 @@ footer {
 
 /* Subsections */
 .formula-sub {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .formula-sub-title {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -1354,11 +1355,11 @@ footer {
   background: var(--formula-bg);
   border-left: 3px solid var(--border);
   border-radius: 0 6px 6px 0;
-  padding: 10px 14px;
-  margin: 8px 0;
+  padding: 12px 18px;
+  margin: 10px 0;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.7;
   color: var(--text);
   position: relative;
 }
@@ -1380,7 +1381,7 @@ footer {
 
 .formula-box .dim {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
 }
 
 /* Fraction helpers */
@@ -1389,7 +1390,7 @@ footer {
   text-align: center;
   vertical-align: middle;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.3;
 }
 .frac > span { display: block; }
@@ -1397,7 +1398,7 @@ footer {
 
 /* note */
 .formula-note {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--muted);
   margin-top: 6px;
   padding-left: 10px;
@@ -1409,15 +1410,15 @@ footer {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .formula-list li {
-  padding: 6px 12px 6px 12px;
-  font-size: 0.82rem;
+  padding: 8px 14px 8px 14px;
+  font-size: 0.88rem;
   color: var(--text);
   border-left: 2px solid var(--border);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .formula-card-badge {
