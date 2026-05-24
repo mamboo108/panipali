@@ -301,6 +301,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- COLLAPSIBLE PREP GUIDE LOGIC ---
+  const startHereBtn = document.getElementById('start-here-btn');
+  const guideSection = document.getElementById('guide-section');
+  const guideToggleBtn = document.getElementById('guide-toggle-btn');
+
+  function toggleGuide(shouldOpen) {
+    if (!guideSection || !guideToggleBtn) return;
+    
+    const isOpen = guideSection.classList.contains('open');
+    const targetState = shouldOpen !== undefined ? shouldOpen : !isOpen;
+    
+    if (targetState) {
+      guideSection.classList.add('open');
+      guideToggleBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      guideSection.classList.remove('open');
+      guideToggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  if (guideToggleBtn) {
+    guideToggleBtn.addEventListener('click', () => {
+      toggleGuide();
+    });
+  }
+
+  if (startHereBtn) {
+    startHereBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleGuide(true);
+      if (guideSection) {
+        setTimeout(() => {
+          guideSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
+  }
+
   // --- MOBILE BURGER TOGGLE ---
   function openSidebar() {
     sidebar.classList.add('active');

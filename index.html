@@ -88,6 +88,110 @@
         <strong>Welcome to Panipali!</strong> This is a custom workspace designed to keep track of placement
         preparation. Use the sidebar to switch between DSA and Aptitude checklists, filter topics by difficulty or
         completion state, and mark items complete to watch your progress bars advance.
+        <div style="margin-top: 12px;">
+          <button class="btn btn-primary" id="start-here-btn" style="display: inline-flex; align-items: center; gap: 8px;">
+            🚀 Start Here Guide
+          </button>
+        </div>
+      </div>
+
+      <!-- COLLAPSIBLE HOW TO USE PANIPALI GUIDE -->
+      <div class="collapsible-guide" id="guide-section">
+        <button class="guide-toggle-btn" id="guide-toggle-btn" aria-expanded="false" aria-controls="guide-content">
+          <span class="guide-toggle-title">💡 How to Use Panipali (Prep Guide)</span>
+          <span class="guide-toggle-icon">▼</span>
+        </button>
+        <div class="guide-content" id="guide-content">
+          <div class="guide-inner">
+            <p class="guide-intro">Follow these systematic workflows to optimize your study sessions using the site alongside external resources.</p>
+            
+            <div class="flow-container">
+              <!-- DSA PATH -->
+              <div class="flow-column">
+                <h3 class="flow-title">💻 DSA Practice Workflow</h3>
+                <div class="flow-steps">
+                  <div class="flow-step-card dsa-step">
+                    <div class="step-num">1</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Pick Topic</div>
+                      <div class="step-desc">Open Panipali and pick the next unchecked topic.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card dsa-step">
+                    <div class="step-num">2</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Find Problems</div>
+                      <div class="step-desc">Go to the Striver link and find that topic's problems.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card dsa-step">
+                    <div class="step-num">3</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Watch Video</div>
+                      <div class="step-desc">Watch the video for logic at a pseudocode level.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card dsa-step">
+                    <div class="step-num">4</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Ask Claude</div>
+                      <div class="step-desc">Ask Claude "explain this logic in Python" or syntax details.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card dsa-step">
+                    <div class="step-num">5</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Solve &amp; Tick</div>
+                      <div class="step-desc">Solve the problem, then come back and tick it off.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- APTITUDE PATH -->
+              <div class="flow-column">
+                <h3 class="flow-title">🧮 Aptitude Practice Workflow</h3>
+                <div class="flow-steps">
+                  <div class="flow-step-card apt-step">
+                    <div class="step-num">1</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Check Priority</div>
+                      <div class="step-desc">Check the priority list and start from High Priority.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card apt-step">
+                    <div class="step-num">2</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Practice</div>
+                      <div class="step-desc">Go to IndiaBix and practice that specific subtopic.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card apt-step">
+                    <div class="step-num">3</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Glance Formulas</div>
+                      <div class="step-desc">Stuck on a formula? Open the Panipali Cheat Sheet.</div>
+                    </div>
+                  </div>
+                  <div class="flow-arrow"></div>
+                  <div class="flow-step-card apt-step">
+                    <div class="step-num">4</div>
+                    <div class="step-card-content">
+                      <div class="step-keyword">Tick Off</div>
+                      <div class="step-desc">Tick the topic off when you feel comfortable with it.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <h2>Preparation Progress</h2>

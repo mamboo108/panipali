@@ -1453,3 +1453,192 @@ footer {
 .formula-category-card.priority-high .formula-card-badge { background: rgba(255, 107, 107, 0.08); color: var(--accent3); border: 1px solid rgba(255, 107, 107, 0.15); }
 .formula-category-card.priority-medium .formula-card-badge { background: rgba(255, 157, 92, 0.08); color: var(--accent6); border: 1px solid rgba(255, 157, 92, 0.15); }
 .formula-category-card.priority-skip .formula-card-badge { background: rgba(122, 128, 144, 0.08); color: var(--muted); border: 1px solid rgba(122, 128, 144, 0.15); }
+
+/* ==================== COLLAPSIBLE PREP GUIDE ==================== */
+.collapsible-guide {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 20px 0 30px;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.collapsible-guide:hover {
+  border-color: var(--border-focus);
+}
+
+.guide-toggle-btn {
+  width: 100%;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  user-select: none;
+}
+
+.guide-toggle-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-toggle-icon {
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: transform 0.3s ease;
+}
+
+.collapsible-guide.open .guide-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.guide-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collapsible-guide.open .guide-content {
+  max-height: 1800px; /* High value to support expanded layout */
+}
+
+.guide-inner {
+  padding: 0 24px 28px;
+  border-top: 1px solid var(--border);
+}
+
+.guide-intro {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 16px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.flow-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .flow-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.flow-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flow-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.flow-step-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.flow-step-card:hover {
+  transform: translateX(4px);
+  border-color: var(--border-focus);
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dsa-step .step-num {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.apt-step .step-num {
+  background: rgba(240, 192, 64, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(240, 192, 64, 0.3);
+}
+
+.step-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-keyword {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* CSS-based responsive arrows */
+.flow-arrow {
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  position: relative;
+  margin: -4px 0;
+}
+
+.flow-arrow::before {
+  content: '↓';
+  font-size: 1rem;
+  opacity: 0.4;
+  transition: opacity var(--transition-fast);
+}
+
+.flow-step-card:hover + .flow-arrow::before {
+  opacity: 0.8;
+  color: var(--text);
+}
