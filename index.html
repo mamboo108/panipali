@@ -35,6 +35,7 @@
     <a class="nav-item active" data-target="overview" id="nav-overview">📌 Overview Dashboard</a>
     <a class="nav-item" data-target="dsa" id="nav-dsa">💻 DSA Checklist</a>
     <a class="nav-item" data-target="aptitude" id="nav-aptitude">🧮 Aptitude Checklist</a>
+    <a class="nav-item" data-target="formulas" id="nav-formulas">📐 Formula Cheat Sheet</a>
     <a class="nav-item" data-target="coming-soon" id="nav-coming-soon">⏳ More Sections</a>
 
     <hr class="sidebar-divider">
@@ -286,6 +287,10 @@
             indiabix.com/aptitude/questions-and-answers ↗
           </a>
         </div>
+        <div class="resource-row">
+          <span class="resource-label">Formula Sheet</span>
+          <span class="resource-text">Need to glance at formulas? <a class="resource-link" id="go-to-formulas" href="javascript:void(0)">View Formulas Cheat Sheet 📐</a></span>
+        </div>
       </div>
 
       <div class="elevated-card">
@@ -450,6 +455,431 @@
               </label>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: FORMULAS -->
+    <div class="section" id="section-formulas">
+      <h1 class="section-title">📐 Aptitude Formulas</h1>
+      <div class="page-subtitle">Quick reference cheat sheet for quantitative aptitude topics.</div>
+
+      <!-- TOC / Chips -->
+      <div class="search-section" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        <div class="filter-chips">
+          <a href="#formula-percentage" class="chip" style="text-decoration: none;">Percentage</a>
+          <a href="#formula-profit" class="chip" style="text-decoration: none;">Profit &amp; Loss</a>
+          <a href="#formula-timeWork" class="chip" style="text-decoration: none;">Time &amp; Work</a>
+          <a href="#formula-ratio" class="chip" style="text-decoration: none;">Ratio &amp; Proportion</a>
+          <a href="#formula-average" class="chip" style="text-decoration: none;">Average</a>
+          <a href="#formula-numbers" class="chip" style="text-decoration: none;">Numbers / HCF &amp; LCM</a>
+          <a href="#formula-permComb" class="chip" style="text-decoration: none;">Permutation &amp; Combination</a>
+          <a href="#formula-probability" class="chip" style="text-decoration: none;">Probability</a>
+          <a href="#formula-ages" class="chip" style="text-decoration: none;">Problems on Ages</a>
+        </div>
+      </div>
+
+      <div class="formula-grid">
+        <!-- ① PERCENTAGE -->
+        <div class="formula-category-card formula-s1" id="formula-percentage">
+          <div class="formula-sec-id">01</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Percentage</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Core Conversions</div>
+            <div class="formula-box">
+              <span class="hi">x% = x / 100</span>
+              <br/><span class="dim">e.g. 20% = 20/100 = 1/5</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">a/b as % = (a/b) × 100</span>
+              <br/><span class="dim">e.g. 1/4 = 25%</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Percentage Change in Consumption</div>
+            <div class="formula-box">
+              Price <span class="hi">increases</span> by R% → reduce consumption by:<br/>
+              <span class="hi">[R / (100 + R)] × 100 %</span>
+              <br/><span class="dim">(to keep expenditure unchanged)</span>
+            </div>
+            <div class="formula-box">
+              Price <span class="hi">decreases</span> by R% → increase consumption by:<br/>
+              <span class="hi">[R / (100 − R)] × 100 %</span>
+              <br/><span class="dim">(to keep expenditure unchanged)</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Population Growth</div>
+            <div class="formula-box">
+              Population after n years = <span class="hi">P × (1 + R/100)ⁿ</span>
+            </div>
+            <div class="formula-box">
+              Population n years ago = <span class="hi">P / (1 + R/100)ⁿ</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Depreciation</div>
+            <div class="formula-box">
+              Value after n years = <span class="hi">P × (1 − R/100)ⁿ</span>
+            </div>
+            <div class="formula-box">
+              Value n years ago = <span class="hi">P / (1 − R/100)ⁿ</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Comparative Percentage</div>
+            <div class="formula-box">
+              A is R% <span class="hi">more</span> than B → B is less than A by:<br/>
+              <span class="hi">[R / (100 + R)] × 100 %</span>
+            </div>
+            <div class="formula-box">
+              A is R% <span class="hi">less</span> than B → B is more than A by:<br/>
+              <span class="hi">[R / (100 − R)] × 100 %</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② PROFIT & LOSS -->
+        <div class="formula-category-card formula-s2" id="formula-profit">
+          <div class="formula-sec-id">02</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Profit &amp; Loss</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Basic Relations</div>
+            <ul class="formula-list">
+              <li><span class="formula-card-badge">Gain</span> = SP − CP &nbsp;(when SP &gt; CP)</li>
+              <li><span class="formula-card-badge">Loss</span> = CP − SP &nbsp;(when SP &lt; CP)</li>
+              <li>Gain / Loss is always calculated on <strong>CP</strong></li>
+            </ul>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Percentage Formulas</div>
+            <div class="formula-box">
+              <span class="hi">Gain % = (Gain / CP) × 100</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">Loss % = (Loss / CP) × 100</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Selling Price</div>
+            <div class="formula-box">
+              <span class="hi">SP = [(100 + Gain%) / 100] × CP</span>
+              <br/><span class="dim">e.g. sold at 35% gain → SP = 135% of CP</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">SP = [(100 − Loss%) / 100] × CP</span>
+              <br/><span class="dim">e.g. sold at 35% loss → SP = 65% of CP</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Cost Price</div>
+            <div class="formula-box">
+              <span class="hi">CP = [100 / (100 + Gain%)] × SP</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">CP = [100 / (100 − Loss%)] × SP</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Special Cases</div>
+            <div class="formula-box">
+              Two items sold each at ±x% (one gain, one loss):<br/>
+              <span class="hi">Net Loss % = (x/10)² %</span>
+              <br/><span class="dim">Always a loss when same % used for gain &amp; loss</span>
+            </div>
+            <div class="formula-box">
+              False weight trick:<br/>
+              <span class="hi">Gain % = [Error / (True value − Error)] × 100</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ③ TIME & WORK -->
+        <div class="formula-category-card formula-s3" id="formula-timeWork">
+          <div class="formula-sec-id">03</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Time &amp; Work</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Core Principle</div>
+            <div class="formula-box">
+              A finishes work in n days → <span class="hi">A's 1 day work = 1/n</span>
+            </div>
+            <div class="formula-box">
+              A's 1 day work = 1/n → <span class="hi">A finishes in n days</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Combined Work</div>
+            <div class="formula-box">
+              A (n days) + B (m days) together:<br/>
+              <span class="hi">Together finish in = nm/(n+m) days</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Efficiency Ratio</div>
+            <div class="formula-box">
+              A is k times as efficient as B:<br/>
+              <span class="hi">Work ratio A:B = k:1</span><br/>
+              <span class="hi">Time ratio A:B = 1:k</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ④ RATIO & PROPORTION -->
+        <div class="formula-category-card formula-s4" id="formula-ratio">
+          <div class="formula-sec-id">04</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Ratio &amp; Proportion</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Basics</div>
+            <ul class="formula-list">
+              <li>Ratio a:b = a/b &nbsp;(a = antecedent, b = consequent)</li>
+              <li>Multiplying/dividing both terms by same nonzero number does not change the ratio</li>
+            </ul>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Proportion</div>
+            <ul class="formula-list">
+              <li>a:b = c:d → <strong>a:b::c:d</strong> (a, d = extremes; b, c = means)</li>
+              <li><strong>Product of means = Product of extremes:</strong> b×c = a×d</li>
+              <li>Fourth proportional to a,b,c → d = bc/a</li>
+              <li>Third proportional to a,b → c = b²/a</li>
+              <li>Mean proportional between a and b → √(ab)</li>
+            </ul>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Derived Ratios</div>
+            <div class="formula-box">
+              Compounded ratio of (a:b), (c:d), (e:f) = <span class="hi">ace : bdf</span>
+            </div>
+            <div class="formula-box">
+              Duplicate ratio of a:b = <span class="hi">a² : b²</span><br/>
+              Sub-duplicate = <span class="hi">√a : √b</span><br/>
+              Triplicate = <span class="hi">a³ : b³</span><br/>
+              Sub-triplicate = <span class="hi">a^(1/3) : b^(1/3)</span>
+            </div>
+            <div class="formula-box">
+              Componendo &amp; Dividendo:<br/>
+              If a/b = c/d → <span class="hi">(a+b)/(a−b) = (c+d)/(c−d)</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Variation</div>
+            <div class="formula-box">
+              Direct: <span class="hi">x ∝ y → x = ky</span><br/>
+              Inverse: <span class="hi">x ∝ 1/y → xy = k</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑤ AVERAGE -->
+        <div class="formula-category-card formula-s5" id="formula-average">
+          <div class="formula-sec-id">05</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Average</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Core Formula</div>
+            <div class="formula-box">
+              <span class="hi">Average = Sum of observations / Number of observations</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Average Speed</div>
+            <div class="formula-box">
+              Equal distances at speeds x and y kmph:<br/>
+              <span class="hi">Average speed = 2xy / (x + y) kmph</span>
+              <br/><span class="dim">This is the Harmonic Mean of x and y</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑥ NUMBERS / HCF & LCM -->
+        <div class="formula-category-card formula-s6" id="formula-numbers">
+          <div class="formula-sec-id">06</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Numbers / HCF &amp; LCM</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Algebraic Identities</div>
+            <ul class="formula-list">
+              <li>(a+b)(a−b) = a² − b²</li>
+              <li>(a+b)² = a² + 2ab + b²</li>
+              <li>(a−b)² = a² − 2ab + b²</li>
+              <li>(a+b+c)² = a²+b²+c²+2(ab+bc+ca)</li>
+              <li>a³+b³ = (a+b)(a²−ab+b²)</li>
+              <li>a³−b³ = (a−b)(a²+ab+b²)</li>
+              <li>a³+b³+c³−3abc = (a+b+c)(a²+b²+c²−ab−bc−ca)</li>
+              <li>If a+b+c = 0 → a³+b³+c³ = 3abc</li>
+            </ul>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">HCF &amp; LCM Key Rules</div>
+            <div class="formula-box">
+              <span class="hi">HCF × LCM = Product of two numbers</span>
+              <br/><span class="dim">Valid for exactly two numbers</span>
+            </div>
+            <div class="formula-box">
+              HCF of fractions = <span class="hi">HCF of numerators / LCM of denominators</span>
+            </div>
+            <div class="formula-box">
+              LCM of fractions = <span class="hi">LCM of numerators / HCF of denominators</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">BODMAS Order</div>
+            <div class="formula-box">
+              <span class="hi">B</span>rackets → <span class="hi">O</span>f → <span class="hi">D</span>ivision → <span class="hi">M</span>ultiplication → <span class="hi">A</span>ddition → <span class="hi">S</span>ubtraction
+              <br/><span class="dim">Bracket order: ( ) → { } → | |</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Modulus</div>
+            <div class="formula-box">
+              <span class="hi">|a| = a if a &gt; 0 ; −a if a &lt; 0</span>
+              <br/><span class="dim">e.g. |−5| = 5, |5| = 5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑦ PERMUTATION & COMBINATION -->
+        <div class="formula-category-card formula-s7" id="formula-permComb">
+          <div class="formula-sec-id">07</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Permutation &amp; Combination</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Factorial</div>
+            <div class="formula-box">
+              <span class="hi">n! = n × (n−1) × (n−2) × … × 2 × 1</span>
+              <br/>0! = 1 &nbsp;|&nbsp; 4! = 24 &nbsp;|&nbsp; 5! = 120
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Permutations (Ordered)</div>
+            <div class="formula-box">
+              <span class="hi">ⁿPᵣ = n! / (n−r)!</span>
+              <br/><span class="dim">= n(n−1)(n−2)…(n−r+1)</span><br/>
+              <span class="dim">e.g. ⁶P₂ = 6×5 = 30</span>
+            </div>
+            <div class="formula-box">
+              All n taken at a time: <span class="hi">ⁿPₙ = n!</span>
+            </div>
+            <div class="formula-box">
+              Repeated elements (p₁ alike, p₂ alike …):<br/>
+              <span class="hi">Arrangements = n! / (p₁! × p₂! × … × pᵣ!)</span>
+              <br/><span class="dim">where p₁+p₂+…+pᵣ = n</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Combinations (Unordered)</div>
+            <div class="formula-box">
+              <span class="hi">ⁿCᵣ = n! / [r! × (n−r)!]</span>
+              <br/><span class="dim">e.g. ¹¹C₄ = (11×10×9×8)/(4×3×2×1) = 330</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">ⁿC₀ = ⁿCₙ = 1</span>
+            </div>
+            <div class="formula-box">
+              <span class="hi">ⁿCᵣ = ⁿC₍ₙ₋ᵣ₎</span>
+              <br/><span class="dim">e.g. ¹⁶C₁₃ = ¹⁶C₃ = 560</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑧ PROBABILITY -->
+        <div class="formula-category-card formula-s8" id="formula-probability">
+          <div class="formula-sec-id">08</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Probability</h2>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Core Formula</div>
+            <div class="formula-box">
+              <span class="hi">P(E) = n(E) / n(S)</span>
+              <br/><span class="dim">n(E) = favourable outcomes, n(S) = total outcomes</span>
+            </div>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Key Results</div>
+            <ul class="formula-list">
+              <li>P(S) = 1 &nbsp;(certain event)</li>
+              <li>0 ≤ P(E) ≤ 1</li>
+              <li>P(∅) = 0 &nbsp;(impossible event)</li>
+              <li>P(A∪B) = P(A) + P(B) − P(A∩B)</li>
+              <li>P(A') = 1 − P(A) &nbsp;(complement)</li>
+            </ul>
+          </div>
+
+          <div class="formula-sub">
+            <div class="formula-sub-title">Standard Sample Spaces</div>
+            <ul class="formula-list">
+              <li>1 coin toss: S = {H, T} &nbsp;→ n(S) = 2</li>
+              <li>2 coins: S = {HH, HT, TH, TT} &nbsp;→ n(S) = 4</li>
+              <li>1 die: S = {1,2,3,4,5,6} &nbsp;→ n(S) = 6</li>
+              <li>Deck of cards: n(S) = 52 &nbsp;(13 per suit × 4 suits)</li>
+              <li>Face cards per suit: King, Queen, Jack → 3; total = 12</li>
+              <li>Red cards = Hearts + Diamonds = 26; Black = Spades + Clubs = 26</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ⑨ PROBLEMS ON AGES -->
+        <div class="formula-category-card formula-s9" id="formula-ages" style="grid-column: 1 / -1;">
+          <div class="formula-sec-id">09</div>
+          <div class="formula-sec-header">
+            <span class="formula-sec-dot"></span>
+            <h2 class="formula-sec-title">Problems on Ages</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px;">
+            <div class="formula-box"><span class="hi">n × (current age)</span><br/><span class="dim">n times the age</span></div>
+            <div class="formula-box"><span class="hi">x + n</span><br/><span class="dim">Age n years later (current age = x)</span></div>
+            <div class="formula-box"><span class="hi">x − n</span><br/><span class="dim">Age n years ago (current age = x)</span></div>
+            <div class="formula-box"><span class="hi">ax and bx</span><br/><span class="dim">Ages in ratio a:b</span></div>
+            <div class="formula-box"><span class="hi">x / n</span><br/><span class="dim">1/n of the current age x</span></div>
+          </div>
         </div>
       </div>
     </div>

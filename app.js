@@ -272,6 +272,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Go to formulas page shortcut
+  const goToFormulasBtn = document.getElementById('go-to-formulas');
+  if (goToFormulasBtn) {
+    goToFormulasBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchSection('formulas');
+    });
+  }
+
   // --- MOBILE BURGER TOGGLE ---
   function openSidebar() {
     sidebar.classList.add('active');
