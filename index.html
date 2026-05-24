@@ -93,27 +93,23 @@
       <div class="overview-dashboard-container">
         <div class="dashboard">
           <div class="stat-card">
-            <span class="stat-title">DSA Progress</span>
-            <div class="progress-ring-wrapper">
-              <svg class="progress-ring" width="100" height="100" viewBox="0 0 100 100">
-                <circle class="progress-ring-bg" cx="50" cy="50" r="40" />
-                <circle class="progress-ring-bar dsa-ring" cx="50" cy="50" r="40" id="dsa-ring-bar" />
-              </svg>
-              <div class="progress-ring-text" id="dsa-progress-percent">0%</div>
+            <div class="stat-header">
+              <span class="stat-title">DSA Progress</span>
+              <span class="stat-value" id="dsa-progress-text">0 / 9</span>
             </div>
-            <span class="stat-count" id="dsa-progress-count">0 / 9 topics</span>
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="dsa-progress-bar" style="width: 0%"></div>
+            </div>
           </div>
 
           <div class="stat-card">
-            <span class="stat-title">Aptitude Progress</span>
-            <div class="progress-ring-wrapper">
-              <svg class="progress-ring" width="100" height="100" viewBox="0 0 100 100">
-                <circle class="progress-ring-bg" cx="50" cy="50" r="40" />
-                <circle class="progress-ring-bar apt-ring" cx="50" cy="50" r="40" id="apt-ring-bar" />
-              </svg>
-              <div class="progress-ring-text" id="apt-progress-percent">0%</div>
+            <div class="stat-header">
+              <span class="stat-title">Aptitude Progress</span>
+              <span class="stat-value" id="apt-progress-text">0 / 18</span>
             </div>
-            <span class="stat-count" id="apt-progress-count">0 / 18 topics</span>
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="apt-progress-bar" style="width: 0%"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -311,7 +307,7 @@
 
         <!-- High Priority -->
         <div class="subsection">
-          <div class="subsection-title priority-high">High Priority <span class="priority-pill badge-high">🔴 High Priority</span></div>
+          <div class="subsection-title priority-high"><span class="priority-pill badge-high">🔴 High Priority</span> — Do These First</div>
           <ul class="topic-list" id="apt-high-list">
             <li class="topic-item high-priority-card" data-priority="high" data-id="apt-percentage">
               <label class="checkbox-wrapper" for="chk-apt-percentage">
@@ -381,7 +377,7 @@
 
         <!-- Medium Priority -->
         <div class="subsection" style="margin-top: 2rem;">
-          <div class="subsection-title priority-medium">Medium Priority <span class="priority-pill badge-medium">🟡 Medium Priority</span></div>
+          <div class="subsection-title priority-medium"><span class="priority-pill badge-medium">🟡 Medium Priority</span> — After the Above</div>
           <ul class="topic-list" id="apt-medium-list">
             <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-interest">
               <label class="checkbox-wrapper" for="chk-apt-interest">
@@ -423,7 +419,7 @@
 
         <!-- Skip For Now -->
         <div class="subsection" style="margin-top: 2rem;">
-          <div class="subsection-title priority-skip">Skip for Now <span class="priority-pill badge-skip">⚪ Skip for Now</span></div>
+          <div class="subsection-title priority-skip"><span class="priority-pill badge-skip">⚪ Skip for Now</span></div>
           <ul class="topic-list skip-list" id="apt-skip-list">
             <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-stocks-discount">
               <label class="checkbox-wrapper" for="chk-apt-stocks-discount">

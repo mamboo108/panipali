@@ -8,15 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- DOM ELEMENTS ---
   const checkboxes = document.querySelectorAll('.topic-checkbox');
-  
-  // Progress Ring Elements
-  const dsaRingBar = document.getElementById('dsa-ring-bar');
-  const dsaProgressPercent = document.getElementById('dsa-progress-percent');
-  const dsaProgressCount = document.getElementById('dsa-progress-count');
-  
-  const aptRingBar = document.getElementById('apt-ring-bar');
-  const aptProgressPercent = document.getElementById('apt-progress-percent');
-  const aptProgressCount = document.getElementById('apt-progress-count');
+  const dsaProgressBar = document.getElementById('dsa-progress-bar');
+  const dsaProgressText = document.getElementById('dsa-progress-text');
+  const aptProgressBar = document.getElementById('apt-progress-bar');
+  const aptProgressText = document.getElementById('apt-progress-text');
   
   // Sticky Progress Bar Elements
   const stickyProgressText = document.getElementById('sticky-progress-text');
@@ -172,30 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const dsaPercent = dsaTotal > 0 ? (dsaChecked / dsaTotal) * 100 : 0;
     const aptPercent = aptTotal > 0 ? (aptChecked / aptTotal) * 100 : 0;
 
-    // Update DSA progress ring
-    if (dsaRingBar) {
-      const circumference = 251.2;
-      const offset = circumference - (dsaPercent / 100) * circumference;
-      dsaRingBar.style.strokeDashoffset = offset;
-    }
-    if (dsaProgressPercent) {
-      dsaProgressPercent.textContent = `${Math.round(dsaPercent)}%`;
-    }
-    if (dsaProgressCount) {
-      dsaProgressCount.textContent = `${dsaChecked} / ${dsaTotal} topics`;
+    // Update DSA Progress Bar
+    if (dsaProgressBar && dsaProgressText) {
+      dsaProgressBar.style.width = `${dsaPercent}%`;
+      dsaProgressText.textContent = `${dsaChecked} / ${dsaTotal}`;
     }
 
-    // Update Aptitude progress ring
-    if (aptRingBar) {
-      const circumference = 251.2;
-      const offset = circumference - (aptPercent / 100) * circumference;
-      aptRingBar.style.strokeDashoffset = offset;
-    }
-    if (aptProgressPercent) {
-      aptProgressPercent.textContent = `${Math.round(aptPercent)}%`;
-    }
-    if (aptProgressCount) {
-      aptProgressCount.textContent = `${aptChecked} / ${aptTotal} topics`;
+    // Update Aptitude Progress Bar
+    if (aptProgressBar && aptProgressText) {
+      aptProgressBar.style.width = `${aptPercent}%`;
+      aptProgressText.textContent = `${aptChecked} / ${aptTotal}`;
     }
 
     // Update Sticky Progress Bar

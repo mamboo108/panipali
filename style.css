@@ -314,10 +314,9 @@ p strong {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   transition: border-color var(--transition-fast);
 }
@@ -326,69 +325,45 @@ p strong {
   border-color: var(--border-focus);
 }
 
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+  width: 100%;
+}
+
 .stat-title {
   font-size: 0.75rem;
   color: var(--muted);
   font-family: 'JetBrains Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-align: center;
 }
 
-/* PROGRESS RINGS */
-.progress-ring-wrapper {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 1.2rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.progress-ring {
-  transform: rotate(-90deg);
-}
-
-.progress-ring-bg {
-  fill: none;
-  stroke: var(--border);
-  stroke-width: 6;
-}
-
-.progress-ring-bar {
-  fill: none;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: 251.2;
-  stroke-dashoffset: 251.2;
-  transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dsa-ring {
-  stroke: #3B82F6;
-  filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3));
-}
-
-.apt-ring {
-  stroke: #8B5CF6;
-  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.3));
-}
-
-.progress-ring-text {
-  position: absolute;
+.stat-value {
+  font-size: 1.05rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--heading-color);
 }
 
-.stat-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 0.5rem;
+.progress-bar-container {
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  width: 0%;
+  transition: width var(--transition-normal);
+  box-shadow: 0 0 8px rgba(71, 200, 255, 0.25);
 }
 
 /* GENERAL CARDS */
@@ -837,6 +812,39 @@ p strong {
 .badge.file { 
   background: rgba(71,200,255,0.12); 
   color: var(--accent2); 
+}
+
+/* PRIORITY PILLS */
+.priority-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.badge-high {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge-medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b !important;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge-skip {
+  background: rgba(122, 128, 144, 0.12);
+  color: var(--muted) !important;
+  border: 1px solid rgba(122, 128, 144, 0.2);
 }
 
 /* DIVIDER */
