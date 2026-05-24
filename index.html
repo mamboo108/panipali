@@ -19,9 +19,17 @@
 
 <body>
 
+  <!-- SIDEBAR BACKDROP OVERLAY -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
   <!-- SIDEBAR NAVIGATION -->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar-logo">Panipali<span>Placement Prep Guide</span></div>
+  <nav class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">Panipali<span>Placement Prep Guide</span></div>
+      <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
 
     <div class="nav-section">Navigation</div>
     <a class="nav-item active" data-target="overview" id="nav-overview">📌 Overview Dashboard</a>
@@ -29,28 +37,50 @@
     <a class="nav-item" data-target="aptitude" id="nav-aptitude">🧮 Aptitude Checklist</a>
     <a class="nav-item" data-target="coming-soon" id="nav-coming-soon">⏳ More Sections</a>
 
+    <hr class="sidebar-divider">
+
     <div class="nav-section">Help Desk</div>
-    <a class="nav-item panic-nav-item" id="sidebar-panic-btn">
-      <span class="owner-dot" style="background:var(--accent3)"></span>🚨 Panipali Distress
-    </a>
+    <div class="panic-button-wrapper">
+      <a class="nav-item panic-nav-item" id="sidebar-panic-btn" aria-label="Distress Support Panel">
+        <span class="owner-dot" style="background:var(--accent3)"></span>🚨 Panipali Distress
+      </a>
+      <div class="panic-subtitle">Need a morale boost?</div>
+      <div class="panic-tooltip">Need a morale boost?</div>
+    </div>
+
+    <div class="save-status-sidebar">
+      ✅ Progress auto-saved to your browser
+    </div>
   </nav>
 
   <!-- MOBILE MENU HEADER -->
   <div class="mobile-header">
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Sidebar">
+      ☰
+    </button>
     <div class="mobile-logo">Panipali</div>
-    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Sidebar Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <button class="theme-toggle-btn" id="mobile-theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+      <span class="theme-icon">🌙</span>
     </button>
   </div>
 
   <!-- MAIN CONTENT AREA -->
   <main class="main">
 
+    <!-- STICKY PROGRESS SUMMARY BAR -->
+    <div class="sticky-progress-bar" id="sticky-progress-bar">
+      <div class="sticky-progress-content">
+        <span>📊 Placement Prep Progress</span>
+        <span id="sticky-progress-text">0 / 27 topics done — 0%</span>
+      </div>
+      <div class="sticky-progress-line-container">
+        <div class="sticky-progress-line" id="sticky-progress-line" style="width: 0%"></div>
+      </div>
+    </div>
+
     <!-- SECTION: OVERVIEW -->
     <div class="section active" id="section-overview">
-      <div class="page-title">Placement<br><span class="accent">Preparation</span><br>Dashboard</div>
+      <h1 class="page-title">Panipali</h1>
       <div class="page-subtitle">Interactive tracker & guide built to navigate you through campus drives.</div>
 
       <div class="highlight">
@@ -60,48 +90,57 @@
       </div>
 
       <h2>Preparation Progress</h2>
-      <div class="dashboard">
-        <div class="stat-card">
-          <div class="stat-header">
+      <div class="overview-dashboard-container">
+        <div class="dashboard">
+          <div class="stat-card">
             <span class="stat-title">DSA Progress</span>
-            <span class="stat-value" id="dsa-progress-text">0 / 9</span>
+            <div class="progress-ring-wrapper">
+              <svg class="progress-ring" width="100" height="100" viewBox="0 0 100 100">
+                <circle class="progress-ring-bg" cx="50" cy="50" r="40" />
+                <circle class="progress-ring-bar dsa-ring" cx="50" cy="50" r="40" id="dsa-ring-bar" />
+              </svg>
+              <div class="progress-ring-text" id="dsa-progress-percent">0%</div>
+            </div>
+            <span class="stat-count" id="dsa-progress-count">0 / 9 topics</span>
           </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar" id="dsa-progress-bar" style="width: 0%"></div>
-          </div>
-        </div>
 
-        <div class="stat-card">
-          <div class="stat-header">
+          <div class="stat-card">
             <span class="stat-title">Aptitude Progress</span>
-            <span class="stat-value" id="apt-progress-text">0 / 18</span>
-          </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar" id="apt-progress-bar" style="width: 0%"></div>
+            <div class="progress-ring-wrapper">
+              <svg class="progress-ring" width="100" height="100" viewBox="0 0 100 100">
+                <circle class="progress-ring-bg" cx="50" cy="50" r="40" />
+                <circle class="progress-ring-bar apt-ring" cx="50" cy="50" r="40" id="apt-ring-bar" />
+              </svg>
+              <div class="progress-ring-text" id="apt-progress-percent">0%</div>
+            </div>
+            <span class="stat-count" id="apt-progress-count">0 / 18 topics</span>
           </div>
         </div>
       </div>
 
       <h2>Guide Sections Quick View</h2>
       <div class="card-grid">
-        <div class="card card-hoverable" data-target="dsa">
+        <div class="card card-hoverable dsa-card" data-target="dsa">
           <h3>💻 Data Structures & Algorithms</h3>
-          <p>A curated resource list containing Arrays, Recursion, Trees, Graphs, and DP topics. Strivers A2Z Sheet
-            reference included.</p>
+          <p>A curated resource list containing Arrays, Recursion, Trees, Graphs, and DP topics. Strivers A2Z Sheet reference included.</p>
           <span class="badge file">9 Topics</span>
         </div>
-        <div class="card card-hoverable" data-target="aptitude">
+        <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
-          <p>Color-coded checklists split into High Priority, Medium Priority, and Skip categories. IndiaBix references
-            included.</p>
+          <p>Color-coded checklists split into High Priority, Medium Priority, and Skip categories. IndiaBix references included.</p>
           <span class="badge file">18 Topics</span>
+        </div>
+        <div class="card card-hoverable more-sections-card" data-target="coming-soon">
+          <h3>⏳ More Sections</h3>
+          <p>Expand your prep deck with upcoming subjects like Core CS, Operating Systems, DBMS, Networks, OOP, and HR skills.</p>
+          <span class="badge file" style="background: rgba(120, 120, 120, 0.12); color: var(--muted);">6 Sections</span>
         </div>
       </div>
     </div>
 
     <!-- SECTION: DSA -->
     <div class="section" id="section-dsa">
-      <div class="page-title">DSA<br><span class="accent2">Checklist</span></div>
+      <h1 class="section-title">💻 DSA Checklist</h1>
       <div class="page-subtitle">Essential algorithms and data structures sorted by learning order.</div>
 
       <div class="resource-block">
@@ -119,127 +158,128 @@
         </div>
       </div>
 
-      <!-- Search & Filters (Global inside page, but scoped to listings) -->
-      <div class="search-section">
-        <div class="search-container">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="dsa-search-input" placeholder="Search DSA topics..."
-            autocomplete="off">
-          <button class="clear-search-btn" id="dsa-clear-search" style="display: none;">&times;</button>
+      <div class="elevated-card">
+        <!-- Search & Filters (Global inside page, but scoped to listings) -->
+        <div class="search-section">
+          <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="dsa-search-input" placeholder="Search DSA topics..."
+              autocomplete="off">
+            <button class="clear-search-btn" id="dsa-clear-search" style="display: none;" aria-label="Clear Search Input">&times;</button>
+          </div>
+          <div class="filter-chips">
+            <button class="chip active" data-filter="all">All DSA</button>
+            <button class="chip" data-filter="incomplete">Remaining</button>
+          </div>
         </div>
-        <div class="filter-chips">
-          <button class="chip active" data-filter="all">All DSA</button>
-          <button class="chip" data-filter="incomplete">Remaining</button>
-        </div>
-      </div>
 
-      <div class="subsection">
-        <div class="subsection-title">Important Topics — Study sequentially</div>
+        <div class="subsection">
+          <div class="subsection-title">Important Topics — Study sequentially</div>
 
-        <ul class="topic-list" id="dsa-list">
-          <li class="topic-item default" data-priority="default" data-id="dsa-arrays">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-arrays" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Arrays and Strings</span>
-                <span class="topic-desc">— sorting, searching, two pointers, sliding window</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-hashing">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-hashing" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Hashing</span>
-                <span class="topic-desc">— Python dict and set, frequency maps</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-binary-search">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-binary-search" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Binary Search</span>
-                <span class="topic-desc">— standard problems and pattern variants</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-recursion">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-recursion" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Recursion</span>
-                <span class="topic-desc">— foundation for everything below</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-linked-lists">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-linked-lists" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Linked Lists</span>
-                <span class="topic-desc">— reversal, cycle detection, merge</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-stacks-queues">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-stacks-queues" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Stacks and Queues</span>
-                <span class="topic-desc">— bracket problems, next greater element</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-trees">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-trees" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Binary Trees and BST</span>
-                <span class="topic-desc">— traversals, height, LCA</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-graphs">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-graphs" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Graphs</span>
-                <span class="topic-desc">— BFS and DFS basics only</span>
-              </span>
-            </label>
-          </li>
-          <li class="topic-item default" data-priority="default" data-id="dsa-dp">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-dsa-dp" class="topic-checkbox" data-section="dsa">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content">
-                <span class="topic-name">Dynamic Programming</span>
-                <span class="topic-desc">— top 10 classics only: Knapsack, LCS, Coin Change, LIS, Matrix Chain</span>
-              </span>
-            </label>
-          </li>
-        </ul>
+          <ul class="topic-list" id="dsa-list">
+            <li class="topic-item default" data-priority="default" data-id="dsa-arrays">
+              <label class="checkbox-wrapper" for="chk-dsa-arrays">
+                <input type="checkbox" id="chk-dsa-arrays" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Arrays and Strings</span>
+                  <span class="topic-desc">— sorting, searching, two pointers, sliding window</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-hashing">
+              <label class="checkbox-wrapper" for="chk-dsa-hashing">
+                <input type="checkbox" id="chk-dsa-hashing" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Hashing</span>
+                  <span class="topic-desc">— Python dict and set, frequency maps</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-binary-search">
+              <label class="checkbox-wrapper" for="chk-dsa-binary-search">
+                <input type="checkbox" id="chk-dsa-binary-search" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Binary Search</span>
+                  <span class="topic-desc">— standard problems and pattern variants</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-recursion">
+              <label class="checkbox-wrapper" for="chk-dsa-recursion">
+                <input type="checkbox" id="chk-dsa-recursion" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Recursion</span>
+                  <span class="topic-desc">— foundation for everything below</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-linked-lists">
+              <label class="checkbox-wrapper" for="chk-dsa-linked-lists">
+                <input type="checkbox" id="chk-dsa-linked-lists" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Linked Lists</span>
+                  <span class="topic-desc">— reversal, cycle detection, merge</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-stacks-queues">
+              <label class="checkbox-wrapper" for="chk-dsa-stacks-queues">
+                <input type="checkbox" id="chk-dsa-stacks-queues" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Stacks and Queues</span>
+                  <span class="topic-desc">— bracket problems, next greater element</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-trees">
+              <label class="checkbox-wrapper" for="chk-dsa-trees">
+                <input type="checkbox" id="chk-dsa-trees" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Binary Trees and BST</span>
+                  <span class="topic-desc">— traversals, height, LCA</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-graphs">
+              <label class="checkbox-wrapper" for="chk-dsa-graphs">
+                <input type="checkbox" id="chk-dsa-graphs" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Graphs</span>
+                  <span class="topic-desc">— BFS and DFS basics only</span>
+                </span>
+              </label>
+            </li>
+            <li class="topic-item default" data-priority="default" data-id="dsa-dp">
+              <label class="checkbox-wrapper" for="chk-dsa-dp">
+                <input type="checkbox" id="chk-dsa-dp" class="topic-checkbox" data-section="dsa">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content">
+                  <span class="topic-name">Dynamic Programming</span>
+                  <span class="topic-desc">— top 10 classics only: Knapsack, LCS, Coin Change, LIS, Matrix Chain</span>
+                </span>
+              </label>
+            </li>
+          </ul>
 
-        <div class="term-box blue" style="margin-top: 2rem;">
-          <div class="term-name">💡 Pro Tip for Antony</div>
-          <p>You do not need to finish the entire sheet. The first 60–70% covers most of what campus drives test. Focus
-            on sorting, arrays, strings, and hash maps first.</p>
+          <div class="term-box blue" style="margin-top: 2rem;">
+            <div class="term-name">💡 Pro Tip</div>
+            <p>You don't need to master everything. The first 60–70% of topics covers most of what campus drives actually test. Start with Arrays, Strings, and Hash Maps.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- SECTION: APTITUDE -->
     <div class="section" id="section-aptitude">
-      <div class="page-title">Quantitative<br><span class="accent4">Aptitude</span></div>
+      <h1 class="section-title">🧮 Quantitative Aptitude</h1>
       <div class="page-subtitle">Color-coded mathematical priorities to tackle online tests.</div>
 
       <div class="resource-block">
@@ -252,206 +292,203 @@
         </div>
       </div>
 
-      <!-- Search & Filters (Global inside page, but scoped to listings) -->
-      <div class="search-section">
-        <div class="search-container">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="apt-search-input" placeholder="Search Aptitude topics..."
-            autocomplete="off">
-          <button class="clear-search-btn" id="apt-clear-search" style="display: none;">&times;</button>
+      <div class="elevated-card">
+        <!-- Search & Filters (Global inside page, but scoped to listings) -->
+        <div class="search-section">
+          <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="apt-search-input" placeholder="Search Aptitude topics..."
+              autocomplete="off">
+            <button class="clear-search-btn" id="apt-clear-search" style="display: none;" aria-label="Clear Search Input">&times;</button>
+          </div>
+          <div class="filter-chips">
+            <button class="chip active" data-filter="all">All Aptitude</button>
+            <button class="chip" data-filter="high">High Priority</button>
+            <button class="chip" data-filter="medium">Medium Priority</button>
+            <button class="chip" data-filter="incomplete">Remaining</button>
+          </div>
         </div>
-        <div class="filter-chips">
-          <button class="chip active" data-filter="all">All Aptitude</button>
-          <button class="chip" data-filter="high">High Priority</button>
-          <button class="chip" data-filter="medium">Medium Priority</button>
-          <button class="chip" data-filter="incomplete">Remaining</button>
+
+        <!-- High Priority -->
+        <div class="subsection">
+          <div class="subsection-title priority-high">High Priority <span class="priority-pill badge-high">🔴 High Priority</span></div>
+          <ul class="topic-list" id="apt-high-list">
+            <li class="topic-item high-priority-card" data-priority="high" data-id="apt-percentage">
+              <label class="checkbox-wrapper" for="chk-apt-percentage">
+                <input type="checkbox" id="chk-apt-percentage" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Percentage</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-profit-loss">
+              <label class="checkbox-wrapper" for="chk-apt-profit-loss">
+                <input type="checkbox" id="chk-apt-profit-loss" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Profit and Loss</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-time-work">
+              <label class="checkbox-wrapper" for="chk-apt-time-work">
+                <input type="checkbox" id="chk-apt-time-work" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Time and Work</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-ratio-proportion">
+              <label class="checkbox-wrapper" for="chk-apt-ratio-proportion">
+                <input type="checkbox" id="chk-apt-ratio-proportion" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Ratio and Proportion</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-average">
+              <label class="checkbox-wrapper" for="chk-apt-average">
+                <input type="checkbox" id="chk-apt-average" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Average</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-numbers-lcm">
+              <label class="checkbox-wrapper" for="chk-apt-numbers-lcm">
+                <input type="checkbox" id="chk-apt-numbers-lcm" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Numbers, HCF and LCM, Simplification</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-permutation-combination">
+              <label class="checkbox-wrapper" for="chk-apt-permutation-combination">
+                <input type="checkbox" id="chk-apt-permutation-combination" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Permutation and Combination</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-probability">
+              <label class="checkbox-wrapper" for="chk-apt-probability">
+                <input type="checkbox" id="chk-apt-probability" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Probability</span></span>
+              </label>
+            </li>
+            <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-ages">
+              <label class="checkbox-wrapper" for="chk-apt-ages">
+                <input type="checkbox" id="chk-apt-ages" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Problems on Ages</span></span>
+              </label>
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <!-- High Priority -->
-      <div class="subsection">
-        <div class="subsection-title" style="color: var(--accent);"><span class="owner-dot"
-            style="background:var(--accent)"></span> High Priority — Do These First</div>
-        <ul class="topic-list" id="apt-high-list">
-          <li class="topic-item high-priority-card" data-priority="high" data-id="apt-percentage">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-percentage" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Percentage</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-profit-loss">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-profit-loss" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Profit and Loss</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-time-work">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-time-work" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Time and Work</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-ratio-proportion">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-ratio-proportion" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Ratio and Proportion</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-average">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-average" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Average</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-numbers-lcm">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-numbers-lcm" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Numbers, HCF and LCM, Simplification</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-permutation-combination">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-permutation-combination" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Permutation and Combination</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-probability">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-probability" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Probability</span></span>
-            </label>
-          </li>
-          <li class="topic-item high-priority-card" data-priority="high" data-id="chk-apt-ages">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-ages" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Problems on Ages</span></span>
-            </label>
-          </li>
-        </ul>
-      </div>
+        <!-- Medium Priority -->
+        <div class="subsection" style="margin-top: 2rem;">
+          <div class="subsection-title priority-medium">Medium Priority <span class="priority-pill badge-medium">🟡 Medium Priority</span></div>
+          <ul class="topic-list" id="apt-medium-list">
+            <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-interest">
+              <label class="checkbox-wrapper" for="chk-apt-interest">
+                <input type="checkbox" id="chk-apt-interest" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Simple and Compound Interest</span></span>
+              </label>
+            </li>
+            <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-time-distance">
+              <label class="checkbox-wrapper" for="chk-apt-time-distance">
+                <input type="checkbox" id="chk-apt-time-distance" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Time and Distance</span></span>
+              </label>
+            </li>
+            <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-trains">
+              <label class="checkbox-wrapper" for="chk-apt-trains">
+                <input type="checkbox" id="chk-apt-trains" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Problems on Trains</span></span>
+              </label>
+            </li>
+            <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-boats-streams">
+              <label class="checkbox-wrapper" for="chk-apt-boats-streams">
+                <input type="checkbox" id="chk-apt-boats-streams" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Boats and Streams</span></span>
+              </label>
+            </li>
+            <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-pipes-cistern">
+              <label class="checkbox-wrapper" for="chk-apt-pipes-cistern">
+                <input type="checkbox" id="chk-apt-pipes-cistern" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Pipes and Cistern</span></span>
+              </label>
+            </li>
+          </ul>
+        </div>
 
-      <!-- Medium Priority -->
-      <div class="subsection" style="margin-top: 2rem;">
-        <div class="subsection-title" style="color: var(--accent2);"><span class="owner-dot"
-            style="background:var(--accent2)"></span> Medium Priority — After the Above</div>
-        <ul class="topic-list" id="apt-medium-list">
-          <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-interest">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-interest" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Simple and Compound Interest</span></span>
-            </label>
-          </li>
-          <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-time-distance">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-time-distance" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Time and Distance</span></span>
-            </label>
-          </li>
-          <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-trains">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-trains" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Problems on Trains</span></span>
-            </label>
-          </li>
-          <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-boats-streams">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-boats-streams" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Boats and Streams</span></span>
-            </label>
-          </li>
-          <li class="topic-item medium-priority-card" data-priority="medium" data-id="apt-pipes-cistern">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-pipes-cistern" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Pipes and Cistern</span></span>
-            </label>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Skip For Now -->
-      <div class="subsection" style="margin-top: 2rem;">
-        <div class="subsection-title" style="color: var(--muted);"><span class="owner-dot"
-            style="background:var(--border)"></span> Skip for Now</div>
-        <ul class="topic-list skip-list" id="apt-skip-list">
-          <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-stocks-discount">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-stocks-discount" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Stocks and Shares, Banker's Discount, True
-                  Discount</span></span>
-            </label>
-          </li>
-          <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-logarithm">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-logarithm" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Logarithm, Surds and Indices, Chain
-                  Rule</span></span>
-            </label>
-          </li>
-          <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-calendar-clock">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-calendar-clock" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Calendar, Clock, Alligation, Races and
-                  Games</span></span>
-            </label>
-          </li>
-          <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-volume-surface">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="chk-apt-volume-surface" class="topic-checkbox" data-section="apt">
-              <span class="custom-checkbox"></span>
-              <span class="topic-content"><span class="topic-name">Volume and Surface Area, Height and
-                  Distance</span></span>
-            </label>
-          </li>
-        </ul>
+        <!-- Skip For Now -->
+        <div class="subsection" style="margin-top: 2rem;">
+          <div class="subsection-title priority-skip">Skip for Now <span class="priority-pill badge-skip">⚪ Skip for Now</span></div>
+          <ul class="topic-list skip-list" id="apt-skip-list">
+            <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-stocks-discount">
+              <label class="checkbox-wrapper" for="chk-apt-stocks-discount">
+                <input type="checkbox" id="chk-apt-stocks-discount" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Stocks and Shares, Banker's Discount, True Discount</span></span>
+              </label>
+            </li>
+            <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-logarithm">
+              <label class="checkbox-wrapper" for="chk-apt-logarithm">
+                <input type="checkbox" id="chk-apt-logarithm" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Logarithm, Surds and Indices, Chain Rule</span></span>
+              </label>
+            </li>
+            <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-calendar-clock">
+              <label class="checkbox-wrapper" for="chk-apt-calendar-clock">
+                <input type="checkbox" id="chk-apt-calendar-clock" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Calendar, Clock, Alligation, Races and Games</span></span>
+              </label>
+            </li>
+            <li class="topic-item skip-priority-card" data-priority="skip" data-id="apt-volume-surface">
+              <label class="checkbox-wrapper" for="chk-apt-volume-surface">
+                <input type="checkbox" id="chk-apt-volume-surface" class="topic-checkbox" data-section="apt">
+                <span class="custom-checkbox"></span>
+                <span class="topic-content"><span class="topic-name">Volume and Surface Area, Height and Distance</span></span>
+              </label>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- SECTION: COMING SOON -->
     <div class="section" id="section-coming-soon">
-      <div class="page-title">More<br><span class="accent3">Subjects</span></div>
+      <h1 class="section-title">⏳ More Subjects</h1>
       <div class="page-subtitle">Coming soon topics that will expand your study deck.</div>
 
-      <div class="coming-soon-grid">
-        <div class="coming-soon-card">
-          <div class="card-title">Core CS Concepts</div>
-          <div class="card-tag">Coming soon</div>
-        </div>
-        <div class="coming-soon-card">
-          <div class="card-title">Operating Systems</div>
-          <div class="card-tag">Coming soon</div>
-        </div>
-        <div class="coming-soon-card">
-          <div class="card-title">DBMS</div>
-          <div class="card-tag">Coming soon</div>
-        </div>
-        <div class="coming-soon-card">
-          <div class="card-title">Computer Networks</div>
-          <div class="card-tag">Coming soon</div>
-        </div>
-        <div class="coming-soon-card">
-          <div class="card-title">OOP Concepts</div>
-          <div class="card-tag">Coming soon</div>
-        </div>
-        <div class="coming-soon-card">
-          <div class="card-title">HR & Soft Skills</div>
-          <div class="card-tag">Coming soon</div>
+      <div class="elevated-card">
+        <div class="coming-soon-grid">
+          <div class="coming-soon-card">
+            <div class="card-title">Core CS Concepts</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
+          <div class="coming-soon-card">
+            <div class="card-title">Operating Systems</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
+          <div class="coming-soon-card">
+            <div class="card-title">DBMS</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
+          <div class="coming-soon-card">
+            <div class="card-title">Computer Networks</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
+          <div class="coming-soon-card">
+            <div class="card-title">OOP Concepts</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
+          <div class="coming-soon-card">
+            <div class="card-title">HR & Soft Skills</div>
+            <div class="card-tag">Coming soon</div>
+          </div>
         </div>
       </div>
     </div>
@@ -460,8 +497,7 @@
     <hr class="divider" />
     <footer>
       <div class="footer-content">
-        <span>Placement Prep Guide &nbsp;·&nbsp; created by <strong class="author-name">Antony George
-            Mampilly</strong></span>
+        <span>Placement Prep Guide &nbsp;·&nbsp; created by <strong class="author-name">Antony George Mampilly</strong></span>
         <span class="footer-subtext">All checklist selections persist in your browser localStorage</span>
       </div>
     </footer>
@@ -486,6 +522,9 @@
       </div>
     </div>
   </div>
+
+  <!-- TOAST SUCCESS NOTIFICATION -->
+  <div class="toast-notification" id="toast-notification">Saved ✓</div>
 
   <script src="app.js"></script>
 </body>

@@ -8,10 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- DOM ELEMENTS ---
   const checkboxes = document.querySelectorAll('.topic-checkbox');
-  const dsaProgressBar = document.getElementById('dsa-progress-bar');
-  const dsaProgressText = document.getElementById('dsa-progress-text');
-  const aptProgressBar = document.getElementById('apt-progress-bar');
-  const aptProgressText = document.getElementById('apt-progress-text');
+  
+  // Progress Ring Elements
+  const dsaRingBar = document.getElementById('dsa-ring-bar');
+  const dsaProgressPercent = document.getElementById('dsa-progress-percent');
+  const dsaProgressCount = document.getElementById('dsa-progress-count');
+  
+  const aptRingBar = document.getElementById('apt-ring-bar');
+  const aptProgressPercent = document.getElementById('apt-progress-percent');
+  const aptProgressCount = document.getElementById('apt-progress-count');
+  
+  // Sticky Progress Bar Elements
+  const stickyProgressText = document.getElementById('sticky-progress-text');
+  const stickyProgressLine = document.getElementById('sticky-progress-line');
+  
+  // Toast Success Notification
+  const toastNotification = document.getElementById('toast-notification');
+  
+  // Theme Toggles
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
   
   // Navigation
   const sidebar = document.getElementById('sidebar');
@@ -19,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.section');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const cardHoverables = document.querySelectorAll('.card-hoverable');
+  const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 
   // Search & Filters - DSA
   const dsaSearchInput = document.getElementById('dsa-search-input');
@@ -40,6 +56,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalNextBtn = document.getElementById('modal-next-btn');
   const quoteText = document.getElementById('quote-text');
 
+  // --- THEME TOGGLE SYSTEM ---
+  function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('panipali_theme');
+    if (savedTheme) return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('panipali_theme', theme);
+
+    themeToggleBtns.forEach(btn => {
+      const iconSpan = btn.querySelector('.theme-icon');
+      if (iconSpan) {
+        iconSpan.textContent = theme === 'dark' ? '🌙' : '☀️';
+      }
+    });
+  }
+
+  // Initialize theme
+  const currentTheme = getPreferredTheme();
+  applyTheme(currentTheme);
+
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  });
+
   // --- MOTIVATIONAL ADVICE QUOTES ---
   const quotes = [
     {
@@ -47,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       author: "Striver's Assistant"
     },
     {
-      text: "Take a break, grab a hot tea or coffee, and start fresh. You got this, Antony George Mampilly!",
+      text: "Take a break, grab a hot tea or coffee, and start fresh. You got this!",
       author: "Beverage Break Motivation"
     },
     {
@@ -121,15 +169,58 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update DSA Bar
     const dsaPercent = dsaTotal > 0 ? (dsaChecked / dsaTotal) * 100 : 0;
-    dsaProgressBar.style.width = `${dsaPercent}%`;
-    dsaProgressText.textContent = `${dsaChecked} / ${dsaTotal}`;
-
-    // Update Aptitude Bar
     const aptPercent = aptTotal > 0 ? (aptChecked / aptTotal) * 100 : 0;
-    aptProgressBar.style.width = `${aptPercent}%`;
-    aptProgressText.textContent = `${aptChecked} / ${aptTotal}`;
+
+    // Update DSA progress ring
+    if (dsaRingBar) {
+      const circumference = 251.2;
+      const offset = circumference - (dsaPercent / 100) * circumference;
+      dsaRingBar.style.strokeDashoffset = offset;
+    }
+    if (dsaProgressPercent) {
+      dsaProgressPercent.textContent = `${Math.round(dsaPercent)}%`;
+    }
+    if (dsaProgressCount) {
+      dsaProgressCount.textContent = `${dsaChecked} / ${dsaTotal} topics`;
+    }
+
+    // Update Aptitude progress ring
+    if (aptRingBar) {
+      const circumference = 251.2;
+      const offset = circumference - (aptPercent / 100) * circumference;
+      aptRingBar.style.strokeDashoffset = offset;
+    }
+    if (aptProgressPercent) {
+      aptProgressPercent.textContent = `${Math.round(aptPercent)}%`;
+    }
+    if (aptProgressCount) {
+      aptProgressCount.textContent = `${aptChecked} / ${aptTotal} topics`;
+    }
+
+    // Update Sticky Progress Bar
+    const totalTopics = dsaTotal + aptTotal; // 27
+    const totalChecked = dsaChecked + aptChecked;
+    const totalPercent = totalTopics > 0 ? (totalChecked / totalTopics) * 100 : 0;
+
+    if (stickyProgressText) {
+      stickyProgressText.textContent = `${totalChecked} / ${totalTopics} topics done — ${Math.round(totalPercent)}%`;
+    }
+    if (stickyProgressLine) {
+      stickyProgressLine.style.width = `${totalPercent}%`;
+    }
+  }
+
+  // --- TOAST SUCCESS NOTIFICATION ---
+  let toastTimeout;
+  function showSavedToast() {
+    if (toastNotification) {
+      toastNotification.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastNotification.classList.remove('show');
+      }, 1500);
+    }
   }
 
   // Save specific checkbox state to localStorage on change
@@ -141,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(`panipali_topic_${topicId}`, cb.checked ? 'checked' : 'unchecked');
       }
       updateProgress();
+      showSavedToast();
       
       // If incomplete filter is active, re-run filtering to hide the checked item
       const section = cb.getAttribute('data-section');
@@ -176,8 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     // Close mobile menu if open
-    mobileMenuBtn.classList.remove('active');
-    sidebar.classList.remove('active');
+    closeSidebar();
   }
 
   // Bind click event to navigation links
@@ -201,17 +292,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- MOBILE BURGER TOGGLE ---
+  function openSidebar() {
+    sidebar.classList.add('active');
+    mobileMenuBtn.classList.add('active');
+    if (sidebarBackdrop) sidebarBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('active');
+    mobileMenuBtn.classList.remove('active');
+    if (sidebarBackdrop) sidebarBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   mobileMenuBtn.addEventListener('click', () => {
-    mobileMenuBtn.classList.toggle('active');
-    sidebar.classList.toggle('active');
+    if (sidebar.classList.contains('active')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
   });
 
-  // Close sidebar on clicks outside
+  // Close sidebar on backdrop click
+  if (sidebarBackdrop) {
+    sidebarBackdrop.addEventListener('click', closeSidebar);
+  }
+
+  // Close sidebar on nav item click (for mobile viewport size)
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        closeSidebar();
+      }
+    });
+  });
+
+  // Close sidebar on clicks outside (as a fallback)
   document.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
-      if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target) && sidebar.classList.contains('active')) {
-        sidebar.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+      if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target) && sidebar.classList.contains('active') && !e.target.classList.contains('theme-toggle-btn') && !e.target.closest('.theme-toggle-btn')) {
+        closeSidebar();
       }
     }
   });
