@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const aptProgressBar = document.getElementById('apt-progress-bar');
   const aptProgressText = document.getElementById('apt-progress-text');
   
-  // Sticky Progress Bar Elements
-  const stickyProgressText = document.getElementById('sticky-progress-text');
-  const stickyProgressLine = document.getElementById('sticky-progress-line');
-  
   // Toast Success Notification
   const toastNotification = document.getElementById('toast-notification');
   
@@ -179,17 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
       aptProgressText.textContent = `${aptChecked} / ${aptTotal}`;
     }
 
-    // Update Sticky Progress Bar
-    const totalTopics = dsaTotal + aptTotal; // 27
-    const totalChecked = dsaChecked + aptChecked;
-    const totalPercent = totalTopics > 0 ? (totalChecked / totalTopics) * 100 : 0;
-
-    if (stickyProgressText) {
-      stickyProgressText.textContent = `${totalChecked} / ${totalTopics} topics done — ${Math.round(totalPercent)}%`;
-    }
-    if (stickyProgressLine) {
-      stickyProgressLine.style.width = `${totalPercent}%`;
-    }
   }
 
   // --- TOAST SUCCESS NOTIFICATION ---
