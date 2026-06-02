@@ -390,7 +390,7 @@
       </div>
     </div>
 
-    <!-- SECTION: DSA THEORY -->
+        <!-- SECTION: DSA THEORY -->
     <div class="section" id="section-dsa-theory">
       <h1 class="section-title">📚 DSA Theory Notes</h1>
       <div class="page-subtitle">Detailed placement tutorials and conceptual notes for core Data Structures.</div>
@@ -403,11 +403,21 @@
             <h2>Arrays</h2>
           </div>
           <div class="theory-card-body">
-            <p>An array is a linear data structure containing elements of the same type stored in <strong>contiguous memory locations</strong>. Since memory is contiguous, any element can be accessed in constant time if its index is known.</p>
-            <p><strong>Memory Address Calculation:</strong> Given the base address of the array <em>Base</em>, the size of each element <em>W</em>, and an index <em>i</em>, the address of the element at index <em>i</em> is calculated as:</p>
-            <div class="formula-box">Address(A[i]) = Base + (i × W)</div>
-            
-            <p><strong>Dynamic Arrays:</strong> Standard arrays are static (fixed size). Dynamic arrays (like Python <code>list</code>, C++ <code>std::vector</code>, Java <code>ArrayList</code>) automatically resize themselves when full. When the array is full, a new memory block of double the size is allocated, elements are copied, and the old memory is freed. The copy operation takes O(N), but since this resizing occurs infrequently, the insertion at the end has an <strong>amortized time complexity</strong> of O(1).</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Linear collection of elements of the same type stored in <strong>contiguous memory locations</strong>.</li>
+              <li><strong>Contiguous Access Advantage:</strong> Any element can be accessed in constant time <code>O(1)</code> if its index is known.</li>
+              <li><strong>Address Offset Calculation:</strong> Calculated using the formula:
+                <div class="formula-box">Address(A[i]) = Base + (i * W)</div>
+                where <code>Base</code> is the start address and <code>W</code> is the byte size of each element.
+              </li>
+              <li><strong>Dynamic Arrays:</strong> 
+                <ul>
+                  <li>Standard arrays have a fixed size. Dynamic variants (e.g., Python <code>list</code>, C++ <code>std::vector</code>, Java <code>ArrayList</code>) resize themselves when full.</li>
+                  <li>When capacity is exceeded, a new memory block (typically double the size) is allocated, elements are copied over, and old memory is freed.</li>
+                  <li>Resizing takes <code>O(N)</code> time, but since it occurs infrequently, the insertions have an <strong>amortized time complexity</strong> of <code>O(1)</code>.</li>
+                </ul>
+              </li>
+            </ul>
 
             <table class="theory-table">
               <thead>
@@ -461,17 +471,21 @@
             <h2>Prefix Sum</h2>
           </div>
           <div class="theory-card-body">
-            <p>Used to optimize range sum queries. Instead of calculating the sum of elements from index <code>L</code> to <code>R</code> by iterating (O(N) per query), we precompute a prefix sum array in O(N) time. This allows us to answer any range sum query in O(1) time.</p>
-            <p><strong>Definition:</strong> <code>prefix[i]</code> stores the sum of elements from index <code>0</code> to <code>i</code>.</p>
-            <div class="formula-box">
-              prefix[0] = arr[0]<br>
-              prefix[i] = prefix[i-1] + arr[i] &nbsp;&nbsp;(for i &gt; 0)
-            </div>
-            <p><strong>Query Formula:</strong> To get the sum of subarray <code>arr[L...R]</code>:</p>
-            <div class="formula-box">
-              Sum(L, R) = prefix[R] − prefix[L-1] &nbsp;&nbsp;(If L &gt; 0)<br>
-              Sum(0, R) = prefix[R] &nbsp;&nbsp;(If L = 0)
-            </div>
+            <ul>
+              <li><strong>Core Concept:</strong> Optimization technique for Range Sum Queries to reduce query time from <code>O(N)</code> to <code>O(1)</code>.</li>
+              <li><strong>Precomputation:</strong> We build an array of cumulative sums where <code>prefix[i]</code> stores the sum of elements from index <code>0</code> to <code>i</code>:
+                <div class="formula-box">
+                  prefix[0] = arr[0]<br>
+                  prefix[i] = prefix[i-1] + arr[i] &nbsp;&nbsp;(for i &gt; 0)
+                </div>
+              </li>
+              <li><strong>Query Execution:</strong> To calculate the sum of elements in range <code>[L, R]</code>, use:
+                <div class="formula-box">
+                  Sum(L, R) = prefix[R] − prefix[L-1] &nbsp;&nbsp;(if L &gt; 0)<br>
+                  Sum(0, R) = prefix[R] &nbsp;&nbsp;(if L = 0)
+                </div>
+              </li>
+            </ul>
             
             <pre class="theory-code"><code><span class="comment"># Precomputing Prefix Sum in Python</span>
 def build_prefix_sum(arr):
@@ -491,9 +505,22 @@ def build_prefix_sum(arr):
             <h2>Sliding Window</h2>
           </div>
           <div class="theory-card-body">
-            <p>The sliding window technique converts nested loops (O(N²)) into a single loop (O(N)) for problems involving <strong>contiguous subarrays</strong> or subsegments. We define two boundaries (left and right) representing a window that "slides" over the array.</p>
-            <p><strong>Fixed-size Window:</strong> Maintain a window of size <code>K</code>. When expanding the window to the right by adding <code>arr[right]</code>, we slide it by removing the element at the left <code>arr[left]</code>. This keeps the window size constant while updating the status (e.g., sum, characters count) in O(1).</p>
-            <p><strong>Variable-size Window:</strong> Expand the window by incrementing the right boundary. If a constraint is violated, shrink the window from the left boundary until the constraint is satisfied again.</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Optimizes nested loop subsegments (from <code>O(N²)</code> to <code>O(N)</code>) by tracking a contiguous window defined by left and right boundaries.</li>
+              <li><strong>Fixed-size Window:</strong> 
+                <ul>
+                  <li>Maintains a constant window width <code>K</code>.</li>
+                  <li>When moving the window right, add the new element at <code>right</code> and subtract the element leaving at <code>left</code>.</li>
+                  <li>Updates states in <code>O(1)</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Variable-size Window:</strong> 
+                <ul>
+                  <li>Expands by incrementing the <code>right</code> boundary.</li>
+                  <li>If a constraint is violated, shrinks from the <code>left</code> boundary until the window is valid again.</li>
+                </ul>
+              </li>
+            </ul>
             <pre class="theory-code"><code><span class="comment"># Finding max sum of K consecutive elements (Fixed Window)</span>
 def max_sum_subarray(arr, k):
     n = len(arr)
@@ -518,11 +545,20 @@ def max_sum_subarray(arr, k):
             <h2>Two Pointer Technique</h2>
           </div>
           <div class="theory-card-body">
-            <p>The Two Pointer technique uses two indices (pointers) to traverse a data structure (typically a sorted array or linked list) to optimize searching space. Instead of checking every pair (O(N²)), we move pointers based on conditions to solve in O(N) time.</p>
-            <p><strong>Variants:</strong></p>
             <ul>
-              <li><strong>Opposite Direction (Converging):</strong> One pointer starts at the beginning (<code>l=0</code>) and the other at the end (<code>r=n-1</code>). They move towards each other (e.g., finding a pair with a target sum in a sorted array, reversing an array).</li>
-              <li><strong>Same Direction (Fast/Slow):</strong> Pointers move in the same direction but at different speeds (e.g., finding the middle element of a linked list, detecting cycles in a list using Floyd's Tortoise and Hare method).</li>
+              <li><strong>Core Concept:</strong> Uses two indices to traverse a linear data structure simultaneously to prune search spaces from <code>O(N²)</code> to <code>O(N)</code>.</li>
+              <li><strong>Converging Pointers (Opposite Directions):</strong>
+                <ul>
+                  <li>Pointers begin at opposite ends: <code>l = 0</code> and <code>r = n - 1</code>.</li>
+                  <li>They move towards the middle based on conditions (e.g., finding target sums in a sorted array, reversing elements).</li>
+                </ul>
+              </li>
+              <li><strong>Fast &amp; Slow Pointers (Same Direction):</strong>
+                <ul>
+                  <li>Pointers move in the same direction at different speeds.</li>
+                  <li>Used for middle element extraction or cycle detection (Floyd's Tortoise and Hare).</li>
+                </ul>
+              </li>
             </ul>
             <pre class="theory-code"><code><span class="comment"># Finding if a sorted array has a pair with sum == target</span>
 def has_pair_sum(arr, target):
@@ -546,8 +582,17 @@ def has_pair_sum(arr, target):
             <h2>Singly Linked List</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Linked List is a linear data structure where elements (nodes) are allocated dynamically in heap memory rather than contiguously. Each node contains a **Data** field and a **Next** pointer pointing to the next node in the sequence. The last node points to <code>NULL</code>.</p>
-            <p><strong>Key Characteristics:</strong> No waste of memory capacity (grows dynamically), but accessing an element requires traversing from the <code>head</code> node, taking O(N) time.</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Linear, non-contiguous collection of nodes allocated dynamically on the heap.</li>
+              <li><strong>Node Structure:</strong> Each node contains:
+                <ul>
+                  <li>A <code>Data</code> field to hold values.</li>
+                  <li>A <code>Next</code> pointer pointing to the memory address of the next node. The last node references <code>NULL</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Key Advantages:</strong> Dynamic sizing; insertions and deletions do not require shifting elements.</li>
+              <li><strong>Key Disadvantages:</strong> Sequential traversal is required from the head node, making index access <code>O(N)</code>.</li>
+            </ul>
             <pre class="theory-code"><code><span class="comment"># Singly Linked List Node representation in Python</span>
 class Node:
     def __init__(self, data):
@@ -599,14 +644,19 @@ class Node:
             <h2>Doubly Linked List</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Doubly Linked List (DLL) extends the singly linked list by adding an extra pointer field **Prev** in each node, pointing to the previous node in the list.</p>
-            <div class="formula-box">NULL ← [Prev | Data | Next] ↔ [Prev | Data | Next] → NULL</div>
-            <p><strong>Advantages:</strong></p>
             <ul>
-              <li>Can be traversed in both forward and backward directions.</li>
-              <li>Deletion of a node is more efficient (O(1)) if we are already given a direct reference to that node, as we can immediately link its predecessor to its successor without traversing to find the predecessor.</li>
+              <li><strong>Core Concept:</strong> Bidirectional linear collection of nodes linked forwards and backwards.</li>
+              <li><strong>Node Structure:</strong> Holds a <code>Prev</code> pointer, a <code>Data</code> field, and a <code>Next</code> pointer:
+                <div class="formula-box">NULL &larr; [Prev | Data | Next] &harr; [Prev | Data | Next] &rarr; NULL</div>
+              </li>
+              <li><strong>Key Advantages:</strong>
+                <ul>
+                  <li>Can traverse in both forward and backward directions.</li>
+                  <li>Deletion is <code>O(1)</code> if a direct reference to the target node is given, since predecessor and successor links are immediately available.</li>
+                </ul>
+              </li>
+              <li><strong>Key Disadvantages:</strong> Higher memory overhead due to storing the extra <code>prev</code> pointer per node, and slightly more complex link-update logic.</li>
             </ul>
-            <p><strong>Disadvantages:</strong> Overhead of an extra pointer per node (prev), and pointer management during insertion/deletion is more complex.</p>
           </div>
         </div>
 
@@ -617,12 +667,15 @@ class Node:
             <h2>Circular Linked List</h2>
           </div>
           <div class="theory-card-body">
-            <p>In a Circular Linked List, the last node (tail) points back to the first node (head) instead of pointing to <code>NULL</code>. It can be singly circular or doubly circular.</p>
-            <p><strong>Key Applications:</strong></p>
             <ul>
-              <li><strong>Round-Robin Scheduling:</strong> Operating Systems use circular structures to allocate CPU time slots to multiple processes sequentially in cycles.</li>
-              <li><strong>Multiplayer Games:</strong> Turn-based games (like Monopoly or multiplayer board games) traverse players circularly.</li>
-              <li><strong>Buffer Pools:</strong> Circular buffers for streaming media.</li>
+              <li><strong>Core Concept:</strong> Linear list where the final node (tail) links back to the first node (head) instead of referencing <code>NULL</code>.</li>
+              <li><strong>Typical Applications:</strong>
+                <ul>
+                  <li><strong>CPU Scheduling:</strong> OS round-robin task allocation cycles.</li>
+                  <li><strong>Multiplayer Games:</strong> Tracking active turns circularly.</li>
+                  <li><strong>Buffers:</strong> Circular audio/video streaming buffers.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -634,7 +687,14 @@ class Node:
             <h2>Stack vs Queue &amp; Dynamics</h2>
           </div>
           <div class="theory-card-body">
-            <p><strong>Why are Linked Lists Dynamic?</strong> Static arrays allocate a single contiguous block of memory at compile time (or fixed allocation). If elements exceed this size, it overflows. Linked lists allocate individual nodes dynamically on the **heap** during execution. Nodes are created and deleted on the fly, referencing each other via memory pointers, avoiding size bounds and massive reallocation copies.</p>
+            <ul>
+              <li><strong>Why are Linked Lists Dynamic?</strong>
+                <ul>
+                  <li>Arrays require contiguous static allocation at compile-time or dynamic resizing copy operations when full.</li>
+                  <li>Linked lists allocate nodes on the heap as needed during runtime. Pointers connect these blocks, meaning memory is allocated and freed on the fly without size boundaries.</li>
+                </ul>
+              </li>
+            </ul>
             
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Stack vs Queue Comparison</h3>
             <table class="theory-table">
@@ -678,13 +738,16 @@ class Node:
             <h2>Stack</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Stack is a LIFO (Last In First Out) linear data structure. All operations (insertion, deletion, and lookup) occur at a single designated end called the **Top** of the stack.</p>
-            <p><strong>Complexity:</strong> All core operations (<code>Push</code>, <code>Pop</code>, <code>Peek</code>) take <strong>O(1)</strong> time.</p>
-            <p><strong>Primary Applications:</strong></p>
             <ul>
-              <li><strong>Recursion &amp; Function Calls:</strong> When a function is called, its local variables and return address are pushed onto the system call stack. They are popped when the function returns.</li>
-              <li><strong>Expression Evaluation:</strong> Converting and evaluating Infix expressions to Postfix/Prefix.</li>
-              <li><strong>Backtracking:</strong> Storing history to go back (e.g., solving mazes, browser back button, undo operations in editors).</li>
+              <li><strong>Core Concept:</strong> LIFO (Last In First Out) linear structure. Insertions and deletions occur solely at one designated end called the <strong>Top</strong>.</li>
+              <li><strong>Complexity:</strong> <code>Push</code>, <code>Pop</code>, and <code>Peek</code> operate in constant <code>O(1)</code> time.</li>
+              <li><strong>Primary Applications:</strong>
+                <ul>
+                  <li><strong>Function Call Stack:</strong> Tracking return addresses and local environments during recursion.</li>
+                  <li><strong>Compiler Parsing:</strong> Parentheses/bracket matching and infix-to-postfix conversions.</li>
+                  <li><strong>Backtracking:</strong> History recording for Undo operations or graph traversals (DFS).</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -696,13 +759,15 @@ class Node:
             <h2>Queue</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Queue is a FIFO (First In First Out) linear data structure. Elements are inserted at the **Rear/Tail** and removed from the **Front/Head**.</p>
-            <p><strong>Complexity:</strong> <code>Enqueue</code> (insert) and <code>Dequeue</code> (remove) take <strong>O(1)</strong> time.</p>
-            <p><strong>Primary Applications:</strong></p>
             <ul>
-              <li><strong>Process Scheduling:</strong> Queueing processes ready for CPU execution.</li>
-              <li><strong>Data Buffers:</strong> Asynchronous data transfers (e.g., IO buffers, keyboard buffers, print queues).</li>
-              <li><strong>BFS (Breadth-First Search):</strong> Exploring graph vertices level-by-level uses a queue.</li>
+              <li><strong>Core Concept:</strong> FIFO (First In First Out) linear structure. Insertions occur at the <strong>Rear</strong>, while deletions occur at the <strong>Front</strong>.</li>
+              <li><strong>Complexity:</strong> <code>Enqueue</code> and <code>Dequeue</code> operate in constant <code>O(1)</code> time.</li>
+              <li><strong>Primary Applications:</strong>
+                <ul>
+                  <li><strong>Task Buffering:</strong> Process queues in CPU schedulers or printing line-buffers.</li>
+                  <li><strong>Graph Traversal:</strong> Level-by-level search (BFS) queue trackers.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -714,12 +779,15 @@ class Node:
             <h2>Deque (Double Ended Queue)</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Deque (double-ended queue) is a generalized queue that permits insertions and deletions at **both** the Front and the Rear ends.</p>
-            <p><strong>Key Operations:</strong> <code>insertFront()</code>, <code>insertLast()</code>, <code>deleteFront()</code>, <code>deleteLast()</code>.</p>
-            <p><strong>Key Applications:</strong></p>
             <ul>
-              <li><strong>Sliding Window Maximum:</strong> Tracking the maximum value in all sliding windows of size K in O(N) time.</li>
-              <li><strong>A-Steal Job Scheduling:</strong> Thread-pool work stealing scheduling algorithms.</li>
+              <li><strong>Core Concept:</strong> Linear queue permitting insertion and deletion operations at <strong>both</strong> the Front and Rear ends.</li>
+              <li><strong>Key Operations:</strong> <code>insertFront</code>, <code>insertLast</code>, <code>deleteFront</code>, <code>deleteLast</code> in <code>O(1)</code>.</li>
+              <li><strong>Key Applications:</strong>
+                <ul>
+                  <li><strong>Sliding Window Maximums:</strong> Tracking max elements inside dynamic ranges in <code>O(N)</code> time.</li>
+                  <li><strong>Work-Stealing:</strong> Allocating threads efficiently in execution environments.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -731,13 +799,16 @@ class Node:
             <h2>Binary Tree</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Binary Tree is a non-linear hierarchical data structure where each node has **at most 2 children** (referred to as the Left child and the Right child).</p>
-            <p><strong>Tree Classifications:</strong></p>
             <ul>
-              <li><strong>Full Binary Tree:</strong> Every node has either 0 or 2 children. No node has only 1 child.</li>
-              <li><strong>Complete Binary Tree:</strong> All levels are completely filled except possibly the last level, which is filled from left to right (crucial for Binary Heaps).</li>
-              <li><strong>Perfect Binary Tree:</strong> All internal nodes have exactly 2 children and all leaf nodes are at the same level.</li>
-              <li><strong>Balanced Binary Tree:</strong> A tree where the height difference between the left and right subtrees of any node is at most 1 (e.g., AVL Trees, Red-Black Trees).</li>
+              <li><strong>Core Concept:</strong> Non-linear hierarchical structure where each node has **at most 2 children** (Left child and Right child).</li>
+              <li><strong>Key Classifications:</strong>
+                <ul>
+                  <li><strong>Full Binary Tree:</strong> Every node has either 0 or 2 children.</li>
+                  <li><strong>Complete Binary Tree:</strong> All levels are filled, except possibly the last level which is populated from left to right.</li>
+                  <li><strong>Perfect Binary Tree:</strong> All internal nodes have 2 children, and all leaves reside at the same depth.</li>
+                  <li><strong>Balanced Binary Tree:</strong> The height difference between the left and right subtrees of any node is at most 1.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -749,12 +820,16 @@ class Node:
             <h2>BST (Binary Search Tree)</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Binary Search Tree (BST) is a binary tree that enforces a strict ordering constraint:</p>
-            <div class="formula-box">Values in Left Subtree &lt; Root Node Value &lt; Values in Right Subtree</div>
-            <p><strong>Time Complexity:</strong></p>
             <ul>
-              <li><strong>Average/Balanced Case:</strong> Searching, insertion, and deletion take <strong>O(log N)</strong> time, as the search space is halved at each step.</li>
-              <li><strong>Worst Case (Skewed Tree):</strong> If elements are inserted in sorted order (e.g., 10 → 20 → 30 → 40), the tree becomes a linear chain. Searching degrades to <strong>O(N)</strong>. Self-balancing BSTs (AVL, Red-Black) solve this.</li>
+              <li><strong>Core Concept:</strong> Ordered binary tree enforcing a strict lookup rule:
+                <div class="formula-box">Left Subtree Values &lt; Root Value &lt; Right Subtree Values</div>
+              </li>
+              <li><strong>Time Complexity:</strong>
+                <ul>
+                  <li><strong>Average Case:</strong> Search, insertion, and deletion operate in <code>O(log N)</code> time.</li>
+                  <li><strong>Worst Case (Skewed Tree):</strong> If elements are inserted in sorted order, the tree degenerates into a linear chain, degrading operations to <code>O(N)</code>.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -766,14 +841,17 @@ class Node:
             <h2>Tree Traversals</h2>
           </div>
           <div class="theory-card-body">
-            <p>Unlike linear structures, trees can be traversed in multiple ways depending on the visit order of the root relative to its subtrees:</p>
-            <p><strong>Depth-First Traversals (DFS):</strong></p>
             <ul>
-              <li><strong>Inorder (Left, Root, Right):</strong> Traverses the left subtree, visits root, then right subtree. <em>Crucial Property:</em> Inorder traversal of a BST yields elements in <strong>sorted ascending order</strong>.</li>
-              <li><strong>Preorder (Root, Left, Right):</strong> Visits root first, then left subtree, then right subtree. Used to create copies of trees or prefix expression representations.</li>
-              <li><strong>Postorder (Left, Right, Root):</strong> Traverses subtrees first, then visits the root. Used to delete nodes (bottom-up deletion) or evaluate postfix expressions.</li>
+              <li><strong>Core Concept:</strong> Strategies to visit every node in a tree systematically.</li>
+              <li><strong>Depth-First (DFS) Traversals:</strong>
+                <ul>
+                  <li><strong>Inorder (Left, Root, Right):</strong> Visits left subtree, root, then right subtree. <em>Crucial Property:</em> Inorder traversal of a BST yields elements in <strong>sorted ascending order</strong>.</li>
+                  <li><strong>Preorder (Root, Left, Right):</strong> Visits root first, then subtrees. Used to clone trees or parse equations.</li>
+                  <li><strong>Postorder (Left, Right, Root):</strong> Visits subtrees first, then root. Used for bottom-up node deletions.</li>
+                </ul>
+              </li>
+              <li><strong>Breadth-First (BFS / Level Order) Traversal:</strong> Visits nodes level by level starting from the root using a queue.</li>
             </ul>
-            <p><strong>Breadth-First Traversal (BFS / Level Order):</strong> Visits nodes level by level, starting from the root (uses a <strong>Queue</strong> buffer).</p>
             
             <pre class="theory-code"><code><span class="comment"># Recursive DFS Inorder Traversal in Python</span>
 def inorder(root):
@@ -791,21 +869,27 @@ def inorder(root):
             <h2>Heap</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Heap is a specialized **Complete Binary Tree** stored in an array representation instead of pointer nodes. Since it's complete, it can be mapped into indices:</p>
-            <div class="formula-box">
-              Left Child of Node at index i = 2i + 1<br>
-              Right Child of Node at index i = 2i + 2<br>
-              Parent of Node at index i = (i - 1) // 2
-            </div>
-            <p><strong>Heap Properties:</strong></p>
             <ul>
-              <li><strong>Max Heap:</strong> The value of the parent node is always greater than or equal to the values of its children. The root holds the maximum element.</li>
-              <li><strong>Min Heap:</strong> The value of the parent node is always less than or equal to the values of its children. The root holds the minimum element.</li>
-            </ul>
-            <p><strong>Key Complexities:</strong></p>
-            <ul>
-              <li><strong>Heapify:</strong> Restoring the heap property after insertion or deletion takes <strong>O(log N)</strong>.</li>
-              <li><strong>Build Heap:</strong> Creating a heap from a raw array of N elements takes <strong>O(N)</strong> using Floyd's algorithm.</li>
+              <li><strong>Core Concept:</strong> Array-represented complete binary tree maintaining the heap property.</li>
+              <li><strong>Index Mapping Formula:</strong>
+                <div class="formula-box">
+                  Left Child of Node at index i = 2i + 1<br>
+                  Right Child of Node at index i = 2i + 2<br>
+                  Parent of Node at index i = (i - 1) // 2
+                </div>
+              </li>
+              <li><strong>Properties:</strong>
+                <ul>
+                  <li><strong>Max Heap:</strong> Parent node is greater than or equal to its children. Root is the maximum element.</li>
+                  <li><strong>Min Heap:</strong> Parent node is less than or equal to its children. Root is the minimum element.</li>
+                </ul>
+              </li>
+              <li><strong>Key Complexities:</strong>
+                <ul>
+                  <li><strong>Heapify:</strong> Corrects heap violations in <code>O(log N)</code> time.</li>
+                  <li><strong>Build Heap:</strong> Builds a heap from an array in <code>O(N)</code> time.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -817,7 +901,9 @@ def inorder(root):
             <h2>Priority Queue</h2>
           </div>
           <div class="theory-card-body">
-            <p>A Priority Queue is an abstract data structure where each element has a "priority" associated with it. Elements with higher priorities are dequeued before lower priority ones. It is highly optimized when implemented using a **Heap**.</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Queue where elements are removed based on priority weight rather than insertion sequence. Typically implemented using a binary heap.</li>
+            </ul>
             
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Heap vs BST Comparison</h3>
             <table class="theory-table">
@@ -864,32 +950,50 @@ def inorder(root):
             
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q1: Explain locality of reference in Arrays vs Linked Lists.</h4>
-              <p><strong>Answer:</strong> Arrays have high <strong>spatial locality of reference</strong> because their elements are stored in contiguous memory blocks. When a CPU accesses an array index, cache line prefetching loads adjacent elements into cache memory, leading to fast subsequent access times (cache hits). Linked lists, however, contain nodes scattered randomly across the heap. Accessing next nodes requires dereferencing pointers, leading to frequent cache misses and slower traversal in hardware.</p>
+              <ul>
+                <li><strong>Spatial Locality:</strong> Arrays store elements in contiguous blocks of memory, which allows CPUs to cache adjacent elements during index lookups, generating high cache hit rates.</li>
+                <li><strong>Pointer Overhead:</strong> Linked list nodes are scattered across the heap. Accessing the next element requires dereferencing pointers, causing frequent cache misses and slower traversals.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q2: What is call stack overflow in recursion?</h4>
-              <p><strong>Answer:</strong> Every recursive function call allocates a stack frame on the thread's call stack to store local variables, parameters, and return memory. If a recursive function fails to reach its base case, or if the recursion is too deep, stack frames are added continuously without popping. Eventually, the call stack exceeds its allocated size, resulting in a **Stack Overflow** crash.</p>
+              <ul>
+                <li><strong>Stack Allocation:</strong> Each recursive call pushes a stack frame (storing arguments, variables, and return targets) onto the execution stack.</li>
+                <li><strong>Overflow Event:</strong> If recursion lacks a base case, or runs too deep, frames accumulate continuously without popping. Once stack size limits are exceeded, a Stack Overflow occurs.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q3: Why are self-balancing trees (AVL, Red-Black) preferred over standard BSTs in production?</h4>
-              <p><strong>Answer:</strong> Standard BSTs have an average search time of O(log N), but if values are inserted in sorted order, the tree becomes skewed, resembling a linked list with O(N) search time. Self-balancing trees automatically perform adjustments (rotations) on insertions and deletions to keep the height bounded to O(log N), guaranteeing logarithmic bounds for all search, insert, and delete operations.</p>
+              <ul>
+                <li><strong>Skewing Risk:</strong> If items are inserted into a BST in sorted order, the tree becomes skewed (like a linked list), slowing lookups from <code>O(log N)</code> to <code>O(N)</code>.</li>
+                <li><strong>Height Bounding:</strong> Self-balancing trees execute node rotations during modifications to enforce height bounds, securing <code>O(log N)</code> performance.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q4: What is amortized time complexity? Explain with Dynamic Array resizing.</h4>
-              <p><strong>Answer:</strong> Amortized complexity is the average time taken per operation over a worst-case sequence of operations. For instance, when inserting into a dynamic array (like Python's list), most insertions take O(1) time because there is empty capacity. However, when the array becomes full, it reallocates memory and copies all N elements, taking O(N) once. Since this reallocation occurs only after doubling the size (at 1, 2, 4, 8... steps), the total cost of N insertions is O(N). Averaged out, each insertion takes O(N) / N = O(1) amortized time.</p>
+              <ul>
+                <li><strong>Average Costing:</strong> Amortized complexity evaluates the average time taken per operation over a worst-case sequence.</li>
+                <li><strong>Array Resizing:</strong> Appending to a dynamic array takes <code>O(1)</code> time. When capacity is exceeded, it copies all <code>N</code> elements to a new double-sized block (taking <code>O(N)</code>). Because resizing occurs only at size powers of 2, the average cost over N appends resolves to <code>O(1)</code>.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q5: Explain Floyd's Cycle-Finding Algorithm (Tortoise and Hare) for Linked Lists.</h4>
-              <p><strong>Answer:</strong> To detect a cycle in a linked list, we initialize two pointers at the head: a slow pointer (Tortoise) that moves 1 step at a time, and a fast pointer (Hare) that moves 2 steps. If there is no cycle, the fast pointer reaches the end (NULL). If a cycle exists, the fast pointer enters the loop first. Because it moves 1 node closer to the slow pointer in each iteration, the fast pointer is guaranteed to eventually catch up and meet the slow pointer inside the loop. This detects cycles in O(N) time with O(1) auxiliary space.</p>
+              <ul>
+                <li><strong>Pointers Setup:</strong> Initialize two pointers (Slow moving 1 node, Fast moving 2 nodes) at the head.</li>
+                <li><strong>Meeting Guarantee:</strong> If a loop exists, the fast pointer enters it first. Because the fast pointer closes the gap by 1 node per step, it is guaranteed to meet the slow pointer in <code>O(N)</code> time with <code>O(1)</code> space.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px;">Q6: How does Stack memory differ from Heap memory allocation?</h4>
-              <p><strong>Answer:</strong> Stack memory is allocated for execution threads to store local function variables and call frames. It is automatically managed (LIFO order), very fast to allocate, and limited in size. Heap memory is allocated dynamically during runtime for objects, collections, and linked structures. It is managed manually (or via garbage collection), slower to access/allocate due to pointer lookups, and much larger in size.</p>
+              <ul>
+                <li><strong>Stack Memory:</strong> Managed automatically by the CPU, allocated in LIFO order, holds local variables, is extremely fast, and has limited size.</li>
+                <li><strong>Heap Memory:</strong> Managed dynamically by runtime controllers/developers, holds global structures, is slower to reference, and has much larger storage capacity.</li>
+              </ul>
             </div>
 
           </div>
@@ -897,6 +1001,7 @@ def inorder(root):
 
       </div>
     </div>
+
 
     <!-- SECTION: AAD THEORY -->
     <div class="section" id="section-aad-theory">
@@ -911,8 +1016,11 @@ def inorder(root):
             <h2>Time Complexity</h2>
           </div>
           <div class="theory-card-body">
-            <p>Time complexity quantifies the rate at which the execution time of an algorithm grows as the input size N increases. It does not measure the actual runtime in seconds (which depends on hardware), but rather the count of primitive operations performed.</p>
-            <p><strong>Asymptotic Analysis:</strong> We study performance as input size approaches infinity (N → ∞), focusing on the highest-order term and ignoring constant multipliers. For example, if an algorithm does 3N² + 5N + 12 operations, its asymptotic time complexity is O(N²).</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Measure of the rate at which execution time grows relative to input size <code>N</code>.</li>
+              <li><strong>Primitive Count:</strong> Does not count execution seconds, but rather evaluates the scale of basic machine instructions.</li>
+              <li><strong>Asymptotic Scope:</strong> Analyzes behavior as input approaches infinity (<code>N &rarr; &infin;</code>), discarding constant coefficients and keeping highest-order terms.</li>
+            </ul>
           </div>
         </div>
 
@@ -923,10 +1031,14 @@ def inorder(root):
             <h2>Space Complexity</h2>
           </div>
           <div class="theory-card-body">
-            <p>Space complexity measures the total memory space consumed by an algorithm relative to the input size N. It is divided into:</p>
             <ul>
-              <li><strong>Input Space:</strong> The memory required to store the input data itself.</li>
-              <li><strong>Auxiliary Space:</strong> The temporary/extra space allocated by the algorithm during execution (e.g., intermediate arrays, recursion call stack frames). Placement interviewers are usually asking for **Auxiliary Space**.</li>
+              <li><strong>Core Concept:</strong> Total memory consumed by an algorithm relative to input size <code>N</code>.</li>
+              <li><strong>Allocations:</strong> Divided into:
+                <ul>
+                  <li><strong>Input Space:</strong> Memory to store input values.</li>
+                  <li><strong>Auxiliary Space:</strong> Extra temporary memory allocated during processing (e.g., recursions stack, helper tables). Placement interviewers prioritize Auxiliary Space.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -938,7 +1050,9 @@ def inorder(root):
             <h2>Big O Notation &amp; Growth Rates</h2>
           </div>
           <div class="theory-card-body">
-            <p>Big O describes the **worst-case** upper bound of growth. It guarantees that the execution time will not exceed this limit for sufficiently large inputs.</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Represents the worst-case upper bound of runtime growth.</li>
+            </ul>
             
             <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">Common Complexity Classes</h3>
             <table class="theory-table">
@@ -953,12 +1067,12 @@ def inorder(root):
                 <tr>
                   <td><strong>O(1)</strong></td>
                   <td>Constant</td>
-                  <td>Math formulas, array indexing, simple operations.</td>
+                  <td>Arithmetic operations, array indexing.</td>
                 </tr>
                 <tr>
                   <td><strong>O(log N)</strong></td>
                   <td>Logarithmic</td>
-                  <td>Binary search (input size divides by 2 in each loop).</td>
+                  <td>Binary search (dividing size in half).</td>
                 </tr>
                 <tr>
                   <td><strong>O(N)</strong></td>
@@ -968,29 +1082,27 @@ def inorder(root):
                 <tr>
                   <td><strong>O(N log N)</strong></td>
                   <td>Linearithmic</td>
-                  <td>Divide-and-conquer sorting (Merge Sort, Quick Sort).</td>
+                  <td>Divide-and-conquer sorting (Merge, Quick Sort).</td>
                 </tr>
-                <tr>
                   <td><strong>O(N²)</strong></td>
                   <td>Quadratic</td>
-                  <td>Nested loops (Bubble Sort, checking all pairs).</td>
+                  <td>Nested loops (checking pairs).</td>
                 </tr>
                 <tr>
                   <td><strong>O(2^N)</strong></td>
                   <td>Exponential</td>
-                  <td>Naïve recursive Fibonacci, generating subsets.</td>
+                  <td>Naïve recursion loops, generating subsets.</td>
                 </tr>
               </tbody>
             </table>
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Comparing Growth Rates</h3>
-            <p>Consider input size N = 1000 (performing 10^8 operations per second):</p>
             <ul>
-              <li><strong>O(log N):</strong> ≈ 10 operations (takes nanoseconds).</li>
-              <li><strong>O(N):</strong> 1000 operations (takes microseconds).</li>
-              <li><strong>O(N log N):</strong> ≈ 10,000 operations (takes microseconds).</li>
-              <li><strong>O(N²):</strong> 1,000,000 operations (takes milliseconds).</li>
-              <li><strong>O(2^N):</strong> 2^1000 operations (would take trillions of years to complete!).</li>
+              <li><strong>Logarithmic (O(log N)):</strong> Resolves in ~10 steps for 1,000 items (nanoseconds).</li>
+              <li><strong>Linear (O(N)):</strong> Resolves in 1,000 steps (microseconds).</li>
+              <li><strong>Linearithmic (O(N log N)):</strong> Resolves in ~10,000 steps (microseconds).</li>
+              <li><strong>Quadratic (O(N²)):</strong> Resolves in 1,000,000 steps (milliseconds).</li>
+              <li><strong>Exponential (O(2^N)):</strong> Resolves in 2^1000 steps (taking millions of years).</li>
             </ul>
           </div>
         </div>
@@ -1002,13 +1114,15 @@ def inorder(root):
             <h2>Why Hashing Improves Complexity</h2>
           </div>
           <div class="theory-card-body">
-            <p>Without Hashing, searching for an element in an unsorted array takes O(N) linear scan. Even if the array is sorted, searching takes O(log N) via Binary Search.</p>
-            <p><strong>Hashing:</strong> By mapping keys to indices via a <strong>Hash Function</strong>, we can insert, delete, and lookup values in <strong>O(1) average time</strong>.</p>
-            <p><strong>Interview Applications:</strong> Hashing is the ultimate tool for optimizing search complexity in coding rounds. Common patterns include:</p>
             <ul>
-              <li><strong>Two Sum (O(N) instead of O(N²)):</strong> Store seen elements in a hash map: <code>seen[num] = index</code>. As we traverse, check if <code>target - num</code> is already in the map.</li>
-              <li><strong>Duplicate Detection:</strong> Store elements in a Hash Set. If an element is already present, a duplicate is found in O(1) lookup.</li>
-              <li><strong>Frequency Counters (Anagrams):</strong> Map characters to their frequency counts. Compare maps in linear time.</li>
+              <li><strong>Searching Optimization:</strong> Unsorted arrays take <code>O(N)</code> search time, and sorted arrays take <code>O(log N)</code>. Hashing uses hash mappings to secure <code>O(1)</code> average search.</li>
+              <li><strong>Interview Patterns:</strong>
+                <ul>
+                  <li><strong>Two Sum:</strong> Store visited items (<code>seen[val] = idx</code>) to lookup target complements in <code>O(1)</code>.</li>
+                  <li><strong>Duplicate Searches:</strong> Track visited items in a Hash Set to flag matches instantly.</li>
+                  <li><strong>Frequency Maps:</strong> Track character counts to compare structures in linear time (e.g., Anagrams).</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -1020,13 +1134,11 @@ def inorder(root):
             <h2>BFS (Breadth First Search)</h2>
           </div>
           <div class="theory-card-body">
-            <p>BFS is an algorithm for traversing or searching tree or graph data structures. It starts at a source node and explores all neighbor nodes at the present depth level before moving to the nodes at the next depth level.</p>
-            <p><strong>Data Structure:</strong> Uses a <strong>Queue</strong> to track nodes to visit, and a <strong>Visited</strong> array/set to prevent re-entering cycles.</p>
-            <p><strong>Complexity:</strong> O(V + E) where V is vertices and E is edges.</p>
-            <p><strong>Placement Applications:</strong></p>
             <ul>
-              <li>Finding the <strong>shortest path</strong> in an unweighted graph (first time a node is reached, it is via the shortest path).</li>
-              <li>Social Network analysis (finding connections at degree 1, degree 2).</li>
+              <li><strong>Core Concept:</strong> Graph traversal visiting neighbor nodes level-by-level starting from the source vertex.</li>
+              <li><strong>Mechanics:</strong> Utilizes a **Queue** tracker and a **Visited** array to prevent cycling back.</li>
+              <li><strong>Complexity:</strong> <code>O(V + E)</code> (Vertices + Edges).</li>
+              <li><strong>Placement Applications:</strong> Finding the <strong>shortest path</strong> in unweighted graphs and tracking social connection degrees.</li>
             </ul>
           </div>
         </div>
@@ -1038,14 +1150,11 @@ def inorder(root):
             <h2>DFS (Depth First Search)</h2>
           </div>
           <div class="theory-card-body">
-            <p>DFS explores a graph by going as deep as possible along each branch before backtracking. It continues until all reachable nodes have been visited.</p>
-            <p><strong>Data Structure:</strong> Uses a **Stack** (either explicitly or implicitly via **Recursion**), and a **Visited** array/set.</p>
-            <p><strong>Complexity:</strong> O(V + E) where V is vertices and E is edges.</p>
-            <p><strong>Placement Applications:</strong></p>
             <ul>
-              <li>Detecting cycles in directed/undirected graphs.</li>
-              <li>Topological Sorting (ordering tasks with dependencies).</li>
-              <li>Solving puzzle paths (like mazes or Sudoku).</li>
+              <li><strong>Core Concept:</strong> Graph traversal going deep into a branch before backtracking.</li>
+              <li><strong>Mechanics:</strong> Utilizes a **Stack** (explicitly or via recursion) and a **Visited** tracking structure.</li>
+              <li><strong>Complexity:</strong> <code>O(V + E)</code>.</li>
+              <li><strong>Placement Applications:</strong> Graph cycle detection, topological sorting, and solving path grids (mazes).</li>
             </ul>
             
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">BFS vs DFS Comparison</h3>
@@ -1070,8 +1179,8 @@ def inorder(root):
                 </tr>
                 <tr>
                   <td><strong>Memory Demand</strong></td>
-                  <td>O(Width of Graph) - high for wide trees.</td>
-                  <td>O(Height of Graph) - low for balanced trees.</td>
+                  <td>O(Width of Graph)</td>
+                  <td>O(Height of Graph)</td>
                 </tr>
                 <tr>
                   <td><strong>Shortest Path</strong></td>
@@ -1090,13 +1199,18 @@ def inorder(root):
             <h2>Dijkstra's Algorithm</h2>
           </div>
           <div class="theory-card-body">
-            <p>Dijkstra's algorithm finds the shortest path from a single source node to all other nodes in a weighted graph. It works greedily: in each step, it selects the unvisited node with the smallest tentative distance and relaxes its outgoing edges.</p>
-            <p><strong>Constraint:</strong> Edge weights **must be non-negative** (Weights &ge; 0).</p>
-            <p><strong>Complexity:</strong> O((V + E) log V) when optimized with a Min-Heap / Priority Queue.</p>
-            
-            <h3 style="margin-top: 1.2rem; margin-bottom: 0.5rem;">Why Dijkstra Fails on Negative Edges</h3>
-            <p>Dijkstra works on the greedy assumption that once a node's shortest path is finalized, it cannot be improved further. If there are negative edges, a longer path with a negative weight could eventually lead to a smaller total distance, but Dijkstra will have already locked the node, skipping this path.</p>
-            <p><strong>Alternative:</strong> Use the **Bellman-Ford Algorithm** (O(V · E)), which can handle negative weights and detect negative cycles.</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Greedy algorithm finding the shortest path from a single source node to all other vertices.</li>
+              <li><strong>Constraints:</strong> Edge weights must be non-negative (<code>Weights &ge; 0</code>).</li>
+              <li><strong>Complexity:</strong> <code>O((V + E) log V)</code> when optimized with a Min-Heap/Priority Queue.</li>
+              <li><strong>Dijkstra Fail Case on Negative Edges:</strong>
+                <ul>
+                  <li>Assumes once a node distance is finalized, it cannot improve.</li>
+                  <li>Negative edges can break this assumption by introducing a longer path with a negative sum, which Dijkstra will skip since the node was already locked.</li>
+                  <li><strong>Alternative:</strong> Use **Bellman-Ford** (handles negative weights, detects cycles).</li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -1107,13 +1221,12 @@ def inorder(root):
             <h2>Sorting Algorithms</h2>
           </div>
           <div class="theory-card-body">
-            <p>Sorting arranges elements in a specific order (ascending/descending). Standard placement sorting algorithms include:</p>
             <ul>
-              <li><strong>Bubble Sort (O(N²)):</strong> Repeatedly swap adjacent elements if they are in the wrong order. Very slow.</li>
-              <li><strong>Selection Sort (O(N²)):</strong> Repeatedly find the minimum element from the unsorted part and put it at the beginning. Unstable.</li>
-              <li><strong>Insertion Sort (O(N²)):</strong> Build the sorted array one item at a time by shifting elements. Best case is O(N) when already sorted (extremely efficient for small/nearly sorted arrays).</li>
-              <li><strong>Merge Sort (O(N log N)):</strong> Divide array in half, recursively sort both halves, then merge them. Guaranteed O(N log N) but requires O(N) auxiliary space for merging. Stable.</li>
-              <li><strong>Quick Sort (Avg O(N log N), Worst O(N²)):</strong> Choose a pivot, partition the array so left side &lt; pivot &lt; right side, and recursively sort. Average case is extremely fast due to low constant factors. In-place but unstable.</li>
+              <li><strong>Bubble Sort (O(N²)):</strong> Swaps adjacent unsorted elements.</li>
+              <li><strong>Selection Sort (O(N²)):</strong> Selects the smallest element in each pass to place at the start. Unstable.</li>
+              <li><strong>Insertion Sort (O(N²)):</strong> Shifts elements sequentially to build a sorted subarray. Runs in <code>O(N)</code> when already sorted.</li>
+              <li><strong>Merge Sort (O(N log N)):</strong> Divide-and-conquer. Recursively splits, sorts, and merges. Stable but requires <code>O(N)</code> auxiliary space.</li>
+              <li><strong>Quick Sort (O(N log N) Avg):</strong> Partitions array relative to a pivot in-place. Worst-case is <code>O(N²)</code>, unstable. Faster in practice due to cache efficiency.</li>
             </ul>
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Merge Sort vs Quick Sort</h3>
@@ -1158,10 +1271,11 @@ def inorder(root):
             <h2>Greedy Method</h2>
           </div>
           <div class="theory-card-body">
-            <p>The Greedy paradigm builds a solution piece-by-piece, making the **locally optimal choice** at each step with the hope that this will lead to the globally optimal solution.</p>
-            <p><strong>Characteristics:</strong> Fast and simple to implement, but does not always yield correct results because it does not reconsider past choices.</p>
-            <p><strong>Successful Examples:</strong> Fractional Knapsack, Activity Selection (Interval Scheduling), Dijkstra's Algorithm, Kruskal's/Prim's MST, Huffman Coding.</p>
-            <p><strong>Greedy Fail Case:</strong> Coin Change Problem. If coins are {1, 3, 4} and target is 6, greedy chooses {4, 1, 1} (3 coins), but optimal is {3, 3} (2 coins).</p>
+            <ul>
+              <li><strong>Core Concept:</strong> Builds solutions by selecting the locally optimal choice at each step, hoping it resolves to a global optimum.</li>
+              <li><strong>Applications:</strong> Fractional Knapsack, Dijkstra's algorithm, Prim's/Kruskal's MST, Huffman coding.</li>
+              <li><strong>Greedy Fail Case:</strong> Coin Change problems with coin configurations like <code>{1, 3, 4}</code> seeking change of <code>6</code> (Greedy yields 3 coins, Optimal is 2).</li>
+            </ul>
           </div>
         </div>
 
@@ -1172,15 +1286,19 @@ def inorder(root):
             <h2>Dynamic Programming (DP)</h2>
           </div>
           <div class="theory-card-body">
-            <p>Dynamic Programming solves complex problems by breaking them into smaller subproblems. It is used when the problem exhibits two properties:</p>
             <ul>
-              <li><strong>Overlapping Subproblems:</strong> The same subproblems are solved repeatedly (e.g., computing <code>fib(3)</code> multiple times). We solve once and store the result.</li>
-              <li><strong>Optimal Substructure:</strong> The global optimal solution can be constructed from optimal solutions of its subproblems.</li>
-            </ul>
-            <p><strong>Implementation Approaches:</strong></p>
-            <ul>
-              <li><strong>Memoization (Top-Down):</strong> Recursive strategy where we check if a state is computed before executing. Stores results in a hash table or array.</li>
-              <li><strong>Tabulation (Bottom-Up):</strong> Iterative strategy where we solve base cases first and fill a table (DP array) sequentially.</li>
+              <li><strong>Core Concept:</strong> Solves complex problems by caching optimal subproblems. Requires:
+                <ul>
+                  <li><strong>Overlapping Subproblems:</strong> Subproblems are evaluated repeatedly.</li>
+                  <li><strong>Optimal Substructure:</strong> Global optimal solution incorporates optimal subproblems.</li>
+                </ul>
+              </li>
+              <li><strong>Paradigms:</strong>
+                <ul>
+                  <li><strong>Memoization (Top-Down):</strong> Recursive caching of states during evaluations.</li>
+                  <li><strong>Tabulation (Bottom-Up):</strong> Iterative sequence filling a DP table starting from base conditions.</li>
+                </ul>
+              </li>
             </ul>
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Greedy vs Dynamic Programming</h3>
@@ -1223,37 +1341,50 @@ def inorder(root):
             
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q1: Stable vs Unstable sorting algorithms - why does it matter?</h4>
-              <p><strong>Answer:</strong> A sorting algorithm is **stable** if it preserves the relative order of duplicate elements. For example, if we sort a list of student records by age, and two students are 20 years old, a stable sort keeps them in their original order. Stability is critical when sorting objects by multiple criteria sequentially (e.g., sorting by name first, then sorting by age).</p>
-              <p><em>Stable sorts:</em> Merge Sort, Insertion Sort, Bubble Sort.<br><em>Unstable sorts:</em> Quick Sort, Heap Sort, Selection Sort.</p>
+              <ul>
+                <li><strong>Stability:</strong> Preserves the original relative order of items with equivalent sorting keys.</li>
+                <li><strong>Use Case:</strong> Vital when sorting database objects sequentially over multiple columns (e.g., sorting by name, then sorting by age group).</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q2: Adjacency Matrix vs Adjacency List for Graphs - when to use which?</h4>
-              <p><strong>Answer:</strong> An **Adjacency Matrix** is a V × V boolean grid. It takes O(V²) space but allows checking if edge (u,v) exists in O(1) time. An **Adjacency List** uses an array of linked lists/vectors, taking O(V + E) space, but checking edge existence requires searching the list (O(Degree(u))). Use Matrix for **dense graphs** (E ≈ V²) and List for **sparse graphs** (E &ll; V², which is most real-world scenarios).</p>
+              <ul>
+                <li><strong>Adjacency Matrix:</strong> Takes <code>O(V²)</code> space. Edge lookups run in <code>O(1)</code>. Optimal for <strong>dense graphs</strong>.</li>
+                <li><strong>Adjacency List:</strong> Takes <code>O(V + E)</code> space. Edge lookups run in <code>O(degree)</code>. Optimal for <strong>sparse graphs</strong>.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q3: Explain the difference between Divide &amp; Conquer and Dynamic Programming.</h4>
-              <p><strong>Answer:</strong> In **Divide &amp; Conquer**, the subproblems are independent of each other. We solve them independently and combine them (e.g., in Merge Sort, sorting the left half has nothing to do with sorting the right half). In **Dynamic Programming**, the subproblems are overlapping. The same subproblems are needed multiple times, so DP caches results to avoid recomputation.</p>
+              <ul>
+                <li><strong>Divide &amp; Conquer:</strong> Solves independent subproblems sequentially (e.g., Merge Sort splits left and right independently).</li>
+                <li><strong>Dynamic Programming:</strong> Caches optimal results for overlapping subproblems (e.g., Knapsack subproblem results are shared).</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q4: What is Auxiliary Space and how does it differ from Space Complexity?</h4>
-              <p><strong>Answer:</strong> **Space Complexity** is the total space taken by the program including the inputs. **Auxiliary Space** is the temporary extra space allocated by the algorithm during execution (variables, temporary tables, stacks). For example, finding the maximum element in an array of size N takes O(N) space complexity (to store the array), but only O(1) auxiliary space (a single variable for the max value).</p>
+              <ul>
+                <li><strong>Space Complexity:</strong> Sum memory needed including input data storage buffers.</li>
+                <li><strong>Auxiliary Space:</strong> Temporary run-time memory structures allocated by processing (e.g., variables, helper lists, recursion stack).</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q5: What are collision resolution techniques in Hashing?</h4>
-              <p><strong>Answer:</strong> When different keys hash to the same index, a collision occurs. Resolution methods include:
               <ul>
-                <li><strong>Chaining (Open Hashing):</strong> Each bucket of the hash table contains a linked list of elements. Collided items are appended to the list at that index.</li>
-                <li><strong>Open Addressing (Closed Hashing):</strong> All elements are stored in the hash table itself. If a collision occurs, we probe other cells using methods like Linear Probing (check index +1, +2...), Quadratic Probing, or Double Hashing.</li>
-              </ul></p>
+                <li><strong>Chaining:</strong> Buckets link to pointer chains of duplicate hashes.</li>
+                <li><strong>Open Addressing:</strong> Resolves matches inside the table using Linear, Quadratic, or Double Hashing probes.</li>
+              </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent2); margin-bottom: 4px;">Q6: Why does Dijkstra's algorithm fail for negative edge weights? Give a numerical example.</h4>
-              <p><strong>Answer:</strong> Dijkstra locks a node's distance once it is visited. Consider a graph with nodes A, B, and C. Directed edges: A → B (weight 5), A → C (weight 2), and B → C (weight -10). Starting at A: Tentative distances are B=5, C=2. Dijkstra picks C (smallest, distance 2) and locks C. Next, it visits B (distance 5). The path A → B → C has total weight 5 + (-10) = -5, which is better than 2. But since C was already visited and locked, Dijkstra fails to update C, yielding an incorrect shortest path.</p>
+              <ul>
+                <li><strong>Locked Vertex:</strong> Dijkstra locks a node's distance once evaluated.</li>
+                <li><strong>Numerical Example:</strong> Directed edges: <code>A -> B (5)</code>, <code>A -> C (2)</code>, and <code>B -> C (-10)</code>. Dijkstra visits and locks C at distance 2 first. It then visits B at distance 5. The route <code>A -> B -> C</code> weighs <code>-5</code>, but since C is already locked, Dijkstra fails to update it.</li>
+              </ul>
             </div>
 
           </div>
@@ -1261,6 +1392,7 @@ def inorder(root):
 
       </div>
     </div>
+
 
     <!-- SECTION: APTITUDE -->
     <div class="section" id="section-aptitude">
