@@ -39,6 +39,7 @@
     <div class="nav-section">Theory Notes</div>
     <a class="nav-item" data-target="dsa-theory" id="nav-dsa-theory">📚 DSA Theory</a>
     <a class="nav-item" data-target="aad-theory" id="nav-aad-theory">⚙️ AAD Theory</a>
+    <a class="nav-item" data-target="oops-theory" id="nav-oops-theory">🧩 OOPs Theory</a>
 
     <div class="nav-section">Interview Prep</div>
     <a class="nav-item" data-target="interview-qa" id="nav-interview-qa">❓ Top Interview Q&amp;A</a>
@@ -234,10 +235,15 @@
           <p>In-depth Analysis and Design of Algorithms. Big-O Complexity, DFS/BFS graphs, Dijkstra, sorting algorithms, Greedy, and DP.</p>
           <span class="badge file" style="background: rgba(79, 195, 161, 0.12); color: var(--accent2);">9 Topics</span>
         </div>
+        <div class="card card-hoverable theory-oops-card" data-target="oops-theory">
+          <h3>🧩 OOPs Theory Notes</h3>
+          <p>Core object-oriented concepts: Classes, Objects, the 4 Pillars, SOLID design principles, and memory management (GC).</p>
+          <span class="badge file" style="background: rgba(201, 123, 255, 0.12); color: var(--accent5);">10 Topics</span>
+        </div>
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">31 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">56 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -1026,6 +1032,7 @@ def inorder(root):
                   <td>Linearithmic</td>
                   <td>Divide-and-conquer sorting (Merge, Quick Sort).</td>
                 </tr>
+                <tr>
                   <td><strong>O(N²)</strong></td>
                   <td>Quadratic</td>
                   <td>Nested loops (checking pairs).</td>
@@ -1277,6 +1284,237 @@ def inorder(root):
     </div>
 
 
+    <!-- SECTION: OOPs THEORY -->
+    <div class="section" id="section-oops-theory">
+      <h1 class="section-title">🧩 Object-Oriented Programming (OOPs)</h1>
+      <div class="page-subtitle">Detailed placement tutorials and core concepts of Object-Oriented programming.</div>
+
+      <div class="theory-container">
+        <!-- 1. INTRO TO OOPS -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">01</span>
+            <h2>Introduction to OOPs</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> Programming paradigm centered around <strong>objects</strong> — real-world entities that combine state (data fields) and behavior (methods) into a single entity.</li>
+              <li><strong>Comparison with Procedural Programming:</strong>
+                <ul>
+                  <li>Procedural programming organizes code around functions acting on global or passed-in data.</li>
+                  <li>OOPs groups data and functions together, preventing unauthorized external access and localizing state changes.</li>
+                </ul>
+              </li>
+              <li><strong>Why it is used:</strong> Promotes code reusability, modular design, easy debugging, and maps closely to real-world domain models.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. CLASSES AND OBJECTS -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">02</span>
+            <h2>Classes &amp; Objects</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Class (The Blueprint):</strong> A logical, user-defined template that specifies the attributes and methods that objects of its type will possess. It consumes <strong>no memory</strong> when defined.</li>
+              <li><strong>Object (The Instance):</strong> A physical, runtime instance of a class. When instantiated, it is allocated space on the heap and its constructor is executed.</li>
+              <li><strong>Memory Allocation:</strong> Objects are stored on the heap, while reference variables pointing to them are stored on the stack.</li>
+            </ul>
+            <pre class="theory-code"><code><span class="comment">// Class Blueprint definition</span>
+<span class="keyword">class</span> Car {
+    String model;
+    <span class="keyword">void</span> drive() { System.out.println("Driving " + model); }
+}
+
+<span class="comment">// Object Instantiation</span>
+Car myCar = <span class="keyword">new</span> Car();
+myCar.model = "Audi";
+myCar.drive();</code></pre>
+          </div>
+        </div>
+
+        <!-- 3. ENCAPSULATION -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">03</span>
+            <h2>Encapsulation &amp; Data Hiding</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> Wrapping data members and member functions into a single class unit, protecting variables from direct outside interference (data hiding).</li>
+              <li><strong>How Achieved:</strong> Declaring variables as <code>private</code> and providing public read/write access via <code>getter</code> and <code>setter</code> methods.</li>
+              <li><strong>Access Specifiers:</strong> Visibility limits on members:
+                <ul>
+                  <li><code>private</code>: Same class only.</li>
+                  <li><code>default</code>: Same package classes only.</li>
+                  <li><code>protected</code>: Same package classes + child subclasses in other packages.</li>
+                  <li><code>public</code>: Accessible from any class in any package.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. ABSTRACTION -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">04</span>
+            <h2>Abstraction</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> Hiding internal processing complexities from users and exposing only the essential operation signatures.</li>
+              <li><strong>Interfaces:</strong> A completely abstract blueprint that enforces a contract. Class *implements* an interface and must define all its methods. Allows multiple interface implementations.</li>
+              <li><strong>Abstract Classes:</strong> Partial implementation. Marked with the `abstract` keyword, can contain both implemented (concrete) and unimplemented (abstract) methods. Cannot be directly instantiated.</li>
+            </ul>
+            
+            <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Abstract Class vs Interface</h3>
+            <table class="theory-table">
+              <thead>
+                <tr>
+                  <th>Criteria</th>
+                  <th>Abstract Class</th>
+                  <th>Interface</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Inheritance</strong></td>
+                  <td>Single inheritance only (extends)</td>
+                  <td>Multiple implementation (implements)</td>
+                </tr>
+                <tr>
+                  <td><strong>Variables</strong></td>
+                  <td>Any access type (private, protected, instance)</td>
+                  <td>Only implicitly public static final</td>
+                </tr>
+                <tr>
+                  <td><strong>Constructor</strong></td>
+                  <td>Can define constructors</td>
+                  <td>Cannot define constructors</td>
+                </tr>
+                <tr>
+                  <td><strong>Use Case</strong></td>
+                  <td>Creating a close identity family ("is-a")</td>
+                  <td>Defining common capabilities ("can-do")</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 5. INHERITANCE -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">05</span>
+            <h2>Inheritance &amp; Diamond Problem</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> The mechanism by which a subclass inherits variables and methods from a superclass, facilitating code reuse.</li>
+              <li><strong>Types:</strong> Single, Multilevel, Hierarchical, Hybrid, and Multiple (inheriting from two classes directly).</li>
+              <li><strong>Why Java Bans Multiple Class Inheritance:</strong> The **Diamond Problem**. If class D extends classes B and C, which both override a method from parent class A, calling the method in D creates ambiguity.</li>
+              <li><strong>C++ Solution:</strong> Uses <code>virtual inheritance</code> to share a single base class instance.</li>
+              <li><strong>Java Solution:</strong> Permits multiple interface implementations but prevents multiple class inheritance. Subclasses must explicitly resolve method conflicts if default methods overlap.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6. POLYMORPHISM -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">06</span>
+            <h2>Polymorphism</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> Having many forms — allowing the same method name to execute different behaviors depending on context.</li>
+              <li><strong>Compile-time Polymorphism (Static Binding):</strong> Picked at compile time. Achieved using **Method Overloading** (same method name, different parameter signature count or types).</li>
+              <li><strong>Runtime Polymorphism (Dynamic Binding):</strong> Resolved during runtime. Achieved using **Method Overriding** (child class redefines a parent method). JVM executes the method of the actual object type, not the reference type.</li>
+              <li><strong>Exclusions:</strong> Static, private, and final methods cannot be dynamically overridden because they resolve at compile time.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7. CONSTRUCTORS & DESTRUCTORS -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">07</span>
+            <h2>Constructors &amp; Destructors</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Constructor:</strong> Special class method named after the class, called automatically during object instantiation to initialize variables. It lacks a return type.
+                <ul>
+                  <li><strong>Default Constructor:</strong> Declares no parameters. Provided automatically if no other constructor is defined.</li>
+                  <li><strong>Parameterized Constructor:</strong> Takes parameters to initialize fields to customized values.</li>
+                  <li><strong>Copy Constructor:</strong> Initializes fields using data members copied from an existing object of the same type.</li>
+                </ul>
+              </li>
+              <li><strong>Destructor:</strong> Special method (prefix `~` in C++) invoked when an object goes out of scope or is deleted, to release locks, system file handles, and memory.</li>
+              <li><strong>Garbage Collection (Java):</strong> Automatically runs in the background to reclaim heap memory from orphaned objects, bypassing the need for manual destructors.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 8. OBJECT RELATIONSHIPS -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">08</span>
+            <h2>Object Relationships</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Association:</strong> A generic structural relationship where two independent classes refer to each other. E.g., Student enrolls in Course.</li>
+              <li><strong>Aggregation (Weak HAS-A):</strong> A part-of relationship where the child object can exist independently of the parent. E.g., Department has Professors (if the department is deleted, the professors still exist).</li>
+              <li><strong>Composition (Strong HAS-A):</strong> A part-of relationship where the child object's lifecycle is bound to the parent's. E.g., Order has OrderLines (deleting the order deletes its items).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9. SOLID DESIGN PRINCIPLES -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">09</span>
+            <h2>SOLID Principles</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>S — Single Responsibility:</strong> A class should have only one reason to change (only one core responsibility).</li>
+              <li><strong>O — Open / Closed:</strong> Classes should be open for extensions (inheritance/interfaces) but closed to direct edits on existing code.</li>
+              <li><strong>L — Liskov Substitution:</strong> Subclasses must be fully substitutable for their parent classes without causing bugs.</li>
+              <li><strong>I — Interface Segregation:</strong> Client classes should not be forced to implement interface methods they do not use (prefer small, specialized interfaces).</li>
+              <li><strong>D — Dependency Inversion:</strong> High-level modules should depend on abstract contracts (interfaces) rather than concrete detail classes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10. EXCEPTION HANDLING -->
+        <div class="theory-card oops">
+          <div class="theory-card-header">
+            <span class="theory-card-num">10</span>
+            <h2>Exception Handling &amp; Best Practices</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Exception:</strong> An unexpected event during runtime that disrupts the execution flow.</li>
+              <li><strong>Graceful Recovery:</strong> Handled using <code>try-catch-finally</code> blocks to catch bugs, clean up resources, and maintain application stability.</li>
+              <li><strong>Checked vs Unchecked Exceptions:</strong>
+                <ul>
+                  <li><strong>Checked:</strong> Verified at compile time. Must be declared or handled (e.g., IOException).</li>
+                  <li><strong>Unchecked (Runtime):</strong> Occur at runtime, typically due to coding errors (e.g., NullPointerException).</li>
+                </ul>
+              </li>
+              <li><strong>Best Practice:</strong> "Favor composition over inheritance" to maintain loose coupling, and always design for single responsibilities.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- SECTION: INTERVIEW Q&A -->
     <div class="section" id="section-interview-qa">
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
@@ -1297,6 +1535,14 @@ def inorder(root):
           <div class="qa-selector-details">
             <h3>Algorithm Analysis &amp; Design</h3>
             <p>Complexity, Sorting, Graphs, Greedy, DP, MSTs</p>
+          </div>
+          <div class="qa-selector-badge">25 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="oops">
+          <div class="qa-selector-icon">🧩</div>
+          <div class="qa-selector-details">
+            <h3>Object-Oriented Programming</h3>
+            <p>Classes, Objects, Pillars, SOLID, Design Patterns</p>
           </div>
           <div class="qa-selector-badge">25 Qs</div>
         </div>
@@ -1864,6 +2110,405 @@ def inorder(root):
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- OOPs PANEL -->
+        <div class="qa-panel" id="qa-panel-oops">
+          <div class="theory-card oops">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is OOPs and why is it used?</h4>
+              <ul>
+                <li><strong>OOPs (Object-Oriented Programming):</strong> A programming paradigm that organizes software design around <strong>objects</strong> — instances of classes that bundle both data (attributes/properties) and behavior (methods) together.</li>
+                <li><strong>Why it's used:</strong> 
+                  <ul>
+                    <li>Simplifies complex software maintenance and debugging.</li>
+                    <li>Promotes <strong>code reuse</strong> through inheritance, reducing redundancy.</li>
+                    <li>Enhances security and data protection via encapsulation and abstraction.</li>
+                    <li>Models real-world scenarios naturally (e.g., a Car object with properties like color and methods like start()).</li>
+                  </ul>
+                </li>
+                <li><em>Core Concept:</em> A class is the template/blueprint (e.g., Car design model), whereas an object is the physical instance (e.g., a specific Audi A4 in memory).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q2: What are the four main pillars of OOPs?</h4>
+              <ul>
+                <li><strong>1. Encapsulation:</strong> Wrapping data and methods into a single class unit and restricting direct access to safeguard state.</li>
+                <li><strong>2. Abstraction:</strong> Hiding internal implementation details and showing only vital operational features to the user.</li>
+                <li><strong>3. Inheritance:</strong> Creating a parent-child relationship where the child class automatically inherits properties and behaviors from the parent class.</li>
+                <li><strong>4. Polymorphism:</strong> Ability of a single entity (method, operator, or object) to take on multiple forms depending on the execution context.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q3: What is a Class and what is an Object? How are they different?</h4>
+              <ul>
+                <li><strong>Class:</strong> A logical blueprint, template, or user-defined data type that declares properties and method contracts. It does not occupy memory space when defined.</li>
+                <li><strong>Object:</strong> A physical instance of a class created at runtime. It occupies memory, initializes properties, and executes class methods.</li>
+                <li><strong>Analogy:</strong> A Class is a architectural house blueprint; an Object is the physical house built on a plot of land.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is Encapsulation? How is it achieved?</h4>
+              <ul>
+                <li><strong>Definition:</strong> The bundling of data (variables) and methods (functions) inside a class while restricting direct access from external classes to prevent accidental modification.</li>
+                <li><strong>Aspects:</strong> Data hiding (using access specifiers) and Data binding (grouping fields and methods).</li>
+                <li><strong>How Achieved:</strong> Declaring variables as <code>private</code> and providing public read/write access via <code>getter</code> and <code>setter</code> methods.</li>
+              </ul>
+              <pre class="theory-code"><code><span class="keyword">class</span> BankAccount {
+    <span class="keyword">private</span> <span class="keyword">double</span> balance; <span class="comment">// Hidden field</span>
+
+    <span class="keyword">public</span> <span class="keyword">void</span> deposit(<span class="keyword">double</span> amount) {
+        <span class="keyword">if</span> (amount > 0) balance += amount; <span class="comment">// Controlled edit</span>
+    }
+    <span class="keyword">public</span> <span class="keyword">double</span> getBalance() { <span class="keyword">return</span> balance; }
+}</code></pre>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q5: What is Abstraction? How is it different from Encapsulation?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Simplifying interaction with a system by hiding background details and exposing only what is essential (e.g., using an ATM keyboard without knowing the internal network routing).</li>
+                <li><strong>How Achieved:</strong> Using abstract classes and interfaces.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Abstraction</th>
+                    <th>Encapsulation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Core Goal</strong></td>
+                    <td>Hides complexity (implementation details)</td>
+                    <td>Hides data (restricts unauthorized state edits)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Focus</strong></td>
+                    <td>Exposes *what* a class does, not *how*</td>
+                    <td>Focuses on protecting internal variable values</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tools</strong></td>
+                    <td>Abstract classes, Interfaces</td>
+                    <td>Access modifiers (private, protected, public)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q6: What is Inheritance? What are its types?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Deriving a child class (subclass) from a parent class (superclass) to reuse and extend code features.</li>
+                <li><strong>Limitations:</strong> Tight coupling (changes in parent cascade to children) and potential inheritance tree bloating.</li>
+                <li><strong>Inheritance Models:</strong>
+                  <ul>
+                    <li><strong>Single:</strong> One child class inherits from one parent class.</li>
+                    <li><strong>Multiple:</strong> One child class inherits from multiple parent classes (Supported in C++, but not for classes in Java due to ambiguity issues).</li>
+                    <li><strong>Multilevel:</strong> Grandparent &rarr; Parent &rarr; Child chain (e.g., C extends B, B extends A).</li>
+                    <li><strong>Hierarchical:</strong> Multiple child classes inherit from a single parent class.</li>
+                    <li><strong>Hybrid:</strong> A combination of two or more inheritance types.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is Polymorphism? What are its two types?</h4>
+              <ul>
+                <li><strong>Definition:</strong> The ability of a method, operator, or object to exhibit different behaviors depending on parameters or execution state.</li>
+                <li><strong>1. Compile-Time Polymorphism (Static):</strong> Resolved at compile time. Achieved using <strong>method overloading</strong> (same method name, different parameter lists) or operator overloading.</li>
+                <li><strong>2. Runtime Polymorphism (Dynamic):</strong> Resolved at runtime. Achieved using <strong>method overriding</strong> (subclass redefines a superclass method). JVM decides which method to run based on the actual object type during execution (Dynamic Method Dispatch).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is the difference between Method Overloading and Method Overriding?</h4>
+              <table class="theory-table">
+                <thead>
+                  <tr>
+                    <th>Criteria</th>
+                    <th>Method Overloading</th>
+                    <th>Method Overriding</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Polymorphism Type</strong></td>
+                    <td>Compile-time (Static binding)</td>
+                    <td>Runtime (Dynamic binding)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scope</strong></td>
+                    <td>Within the same class</td>
+                    <td>Between Parent and Child classes</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Method Signature</strong></td>
+                    <td>Must differ in parameters (type, count, order)</td>
+                    <td>Must be identical in parameters and return type</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Behavior</strong></td>
+                    <td>Adds new methods with the same name</td>
+                    <td>Redefines parent class method implementation</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is a Constructor? What are its types?</h4>
+              <ul>
+                <li><strong>Definition:</strong> A special member method of a class with the same name as the class. It is invoked automatically when an object is instantiated to initialize its state. It has no return type (not even void).</li>
+                <li><strong>Types:</strong>
+                  <ul>
+                    <li><strong>Default Constructor:</strong> No parameters. Provided automatically by compilers if no constructor is explicitly declared.</li>
+                    <li><strong>Parameterized Constructor:</strong> Accepts parameters to initialize objects with specific values.</li>
+                    <li><strong>Copy Constructor:</strong> Initializes a new object by copying data members from an existing object of the same class.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q10: What is a Destructor? How does it differ from a Constructor?</h4>
+              <ul>
+                <li><strong>Definition:</strong> A special member method (prefix `~` in C++) invoked automatically when an object's lifetime ends or it goes out of scope to release allocated memory and system resources.</li>
+                <li><strong>Java Equivalent:</strong> Java does not have destructors; instead, the **Garbage Collector** manages reclamation of heap memory automatically.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Constructor</th>
+                    <th>Destructor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Invoked during object instantiation</td>
+                    <td>Invoked during object deallocation/cleanup</td>
+                  </tr>
+                  <tr>
+                    <td>Can be overloaded (different parameters)</td>
+                    <td>Cannot be overloaded (takes no arguments)</td>
+                  </tr>
+                  <tr>
+                    <td>Allocates memory and initializes fields</td>
+                    <td>Releases handles, locks, files, and heap memory</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q11: What are Access Specifiers? Name them and explain.</h4>
+              <ul>
+                <li><strong>Definition:</strong> Keywords that define the visibility and access bounds of classes, fields, and methods.</li>
+                <li><strong>Types:</strong>
+                  <ul>
+                    <li><strong>private:</strong> Only accessible within the declaring class. (Achieves strict data encapsulation).</li>
+                    <li><strong>default (package-private):</strong> Accessible within classes of the same package.</li>
+                    <li><strong>protected:</strong> Accessible in the same package and by child subclasses in other packages.</li>
+                    <li><strong>public:</strong> Accessible from any class anywhere in the application.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is an Abstract Class? How is it different from an Interface?</h4>
+              <ul>
+                <li><strong>Abstract Class:</strong> A class marked with the `abstract` keyword. It can declare both concrete (implemented) and abstract (unimplemented) methods. It cannot be directly instantiated.</li>
+                <li><strong>Interface:</strong> A pure structure specifying a class contract. Since Java 8+, it can also contain default and static methods. A class implements interfaces and extends classes.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Abstract Class</th>
+                    <th>Interface</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Inheritance</strong></td>
+                    <td>Supports single inheritance only (extends)</td>
+                    <td>Supports multiple implementation (implements)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Variables</strong></td>
+                    <td>Can have static, final, instance variables</td>
+                    <td>Variables are implicitly public static final</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Constructor</strong></td>
+                    <td>Has constructors (called by subclasses)</td>
+                    <td>Cannot declare constructors</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Establishing a shared "is-a" base identity</td>
+                    <td>Enforcing a shared "can-do" ability contract</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q13: Why doesn't Java support multiple inheritance through classes?</h4>
+              <ul>
+                <li><strong>The Diamond Problem:</strong> If a class D extends classes B and C, which both override a method from parent class A, calling D's method creates ambiguity for the compiler.</li>
+                <li><strong>Java's Resolution:</strong> Avoids the issue for classes. However, Java allows multiple inheritance of type via **Interfaces**. If default method signatures conflict between interfaces, the subclass must explicitly override the method and choose a parent interface using <code>InterfaceName.super.methodName()</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q14: What is the Diamond Problem in OOPs?</h4>
+              <ul>
+                <li><strong>Definition:</strong> An ambiguity that arises in multiple inheritance when a subclass inherits from two parent classes that both inherit from a single grandparent class.</li>
+                <li><strong>Ambiguity:</strong> The grandchild class ends up with duplicate copies of grandparent fields, creating runtime confusion.</li>
+                <li><strong>C++ Solution:</strong> Uses the <code>virtual</code> keyword during parent inheritance to merge grandparent instances (Virtual Base Class).</li>
+                <li><strong>Java Solution:</strong> Explicitly bans multiple inheritance of classes.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q15: Can static methods be overridden?</h4>
+              <ul>
+                <li><strong>No:</strong> Overriding resolves method calls dynamically based on object instances at runtime. Static methods belong to the class, not instances, and are resolved statically at compile time.</li>
+                <li><strong>Method Hiding:</strong> Redefining a parent static method in a subclass hides it. Calling it resolves to the parent class method if called on a parent reference type, regardless of the child object type.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is Garbage Collection in OOPs?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Automatic memory management process that frees memory on the heap occupied by objects that have no active reference pathways in the application stack.</li>
+                <li><strong>Java GC:</strong> Runs automatically as a low-priority thread on the JVM, identifying and sweeping orphaned objects.</li>
+                <li><strong>C++ Contrast:</strong> C++ requires manual memory management. Developers allocate with <code>new</code> and must explicitly free memory using <code>delete</code> to prevent severe memory leaks.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q17: What is the difference between Inheritance and Composition?</h4>
+              <ul>
+                <li><strong>Inheritance (Is-A):</strong> Tight coupling where the child class is structurally bound to the parent class. E.g., Dog is an Animal.</li>
+                <li><strong>Composition (Has-A):</strong> Loose coupling where a container class holds instance variables pointing to other classes. E.g., Car has an Engine.</li>
+                <li><em>Design Paradigm:</em> "Favor composition over inheritance" to limit hierarchy bloating and allow swapping components dynamically at runtime.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q18: What are Association, Aggregation, and Composition?</h4>
+              <ul>
+                <li><strong>Association:</strong> A generic relationship between two classes. Both can exist independently. E.g., Student and Teacher.</li>
+                <li><strong>Aggregation (Weak Ownership):</strong> "Has-a" relationship where the child object can outlive the parent. E.g., Department has Professors (professors exist even if the department is deleted).</li>
+                <li><strong>Composition (Strong Ownership):</strong> "Has-a" relationship where the child lifecycle is bound to the parent's. E.g., Order has OrderItems (deleting an order deletes its items).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is Runtime Polymorphism and how does Java achieve it?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Call resolution decided dynamically during runtime based on the actual object type, not the reference type.</li>
+                <li><strong>Java Implementation:</strong> Achieved through **Method Overriding** and **Dynamic Method Dispatch**. Parent reference variable points to a child instance, and the JVM resolves overridden methods at runtime.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q20: What is an Interface and when should you use it?</h4>
+              <ul>
+                <li><strong>Definition:</strong> A completely abstract blueprint that enforces a set of method contracts that subclasses must implement.</li>
+                <li><strong>When to use:</strong>
+                  <ul>
+                    <li>To establish common contracts between unrelated classes (e.g., Serializable, Comparable).</li>
+                    <li>To define multi-type inheritance configurations.</li>
+                    <li>To enforce API standardizations while decoupling implementing details.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q21: What are SOLID Principles?</h4>
+              <ul>
+                <li><strong>S (Single Responsibility):</strong> A class should have only one reason to change (single primary duty).</li>
+                <li><strong>O (Open/Closed):</strong> Open for extensions (inheritance/interfaces) but closed to direct edits on tested code.</li>
+                <li><strong>L (Liskov Substitution):</strong> Subclasses must be completely substitutable for their base parent classes without breaking system execution.</li>
+                <li><strong>I (Interface Segregation):</strong> Segregate large interfaces into smaller, specialized interfaces to prevent classes from implementing unused methods.</li>
+                <li><strong>D (Dependency Inversion):</strong> High-level modules must depend on abstractions (interfaces), not concrete implementation details.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q22: What is Exception Handling?</h4>
+              <ul>
+                <li><strong>Exception:</strong> An unexpected event during runtime that breaks the execution flow (e.g., NullPointerException, FileNotFoundException).</li>
+                <li><strong>Exception Handling:</strong> Safely catching and managing runtime faults using <code>try-catch-finally</code> blocks to log, recover, or exit without crashing production code.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is the difference between OOP and Procedural Programming?</h4>
+              <table class="theory-table">
+                <thead>
+                  <tr>
+                    <th>Aspect</th>
+                    <th>Object-Oriented Programming</th>
+                    <th>Procedural Programming</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Core Focus</strong></td>
+                    <td>Objects (data + behaviors combined)</td>
+                    <td>Functions / Procedures (data is separate)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Data Security</strong></td>
+                    <td>High (encapsulation hides states)</td>
+                    <td>Low (global data shared among functions)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Execution Flow</strong></td>
+                    <td>Bottom-up design</td>
+                    <td>Top-down execution</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Code Reuse</strong></td>
+                    <td>Inheritance, Polymorphism</td>
+                    <td>Procedural library calls</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q24: How do you apply OOPs to a real-world design problem?</h4>
+              <ul>
+                <li><strong>Problem Scenario:</strong> Building a payment processing platform (UPI, Card, Wallet).</li>
+                <li><strong>Abstraction:</strong> Create a generic <code>PaymentStrategy</code> interface declaring the <code>pay(double amount)</code> contract.</li>
+                <li><strong>Polymorphism:</strong> Let concrete classes <code>UpiPayment</code> and <code>CardPayment</code> implement <code>pay()</code> with specific details.</li>
+                <li><strong>Encapsulation + Composition:</strong> Create a <code>PaymentProcessor</code> holding a private reference to the interface, executing payments via composition.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is Method Resolution Order (MRO) in Python?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Lookup order Python uses to search for methods in class hierarchies when multiple inheritance is involved.</li>
+                <li><strong>Algorithm:</strong> Resolves ambiguities using the <strong>C3 Linearization Algorithm</strong>.</li>
+                <li><strong>Lookup Chain:</strong> Follows the sequence: child class first, then left-to-right parent siblings, and finally grandparents. (Prevents visiting the same class twice).</li>
+              </ul>
             </div>
 
           </div>
