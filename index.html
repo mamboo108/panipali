@@ -237,7 +237,7 @@
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">14 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">31 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -1298,7 +1298,7 @@ def inorder(root):
             <h3>Algorithm Analysis &amp; Design</h3>
             <p>Complexity, Sorting, Graphs, Greedy, DP, MSTs</p>
           </div>
-          <div class="qa-selector-badge">8 Qs</div>
+          <div class="qa-selector-badge">25 Qs</div>
         </div>
       </div>
 
@@ -1357,72 +1357,515 @@ def inorder(root):
           </div>
         </div>
 
-        <!-- AAD PANEL -->
         <div class="qa-panel" id="qa-panel-aad">
           <div class="theory-card aad">
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q1: Stable vs Unstable sorting algorithms - why does it matter?</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q1: What are the key characteristics of a good algorithm?</h4>
               <ul>
-                <li><strong>Stability:</strong> Preserves the original relative order of items with equivalent sorting keys.</li>
-                <li><strong>Use Case:</strong> Vital when sorting database objects sequentially over multiple columns (e.g., sorting by name, then sorting by age group).</li>
+                <li><strong>Finite:</strong> Terminates after a finite number of steps.</li>
+                <li><strong>Definite:</strong> Each step is clear, precise, and unambiguous.</li>
+                <li><strong>Input / Output:</strong> Takes defined inputs and produces at least one output.</li>
+                <li><strong>Effective:</strong> Every step is basic, feasible, and executable.</li>
+                <li><strong>Correct:</strong> Produces the right output for all valid input cases.</li>
+                <li><em>Interview Tip:</em> State: "Beyond correctness, a practical algorithm should be highly optimized in time and space complexity." This shows design maturity.</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q2: Adjacency Matrix vs Adjacency List for Graphs - when to use which?</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q2: Explain Time and Space Complexity. Why do we analyze both?</h4>
               <ul>
-                <li><strong>Adjacency Matrix:</strong> Takes <code>O(V²)</code> space. Edge lookups run in <code>O(1)</code>. Optimal for <strong>dense graphs</strong>.</li>
-                <li><strong>Adjacency List:</strong> Takes <code>O(V + E)</code> space. Edge lookups run in <code>O(degree)</code>. Optimal for <strong>sparse graphs</strong>.</li>
+                <li><strong>Time Complexity:</strong> Counts the number of basic computational steps as a function of input size <code>n</code> (not actual clock time, which is machine-dependent).</li>
+                <li><strong>Space Complexity:</strong> Measures total memory used, including variables, recursion stack, and auxiliary structures.</li>
+                <li><strong>Trade-offs:</strong> Systems might prioritize speed (e.g., trading platforms sacrificing space for time) or be memory-constrained (e.g., embedded devices sacrificing time for space).</li>
+                <li><strong>Example:</strong> Merge Sort runs in <code>O(n log n)</code> time but requires <code>O(n)</code> auxiliary space. Bubble Sort runs in <code>O(n²)</code> time but takes <code>O(1)</code> space. Context determines the best choice.</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q3: Explain the difference between Divide &amp; Conquer and Dynamic Programming.</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q3: Explain Best, Worst, and Average Case with an example.</h4>
               <ul>
-                <li><strong>Divide &amp; Conquer:</strong> Solves independent subproblems sequentially (e.g., Merge Sort splits left and right independently).</li>
-                <li><strong>Dynamic Programming:</strong> Caches optimal results for overlapping subproblems (e.g., Knapsack subproblem results are shared).</li>
+                <li><strong>Best Case:</strong> Most favorable input, minimum time. Represented by Omega (<code>&Omega;</code>).</li>
+                <li><strong>Worst Case:</strong> Least favorable input, maximum time. Represented by Big-O (<code>O</code>). (This is the industry standard for system design).</li>
+                <li><strong>Average Case:</strong> Expected run-time averaged over all possible inputs. Represented by Theta (<code>&Theta;</code>).</li>
+                <li><strong>Linear Search Example:</strong> Best case is element at index 0 (<code>O(1)</code>). Worst case is element at the end or absent (<code>O(n)</code>). Average case is searching half the array (<code>O(n)</code>).</li>
+                <li><em>Interview Tip:</em> Lead with the worst-case complexity. Real-world systems are built for worst-case bounds.</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is Auxiliary Space and how does it differ from Space Complexity?</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q4: Explain Big-O, Omega, and Theta notation clearly.</h4>
               <ul>
-                <li><strong>Space Complexity:</strong> Sum memory needed including input data storage buffers.</li>
-                <li><strong>Auxiliary Space:</strong> Temporary run-time memory structures allocated by processing (e.g., variables, helper lists, recursion stack).</li>
+                <li><strong>Big-O (Upper Bound):</strong> <code>f(n) &le; c &middot; g(n)</code> for all <code>n &ge; n₀</code>. Represents the worst-case scenario. (e.g., Linear Search is <code>O(n)</code>).</li>
+                <li><strong>Big-Omega (Lower Bound):</strong> <code>f(n) &ge; c &middot; g(n)</code> for all <code>n &ge; n₀</code>. Represents the best-case scenario. (e.g., Linear Search is <code>&Omega;(1)</code>).</li>
+                <li><strong>Big-Theta (Tight Bound):</strong> If <code>f(n)</code> is both <code>O(g(n))</code> and <code>&Omega;(g(n))</code>. Upper and lower bounds grow at the same rate. (e.g., Merge Sort is <code>&Theta;(n log n)</code>).</li>
+                <li><strong>Little-o / Little-omega:</strong> Strict upper/lower bounds that exclude equality (strictly slower / strictly faster growth rates).</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q5: What are collision resolution techniques in Hashing?</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q5: What is the order of common complexity classes?</h4>
               <ul>
-                <li><strong>Chaining:</strong> Buckets link to pointer chains of duplicate hashes.</li>
-                <li><strong>Open Addressing:</strong> Resolves matches inside the table using Linear, Quadratic, or Double Hashing probes.</li>
+                <li><strong>Hierarchy (Fastest to Slowest):</strong> <code>O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!)</code></li>
+                <li><strong>O(1) (Constant):</strong> Array indexing, hash-table search (average).</li>
+                <li><strong>O(log n) (Logarithmic):</strong> Binary Search.</li>
+                <li><strong>O(n) (Linear):</strong> Linear Search, array traversal.</li>
+                <li><strong>O(n log n) (Linearithmic):</strong> Merge Sort, QuickSort (average), Heap Sort.</li>
+                <li><strong>O(n²) (Quadratic):</strong> Bubble Sort, Insertion Sort, Selection Sort.</li>
+                <li><strong>O(2ⁿ) (Exponential):</strong> Recursive Fibonacci, recursive subsets.</li>
+                <li><strong>O(n!) (Factorial):</strong> Brute-force Traveling Salesperson Problem (TSP).</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q6: Why does Dijkstra's algorithm fail for negative edge weights? Give a numerical example.</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q6: State Master's Theorem and apply it to Merge Sort.</h4>
               <ul>
-                <li><strong>Locked Vertex:</strong> Dijkstra locks a node's distance once evaluated.</li>
-                <li><strong>Numerical Example:</strong> Directed edges: <code>A -> B (5)</code>, <code>A -> C (2)</code>, and <code>B -> C (-10)</code>. Dijkstra visits and locks C at distance 2 first. It then visits B at distance 5. The route <code>A -> B -> C</code> weighs <code>-5</code>, but since C is already locked, Dijkstra fails to update it.</li>
+                <li><strong>Theorem Formula:</strong> Solves recurrences of the form <code>T(n) = aT(n/b) + f(n)</code> for <code>a &ge; 1, b &gt; 1</code>. Let <code>p = n^(log_b a)</code>.</li>
+                <li><strong>Case 1 (f(n) &lt; p):</strong> <code>T(n) = &Theta;(n^(log_b a))</code>.</li>
+                <li><strong>Case 2 (f(n) = p):</strong> <code>T(n) = &Theta;(n^(log_b a) &middot; log n)</code>.</li>
+                <li><strong>Case 3 (f(n) &gt; p):</strong> <code>T(n) = &Theta;(f(n))</code> (requires regularity condition).</li>
+                <li><strong>Merge Sort Application:</strong> <code>T(n) = 2T(n/2) + n</code> &rarr; <code>a=2, b=2, p = n^(log₂2) = n</code>. Since <code>f(n) = n = &Theta;(p)</code> (Case 2), <code>T(n) = &Theta;(n log n)</code>.</li>
+                <li><strong>Binary Search Application:</strong> <code>T(n) = T(n/2) + 1</code> &rarr; <code>a=1, b=2, p = n⁰ = 1</code>. Since <code>f(n) = 1 = &Theta;(p)</code> (Case 2), <code>T(n) = &Theta;(log n)</code>.</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is the difference between Greedy and Dynamic Programming paradigms?</h4>
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is an AVL Tree and what are its four rotations?</h4>
               <ul>
-                <li><strong>Greedy Paradigm:</strong> Makes the locally optimal choice at each stage (e.g., fractional knapsack, Dijkstra) without re-evaluating past choices. Fast but doesn't guarantee global optimality for all problems.</li>
-                <li><strong>Dynamic Programming:</strong> Solves and stores subproblem solutions (e.g., 0/1 knapsack, Floyd-Warshall) using memoization/tabulation. Guarantees global optimality by evaluating overlapping subproblems.</li>
+                <li><strong>Definition:</strong> A self-balancing Binary Search Tree where the Balance Factor (Height of Left subtree &minus; Height of Right subtree) of every node is restricted to <code>-1</code>, <code>0</code>, or <code>+1</code>.</li>
+                <li><strong>Why AVL:</strong> Standard BSTs can degenerate into <code>O(n)</code> linked lists under sorted input. AVL guarantees <code>O(log n)</code> bounds for search, insertion, and deletion.</li>
+                <li><strong>Four Rotations (triggered when Balance Factor becomes &plusmn;2):</strong>
+                  <ul>
+                    <li><strong>LL Rotation (Right Rotate):</strong> Applied when a node is inserted in the left child's left subtree.</li>
+                    <li><strong>RR Rotation (Left Rotate):</strong> Applied when a node is inserted in the right child's right subtree.</li>
+                    <li><strong>LR Rotation (Left-then-Right):</strong> Applied when a node is inserted in the left child's right subtree.</li>
+                    <li><strong>RL Rotation (Right-then-Left):</strong> Applied when a node is inserted in the right child's left subtree.</li>
+                  </ul>
+                </li>
+                <li><em>Memory Tip:</em> LL and RR need single rotations. LR and RL need double rotations.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q8: What are Disjoint Sets and how are Union-Find operations optimized?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Tracks elements partitioned into non-overlapping (disjoint) groups.</li>
+                <li><strong>Core Operations:</strong> <code>MakeSet(x)</code> (initializes set), <code>Find(x)</code> (returns subset representative root), <code>Union(x, y)</code> (merges subsets).</li>
+                <li><strong>Optimizations:</strong>
+                  <ul>
+                    <li><strong>Union by Rank/Size:</strong> Attaches the shallower tree root under the deeper tree root to keep tree heights flat.</li>
+                    <li><strong>Path Compression:</strong> Flattens tree structures during <code>Find</code> by making all traversed nodes point directly to the root, accelerating future queries.</li>
+                  </ul>
+                </li>
+                <li><strong>Complexity:</strong> Amortized cost per operation is <code>O(&alpha;(n))</code>, which is effectively constant <code>O(1)</code> since the inverse Ackermann function <code>&alpha;(n) &le; 4</code> for all realistic inputs.</li>
+                <li><strong>Use Case:</strong> Cycle detection inside Kruskal's Minimum Spanning Tree algorithm.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q9: Explain BFS and DFS — differences, complexities, and when to use each.</h4>
+              <ul>
+                <li><strong>BFS (Breadth First Search):</strong> Explores graph level-by-level using a Queue.
+                  <ul>
+                    <li><strong>Complexity:</strong> <code>O(V + E)</code> time | <code>O(V)</code> space.</li>
+                    <li><strong>Best For:</strong> Finding shortest paths in unweighted graphs, level-order traversals.</li>
+                  </ul>
+                </li>
+                <li><strong>DFS (Depth First Search):</strong> Explores branches deep using a Stack or recursion, backtracking when blocked.
+                  <ul>
+                    <li><strong>Complexity:</strong> <code>O(V + E)</code> time | <code>O(V)</code> space.</li>
+                    <li><strong>Best For:</strong> Cycle detection, topological sorting, finding strongly connected components (SCCs).</li>
+                  </ul>
+                </li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>BFS</th>
+                    <th>DFS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Data Structure</strong></td>
+                    <td>Queue</td>
+                    <td>Stack / Recursion</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Shortest Path?</strong></td>
+                    <td>Yes (unweighted graphs)</td>
+                    <td>No</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Memory Demand</strong></td>
+                    <td>Higher (stores level width)</td>
+                    <td>Lower (stores path depth stack)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Shortest path, level-order</td>
+                    <td>Cycle detection, topological sort</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q10: What is Topological Sorting? When is it applicable?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge <code>u &rarr; v</code>, vertex <code>u</code> comes before vertex <code>v</code>.</li>
+                <li><strong>Precondition:</strong> Only valid for Directed Acyclic Graphs (DAGs). Any cycle makes topological sorting impossible.</li>
+                <li><strong>Algorithm:</strong> Run DFS on the graph. When a vertex finishes (all neighbors are visited), push it to a stack. Pop all elements from the stack to obtain the topological order. Time complexity is <code>O(V + E)</code>.</li>
+                <li><strong>Applications:</strong> Course prerequisite ordering, build system dependencies, package installation order.</li>
+                <li><em>Interview Tip:</em> Whenever an interview mentions "ordering with dependencies," think topological sort.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q11: Explain Merge Sort with its recurrence and why it's preferred over Bubble Sort.</h4>
+              <ul>
+                <li><strong>Mechanics:</strong> Recursively splits the array into two halves, sorts them, and merges the sorted halves using a helper array.</li>
+                <li><strong>Recurrence:</strong> <code>T(n) = 2T(n/2) + O(n)</code>, which yields <code>O(n log n)</code> in all cases.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Merge Sort</th>
+                    <th>Bubble Sort</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Time Complexity</strong></td>
+                    <td>O(n log n) (all cases)</td>
+                    <td>O(n²) (worst/average case)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Space Complexity</strong></td>
+                    <td>O(n) auxiliary memory</td>
+                    <td>O(1) in-place memory</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stability</strong></td>
+                    <td>Yes (stable sorting)</td>
+                    <td>Yes (stable sorting)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Large datasets, linked lists, external sort</td>
+                    <td>Educational purposes only</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is the Greedy Strategy? When does it work and when does it fail?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Builds solutions incrementally by making the locally optimal choice at each step, hoping it leads to a global optimum.</li>
+                <li><strong>Key Properties Required:</strong>
+                  <ul>
+                    <li><strong>Greedy Choice Property:</strong> A global optimum can be reached by making local, irreversible optimal choices.</li>
+                    <li><strong>Optimal Substructure:</strong> An optimal solution to the problem contains optimal solutions to its subproblems.</li>
+                  </ul>
+                </li>
+                <li><strong>Works For:</strong> Fractional Knapsack, Kruskal's/Prim's MST, Dijkstra's Shortest Path, Huffman Coding, Activity Selection.</li>
+                <li><strong>Fails For:</strong> 0/1 Knapsack (requires DP), Coin Change with arbitrary denominations (requires DP).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q13: Explain Kruskal's Algorithm. How does it use Disjoint Sets?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Greedy algorithm that finds the Minimum Spanning Tree (MST) of a weighted graph by picking the cheapest edges that do not form a cycle.</li>
+                <li><strong>Steps:</strong>
+                  <ol style="margin-left: 20px; margin-top: 4px;">
+                    <li>Sort all edges by weight in ascending order.</li>
+                    <li>Initialize each vertex as its own disjoint set.</li>
+                    <li>For each sorted edge <code>(u, v)</code>: if <code>Find(u) &ne; Find(v)</code>, add it to the MST and run <code>Union(u, v)</code>. Otherwise, discard it.</li>
+                    <li>Stop when the MST contains <code>V - 1</code> edges.</li>
+                  </ol>
+                </li>
+                <li><strong>Time Complexity:</strong> <code>O(E log E)</code> for sorting edges, which dominates the Union-Find steps.</li>
+                <li><strong>Disjoint Set Role:</strong> The <code>Find</code> operation performs a constant-time check to see if two vertices belong to the same component, preventing cycle formation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q14: Explain Dijkstra's Algorithm. Why does it fail with negative weights?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Finds single-source shortest paths in weighted graphs with non-negative edge weights.</li>
+                <li><strong>Steps:</strong>
+                  <ol style="margin-left: 20px; margin-top: 4px;">
+                    <li>Set distance of source to 0 and all other vertices to <code>&infin;</code>.</li>
+                    <li>Insert the source into a min-priority queue.</li>
+                    <li>Extract vertex <code>u</code> with the minimum distance. For each neighbor <code>v</code>, if <code>dist[u] + weight(u,v) &lt; dist[v]</code>, update <code>dist[v]</code> (relaxation) and insert <code>v</code> into the queue.</li>
+                  </ol>
+                </li>
+                <li><strong>Time Complexity:</strong> <code>O((V + E) log V)</code> using a binary heap.</li>
+                <li><strong>Negative Weights Failure:</strong> Dijkstra marks a vertex's distance as finalized once it is extracted from the queue. If a negative weight edge is discovered later, it might offer a shorter path, but Dijkstra will not re-evaluate the closed vertex. (Use **Bellman-Ford** for negative edge weights).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is Dynamic Programming? How is it different from Divide and Conquer?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Solves complex optimization problems by breaking them down into overlapping subproblems, solving each subproblem once, and storing the results (memoization/tabulation) to avoid recomputation.</li>
+                <li><strong>Key Properties:</strong> Optimal Substructure and Overlapping Subproblems.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Divide &amp; Conquer</th>
+                    <th>Dynamic Programming</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Subproblems</strong></td>
+                    <td>Independent (non-overlapping)</td>
+                    <td>Overlapping (re-calculated states)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stores Results?</strong></td>
+                    <td>No (re-computes recursively)</td>
+                    <td>Yes (caches in table / memory)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Approach</strong></td>
+                    <td>Top-down recursion</td>
+                    <td>Top-down (memoized) or Bottom-up (tabulated)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Examples</strong></td>
+                    <td>Merge Sort, Binary Search</td>
+                    <td>Matrix Chain, Floyd-Warshall, Knapsack</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q16: Explain Floyd-Warshall Algorithm. How does it differ from Dijkstra?</h4>
+              <ul>
+                <li><strong>Definition:</strong> Dynamic Programming algorithm that finds the shortest paths between all pairs of vertices in a weighted graph. Can handle negative edges (but not negative cycles).</li>
+                <li><strong>Equation:</strong> <code>D[i][j] = min(D[i][j], D[i][k] + D[k][j])</code> evaluated for all vertices <code>k</code>.</li>
+                <li><strong>Time / Space Complexity:</strong> <code>O(V³)</code> time | <code>O(V²)</code> space.</li>
+                <li><strong>Negative Cycle Detection:</strong> If diagonal elements <code>D[i][i] &lt; 0</code> after execution, a negative cycle exists.</li>
+              </ul>
+              <table class="theory-table" style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th>Criteria</th>
+                    <th>Dijkstra (All-Pairs)</th>
+                    <th>Floyd-Warshall</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Time Complexity</strong></td>
+                    <td>O(V(V+E) log V)</td>
+                    <td>O(V³)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Negative Edges</strong></td>
+                    <td>No (causes infinite loops/errors)</td>
+                    <td>Yes (supported)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Implementation</strong></td>
+                    <td>Complex priority loops</td>
+                    <td>Simple (3 nested loops)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Sparse graphs</td>
+                    <td>Dense graphs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q17: Explain Matrix Chain Multiplication using Dynamic Programming.</h4>
+              <ul>
+                <li><strong>Problem:</strong> Given a sequence of matrices, find the most efficient way to multiply them to minimize the total scalar multiplications.</li>
+                <li><strong>DP Formulation:</strong> Let <code>m[i][j]</code> be the minimum multiplications needed to compute matrices <code>i</code> through <code>j</code>.
+                  <div class="formula-box">m[i][i] = 0<br>m[i][j] = min_{i &le; k &lt; j} (m[i][k] + m[k+1][j] + p[i-1] &middot; p[k] &middot; p[j])</div>
+                  where matrix <code>A<sub>i</sub></code> has dimensions <code>p[i-1] &times; p[i]</code>.
+                </li>
+                <li><strong>Complexity:</strong> <code>O(n³)</code> time | <code>O(n²)</code> space.</li>
+                <li><strong>Example:</strong> Matrices 10&times;30, 30&times;5, 5&times;60. Evaluating <code>(AB)C</code> takes 4,500 multiplications, whereas <code>A(BC)</code> takes 27,000. DP correctly yields <code>(AB)C</code> as the optimal configuration.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q18: Explain the N-Queens Problem and how Backtracking solves it.</h4>
+              <ul>
+                <li><strong>Problem:</strong> Place <code>N</code> queens on an <code>N &times; N</code> chessboard such that no two queens attack each other (no shared row, column, or diagonal).</li>
+                <li><strong>Backtracking Approach:</strong> Place queens row-by-row. For each row, try placing the queen in column <code>c</code>. If safe, place it and recurse to the next row. If a dead end is reached (no column is safe), backtrack: remove the queen from the previous row and try its next column.</li>
+                <li><strong>Pruning Benefit:</strong> Subtrees of search space are abandoned ("pruned") as soon as a placement violation occurs, saving immense execution time.</li>
+                <li><strong>Complexity:</strong> <code>O(N!)</code> worst-case time, but significantly reduced by pruning.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q19: What are the complexity classes P, NP, NP-Hard, and NP-Complete?</h4>
+              <ul>
+                <li><strong>P (Polynomial):</strong> Problems solvable in polynomial time (e.g., Sorting, Shortest Path, MST).</li>
+                <li><strong>NP (Nondeterministic Polynomial):</strong> Problems whose solutions can be verified in polynomial time, though finding the solution might take exponential time (e.g., SAT, Hamiltonian Path). Note that <code>P &sube; NP</code>.</li>
+                <li><strong>NP-Hard:</strong> Problems at least as hard as any NP problem. Every NP problem can be reduced to them in polynomial time. They do not need to be in NP (e.g., Traveling Salesperson Optimization).</li>
+                <li><strong>NP-Complete:</strong> The hardest problems in NP; they are both in NP and NP-Hard (e.g., Clique, SAT, Vertex Cover).</li>
+                <li><em>P vs NP:</em> The Millennium Prize problem. If <code>P = NP</code>, verifying a solution is as easy as finding it, which would break modern cryptography.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q20: How do you prove a problem is NP-Complete?</h4>
+              <ul>
+                <li><strong>Step 1: Show the problem (X) is in NP:</strong> Demonstrate that a candidate solution (certificate) can be verified in polynomial time.</li>
+                <li><strong>Step 2: Show X is NP-Hard:</strong> Reduce a known NP-Complete problem (like SAT or 3-SAT) to X in polynomial time. (This means if you could solve X efficiently, you could solve the known NP-Complete problem efficiently too).</li>
+                <li><strong>Historical Base:</strong> The Boolean Satisfiability Problem (SAT) was proven NP-Complete first by Cook (1971). All subsequent NP-Completeness proofs are derived from reductions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q21: What is the Fractional Knapsack problem and why does Greedy work here but not 0/1 Knapsack?</h4>
+              <ul>
+                <li><strong>Fractional Knapsack:</strong> Items can be divided. We sort items by value-to-weight ratio in descending order and greedily take the highest-ratio items first. This Greedy strategy is optimal and runs in <code>O(n log n)</code>.</li>
+                <li><strong>0/1 Knapsack:</strong> Items must be taken whole. A Greedy strategy based on value/weight ratio fails because taking the highest-ratio item might leave empty space that could have been filled more optimally by multiple lower-ratio items. Thus, 0/1 Knapsack requires Dynamic Programming to solve.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q22: Explain Strongly Connected Components (SCCs).</h4>
+              <ul>
+                <li><strong>Definition:</strong> A maximal subgraph of a directed graph where every vertex is reachable from every other vertex in that subgraph.</li>
+                <li><strong>Kosaraju's Algorithm (two-pass DFS):</strong>
+                  <ol style="margin-left: 20px; margin-top: 4px;">
+                    <li>Perform DFS on original graph <code>G</code>. Push vertices to a stack in order of their completion times.</li>
+                    <li>Transpose the graph <code>G<sup>T</sup></code> (reverse the direction of all edges).</li>
+                    <li>Pop vertices from the stack. Perform DFS on <code>G<sup>T</sup></code>. Each DFS tree represents one Strongly Connected Component.</li>
+                  </ol>
+                </li>
+                <li><strong>Time Complexity:</strong> <code>O(V + E)</code> (two full graph traversals).</li>
+                <li><strong>Applications:</strong> Circular dependency resolution, compiler optimization, finding deadlock dependencies.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is the difference between Greedy and Dynamic Programming?</h4>
+              <table class="theory-table">
+                <thead>
+                  <tr>
+                    <th>Aspect</th>
+                    <th>Greedy Strategy</th>
+                    <th>Dynamic Programming</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Choice per Step</strong></td>
+                    <td>Locally optimal choice (irreversible)</td>
+                    <td>Evaluates all subproblems before deciding</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Subproblems</strong></td>
+                    <td>Independent paths</td>
+                    <td>Overlapping, cached and reused</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Complexity</strong></td>
+                    <td>Faster and uses less memory</td>
+                    <td>Slower and requires state tables</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Correctness</strong></td>
+                    <td>Only for specific problems</td>
+                    <td>Guaranteed if substructure properties hold</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q24: What are Randomized Algorithms? Explain Monte Carlo vs Las Vegas.</h4>
+              <ul>
+                <li><strong>Definition:</strong> Algorithms that use random choices as part of their logic to improve average-case performance.</li>
+                <li><strong>Monte Carlo:</strong> Runs in deterministic polynomial time, but has a bounded probability of yielding incorrect results. (e.g., Miller-Rabin Primality test).</li>
+                <li><strong>Las Vegas:</strong> Always yields the correct result, but the running time is random (expected average is polynomial). (e.g., Randomized QuickSort).</li>
+                <li><strong>Randomized QuickSort:</strong> Selecting a random pivot prevents adversarial inputs from consistently triggering the worst-case <code>O(n²)</code> complexity, keeping average performance at <code>O(n log n)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q25: How do you approach an unseen algorithm problem in an interview?</h4>
+              <ul>
+                <li><strong>Step 1: Understand first:</strong> Clarify inputs/outputs, ask about constraints (e.g., size of <code>n</code>, negative values, memory limits).</li>
+                <li><strong>Step 2: Identify patterns:</strong> Check if the problem exhibits optimal substructure (DP), greedy choice properties (Greedy), independent subproblems (Divide &amp; Conquer), or graph relationships (BFS/DFS).</li>
+                <li><strong>Step 3: State Brute Force:</strong> Communicate the simplest solution out loud to verify your understanding. Explain its time/space complexity before optimizing.</li>
+                <li><strong>Step 4: Optimize:</strong> Use pruning, memoization, pointer techniques, or hashing.</li>
+                <li><strong>Step 5: Trace &amp; Test:</strong> Walk through a small example manually to catch edge cases (empty inputs, single nodes).</li>
               </ul>
             </div>
 
             <div style="margin-bottom: 0;">
-              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q8: Kruskal's vs Prim's algorithm for Minimum Spanning Trees (MST) - when to use which?</h4>
-              <ul>
-                <li><strong>Kruskal's:</strong> Sorts all edges and adds them if they don't form a cycle. Uses Disjoint Set Union (DSU) and runs in <code>O(E log E)</code>. Optimal for <strong>sparse graphs</strong> (fewer edges).</li>
-                <li><strong>Prim's:</strong> Builds the MST node-by-node starting from a root, picking the minimum weight edge to an unvisited node. Uses a priority queue and runs in <code>O(E log V)</code>. Optimal for <strong>dense graphs</strong> (more edges).</li>
-              </ul>
+              <h4 style="color: var(--accent2); margin-bottom: 8px; font-size: 1.15rem;">📌 Quick Reference Complexity Card</h4>
+              <table class="theory-table" style="margin-top: 8px; font-size: 0.85rem;">
+                <thead>
+                  <tr>
+                    <th>Algorithm</th>
+                    <th>Time Complexity</th>
+                    <th>Key Paradigm / Strategy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Binary Search</strong></td>
+                    <td>O(log n)</td>
+                    <td>Divide &amp; Conquer</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Merge Sort</strong></td>
+                    <td>O(n log n)</td>
+                    <td>Divide &amp; Conquer (stable)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dijkstra's Algorithm</strong></td>
+                    <td>O((V + E) log V)</td>
+                    <td>Greedy (Single-Source Shortest Path)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kruskal's Algorithm</strong></td>
+                    <td>O(E log E)</td>
+                    <td>Greedy + DSU (Minimum Spanning Tree)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Floyd-Warshall</strong></td>
+                    <td>O(V³)</td>
+                    <td>Dynamic Programming (All-Pairs Shortest Path)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Matrix Chain Mult.</strong></td>
+                    <td>O(n³)</td>
+                    <td>Dynamic Programming (Optimal Parenthesization)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>BFS / DFS</strong></td>
+                    <td>O(V + E)</td>
+                    <td>Graph Traversal (Queue / Stack)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Randomized QuickSort</strong></td>
+                    <td>O(n log n) expected</td>
+                    <td>Las Vegas (Random Pivot Select)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
           </div>
         </div>
 
