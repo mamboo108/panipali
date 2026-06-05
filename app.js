@@ -530,6 +530,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- INTERVIEW QA CATEGORY SELECTOR ---
+  const qaSelectorCards = document.querySelectorAll('.qa-selector-card');
+  const qaPanels = document.querySelectorAll('.qa-panel');
+
+  qaSelectorCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetCat = card.getAttribute('data-target-category');
+      if (!targetCat) return;
+
+      // Toggle active states on selector cards
+      qaSelectorCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      // Toggle active states on Q&A panels
+      qaPanels.forEach(panel => {
+        if (panel.id === `qa-panel-${targetCat}`) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    });
+  });
+
   // --- INITIALIZATION ---
   loadProgress();
 });

@@ -237,7 +237,7 @@
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">12 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">14 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -1282,109 +1282,147 @@ def inorder(root):
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
       <div class="page-subtitle">Frequently asked technical viva Q&amp;As sorted by subject area.</div>
 
+      <!-- Q&A Category Selection Cards -->
+      <div class="qa-category-selector">
+        <div class="qa-selector-card active" data-target-category="dsa">
+          <div class="qa-selector-icon">💻</div>
+          <div class="qa-selector-details">
+            <h3>Data Structures &amp; Algorithms</h3>
+            <p>Arrays, Lists, Stacks, Trees, Heaps, Recursion</p>
+          </div>
+          <div class="qa-selector-badge">6 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="aad">
+          <div class="qa-selector-icon">⚙️</div>
+          <div class="qa-selector-details">
+            <h3>Algorithm Analysis &amp; Design</h3>
+            <p>Complexity, Sorting, Graphs, Greedy, DP, MSTs</p>
+          </div>
+          <div class="qa-selector-badge">8 Qs</div>
+        </div>
+      </div>
+
       <div class="theory-container">
         
-        <h2 class="qa-subject-header">💻 Data Structures &amp; Algorithms (DSA)</h2>
-        
-        <div class="theory-card dsa">
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q1: Explain locality of reference in Arrays vs Linked Lists.</h4>
-            <ul>
-              <li><strong>Spatial Locality:</strong> Arrays store elements in contiguous blocks of memory, which allows CPUs to cache adjacent elements during index lookups, generating high cache hit rates.</li>
-              <li><strong>Pointer Overhead:</strong> Linked list nodes are scattered across the heap. Accessing the next element requires dereferencing pointers, causing frequent cache misses and slower traversals.</li>
-            </ul>
-          </div>
+        <!-- DSA PANEL -->
+        <div class="qa-panel active" id="qa-panel-dsa">
+          <div class="theory-card dsa">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q1: Explain locality of reference in Arrays vs Linked Lists.</h4>
+              <ul>
+                <li><strong>Spatial Locality:</strong> Arrays store elements in contiguous blocks of memory, which allows CPUs to cache adjacent elements during index lookups, generating high cache hit rates.</li>
+                <li><strong>Pointer Overhead:</strong> Linked list nodes are scattered across the heap. Accessing the next element requires dereferencing pointers, causing frequent cache misses and slower traversals.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q2: What is call stack overflow in recursion?</h4>
-            <ul>
-              <li><strong>Stack Allocation:</strong> Each recursive call pushes a stack frame (storing arguments, variables, and return targets) onto the execution stack.</li>
-              <li><strong>Overflow Event:</strong> If recursion lacks a base case, or runs too deep, frames accumulate continuously without popping. Once stack size limits are exceeded, a Stack Overflow occurs.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q2: What is call stack overflow in recursion?</h4>
+              <ul>
+                <li><strong>Stack Allocation:</strong> Each recursive call pushes a stack frame (storing arguments, variables, and return targets) onto the execution stack.</li>
+                <li><strong>Overflow Event:</strong> If recursion lacks a base case, or runs too deep, frames accumulate continuously without popping. Once stack size limits are exceeded, a Stack Overflow occurs.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q3: Why are self-balancing trees (AVL, Red-Black) preferred over standard BSTs in production?</h4>
-            <ul>
-              <li><strong>Skewing Risk:</strong> If items are inserted into a BST in sorted order, the tree becomes skewed (like a linked list), slowing lookups from <code>O(log N)</code> to <code>O(N)</code>.</li>
-              <li><strong>Height Bounding:</strong> Self-balancing trees execute node rotations during modifications to enforce height bounds, securing <code>O(log N)</code> performance.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q3: Why are self-balancing trees (AVL, Red-Black) preferred over standard BSTs in production?</h4>
+              <ul>
+                <li><strong>Skewing Risk:</strong> If items are inserted into a BST in sorted order, the tree becomes skewed (like a linked list), slowing lookups from <code>O(log N)</code> to <code>O(N)</code>.</li>
+                <li><strong>Height Bounding:</strong> Self-balancing trees execute node rotations during modifications to enforce height bounds, securing <code>O(log N)</code> performance.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is amortized time complexity? Explain with Dynamic Array resizing.</h4>
-            <ul>
-              <li><strong>Average Costing:</strong> Amortized complexity evaluates the average time taken per operation over a worst-case sequence.</li>
-              <li><strong>Array Resizing:</strong> Appending to a dynamic array takes <code>O(1)</code> time. When capacity is exceeded, it copies all <code>N</code> elements to a new double-sized block (taking <code>O(N)</code>). Because resizing occurs only at size powers of 2, the average cost over N appends resolves to <code>O(1)</code>.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is amortized time complexity? Explain with Dynamic Array resizing.</h4>
+              <ul>
+                <li><strong>Average Costing:</strong> Amortized complexity evaluates the average time taken per operation over a worst-case sequence.</li>
+                <li><strong>Array Resizing:</strong> Appending to a dynamic array takes <code>O(1)</code> time. When capacity is exceeded, it copies all <code>N</code> elements to a new double-sized block (taking <code>O(N)</code>). Because resizing occurs only at size powers of 2, the average cost over N appends resolves to <code>O(1)</code>.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q5: Explain Floyd's Cycle-Finding Algorithm (Tortoise and Hare) for Linked Lists.</h4>
-            <ul>
-              <li><strong>Pointers Setup:</strong> Initialize two pointers (Slow moving 1 node, Fast moving 2 nodes) at the head.</li>
-              <li><strong>Meeting Guarantee:</strong> If a loop exists, the fast pointer enters it first. Because the fast pointer closes the gap by 1 node per step, it is guaranteed to meet the slow pointer in <code>O(N)</code> time with <code>O(1)</code> space.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q5: Explain Floyd's Cycle-Finding Algorithm (Tortoise and Hare) for Linked Lists.</h4>
+              <ul>
+                <li><strong>Pointers Setup:</strong> Initialize two pointers (Slow moving 1 node, Fast moving 2 nodes) at the head.</li>
+                <li><strong>Meeting Guarantee:</strong> If a loop exists, the fast pointer enters it first. Because the fast pointer closes the gap by 1 node per step, it is guaranteed to meet the slow pointer in <code>O(N)</code> time with <code>O(1)</code> space.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 0;">
-            <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q6: How does Stack memory differ from Heap memory allocation?</h4>
-            <ul>
-              <li><strong>Stack Memory:</strong> Managed automatically by the CPU, allocated in LIFO order, holds local variables, is extremely fast, and has limited size.</li>
-              <li><strong>Heap Memory:</strong> Managed dynamically by runtime controllers/developers, holds global structures, is slower to reference, and has much larger storage capacity.</li>
-            </ul>
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q6: How does Stack memory differ from Heap memory allocation?</h4>
+              <ul>
+                <li><strong>Stack Memory:</strong> Managed automatically by the CPU, allocated in LIFO order, holds local variables, is extremely fast, and has limited size.</li>
+                <li><strong>Heap Memory:</strong> Managed dynamically by runtime controllers/developers, holds global structures, is slower to reference, and has much larger storage capacity.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <h2 class="qa-subject-header" style="margin-top: 2.5rem;">⚙️ Algorithm Analysis &amp; Design (AAD)</h2>
+        <!-- AAD PANEL -->
+        <div class="qa-panel" id="qa-panel-aad">
+          <div class="theory-card aad">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q1: Stable vs Unstable sorting algorithms - why does it matter?</h4>
+              <ul>
+                <li><strong>Stability:</strong> Preserves the original relative order of items with equivalent sorting keys.</li>
+                <li><strong>Use Case:</strong> Vital when sorting database objects sequentially over multiple columns (e.g., sorting by name, then sorting by age group).</li>
+              </ul>
+            </div>
 
-        <div class="theory-card aad">
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q1: Stable vs Unstable sorting algorithms - why does it matter?</h4>
-            <ul>
-              <li><strong>Stability:</strong> Preserves the original relative order of items with equivalent sorting keys.</li>
-              <li><strong>Use Case:</strong> Vital when sorting database objects sequentially over multiple columns (e.g., sorting by name, then sorting by age group).</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q2: Adjacency Matrix vs Adjacency List for Graphs - when to use which?</h4>
+              <ul>
+                <li><strong>Adjacency Matrix:</strong> Takes <code>O(V²)</code> space. Edge lookups run in <code>O(1)</code>. Optimal for <strong>dense graphs</strong>.</li>
+                <li><strong>Adjacency List:</strong> Takes <code>O(V + E)</code> space. Edge lookups run in <code>O(degree)</code>. Optimal for <strong>sparse graphs</strong>.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q2: Adjacency Matrix vs Adjacency List for Graphs - when to use which?</h4>
-            <ul>
-              <li><strong>Adjacency Matrix:</strong> Takes <code>O(V²)</code> space. Edge lookups run in <code>O(1)</code>. Optimal for <strong>dense graphs</strong>.</li>
-              <li><strong>Adjacency List:</strong> Takes <code>O(V + E)</code> space. Edge lookups run in <code>O(degree)</code>. Optimal for <strong>sparse graphs</strong>.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q3: Explain the difference between Divide &amp; Conquer and Dynamic Programming.</h4>
+              <ul>
+                <li><strong>Divide &amp; Conquer:</strong> Solves independent subproblems sequentially (e.g., Merge Sort splits left and right independently).</li>
+                <li><strong>Dynamic Programming:</strong> Caches optimal results for overlapping subproblems (e.g., Knapsack subproblem results are shared).</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q3: Explain the difference between Divide &amp; Conquer and Dynamic Programming.</h4>
-            <ul>
-              <li><strong>Divide &amp; Conquer:</strong> Solves independent subproblems sequentially (e.g., Merge Sort splits left and right independently).</li>
-              <li><strong>Dynamic Programming:</strong> Caches optimal results for overlapping subproblems (e.g., Knapsack subproblem results are shared).</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is Auxiliary Space and how does it differ from Space Complexity?</h4>
+              <ul>
+                <li><strong>Space Complexity:</strong> Sum memory needed including input data storage buffers.</li>
+                <li><strong>Auxiliary Space:</strong> Temporary run-time memory structures allocated by processing (e.g., variables, helper lists, recursion stack).</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is Auxiliary Space and how does it differ from Space Complexity?</h4>
-            <ul>
-              <li><strong>Space Complexity:</strong> Sum memory needed including input data storage buffers.</li>
-              <li><strong>Auxiliary Space:</strong> Temporary run-time memory structures allocated by processing (e.g., variables, helper lists, recursion stack).</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q5: What are collision resolution techniques in Hashing?</h4>
+              <ul>
+                <li><strong>Chaining:</strong> Buckets link to pointer chains of duplicate hashes.</li>
+                <li><strong>Open Addressing:</strong> Resolves matches inside the table using Linear, Quadratic, or Double Hashing probes.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q5: What are collision resolution techniques in Hashing?</h4>
-            <ul>
-              <li><strong>Chaining:</strong> Buckets link to pointer chains of duplicate hashes.</li>
-              <li><strong>Open Addressing:</strong> Resolves matches inside the table using Linear, Quadratic, or Double Hashing probes.</li>
-            </ul>
-          </div>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q6: Why does Dijkstra's algorithm fail for negative edge weights? Give a numerical example.</h4>
+              <ul>
+                <li><strong>Locked Vertex:</strong> Dijkstra locks a node's distance once evaluated.</li>
+                <li><strong>Numerical Example:</strong> Directed edges: <code>A -> B (5)</code>, <code>A -> C (2)</code>, and <code>B -> C (-10)</code>. Dijkstra visits and locks C at distance 2 first. It then visits B at distance 5. The route <code>A -> B -> C</code> weighs <code>-5</code>, but since C is already locked, Dijkstra fails to update it.</li>
+              </ul>
+            </div>
 
-          <div style="margin-bottom: 0;">
-            <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q6: Why does Dijkstra's algorithm fail for negative edge weights? Give a numerical example.</h4>
-            <ul>
-              <li><strong>Locked Vertex:</strong> Dijkstra locks a node's distance once evaluated.</li>
-              <li><strong>Numerical Example:</strong> Directed edges: <code>A -> B (5)</code>, <code>A -> C (2)</code>, and <code>B -> C (-10)</code>. Dijkstra visits and locks C at distance 2 first. It then visits B at distance 5. The route <code>A -> B -> C</code> weighs <code>-5</code>, but since C is already locked, Dijkstra fails to update it.</li>
-            </ul>
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is the difference between Greedy and Dynamic Programming paradigms?</h4>
+              <ul>
+                <li><strong>Greedy Paradigm:</strong> Makes the locally optimal choice at each stage (e.g., fractional knapsack, Dijkstra) without re-evaluating past choices. Fast but doesn't guarantee global optimality for all problems.</li>
+                <li><strong>Dynamic Programming:</strong> Solves and stores subproblem solutions (e.g., 0/1 knapsack, Floyd-Warshall) using memoization/tabulation. Guarantees global optimality by evaluating overlapping subproblems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q8: Kruskal's vs Prim's algorithm for Minimum Spanning Trees (MST) - when to use which?</h4>
+              <ul>
+                <li><strong>Kruskal's:</strong> Sorts all edges and adds them if they don't form a cycle. Uses Disjoint Set Union (DSU) and runs in <code>O(E log E)</code>. Optimal for <strong>sparse graphs</strong> (fewer edges).</li>
+                <li><strong>Prim's:</strong> Builds the MST node-by-node starting from a root, picking the minimum weight edge to an unvisited node. Uses a priority queue and runs in <code>O(E log V)</code>. Optimal for <strong>dense graphs</strong> (more edges).</li>
+              </ul>
+            </div>
           </div>
         </div>
 

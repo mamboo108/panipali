@@ -1755,3 +1755,98 @@ footer {
   align-items: center;
   gap: 10px;
 }
+
+/* QA SECTION SWITCHER STYLES */
+.qa-category-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.qa-selector-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.qa-selector-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-focus);
+}
+
+.qa-selector-card.active[data-target-category="dsa"] {
+  border-color: var(--accent4);
+  box-shadow: 0 0 15px rgba(176, 143, 255, 0.15);
+}
+
+.qa-selector-card.active[data-target-category="aad"] {
+  border-color: var(--accent2);
+  box-shadow: 0 0 15px rgba(71, 200, 255, 0.15);
+}
+
+.qa-selector-icon {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qa-selector-details {
+  flex-grow: 1;
+}
+
+.qa-selector-details h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 4px;
+}
+
+.qa-selector-details p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.qa-selector-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.qa-selector-card.active[data-target-category="dsa"] .qa-selector-badge {
+  background: rgba(176, 143, 255, 0.08);
+  color: var(--accent4);
+  border-color: rgba(176, 143, 255, 0.2);
+}
+
+.qa-selector-card.active[data-target-category="aad"] .qa-selector-badge {
+  background: rgba(71, 200, 255, 0.08);
+  color: var(--accent2);
+  border-color: rgba(71, 200, 255, 0.2);
+}
+
+/* Panel Toggling */
+.qa-panel {
+  display: none;
+}
+
+.qa-panel.active {
+  display: block;
+}
