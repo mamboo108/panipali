@@ -406,6 +406,18 @@ p strong {
   border-left: 5px solid #3B82F6;
 }
 
+.card-hoverable.theory-dsa-card {
+  border-left: 5px solid var(--accent4);
+}
+
+.card-hoverable.theory-aad-card {
+  border-left: 5px solid var(--accent2);
+}
+
+.card-hoverable.interview-qa-card {
+  border-left: 5px solid var(--accent3);
+}
+
 .card-hoverable.aptitude-card {
   border-left: 5px solid #8B5CF6;
 }
@@ -1731,4 +1743,15 @@ footer {
   font-size: 1.02rem;
   font-weight: 600;
   margin-top: 1.2rem;
+}
+
+.qa-subject-header {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
