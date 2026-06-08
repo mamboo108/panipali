@@ -243,7 +243,7 @@
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">56 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">82 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -424,6 +424,7 @@
                   <li>Resizing takes <code>O(N)</code> time, but since it occurs infrequently, the insertions have an <strong>amortized time complexity</strong> of <code>O(1)</code>.</li>
                 </ul>
               </li>
+              <li><strong>In-Place Reversal:</strong> Reversing an array of size <code>n</code> in-place (without auxiliary arrays) takes <code>O(n)</code> time and <code>O(1)</code> space. We iterate up to <code>n/2</code> and swap element <code>A[i]</code> with <code>A[n-1-i]</code>.</li>
             </ul>
 
             <table class="theory-table">
@@ -557,7 +558,7 @@ def max_sum_subarray(arr, k):
               <li><strong>Converging Pointers (Opposite Directions):</strong>
                 <ul>
                   <li>Pointers begin at opposite ends: <code>l = 0</code> and <code>r = n - 1</code>.</li>
-                  <li>They move towards the middle based on conditions (e.g., finding target sums in a sorted array, reversing elements).</li>
+                  <li>They move towards the middle based on conditions (e.g., finding target sums in a sorted array in <code>O(N)</code> time, reversing elements).</li>
                 </ul>
               </li>
               <li><strong>Fast &amp; Slow Pointers (Same Direction):</strong>
@@ -641,6 +642,12 @@ class Node:
                 </tr>
               </tbody>
             </table>
+
+            <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Singly Linked List Optimization &amp; Operations</h3>
+            <ul>
+              <li><strong>In-Place Reversal:</strong> Reverses the list links without extra memory allocation. We iterate using three pointers (<code>prev = NULL</code>, <code>curr = head</code>, and temporary <code>next</code>). In each step, we store <code>next = curr.next</code>, reverse the link: <code>curr.next = prev</code>, and shift pointers: <code>prev = curr</code>, <code>curr = next</code>. Runs in <code>O(n)</code> time and <code>O(1)</code> auxiliary space.</li>
+              <li><strong>Floyd's Cycle Detection:</strong> Finds loops in lists. We run two pointers: <code>slow</code> (moves 1 node/step) and <code>fast</code> (moves 2 nodes/step). If a loop exists, they are guaranteed to meet inside the loop in <code>O(n)</code> time and <code>O(1)</code> space.</li>
+            </ul>
           </div>
         </div>
 
@@ -751,7 +758,9 @@ class Node:
               <li><strong>Primary Applications:</strong>
                 <ul>
                   <li><strong>Function Call Stack:</strong> Tracking return addresses and local environments during recursion.</li>
-                  <li><strong>Compiler Parsing:</strong> Parentheses/bracket matching and infix-to-postfix conversions.</li>
+                  <li><strong>Compiler Parsing:</strong> Parentheses/bracket matching (e.g. Valid Parentheses problem using a stack of opening brackets).</li>
+                  <li><strong>Expression Conversions:</strong> Infix-to-postfix conversion (e.g. <code>a+b*(c-d)</code> translates to postfix <code>a b c d - * +</code> using a stack of operators).</li>
+                  <li><strong>Expression Evaluation:</strong> Postfix expression evaluation (e.g. <code>6 2 3 + - 3 8 2 / + *</code> evaluates to <code>7</code> by scanning left-to-right, pushing numbers, and executing operations by popping operands).</li>
                   <li><strong>Backtracking:</strong> History recording for Undo operations or graph traversals (DFS).</li>
                 </ul>
               </li>
@@ -771,8 +780,9 @@ class Node:
               <li><strong>Complexity:</strong> <code>Enqueue</code> and <code>Dequeue</code> operate in constant <code>O(1)</code> time.</li>
               <li><strong>Primary Applications:</strong>
                 <ul>
-                  <li><strong>Task Buffering:</strong> Process queues in CPU schedulers or printing line-buffers.</li>
+                  <li><strong>Task Buffering &amp; CPU Scheduling:</strong> Maintaining Ready Queues (e.g., Round Robin scheduling) inside Operating Systems.</li>
                   <li><strong>Graph Traversal:</strong> Level-by-level search (BFS) queue trackers.</li>
+                  <li><strong>Queue using 2 Stacks:</strong> Queue implementation where Stack 1 handles enqueue and Stack 2 handles dequeue. When Stack 2 is empty, Stack 1 elements are popped and pushed to Stack 2. Operations run in **amortized** <code>O(1)</code> time.</li>
                 </ul>
               </li>
             </ul>
@@ -787,7 +797,7 @@ class Node:
           </div>
           <div class="theory-card-body">
             <ul>
-              <li><strong>Core Concept:</strong> Linear queue permitting insertion and deletion operations at <strong>both</strong> the Front and Rear ends.</li>
+              <li><strong>Core Concept:</strong> Linear queue permitting insertion and deletion operations at <strong>both</strong> the Front and Rear ends in constant <code>O(1)</code> time.</li>
               <li><strong>Key Operations:</strong> <code>insertFront</code>, <code>insertLast</code>, <code>deleteFront</code>, <code>deleteLast</code> in <code>O(1)</code>.</li>
               <li><strong>Key Applications:</strong>
                 <ul>
@@ -808,12 +818,13 @@ class Node:
           <div class="theory-card-body">
             <ul>
               <li><strong>Core Concept:</strong> Non-linear hierarchical structure where each node has **at most 2 children** (Left child and Right child).</li>
-              <li><strong>Key Classifications:</strong>
+              <li><strong>Key Classifications &amp; Rules:</strong>
                 <ul>
                   <li><strong>Full Binary Tree:</strong> Every node has either 0 or 2 children.</li>
-                  <li><strong>Complete Binary Tree:</strong> All levels are filled, except possibly the last level which is populated from left to right.</li>
+                  <li><strong>Complete Binary Tree:</strong> All levels are filled, except possibly the last level which is populated from left to right. The height of a complete binary tree with <code>n</code> nodes is <code>O(log n)</code> (specifically <code>floor(log₂ n)</code>).</li>
                   <li><strong>Perfect Binary Tree:</strong> All internal nodes have 2 children, and all leaves reside at the same depth.</li>
                   <li><strong>Balanced Binary Tree:</strong> The height difference between the left and right subtrees of any node is at most 1.</li>
+                  <li><strong>Binary Tree vs BST:</strong> A Binary Tree has no value ordering restrictions, whereas a BST enforces strict ordering on node values (left &lt; parent &lt; right).</li>
                 </ul>
               </li>
             </ul>
@@ -834,7 +845,7 @@ class Node:
               <li><strong>Time Complexity:</strong>
                 <ul>
                   <li><strong>Average Case:</strong> Search, insertion, and deletion operate in <code>O(log N)</code> time.</li>
-                  <li><strong>Worst Case (Skewed Tree):</strong> If elements are inserted in sorted order, the tree degenerates into a linear chain, degrading operations to <code>O(N)</code>.</li>
+                  <li><strong>Worst Case (Skewed Tree):</strong> If elements are inserted in sorted order, the tree degenerates into a linear chain of height <code>n - 1</code>, degrading operations to <code>O(N)</code> (worst-case lookup / insertion).</li>
                 </ul>
               </li>
             </ul>
@@ -894,7 +905,8 @@ def inorder(root):
               <li><strong>Key Complexities:</strong>
                 <ul>
                   <li><strong>Heapify:</strong> Corrects heap violations in <code>O(log N)</code> time.</li>
-                  <li><strong>Build Heap:</strong> Builds a heap from an array in <code>O(N)</code> time.</li>
+                  <li><strong>Heap Insertion:</strong> Appends to end and up-heapifies, taking <code>O(log N)</code> time.</li>
+                  <li><strong>Build Heap:</strong> Builds a heap from an array in <code>O(N)</code> time using Floyd's bottom-up method, which is faster than <code>n</code> insertions taking <code>O(n log n)</code>.</li>
                 </ul>
               </li>
             </ul>
@@ -910,6 +922,12 @@ def inorder(root):
           <div class="theory-card-body">
             <ul>
               <li><strong>Core Concept:</strong> Queue where elements are removed based on priority weight rather than insertion sequence. Typically implemented using a binary heap.</li>
+              <li><strong>Unordered Array Implementation:</strong> If implemented using an unordered array:
+                <ul>
+                  <li><strong>Enqueue:</strong> Appends to end in <code>O(1)</code>.</li>
+                  <li><strong>Dequeue:</strong> Scans array to find the highest-priority element, taking <code>O(n)</code> (highest time complexity operation).</li>
+                </ul>
+              </li>
             </ul>
             
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Heap vs BST Comparison</h3>
@@ -947,6 +965,158 @@ def inorder(root):
           </div>
         </div>
 
+        <!-- 16. HASHING -->
+        <div class="theory-card dsa">
+          <div class="theory-card-header">
+            <span class="theory-card-num">16</span>
+            <h2>Hashing</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> Mappings of keys directly to array slots using a **Hash Function** to secure average constant time <code>O(1)</code> lookup, insertion, and deletion.</li>
+              <li><strong>Hash Lookup Advantage:</strong> Outperforms sorted array search (binary search) which requires <code>O(log n)</code> time.</li>
+              <li><strong>Collision Resolution Techniques:</strong>
+                <ul>
+                  <li><strong>Separate Chaining (Open Hashing):</strong> Buckets store pointers to linked lists containing colliding key-value nodes.</li>
+                  <li><strong>Open Addressing (Closed Hashing):</strong> All elements are stored inside the hash table array. Collisions are resolved via probing sequences:
+                    <ul>
+                      <li><em>Linear Probing:</em> Searches sequentially: <code>h(x, i) = (hash(x) + i) % size</code>.</li>
+                      <li><em>Quadratic Probing:</em> Searches quadratically: <code>h(x, i) = (hash(x) + c₁ &middot; i + c₂ &middot; i²) % size</code>.</li>
+                      <li><em>Double Hashing:</em> Uses a second hash function as step size: <code>h(x, i) = (hash₁(x) + i &middot; hash₂(x)) % size</code>.</li>
+                    </ul>
+                  </li>
+                  <li><strong>Load Factor Constraint (&alpha; = N/M):</strong> For Open Addressing, <code>&alpha;</code> must be kept strictly below <code>1.0</code> to prevent infinite loops during lookups.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 17. GRAPHS -->
+        <div class="theory-card dsa">
+          <div class="theory-card-header">
+            <span class="theory-card-num">17</span>
+            <h2>Graphs</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Core Concept:</strong> A non-linear network consisting of **Vertices (Nodes)** and **Edges** connecting them.</li>
+              <li><strong>Graph Representations:</strong>
+                <ul>
+                  <li><strong>Adjacency Matrix:</strong> A 2D array of size <code>V &times; V</code>. Space complexity: <code>O(V²)</code>. Edge lookups run in <code>O(1)</code> time. Best for **dense graphs**.</li>
+                  <li><strong>Adjacency List:</strong> An array of lists of size <code>V</code>. Space complexity: <code>O(V + E)</code>. Edge lookups run in <code>O(deg(V))</code>. Best for **sparse graphs**.</li>
+                </ul>
+              </li>
+              <li><strong>Shortest Path Rule:</strong> Executing a Breadth-First Search (BFS) on an unweighted graph guarantees finding the **shortest path** (measured in number of edges) from the source node to all other reachable nodes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DS OPERATIONS COMPLEXITY TABLE -->
+        <div class="theory-card dsa" style="border-left-width: 5px;">
+          <div class="theory-card-header">
+            <span class="theory-card-num">📊</span>
+            <h2>Data Structures Complexity Reference Table</h2>
+          </div>
+          <div class="theory-card-body">
+            <p>Summary of core operations for standard data structures in average/worst cases:</p>
+            <table class="theory-table">
+              <thead>
+                <tr>
+                  <th>Data Structure</th>
+                  <th>Access (Avg/Worst)</th>
+                  <th>Search (Avg/Worst)</th>
+                  <th>Insertion (Avg/Worst)</th>
+                  <th>Deletion (Avg/Worst)</th>
+                  <th>Space (Auxiliary)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Array (Static)</strong></td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                  <td>O(1)</td>
+                </tr>
+                <tr>
+                  <td><strong>Dynamic Array</strong></td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(1) / O(n)* <span class="dim">(amortized)</span></td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(n)</td>
+                </tr>
+                <tr>
+                  <td><strong>Singly Linked List</strong></td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(1) / O(1)* <span class="dim">(at head)</span></td>
+                  <td>O(1) / O(1)* <span class="dim">(at head)</span></td>
+                  <td>O(1)</td>
+                </tr>
+                <tr>
+                  <td><strong>Doubly Linked List</strong></td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1)</td>
+                </tr>
+                <tr>
+                  <td><strong>Stack</strong></td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1)</td>
+                </tr>
+                <tr>
+                  <td><strong>Queue / Deque</strong></td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1) / O(1)</td>
+                  <td>O(1)</td>
+                </tr>
+                <tr>
+                  <td><strong>Binary Search Tree (BST)</strong></td>
+                  <td>O(log n) / O(n)</td>
+                  <td>O(log n) / O(n)</td>
+                  <td>O(log n) / O(n)</td>
+                  <td>O(log n) / O(n)</td>
+                  <td>O(n)</td>
+                </tr>
+                <tr>
+                  <td><strong>AVL Tree (Balanced)</strong></td>
+                  <td>O(log n) / O(log n)</td>
+                  <td>O(log n) / O(log n)</td>
+                  <td>O(log n) / O(log n)</td>
+                  <td>O(log n) / O(log n)</td>
+                  <td>O(n)</td>
+                </tr>
+                <tr>
+                  <td><strong>Binary Heap (Min/Max)</strong></td>
+                  <td>N/A</td>
+                  <td>O(n) / O(n)</td>
+                  <td>O(log n) / O(log n)</td>
+                  <td>O(log n) / O(log n)* <span class="dim">(Extract)</span></td>
+                  <td>O(n)</td>
+                </tr>
+                <tr>
+                  <td><strong>Hash Table</strong></td>
+                  <td>N/A</td>
+                  <td>O(1) / O(n)</td>
+                  <td>O(1) / O(n)</td>
+                  <td>O(1) / O(n)</td>
+                  <td>O(n)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
 </div>
     </div>
 
@@ -968,6 +1138,13 @@ def inorder(root):
               <li><strong>Core Concept:</strong> Measure of the rate at which execution time grows relative to input size <code>N</code>.</li>
               <li><strong>Primitive Count:</strong> Does not count execution seconds, but rather evaluates the scale of basic machine instructions.</li>
               <li><strong>Asymptotic Scope:</strong> Analyzes behavior as input approaches infinity (<code>N &rarr; &infin;</code>), discarding constant coefficients and keeping highest-order terms.</li>
+              <li><strong>Key Placement Metrics:</strong>
+                <ul>
+                  <li><strong>Quick Sort Worst Case:</strong> <code>O(n²)</code> (mitigated by randomized pivot selection).</li>
+                  <li><strong>Selection Sort Worst Case:</strong> <code>O(n²)</code> (always scans the entire remaining array).</li>
+                  <li><strong>Insertion Sort Best Case:</strong> <code>O(n)</code> (occurs on already sorted arrays).</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -985,6 +1162,12 @@ def inorder(root):
                 <ul>
                   <li><strong>Input Space:</strong> Memory to store input values.</li>
                   <li><strong>Auxiliary Space:</strong> Extra temporary memory allocated during processing (e.g., recursions stack, helper tables). Placement interviewers prioritize Auxiliary Space.</li>
+                </ul>
+              </li>
+              <li><strong>Key Space Metrics:</strong>
+                <ul>
+                  <li><strong>Merge Sort:</strong> <code>O(n)</code> auxiliary space (required for merges).</li>
+                  <li><strong>Iterative Algorithm (few variables):</strong> <code>O(1)</code> auxiliary space (only uses constant extra registers).</li>
                 </ul>
               </li>
             </ul>
@@ -1047,11 +1230,8 @@ def inorder(root):
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Comparing Growth Rates</h3>
             <ul>
-              <li><strong>Logarithmic (O(log N)):</strong> Resolves in ~10 steps for 1,000 items (nanoseconds).</li>
-              <li><strong>Linear (O(N)):</strong> Resolves in 1,000 steps (microseconds).</li>
-              <li><strong>Linearithmic (O(N log N)):</strong> Resolves in ~10,000 steps (microseconds).</li>
-              <li><strong>Quadratic (O(N²)):</strong> Resolves in 1,000,000 steps (milliseconds).</li>
-              <li><strong>Exponential (O(2^N)):</strong> Resolves in 2^1000 steps (taking millions of years).</li>
+              <li><strong>Growth Rate Hierarchy:</strong> <code>O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; O(n!)</code>.</li>
+              <li><strong>Polynomial vs Exponential/Factorial:</strong> Polynomial classes (like <code>O(n³)</code>) grow much slower than exponential (<code>O(2ⁿ)</code>) or factorial (<code>O(n!)</code>) classes. E.g., for <code>n = 100</code>, <code>n³ = 1,000,000</code>, whereas <code>2ⁿ</code> and <code>n!</code> are astronomically large. Therefore, <code>O(n³)</code> is NOT the fastest growing function.</li>
             </ul>
           </div>
         </div>
@@ -1222,8 +1402,15 @@ def inorder(root):
           <div class="theory-card-body">
             <ul>
               <li><strong>Core Concept:</strong> Builds solutions by selecting the locally optimal choice at each step, hoping it resolves to a global optimum.</li>
-              <li><strong>Applications:</strong> Fractional Knapsack, Dijkstra's algorithm, Prim's/Kruskal's MST, Huffman coding.</li>
-              <li><strong>Greedy Fail Case:</strong> Coin Change problems with coin configurations like <code>{1, 3, 4}</code> seeking change of <code>6</code> (Greedy yields 3 coins, Optimal is 2).</li>
+              <li><strong>Key Applications:</strong>
+                <ul>
+                  <li><strong>Activity Selection Problem:</strong> Finding the maximum number of non-overlapping activities. Solved by sorting activities by their **finish times** and greedily selecting activities that start after the previous one finishes.</li>
+                  <li><strong>Fractional Knapsack:</strong> Items can be broken down. Solved by sorting by value-to-weight ratio.</li>
+                  <li><strong>Minimum Spanning Trees:</strong> Kruskal's (sorting edges) and Prim's (vertex selection).</li>
+                  <li><strong>Huffman Coding:</strong> Merging the two lowest-frequency trees.</li>
+                </ul>
+              </li>
+              <li><strong>Greedy Fail Case:</strong> Coin Change problems with coin configurations like <code>{1, 3, 4}</code> seeking change of <code>6</code> (Greedy yields 3 coins: <code>4 + 1 + 1</code>, while DP yields 2 coins: <code>3 + 3</code>).</li>
             </ul>
           </div>
         </div>
@@ -1244,10 +1431,14 @@ def inorder(root):
               </li>
               <li><strong>Paradigms:</strong>
                 <ul>
-                  <li><strong>Memoization (Top-Down):</strong> Recursive caching of states during evaluations.</li>
-                  <li><strong>Tabulation (Bottom-Up):</strong> Iterative sequence filling a DP table starting from base conditions.</li>
+                  <li><strong>Memoization (Top-Down):</strong> Recursive caching of states during evaluations (lazy validation: only calculates required states).</li>
+                  <li><strong>Tabulation (Bottom-Up):</strong> Iterative sequence filling a DP table starting from base conditions (eager evaluation: avoids recursion call stack).</li>
                 </ul>
               </li>
+              <li><strong>Divide &amp; Conquer vs DP:</strong> Divide &amp; Conquer splits problems into independent subproblems (e.g. Merge/Quick Sort), while DP caches results of overlapping, redundant subproblems (e.g. Fibonacci, Knapsack).</li>
+              <li><strong>Recursive Fibonacci vs bottom-up DP:</strong> Recursive Fibonacci takes <code>O(2ⁿ)</code> time due to duplicate subproblem calculations, whereas bottom-up DP takes <code>O(n)</code> time (and <code>O(1)</code> space if optimized to store only two variables).</li>
+              <li><strong>0/1 Knapsack Complexity:</strong> Takes <code>O(N &middot; W)</code> time and space using DP, which is pseudo-polynomial in nature since it depends on capacity <code>W</code>.</li>
+              <li><strong>Coin Change Problem:</strong> Best solved by DP since Greedy fails for general currency systems.</li>
             </ul>
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Greedy vs Dynamic Programming</h3>
@@ -1274,6 +1465,177 @@ def inorder(root):
                   <td><strong>Correctness</strong></td>
                   <td>Not guaranteed to be optimal for all problems.</td>
                   <td>Guaranteed to find optimal solution if DP properties hold.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 25. ARRAY OPTIMIZATION -->
+        <div class="theory-card aad">
+          <div class="theory-card-header">
+            <span class="theory-card-num">25</span>
+            <h2>Array Optimization</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Kadane's Algorithm:</strong> Solves the **Maximum Subarray Sum** problem (finding the contiguous subarray with the largest sum) in <code>O(n)</code> time and <code>O(1)</code> space.
+                <ul>
+                  <li>It tracks the local maximum ending at the current element (<code>current_max = max(A[i], current_max + A[i])</code>) and updates the global maximum.</li>
+                </ul>
+              </li>
+              <li><strong>Two Pointers Search:</strong> Finds a pair in a sorted array that sums to a target. By maintaining pointers at both ends and converging inwards based on the sum comparison, we avoid nested-loop brute force, reducing time complexity from <code>O(n²)</code> to <code>O(n)</code>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ALGORITHMS COMPLEXITY REFERENCE TABLE -->
+        <div class="theory-card aad" style="border-left-width: 5px;">
+          <div class="theory-card-header">
+            <span class="theory-card-num">📊</span>
+            <h2>Algorithms Complexity Reference Table</h2>
+          </div>
+          <div class="theory-card-body">
+            <p>Summary of time and space complexities for core algorithms and paradigms:</p>
+            <table class="theory-table">
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>Best Time</th>
+                  <th>Worst Time</th>
+                  <th>Average Time</th>
+                  <th>Space Complexity</th>
+                  <th>Paradigm Used</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bubble Sort</strong></td>
+                  <td>O(n)</td>
+                  <td>O(n²)</td>
+                  <td>O(n²)</td>
+                  <td>O(1) <span class="dim">(in-place)</span></td>
+                  <td>Brute Force / Comparison</td>
+                </tr>
+                <tr>
+                  <td><strong>Insertion Sort</strong></td>
+                  <td>O(n)</td>
+                  <td>O(n²)</td>
+                  <td>O(n²)</td>
+                  <td>O(1) <span class="dim">(in-place)</span></td>
+                  <td>Incremental / Comparison</td>
+                </tr>
+                <tr>
+                  <td><strong>Selection Sort</strong></td>
+                  <td>O(n²)</td>
+                  <td>O(n²)</td>
+                  <td>O(n²)</td>
+                  <td>O(1) <span class="dim">(in-place)</span></td>
+                  <td>Selection / Comparison</td>
+                </tr>
+                <tr>
+                  <td><strong>Merge Sort</strong></td>
+                  <td>O(n log n)</td>
+                  <td>O(n log n)</td>
+                  <td>O(n log n)</td>
+                  <td>O(n) <span class="dim">(auxiliary)</span></td>
+                  <td>Divide &amp; Conquer (Stable)</td>
+                </tr>
+                <tr>
+                  <td><strong>Quick Sort (Standard)</strong></td>
+                  <td>O(n log n)</td>
+                  <td>O(n²)</td>
+                  <td>O(n log n)</td>
+                  <td>O(log n) <span class="dim">(stack space)</span></td>
+                  <td>Divide &amp; Conquer (Unstable)</td>
+                </tr>
+                <tr>
+                  <td><strong>Quick Sort (Randomized)</strong></td>
+                  <td>O(n log n)</td>
+                  <td>O(n²)</td>
+                  <td>O(n log n) <span class="dim">(expected)</span></td>
+                  <td>O(log n) <span class="dim">(stack space)</span></td>
+                  <td>Randomized / Divide &amp; Conquer</td>
+                </tr>
+                <tr>
+                  <td><strong>Heap Sort</strong></td>
+                  <td>O(n log n)</td>
+                  <td>O(n log n)</td>
+                  <td>O(n log n)</td>
+                  <td>O(1) <span class="dim">(in-place)</span></td>
+                  <td>Selection / Heap-based</td>
+                </tr>
+                <tr>
+                  <td><strong>BFS / DFS</strong></td>
+                  <td>O(V + E)</td>
+                  <td>O(V + E)</td>
+                  <td>O(V + E)</td>
+                  <td>O(V)</td>
+                  <td>Graph Traversal</td>
+                </tr>
+                <tr>
+                  <td><strong>Dijkstra's (Min-Heap)</strong></td>
+                  <td>O((V + E) log V)</td>
+                  <td>O((V + E) log V)</td>
+                  <td>O((V + E) log V)</td>
+                  <td>O(V) <span class="dim">(heap/dist)</span></td>
+                  <td>Greedy (Single-Source Shortest Path)</td>
+                </tr>
+                <tr>
+                  <td><strong>Bellman-Ford</strong></td>
+                  <td>O(E)</td>
+                  <td>O(V &middot; E)</td>
+                  <td>O(V &middot; E)</td>
+                  <td>O(V)</td>
+                  <td>Dynamic Programming</td>
+                </tr>
+                <tr>
+                  <td><strong>Floyd-Warshall</strong></td>
+                  <td>O(V³)</td>
+                  <td>O(V³)</td>
+                  <td>O(V³)</td>
+                  <td>O(V²)</td>
+                  <td>Dynamic Programming (All-Pairs)</td>
+                </tr>
+                <tr>
+                  <td><strong>Kruskal's MST</strong></td>
+                  <td>O(E log E)</td>
+                  <td>O(E log E)</td>
+                  <td>O(E log E)</td>
+                  <td>O(V) <span class="dim">(Disjoint Set)</span></td>
+                  <td>Greedy (Minimum Spanning Tree)</td>
+                </tr>
+                <tr>
+                  <td><strong>Prim's MST (Min-Heap)</strong></td>
+                  <td>O((V + E) log V)</td>
+                  <td>O((V + E) log V)</td>
+                  <td>O((V + E) log V)</td>
+                  <td>O(V)</td>
+                  <td>Greedy (Minimum Spanning Tree)</td>
+                </tr>
+                <tr>
+                  <td><strong>0/1 Knapsack</strong></td>
+                  <td>O(N &middot; W)</td>
+                  <td>O(N &middot; W)</td>
+                  <td>O(N &middot; W)</td>
+                  <td>O(W) <span class="dim">(optimized space)</span></td>
+                  <td>Dynamic Programming</td>
+                </tr>
+                <tr>
+                  <td><strong>Floyd's Cycle Find</strong></td>
+                  <td>O(1)</td>
+                  <td>O(n)</td>
+                  <td>O(n)</td>
+                  <td>O(1)</td>
+                  <td>Two Pointers (Tortoise &amp; Hare)</td>
+                </tr>
+                <tr>
+                  <td><strong>Kadane's Algorithm</strong></td>
+                  <td>O(n)</td>
+                  <td>O(n)</td>
+                  <td>O(n)</td>
+                  <td>O(1)</td>
+                  <td>Dynamic Programming / Optimization</td>
                 </tr>
               </tbody>
             </table>
@@ -1528,7 +1890,7 @@ myCar.drive();</code></pre>
             <h3>Data Structures &amp; Algorithms</h3>
             <p>Arrays, Lists, Stacks, Trees, Heaps, Recursion</p>
           </div>
-          <div class="qa-selector-badge">6 Qs</div>
+          <div class="qa-selector-badge">20 Qs</div>
         </div>
         <div class="qa-selector-card" data-target-category="aad">
           <div class="qa-selector-icon">⚙️</div>
@@ -1536,7 +1898,7 @@ myCar.drive();</code></pre>
             <h3>Algorithm Analysis &amp; Design</h3>
             <p>Complexity, Sorting, Graphs, Greedy, DP, MSTs</p>
           </div>
-          <div class="qa-selector-badge">25 Qs</div>
+          <div class="qa-selector-badge">37 Qs</div>
         </div>
         <div class="qa-selector-card" data-target-category="oops">
           <div class="qa-selector-icon">🧩</div>
@@ -1593,11 +1955,163 @@ myCar.drive();</code></pre>
               </ul>
             </div>
 
-            <div style="margin-bottom: 0;">
+            <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q6: How does Stack memory differ from Heap memory allocation?</h4>
               <ul>
                 <li><strong>Stack Memory:</strong> Managed automatically by the CPU, allocated in LIFO order, holds local variables, is extremely fast, and has limited size.</li>
                 <li><strong>Heap Memory:</strong> Managed dynamically by runtime controllers/developers, holds global structures, is slower to reference, and has much larger storage capacity.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is the time and space complexity of reversing an array of size n in-place?</h4>
+              <ul>
+                <li><strong>Time Complexity:</strong> <code>O(n)</code> (linear time), as we iterate through the first half of the array and swap each element with its symmetric counterpart in the second half (requiring <code>n/2</code> total swaps).</li>
+                <li><strong>Space Complexity:</strong> <code>O(1)</code> (constant auxiliary space), since the reversal is done in-place using only a single temporary variable for swaps.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q8: Why does hashing improve lookup complexity over a sorted array, and what is its Big O?</h4>
+              <ul>
+                <li><strong>Hashing:</strong> Mapped directly to indices using a hash function, resulting in average constant time <code>O(1)</code> lookup.</li>
+                <li><strong>Sorted Array:</strong> Requires looking up elements via binary search, which has a logarithmic time complexity of <code>O(log n)</code>.</li>
+                <li><strong>Big O representation of constant time:</strong> <code>O(1)</code>, meaning the search time is independent of the input size <code>n</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q9: What are collision resolution techniques in hashing, and what is true about open addressing?</h4>
+              <ul>
+                <li><strong>Separate Chaining:</strong> Buckets contain pointers to linked lists (or chains) of all colliding entries.</li>
+                <li><strong>Open Addressing (Closed Hashing):</strong> All elements are stored directly in the hash table itself. When a collision occurs, we probe subsequent slots based on a predefined sequence:
+                  <ul>
+                    <li><em>Linear Probing:</em> Check slots sequentially: <code>(hash(key) + i) % size</code>.</li>
+                    <li><em>Quadratic Probing:</em> Check slots quadratically: <code>(hash(key) + c₁ &middot; i + c₂ &middot; i²) % size</code>.</li>
+                    <li><em>Double Hashing:</em> Uses a second hash function to step: <code>(hash₁(key) + i &middot; hash₂(key)) % size</code>.</li>
+                  </ul>
+                </li>
+                <li><strong>Open Addressing Constraint:</strong> The load factor <code>&alpha;</code> must be kept strictly less than <code>1.0</code> because the table cannot hold more elements than its total capacity.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q10: Which classic problem is solved using a Stack, and how is it done? (e.g., Valid Parentheses)</h4>
+              <ul>
+                <li><strong>Valid Parentheses:</strong> We process string characters from left to right:
+                  <ul>
+                    <li>Push any opening brackets (<code>(</code>, <code>{</code>, <code>[</code>) onto the stack.</li>
+                    <li>When a closing bracket (<code>)</code>, <code>}</code>, <code>]</code>) is found, check if it matches the bracket popped from the top of the stack.</li>
+                    <li>If it doesn't match or the stack is empty, the string is invalid.</li>
+                  </ul>
+                </li>
+                <li><strong>Output Validation:</strong> At the end, if the stack is completely empty, the parentheses are balanced. Time: <code>O(n)</code>, Space: <code>O(n)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q11: How do you convert an infix expression like a+b*(c-d) to postfix, and what is the output?</h4>
+              <ul>
+                <li><strong>Rule of Precedence:</strong> Evaluate sub-expressions inside parentheses first, then multiplication/division, then addition/subtraction.</li>
+                <li><strong>Step-by-Step Conversion of <code>a+b*(c-d)</code>:</strong>
+                  <ul>
+                    <li>Evaluate parentheses first: <code>(c-d) &rarr; c d -</code>.</li>
+                    <li>Evaluate multiplication: <code>b * (c d -) &rarr; b c d - *</code>.</li>
+                    <li>Evaluate addition: <code>a + (b c d - *) &rarr; a b c d - * +</code>.</li>
+                  </ul>
+                </li>
+                <li><strong>Resulting Postfix Expression:</strong> <code>a b c d - * +</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q12: How do you evaluate a postfix expression? Evaluate: 6 2 3 + - 3 8 2 / + *.</h4>
+              <ul>
+                <li><strong>Evaluation Rule:</strong> Scan from left to right. Push operands to a stack. On encountering an operator, pop the top two operands, evaluate (with the second popped as left operand, first popped as right), and push the result back.</li>
+                <li><strong>Step-by-Step Evaluation:</strong>
+                  <ol>
+                    <li>Push <code>6</code>, <code>2</code>, <code>3</code>. Stack: <code>[6, 2, 3]</code></li>
+                    <li>Encounter <code>+</code>: Pop <code>3</code>, <code>2</code>. Compute <code>2 + 3 = 5</code>. Push <code>5</code>. Stack: <code>[6, 5]</code></li>
+                    <li>Encounter <code>-</code>: Pop <code>5</code>, <code>6</code>. Compute <code>6 - 5 = 1</code>. Push <code>1</code>. Stack: <code>[1]</code></li>
+                    <li>Push <code>3</code>, <code>8</code>, <code>2</code>. Stack: <code>[1, 3, 8, 2]</code></li>
+                    <li>Encounter <code>/</code>: Pop <code>2</code>, <code>8</code>. Compute <code>8 / 2 = 4</code>. Push <code>4</code>. Stack: <code>[1, 3, 4]</code></li>
+                    <li>Encounter <code>+</code>: Pop <code>4</code>, <code>3</code>. Compute <code>3 + 4 = 7</code>. Push <code>7</code>. Stack: <code>[1, 7]</code></li>
+                    <li>Encounter <code>*</code>: Pop <code>7</code>, <code>1</code>. Compute <code>1 * 7 = 7</code>. Push <code>7</code>. Stack: <code>[7]</code></li>
+                  </ol>
+                </li>
+                <li><strong>Result:</strong> The expression evaluates to <code>7</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is a Deque and what does it support? What is a queue's application in Operating Systems?</h4>
+              <ul>
+                <li><strong>Deque (Double-Ended Queue):</strong> Supports insertion and deletion at both the front and the back in constant <code>O(1)</code> time.</li>
+                <li><strong>Queue Application in OS:</strong> Used for <strong>CPU process scheduling</strong> (e.g., maintaining the Ready Queue in Round Robin/First-Come First-Served scheduling) and managing print jobs or disk I/O buffers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q14: What is the time complexity of implementing a Queue using 2 Stacks?</h4>
+              <ul>
+                <li><strong>Operations Cost:</strong> Enqueue runs in <code>O(1)</code>. Dequeue runs in amortized <code>O(1)</code>.</li>
+                <li><strong>Implementation:</strong> Stack 1 handles pushes (enqueue), while Stack 2 handles pops (dequeue). When Stack 2 is empty, we pop all elements from Stack 1 and push them to Stack 2.</li>
+                <li><strong>Amortized Proof:</strong> Even though a single dequeue can take <code>O(n)</code> (when Stack 2 is empty), each element is pushed and popped at most twice. Across <code>N</code> operations, average cost is bounded by constant <code>O(1)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q15: How do you reverse a singly linked list in-place?</h4>
+              <ul>
+                <li><strong>Pointer Manipulation:</strong> We iterate through the list using three pointers: <code>prev</code> (starts at null), <code>curr</code> (starts at head), and <code>next</code> (to cache the next node).</li>
+                <li><strong>Iteration Loop:</strong>
+                  <ul>
+                    <li>Store next node: <code>next = curr.next</code></li>
+                    <li>Reverse pointer: <code>curr.next = prev</code></li>
+                    <li>Move pointers forward: <code>prev = curr</code>, <code>curr = next</code></li>
+                  </ul>
+                </li>
+                <li><strong>Result:</strong> Once <code>curr</code> is null, <code>prev</code> points to the new head. Time: <code>O(n)</code>, Space: <code>O(1)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is the height of a complete binary tree vs a skewed BST with n nodes in the worst case?</h4>
+              <ul>
+                <li><strong>Complete Binary Tree:</strong> Height is <code>O(log n)</code> (specifically <code>floor(log₂ n)</code>), since all levels except possibly the last are completely filled.</li>
+                <li><strong>Skewed BST:</strong> Height is <code>O(n)</code> (specifically <code>n - 1</code>), where every node has only one child, transforming the tree into a linked list structure and degrading searches to <code>O(n)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q17: What is the difference between a Binary Tree and a Binary Search Tree (BST)?</h4>
+              <ul>
+                <li><strong>Binary Tree:</strong> A hierarchical tree structure where each node has at most two children, with no rules regarding value ordering.</li>
+                <li><strong>Binary Search Tree (BST):</strong> A binary tree that enforces a strict sorting order: for every node, all node keys in its left subtree are smaller, and all node keys in its right subtree are larger.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q18: What are the time complexities of inserting into a Max Heap and building a Heap from an array?</h4>
+              <ul>
+                <li><strong>Insertion:</strong> <code>O(log n)</code> time, as we insert the element at the end of the heap and perform up-heapify (bubble-up) operations up to the root.</li>
+                <li><strong>Build Heap:</strong> <code>O(n)</code> time using Floyd's bottom-up heapification algorithm, which starts from the last non-leaf node (index <code>n/2</code> down to <code>0</code>) and heapifies down, avoiding the <code>O(n log n)</code> cost of individual insertions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q19: In a Priority Queue implemented using an unordered array, which operation has the highest time complexity?</h4>
+              <ul>
+                <li><strong>Enqueue:</strong> <code>O(1)</code>, as we simply append the new element to the end of the array.</li>
+                <li><strong>Dequeue:</strong> <code>O(n)</code>, since we must traverse the entire array to locate and remove the element with the highest priority, making it the most expensive operation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent4); margin-bottom: 4px; font-size: 1.1rem;">Q20: Why does Breadth-First Search (BFS) find the shortest path in an unweighted graph?</h4>
+              <ul>
+                <li><strong>Level-Order Traversal:</strong> BFS visits nodes level-by-level, outward from the starting source node.</li>
+                <li><strong>Shortest Path Proof:</strong> Because edges are unweighted (constant weight of 1), visiting level <code>d</code> guarantees we have reached those nodes using exactly <code>d</code> edges. Since BFS checks level <code>d</code> before <code>d+1</code>, the first time we discover a node, it must be via the shortest possible sequence of edges.</li>
               </ul>
             </div>
           </div>
@@ -2054,6 +2568,115 @@ myCar.drive();</code></pre>
                 <li><strong>Step 3: State Brute Force:</strong> Communicate the simplest solution out loud to verify your understanding. Explain its time/space complexity before optimizing.</li>
                 <li><strong>Step 4: Optimize:</strong> Use pruning, memoization, pointer techniques, or hashing.</li>
                 <li><strong>Step 5: Trace &amp; Test:</strong> Walk through a small example manually to catch edge cases (empty inputs, single nodes).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q26: What is the worst-case complexity of Quick Sort, Selection Sort, and best-case of Insertion Sort?</h4>
+              <ul>
+                <li><strong>Quick Sort Worst Case:</strong> <code>O(n²)</code>. Occurs when the pivot constantly splits the array into extremely unbalanced parts (e.g., pivot is smallest or largest element on already sorted input). Can be mitigated to <code>O(n log n)</code> expected time by using randomized pivot selection.</li>
+                <li><strong>Selection Sort Worst Case:</strong> <code>O(n²)</code>. Selection Sort scans the remaining unsorted array to find the minimum element in every step, regardless of the input data ordering.</li>
+                <li><strong>Insertion Sort Best Case:</strong> <code>O(n)</code>. Occurs when the input array is already sorted, because it only performs a single comparison per element and zero shifts.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q27: What is the space complexity of Merge Sort vs an iterative algorithm using only a few variables?</h4>
+              <ul>
+                <li><strong>Merge Sort:</strong> <code>O(n)</code> auxiliary space complexity. It requires allocating temporary arrays of size <code>n</code> to merge sorted subarrays.</li>
+                <li><strong>Iterative Algorithm (few variables):</strong> <code>O(1)</code> auxiliary space complexity. It only allocates a constant amount of extra memory for counters or temporary indices, independent of the input size <code>n</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q28: How do growth rates compare for functions like O(n³), O(2ⁿ), and O(n!)? Is O(n³) the fastest?</h4>
+              <ul>
+                <li><strong>Growth Rate Comparison (Fastest to Slowest):</strong> <code>O(n!) &gt; O(2ⁿ) &gt; O(n³) &gt; O(n²) &gt; O(n log n) &gt; O(n) &gt; O(log n) &gt; O(1)</code>.</li>
+                <li><strong>Is O(n³) the fastest growing?</strong> No. <code>O(n³)</code> is a polynomial complexity class. It grows much slower than exponential classes like <code>O(2ⁿ)</code> or factorial classes like <code>O(n!)</code>. For example, for <code>n = 100</code>, <code>n³ = 1,000,000</code>, while <code>2ⁿ</code> exceeds the number of atoms in the universe.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q29: What is the key difference between Merge Sort and Quick Sort?</h4>
+              <ul>
+                <li><strong>Stability:</strong> Merge Sort is **stable** (preserves original relative order of equal keys), while Quick Sort is **unstable** (can swap equal keys).</li>
+                <li><strong>Memory Allocation:</strong> Merge Sort is out-of-place (requires <code>O(n)</code> auxiliary space), whereas Quick Sort is in-place (requires only <code>O(log n)</code> space for the recursive call stack).</li>
+                <li><strong>Paradigms:</strong> Merge Sort does all its work in the combining phase (merge step), while Quick Sort does all its work in the dividing phase (partition step).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q30: Compare the time complexity of recursive Fibonacci vs bottom-up DP Fibonacci.</h4>
+              <ul>
+                <li><strong>Recursive Fibonacci (Naïve):</strong> <code>O(2ⁿ)</code> (exponential time) because it repeatedly computes the same overlapping subproblems (e.g., computing <code>F(n-2)</code> multiple times).</li>
+                <li><strong>Bottom-Up DP Fibonacci:</strong> <code>O(n)</code> (linear time) by computing values sequentially and storing them. If optimized to keep only the last two values in memory, space complexity is reduced to <code>O(1)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is the difference between top-down and bottom-up Dynamic Programming?</h4>
+              <ul>
+                <li><strong>Top-Down (Memoization):</strong> Starts with the main problem and recursively breaks it down. Solved subproblems are stored in a lookup table (e.g., hash map) to avoid recomputation. (Lazy evaluation: only solves subproblems needed for the main result).</li>
+                <li><strong>Bottom-Up (Tabulation):</strong> Solves all subproblems iteratively starting from the base cases up. Results are stored in a table (e.g., 1D or 2D array). (Eager evaluation: avoids recursion call stack overhead).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q32: What conditions are required for a problem to be solvable using Dynamic Programming?</h4>
+              <ul>
+                <li><strong>Overlapping Subproblems:</strong> The problem can be broken down into smaller subproblems that are solved repeatedly. Caching these results saves time.</li>
+                <li><strong>Optimal Substructure:</strong> An optimal solution to the main problem can be constructed from optimal solutions to its subproblems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q33: Why is the Coin Change problem (minimum coins) best solved by Dynamic Programming rather than Greedy?</h4>
+              <ul>
+                <li><strong>Greedy Failure:</strong> A greedy choice (always picking the largest coin denomination first) can fail to find the optimal or even any solution. E.g., for coin set <code>{1, 3, 4}</code> and target sum <code>6</code>, Greedy yields 3 coins (<code>4 + 1 + 1</code>), while the optimal solution is 2 coins (<code>3 + 3</code>).</li>
+                <li><strong>DP Optimality:</strong> DP guarantees finding the global optimum by evaluating all coin paths using the relation: <code>dp[i] = min(dp[i - coin] + 1)</code> for each coin in the set.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q34: What is the time complexity of the 0/1 Knapsack problem using Dynamic Programming?</h4>
+              <ul>
+                <li><strong>Time Complexity:</strong> <code>O(N &middot; W)</code>, where <code>N</code> is the number of items and <code>W</code> is the maximum capacity of the knapsack.</li>
+                <li><strong>Space Complexity:</strong> <code>O(N &middot; W)</code> (can be optimized to <code>O(W)</code> space using a 1D array).</li>
+                <li><strong>Pseudo-Polynomial Nature:</strong> This is a pseudo-polynomial time complexity because it depends on the numeric value of the capacity <code>W</code>, not just the input size <code>N</code>. If <code>W</code> is extremely large (e.g., <code>2ⁿ</code>), the algorithm becomes exponential.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q35: Which classic placement-prep problems are solved using Greedy Algorithms? (e.g., Activity Selection)</h4>
+              <ul>
+                <li><strong>Activity Selection Problem:</strong> Choosing the maximum number of non-overlapping activities. Solved by sorting activities by their **finish times** and greedily picking the next activity that starts after the current one ends.</li>
+                <li><strong>Fractional Knapsack:</strong> Items can be broken down. Solved by sorting items by value-to-weight ratio and selecting greedily.</li>
+                <li><strong>Huffman Coding:</strong> Building an optimal prefix code for data compression by merging the two lowest-frequency trees at each step.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q36: Which technique efficiently finds two numbers in a sorted array that sum to a target?</h4>
+              <ul>
+                <li><strong>Two Pointers Technique:</strong> Initialize a <code>left</code> pointer at index <code>0</code> and a <code>right</code> pointer at index <code>n - 1</code>.
+                  <ul>
+                    <li>If <code>arr[left] + arr[right] == target</code>, the pair is found.</li>
+                    <li>If the sum is less than target, increment <code>left</code> (to increase the sum).</li>
+                    <li>If the sum is greater than target, decrement <code>right</code> (to decrease the sum).</li>
+                  </ul>
+                </li>
+                <li><strong>Complexity:</strong> Runs in linear time <code>O(n)</code> and constant space <code>O(1)</code>, which is more efficient than a nested-loop brute force approach taking <code>O(n²)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent2); margin-bottom: 4px; font-size: 1.1rem;">Q37: What is Kadane's Algorithm and what problem does it solve?</h4>
+              <ul>
+                <li><strong>Problem Solved:</strong> Kadane's algorithm solves the **Maximum Subarray Sum** problem (finding the contiguous subarray within a one-dimensional array that has the largest sum).</li>
+                <li><strong>Algorithm Logic:</strong> We iterate through the array once. At each element, we decide whether to add it to the current subarray or start a new subarray:
+                  <code>current_max = max(arr[i], current_max + arr[i])</code>. We update the global maximum: <code>global_max = max(global_max, current_max)</code>.
+                </li>
+                <li><strong>Complexity:</strong> Time complexity is <code>O(n)</code> and space complexity is <code>O(1)</code>. This is highly optimal compared to the brute-force nested-loop search taking <code>O(n²)</code>.</li>
               </ul>
             </div>
 
