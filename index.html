@@ -41,6 +41,7 @@
     <a class="nav-item" data-target="aad-theory" id="nav-aad-theory">⚙️ AAD Theory</a>
     <a class="nav-item" data-target="oops-theory" id="nav-oops-theory">🧩 OOPs Theory</a>
     <a class="nav-item" data-target="os-theory" id="nav-os-theory">💿 OS Theory</a>
+    <a class="nav-item" data-target="dbms-theory" id="nav-dbms-theory">🗄️ DBMS Theory</a>
 
     <div class="nav-section">Interview Prep</div>
     <a class="nav-item" data-target="interview-qa" id="nav-interview-qa">❓ Top Interview Q&amp;A</a>
@@ -246,10 +247,15 @@
           <p>Detailed OS concepts: Processes, Threads, CPU Scheduling, Synchronization, Deadlocks, Memory, and Kernels.</p>
           <span class="badge file" style="background: rgba(52, 211, 153, 0.12); color: var(--accent-os);">27 Topics</span>
         </div>
+        <div class="card card-hoverable theory-dbms-card" data-target="dbms-theory">
+          <h3>🗄️ DBMS Theory Notes</h3>
+          <p>Database fundamentals: Relational Model, SQL queries, Normalization, ACID, Concurrency Control, and NoSQL / MongoDB.</p>
+          <span class="badge file" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-dbms);">15 Topics</span>
+        </div>
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">112 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">162 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -2419,6 +2425,435 @@ myCar.drive();</code></pre>
       </div>
     </div>
 
+    
+    <!-- SECTION: DBMS THEORY -->
+    <div class="section" id="section-dbms-theory">
+      <h1 class="section-title">🗄️ Database Management Systems (DBMS)</h1>
+      <div class="page-subtitle">Detailed placement tutorials and core concepts of Database Management Systems.</div>
+
+      <div class="theory-container">
+
+        <!-- 01. INTRODUCTION TO DBMS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">01</span>
+            <h2>Introduction to DBMS</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>DBMS (Database Management System):</strong> Software designed to create, organize, store, retrieve, update, and manage data in a structured, centralized, or distributed database environment.</li>
+              <li><strong>Key Advantages over File Systems:</strong>
+                <ul>
+                  <li><strong>Reduces Redundancy:</strong> Eliminates duplicate data using normalization and centralized storage.</li>
+                  <li><strong>Data Integrity:</strong> Enforces business rules and validation constraints automatically.</li>
+                  <li><strong>Security:</strong> Restricts user permissions via authentication and authorization.</li>
+                  <li><strong>Concurrent Access:</strong> Allows multiple users to read and write data simultaneously without conflicts.</li>
+                  <li><strong>Backup &amp; Recovery:</strong> Automated logging and recovery points prevent data loss.</li>
+                </ul>
+              </li>
+              <li><strong>DBMS vs. File System:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>DBMS</th><th>File System</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Structure</strong></td><td>Structured storage with tables/schemas</td><td>Unstructured, raw, separate files</td></tr>
+                    <tr><td><strong>Redundancy</strong></td><td>Minimized through normalization</td><td>High duplication across redundant files</td></tr>
+                    <tr><td><strong>Security</strong></td><td>Granular privileges, roles, and locks</td><td>Limited file-level permissions</td></tr>
+                    <tr><td><strong>Queries</strong></td><td>Powerful SQL query support</td><td>Custom code required to search files</td></tr>
+                    <tr><td><strong>Recovery</strong></td><td>Automatic backup and crash recovery</td><td>Manual file backups only</td></tr>
+                  </tbody>
+                </table>
+              </li>
+              <li><strong>DBMS vs. RDBMS:</strong>
+                <ul>
+                  <li><strong>DBMS:</strong> Stores data as flat files or XML trees (no relationships; e.g., MS Access, XML databases).</li>
+                  <li><strong>RDBMS (Relational DBMS):</strong> Stores data in tabular relations (rows/columns) with foreign key relationships (e.g., MySQL, PostgreSQL, Oracle).</li>
+                </ul>
+              </li>
+              <li><strong>Types of DBMS:</strong> Hierarchical (tree structures), Network (many-to-many graphs), Relational (tabular tables), and Object-Oriented (object classes mapped to databases).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 02. DATABASE FUNDAMENTALS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">02</span>
+            <h2>Database Fundamentals</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Table (Relation):</strong> A two-dimensional grid of rows and columns storing records of a specific entity.</li>
+              <li><strong>Row (Tuple / Record):</strong> A single, complete data entry containing attributes of an entity.</li>
+              <li><strong>Column (Attribute / Field):</strong> A specific property or characteristic of an entity (e.g., <code>Name</code>, <code>Age</code>).</li>
+              <li><strong>Database Schema (The Blueprint):</strong> The static, logical structure of the database. Defines tables, fields, types, constraints, and relationships. It rarely changes.</li>
+              <li><strong>Database Instance (The Data):</strong> The actual data stored in the database at a specific moment. It changes constantly as transactions run.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 03. RELATIONAL KEYS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">03</span>
+            <h2>Relational Keys</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Super Key:</strong> A set of one or more attributes that collectively identify unique rows within a relation.
+                <ul>
+                  <li><em>Example:</em> <code>(StudentID)</code>, <code>(StudentID, Name)</code>, and <code>(StudentID, Email)</code> are all Super Keys.</li>
+                </ul>
+              </li>
+              <li><strong>Candidate Key:</strong> A minimal Super Key (a super key containing no redundant attributes). Every Candidate Key can serve as a Primary Key.
+                <ul>
+                  <li><em>Example:</em> <code>StudentID</code> and <code>Email</code> (both are unique and minimal).</li>
+                </ul>
+              </li>
+              <li><strong>Primary Key:</strong> The candidate key selected by the database designer to uniquely identify tuples in a table. It cannot contain NULL values and must be unique.</li>
+              <li><strong>Foreign Key:</strong> An attribute in a child table that references the Primary Key of a parent table, establishing relationship links and maintaining referential integrity.</li>
+              <li><strong>Alternate Key:</strong> Candidate keys that were not chosen to be the Primary Key.</li>
+              <li><strong>Composite Key:</strong> A Primary Key consisting of two or more columns (e.g., <code>(StudentID, CourseID)</code> in an enrollments table).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 04. DATA CONSTRAINTS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">04</span>
+            <h2>Data Constraints</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>NOT NULL:</strong> Restricts a column from accepting NULL values, forcing entries to have concrete data.</li>
+              <li><strong>UNIQUE:</strong> Guarantees that all values in a column are distinct, though it allows multiple NULLs in standard SQL.</li>
+              <li><strong>PRIMARY KEY:</strong> Combined <code>UNIQUE</code> and <code>NOT NULL</code> constraint. Universally indexes rows.</li>
+              <li><strong>FOREIGN KEY:</strong> Enforces referential integrity by guaranteeing child table keys point to valid parent records.</li>
+              <li><strong>CHECK:</strong> Evaluates boolean conditions before permitting inserts or updates (e.g., <code>CHECK (Age >= 18)</code>).</li>
+              <li><strong>DEFAULT:</strong> Provides a fallback value if no data is specified for that column during insertion (e.g., <code>Status = 'Active'</code>).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 05. DATABASE RELATIONSHIPS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">05</span>
+            <h2>Database Relationships</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>One-to-One (1:1):</strong> A row in Table A matches at most one row in Table B, and vice-versa (e.g., <code>Citizen</code> &harr; <code>AadhaarCard</code>).</li>
+              <li><strong>One-to-Many (1:N):</strong> A row in Table A can match multiple rows in Table B, but Table B matches at most one row in Table A (e.g., <code>Department</code> &rarr; <code>Employees</code>).</li>
+              <li><strong>Many-to-Many (M:N):</strong> Rows in Table A can relate to multiple rows in Table B, and vice-versa (e.g., <code>Students</code> &harr; <code>Courses</code>).
+                <ul>
+                  <li><em>Implementation:</em> M:N relationships cannot be modeled directly in relational schemas; they require a **junction (association) table** containing composite foreign keys pointing to both parent tables.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 06. ENTITY-RELATIONSHIP (ER) MODEL -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">06</span>
+            <h2>Entity-Relationship (ER) Model</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>ER Diagram (ERD):</strong> A conceptual modeling tool representing database structures logically using entities, attributes, and relationships.</li>
+              <li><strong>Core Components:</strong>
+                <ul>
+                  <li><strong>Entities (Rectangles):</strong> Real-world objects (e.g., <code>Student</code>, <code>Car</code>).
+                    <ul>
+                      <li><em>Weak Entity (Double Rectangle):</em> Depends on a strong owner entity to exist and has a partial key (discriminator).</li>
+                    </ul>
+                  </li>
+                  <li><strong>Attributes (Ovals):</strong> Properties of entities.
+                    <ul>
+                      <li><em>Key Attribute (Underlined):</em> Uniquely identifies the entity.</li>
+                      <li><em>Multivalued Attribute (Double Oval):</em> Can contain multiple values (e.g., <code>PhoneNumbers</code>).</li>
+                      <li><em>Derived Attribute (Dashed Oval):</em> Calculated dynamically from other attributes (e.g., <code>Age</code> derived from <code>DOB</code>).</li>
+                    </ul>
+                  </li>
+                  <li><strong>Relationships (Diamonds):</strong> Connections between entities (e.g., Student <em>Enroll</em> in Course).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 07. DATABASE NORMALIZATION -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">07</span>
+            <h2>Database Normalization</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Normalization:</strong> The systematic process of structuring database tables to eliminate data redundancy and prevent operational anomalies.</li>
+              <li><strong>Normal Forms:</strong>
+                <ul>
+                  <li><strong>1NF (First Normal Form):</strong> All column values must be atomic (no multivalued attributes or repeating groups).</li>
+                  <li><strong>2NF (Second Normal Form):</strong> Must be in 1NF + all non-key columns must be fully functionally dependent on the Primary Key. Removes **Partial Dependency** (no non-key attribute depends on a subset of a composite primary key).</li>
+                  <li><strong>3NF (Third Normal Form):</strong> Must be in 2NF + no **Transitive Dependency** (non-key columns cannot depend on other non-key columns). Formally, if $X \rightarrow Y$, then $X$ is a super key or $Y$ is a prime attribute.</li>
+                  <li><strong>BCNF (Boyce-Codd Normal Form):</strong> A stricter version of 3NF. For every functional dependency $X \rightarrow Y$, the determinant $X$ must be a **Super Key**.</li>
+                </ul>
+              </li>
+              <li><strong>Denormalization:</strong> Intentional introduction of data redundancy into a normalized database to reduce expensive join queries and optimize retrieval speeds.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 08. TRANSACTIONS & ACID PROPERTIES -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">08</span>
+            <h2>Transactions & ACID Properties</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Transaction:</strong> A logical unit of database work containing one or more SQL statements (e.g., bank transfer debiting A and crediting B).</li>
+              <li><strong>ACID Properties:</strong>
+                <ul>
+                  <li><strong>Atomicity:</strong> "All or nothing." Either all SQL actions commit, or the entire transaction is rolled back if a statement fails.</li>
+                  <li><strong>Consistency:</strong> The database must transition from one valid state to another, preserving all schemas, constraints, and triggers.</li>
+                  <li><strong>Isolation:</strong> Concurrent transactions run independently as if they are executing sequentially, preventing dirty reads and updates.</li>
+                  <li><strong>Durability:</strong> Once committed, updates are written permanently to disk storage and survive hardware crashes.</li>
+                </ul>
+              </li>
+              <li><strong>Transaction Control Commands (TCL):</strong>
+                <ul>
+                  <li><code>COMMIT</code>: Saves updates permanently.</li>
+                  <li><code>ROLLBACK</code>: Restores database to states before transaction start.</li>
+                  <li><code>SAVEPOINT</code>: Marks progress checkpoints to support partial rollbacks.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 09. CONCURRENCY CONTROL -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">09</span>
+            <h2>Concurrency Control</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Concurrency Control:</strong> Coordinates concurrent execution of transactions to ensure isolation, preventing conflicts like Dirty Reads, Non-Repeatable Reads, and Phantom Reads.</li>
+              <li><strong>Locking Mechanisms:</strong>
+                <ul>
+                  <li><strong>Shared Lock (S-Lock / Read Lock):</strong> Multiple transactions can hold shared locks on a row to read it, but no write operations are allowed.</li>
+                  <li><strong>Exclusive Lock (X-Lock / Write Lock):</strong> Only one transaction can lock a row to write/update it, blocking both reads and writes from others.</li>
+                </ul>
+              </li>
+              <li><strong>Deadlock:</strong> A state where Transaction A waits for a resource locked by Transaction B, while Transaction B waits for a resource locked by Transaction A. Both are blocked indefinitely.</li>
+              <li><strong>Prevention:</strong>
+                <ul>
+                  <li><em>Lock Ordering:</em> Transactions must acquire locks in a predetermined, global sequence.</li>
+                  <li><em>Timeouts:</em> Abort transactions that wait longer than a threshold.</li>
+                  <li><em>Wait-Die / Wound-Wait:</em> Scheduling schemes based on transaction timestamps to prevent cyclic waits.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10. INDEXING & TREES -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">10</span>
+            <h2>Indexing & Trees</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Indexing:</strong> Data structure technique that optimizes query execution speeds by providing fast access paths to records (avoiding full-table scans).</li>
+              <li><strong>Clustered Index:</strong> Physically re-orders table rows on disk to match the index order. Only **one** Clustered Index can exist per table (default: Primary Key).</li>
+              <li><strong>Non-Clustered Index:</strong> Creates a separate logical index structure containing keys and pointers (row addresses) to the actual data rows. Multiple non-clustered indexes are allowed per table.</li>
+              <li><strong>B Tree vs. B+ Tree:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>B Tree</th><th>B+ Tree</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Data Storage</strong></td><td>Keys and data pointers are stored in all internal and leaf nodes.</td><td>Keys are stored in all nodes; actual data pointers exist **only** in leaf nodes.</td></tr>
+                    <tr><td><strong>Range Queries</strong></td><td>Slower: requires traversing up and down the tree using DFS.</td><td>Fast: leaf nodes are linked sequentially as a linked list, allowing linear scans.</td></tr>
+                    <tr><td><strong>Tree Height</strong></td><td>Higher (nodes store bulky data, reducing fan-out).</td><td>Lower (nodes store only indexing keys, boosting fan-out).</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 11. RECOVERY & BACKUP -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">11</span>
+            <h2>Recovery & Backup</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Transaction Log (Write-Ahead Log / WAL):</strong> A file recording all updates before they are committed to database disk blocks. Essential for recovering after server crashes.</li>
+              <li><strong>Backup Strategies:</strong>
+                <ul>
+                  <li><strong>Full Backup:</strong> Copies the entire database.</li>
+                  <li><strong>Incremental Backup:</strong> Copies only files/records updated since the last backup (Full or Incremental).</li>
+                  <li><strong>Differential Backup:</strong> Copies all updates made since the last **Full** backup.</li>
+                  <li><strong>Transaction Log Backup:</strong> Backs up the transaction log sequentially, allowing point-in-time database recoveries.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 12. ADVANCED DATABASE CONCEPTS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">12</span>
+            <h2>Advanced Database Concepts</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Cursor:</strong> A control structure in SQL programming that enables developers to cycle through query result tuples line-by-line, performing custom procedural operations on each row.</li>
+              <li><strong>Stored Procedure:</strong> Precompiled SQL codes stored in database schemas. Reduces network traffic and optimizes performance by executing code directly on the database server.</li>
+              <li><strong>Trigger:</strong> An automated block of database code that executes ("fires") in response to specific events (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) on target tables.</li>
+              <li><strong>Database Views:</strong>
+                <ul>
+                  <li><strong>View (Virtual View):</strong> A virtual table defined by a SQL query. It does not store data on disk; it executes its SQL query dynamically every time it is referenced.</li>
+                  <li><strong>Materialized View:</strong> A physical table that saves query results on disk. It must be refreshed periodically but performs much faster on complex aggregations.</li>
+                </ul>
+              </li>
+              <li><strong>Partitioning:</strong> Divides large tables into smaller physical tables:
+                <ul>
+                  <li><em>Horizontal Partitioning (Sharding):</em> Splitting rows based on key ranges (e.g., splitting by <code>RegionID</code>).</li>
+                  <li><em>Vertical Partitioning:</em> Splitting columns into separate files to optimize memory (e.g., moving bulky text columns to a separate table).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 13. SQL BASICS & JOINS -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">13</span>
+            <h2>SQL Basics & Joins</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Basic SQL Clauses:</strong>
+                <ul>
+                  <li><code>SELECT</code>: Specifies columns to retrieve.</li>
+                  <li><code>WHERE</code>: Filters rows using logical predicates before aggregations.</li>
+                  <li><code>GROUP BY</code>: Summarizes matching rows into single bucket records.</li>
+                  <li><code>HAVING</code>: Filters summarized group records *after* the <code>GROUP BY</code> execution.</li>
+                  <li><code>ORDER BY</code>: Sorts output records (ascending or descending).</li>
+                </ul>
+              </li>
+              <li><strong>SQL Joins:</strong> Combine rows from two or more tables based on a related column:
+                <ul>
+                  <li><strong>INNER JOIN:</strong> Returns records that have matching values in both tables.</li>
+                  <li><strong>LEFT (OUTER) JOIN:</strong> Returns all records from the left table and matched records from the right table (unmatched right rows become NULL).</li>
+                  <li><strong>RIGHT (OUTER) JOIN:</strong> Returns all records from the right table and matched records from the left table.</li>
+                  <li><strong>FULL (OUTER) JOIN:</strong> Returns all rows from both tables, filling missing matches with NULLs.</li>
+                  <li><strong>CROSS JOIN:</strong> Returns the Cartesian product of both tables (combinations of every row in left and right tables).</li>
+                  <li><strong>SELF JOIN:</strong> Joins a table with itself (requires referencing the table with two distinct aliases).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 14. NOSQL & MONGODB -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">14</span>
+            <h2>NoSQL & MongoDB</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>NoSQL Databases:</strong> Databases designed for unstructured/semi-structured data, supporting dynamic, flexible schemas and high horizontal scaling capabilities.</li>
+              <li><strong>Relational SQL vs. NoSQL:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>SQL Databases</th><th>NoSQL Databases</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Data Model</strong></td><td>Tabular relations (Tables, Rows, Columns)</td><td>Key-Value, Document (JSON), Columnar, or Graph</td></tr>
+                    <tr><td><strong>Schema</strong></td><td>Strict, fixed, compile-time schema</td><td>Dynamic, flexible, schema-less</td></tr>
+                    <tr><td><strong>Scaling</strong></td><td>Vertical scaling (upgrade CPU/RAM on one server)</td><td>Horizontal scaling (add more server nodes)</td></tr>
+                    <tr><td><strong>Transactions</strong></td><td>Highly ACID compliant</td><td>Prioritizes Eventual Consistency (BASE)</td></tr>
+                  </tbody>
+                </table>
+              </li>
+              <li><strong>MongoDB Key Concepts:</strong> Document-oriented database storing records as BSON (Binary JSON).
+                <ul>
+                  <li><strong>Database &harr; Database:</strong> Logically groups collections.</li>
+                  <li><strong>Collection &harr; Table:</strong> A group of related MongoDB documents.</li>
+                  <li><strong>Document &harr; Row:</strong> A single JSON record (holds key-value pairs).</li>
+                </ul>
+              </li>
+              <li><strong>High Availability &amp; Scaling in NoSQL:</strong>
+                <ul>
+                  <li><strong>Replication:</strong> Syncing data copies across multiple replica set nodes (Primary &rarr; Secondary) to ensure data redundancy and high availability.</li>
+                  <li><strong>Sharding:</strong> Distributing dataset partitions across independent server clusters to scale write and read throughput horizontally.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 15. ADVANCED DATABASE ARCHITECTURE -->
+        <div class="theory-card dbms">
+          <div class="theory-card-header">
+            <span class="theory-card-num">15</span>
+            <h2>Advanced Database Architecture</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Three-Schema Architecture:</strong> Isolates user applications from physical database structures:
+                <ul>
+                  <li><strong>External Schema (User View):</strong> Custom views presented to different client applications.</li>
+                  <li><strong>Conceptual Schema (Logical View):</strong> The global design of database tables, constraints, and relationships.</li>
+                  <li><strong>Internal Schema (Physical View):</strong> Physical storage paths, indexes, block sizes, and compression details.</li>
+                </ul>
+              </li>
+              <li><strong>Data Independence:</strong>
+                <ul>
+                  <li><strong>Logical Data Independence:</strong> Ability to modify conceptual schemas (adding tables) without modifying external user views.</li>
+                  <li><strong>Physical Data Independence:</strong> Ability to change storage files or indexes without modifying conceptual tables or user queries.</li>
+                </ul>
+              </li>
+              <li><strong>Database Anomalies:</strong> Data inconsistency bugs caused by raw database designs:
+                <ul>
+                  <li><em>Insert Anomaly:</em> Inability to insert a record because parent info is missing (e.g., cannot add a course until a student enrolls).</li>
+                  <li><em>Update Anomaly:</em> Updating a value requires changes across multiple redundant rows. A partial update leaves data corrupt.</li>
+                  <li><em>Delete Anomaly:</em> Deleting a row accidentally deletes completely unrelated critical data (e.g., deleting a student delete's the only copy of course info).</li>
+                </ul>
+              </li>
+              <li><strong>Serializability:</strong> Equivalence standard in concurrent transactions. A schedule is serializable if its outcome matches some sequential (non-interleaved) execution of the same transactions.
+                <ul>
+                  <li><strong>Two-Phase Locking (2PL):</strong> Concurrency protocol guaranteeing serializability by splitting transactions into two phases: **Growing Phase** (acquiring locks, no releases) and **Shrinking Phase** (releasing locks, no new acquisitions).</li>
+                </ul>
+              </li>
+              <li><strong>OLTP vs. OLAP:</strong>
+                <ul>
+                  <li><strong>OLTP (Online Transaction Processing):</strong> Supports fast, atomic operational queries (inserting bank transactions; highly normalized).</li>
+                  <li><strong>OLAP (Online Analytical Processing):</strong> Supports complex analysis, aggregations, and business intelligence reporting (denormalized, historical data warehouses).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- SECTION: INTERVIEW Q&A -->
     <div class="section" id="section-interview-qa">
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
@@ -2457,6 +2892,14 @@ myCar.drive();</code></pre>
             <p>Processes, Threads, CPU Scheduling, Deadlocks, Memory, Kernels</p>
           </div>
           <div class="qa-selector-badge">30 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="dbms">
+          <div class="qa-selector-icon">🗄️</div>
+          <div class="qa-selector-details">
+            <h3>Database Systems</h3>
+            <p>Relational Model, SQL Queries, Normalization, ACID, Locks, NoSQL &amp; MongoDB</p>
+          </div>
+          <div class="qa-selector-badge">50 Qs</div>
         </div>
       </div>
 
@@ -4046,6 +4489,532 @@ myCar.drive();</code></pre>
                   <li><strong>Soft RTOS:</strong> Deadlines are critical but occasional minor delays are acceptable (e.g., video games, media players).</li>
                 </ul>
               </li>
+            </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DBMS PANEL -->
+        <div class="qa-panel" id="qa-panel-dbms">
+          <div class="theory-card dbms">
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is a Database Management System (DBMS)?</h4>
+              <ul>
+              <li><strong>DBMS:</strong> System software used to create, organize, store, retrieve, update, and manage databases. It operates between the physical database storage and user applications.</li>
+              <li><strong>Core Benefits:</strong>
+                <ul>
+                  <li>Prevents data redundancy and inconsistencies.</li>
+                  <li>Enforces access restrictions (Data Security).</li>
+                  <li>Enables concurrent access through locks.</li>
+                  <li>Provides transaction logging for crash recovery.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q2: What is the difference between DBMS and RDBMS?</h4>
+              <ul>
+              <li><strong>DBMS (Traditional):</strong> Stores data as files or hierarchical trees. Relational keys and constraints are not enforced at database levels; relationships must be handled in application code (e.g., XML files, file structures).</li>
+              <li><strong>RDBMS (Relational):</strong> Stores data strictly in structured tables (relations) with rows and columns. Enforces foreign key dependencies and database integrity constraints (e.g., MySQL, Oracle, PostgreSQL).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q3: Difference between Primary Key and Foreign Key?</h4>
+              <ul>
+              <li><strong>Primary Key:</strong> Uniquely identifies each record in a table. It cannot contain NULL values, and there can only be **one** Primary Key per table.</li>
+              <li><strong>Foreign Key:</strong> A column in a table that references the Primary Key of another table. It establishes relationship links and enforces referential integrity (ensuring child rows point to valid parent records). It can accept NULL values unless marked NOT NULL.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is the difference between Candidate Key and Super Key?</h4>
+              <ul>
+              <li><strong>Super Key:</strong> Any attribute or combination of attributes that uniquely identifies tuples in a table (e.g., <code>(StudentID)</code>, <code>(StudentID, Name)</code>).</li>
+              <li><strong>Candidate Key:</strong> A **minimal** Super Key (contains no redundant attributes). All Candidate Keys are Super Keys, but not all Super Keys are Candidate Keys.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q5: Difference between Primary Key and Unique Key?</h4>
+              <ul>
+              <li><strong>Primary Key:</strong> Uniquely identifies tuples, rejects all NULL values, and is limited to **one** per table. It automatically creates a clustered index.</li>
+              <li><strong>Unique Key:</strong> Guarantees unique column values, but can accept NULL values (specifically, one NULL in SQL Server, or multiple NULLs in MySQL). Multiple Unique keys are allowed per table.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q6: What is Database Normalization and why do we use it?</h4>
+              <ul>
+              <li><strong>Normalization:</strong> The design process of organizing tables to minimize data redundancy and avoid update, insert, and delete anomalies.</li>
+              <li><strong>Goals:</strong> Saves storage space, keeps data consistent, and simplifies schema maintenance.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q7: Explain 1NF, 2NF, 3NF, and BCNF.</h4>
+              <ul>
+              <li><strong>1NF:</strong> Table cells must contain only atomic, single-valued attributes (no nested tables or arrays).</li>
+              <li><strong>2NF:</strong> Must be in 1NF + all non-key columns must be fully functionally dependent on the Primary Key. Removes **Partial Dependency** (non-key columns cannot depend on a subset of a composite primary key).</li>
+              <li><strong>3NF:</strong> Must be in 2NF + removes **Transitive Dependency** (non-key columns cannot depend on other non-key columns). Formally, if $X \rightarrow Y$, then $X$ is a super key or $Y$ is a prime attribute.</li>
+              <li><strong>BCNF:</strong> Stricter than 3NF. For every functional dependency $X \rightarrow Y$, the determinant $X$ must be a **Super Key**.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is Denormalization and when is it used?</h4>
+              <ul>
+              <li><strong>Denormalization:</strong> The intentional introduction of redundancy by combining tables or adding duplicate columns to a normalized schema.</li>
+              <li><strong>Usage:</strong> Used in read-heavy applications and data warehouses to avoid expensive multiple table joins, optimizing select query execution speeds.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q9: Explain ACID properties in detail.</h4>
+              <p>ACID properties guarantee safe transaction processing:</p>
+            <ul>
+              <li><strong>Atomicity:</strong> "All or nothing." If any query inside a transaction fails, the entire transaction is rolled back.</li>
+              <li><strong>Consistency:</strong> Transactions transition the database from one valid state to another, preserving all schemas, constraints, and triggers.</li>
+              <li><strong>Isolation:</strong> Concurrent transactions execute without interference. Changes are invisible to others until committed.</li>
+              <li><strong>Durability:</strong> Once committed, updates are permanently written to disk and survive system crashes.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q10: What is a Transaction in DBMS?</h4>
+              <ul>
+              <li><strong>Transaction:</strong> A logical unit of database work containing a series of SQL operations (e.g. read, write, update) that must be executed as a single coherent block.</li>
+              <li><strong>Controls:</strong> Managed using TCL statements: <code>COMMIT</code> (save), <code>ROLLBACK</code> (undo), and <code>SAVEPOINT</code> (milestone checkpoints).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q11: What is a Deadlock in DBMS and how is it resolved?</h4>
+              <ul>
+              <li><strong>Deadlock:</strong> A state where Transaction A waits for a lock held by Transaction B, while Transaction B waits for a lock held by Transaction A. Both block indefinitely.</li>
+              <li><strong>Resolution:</strong> The DBMS detects the deadlock cycle, chooses one transaction as a "victim", aborts it, rolls back its updates, and releases its locks to let the other transaction complete.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is Concurrency Control?</h4>
+              <ul>
+              <li><strong>Concurrency Control:</strong> Coordinates concurrent execution of transactions to ensure isolation, preventing conflicts like Dirty Reads, Non-Repeatable Reads, and Phantom Reads.</li>
+              <li><strong>Locking Mechanisms:</strong>
+                <ul>
+                  <li><strong>Shared Lock (S-Lock / Read Lock):</strong> Multiple transactions can hold shared locks on a row to read it, but no write operations are allowed.</li>
+                  <li><strong>Exclusive Lock (X-Lock / Write Lock):</strong> Only one transaction can lock a row to write/update it, blocking both reads and writes from others.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is Indexing in DBMS?</h4>
+              <ul>
+              <li><strong>Indexing:</strong> An optimization technique that creates helper data structures (typically B+ Trees) to speed up record searches, avoiding slow full-table scans.</li>
+              <li><strong>Cost:</strong> Indexing accelerates search queries (<code>SELECT</code>), but slows down write queries (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) because the database must keep index trees updated.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q14: Difference between Clustered and Non-Clustered Index?</h4>
+              <ul>
+              <li><strong>Clustered Index:</strong> Physically re-orders table rows on disk to match the index order. Only **one** Clustered Index can exist per table (default: Primary Key).</li>
+              <li><strong>Non-Clustered Index:</strong> Creates a separate logical index structure containing keys and pointers (row addresses) to the actual data rows. Multiple non-clustered indexes are allowed per table.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is a View and what are its advantages?</h4>
+              <ul>
+              <li><strong>View:</strong> A virtual table defined by a SQL query. It does not store data on disk; it executes its SQL query dynamically every time it is referenced.</li>
+              <li><strong>Advantages:</strong> Hides complex queries, restricts columns to protect security, and simplifies user queries.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q16: Difference between Stored Procedure and Trigger?</h4>
+              <ul>
+              <li><strong>Stored Procedure:</strong> Precompiled SQL code stored in the database. Executed explicitly by client applications using statements (e.g. <code>CALL proc_name()</code>). Can accept parameters and return values.</li>
+              <li><strong>Trigger:</strong> Executes automatically in response to specific tables events (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>). Cannot be called manually, cannot accept parameters, and cannot return values.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q17: Difference between Inner Join and Outer Join?</h4>
+              <ul>
+              <li><strong>Inner Join:</strong> Combines rows from two tables, returning rows only if a matching value is found in both tables.</li>
+              <li><strong>Outer Join:</strong> Combines tables but returns unmatched rows as well, using NULL values for the missing data columns. Can be Left Outer (returns all left rows), Right Outer (returns all right rows), or Full Outer (returns all rows from both tables).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q18: What is Referential Integrity?</h4>
+              <ul>
+              <li><strong>Referential Integrity:</strong> A relational constraint ensuring relationships between tables remain consistent.</li>
+              <li><strong>Rule:</strong> Any foreign key value in a child table must match an existing primary key value in the parent table, or be NULL. Prevent orphan records.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is a Cursor in SQL and when is it used?</h4>
+              <ul>
+              <li><strong>Cursor:</strong> A control structure in SQL programming that enables developers to cycle through query result tuples line-by-line, performing custom procedural operations on each row.</li>
+              <li><strong>Usage:</strong> Used in stored procedures and triggers for row-by-row batch operations where standard set-based SQL queries are not sufficient.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q20: Difference between B Tree and B+ Tree?</h4>
+              <ul>
+              <li><strong>B Tree:</strong> Keys and actual row pointers are stored together in both internal and leaf nodes. Range searches are slow because they require traversing up and down the tree structure.</li>
+              <li><strong>B+ Tree:</strong> Keys are stored in all nodes, but data pointers exist **only** in the leaf nodes. Additionally, all leaf nodes are linked sequentially in a linked list, enabling fast linear range scans.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q21: Write basic SQL SELECT queries using WHERE, ORDER BY, GROUP BY, and HAVING.</h4>
+              <p>SQL syntax examples:</p>
+            <pre class="theory-code"><code><span class="comment">// 1. Retrieve students aged over 18 sorted by Name</span>
+<span class="keyword">SELECT</span> StudentID, Name, Age 
+<span class="keyword">FROM</span> Student 
+<span class="keyword">WHERE</span> Age > 18 
+<span class="keyword">ORDER BY</span> Name <span class="keyword">ASC</span>;
+
+<span class="comment">// 2. Count employees in departments having more than 5 workers</span>
+<span class="keyword">SELECT</span> Department, COUNT(*) <span class="keyword">as</span> EmployeeCount
+<span class="keyword">FROM</span> Employee
+<span class="keyword">GROUP BY</span> Department
+<span class="keyword">HAVING</span> COUNT(*) > 5;</code></pre>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q22: Provide code examples for all major SQL Joins.</h4>
+              <p>Examples using Employee and Department tables:</p>
+            <pre class="theory-code"><code><span class="comment">// 1. INNER JOIN</span>
+<span class="keyword">SELECT</span> E.Name, D.DeptName 
+<span class="keyword">FROM</span> Employee E 
+<span class="keyword">INNER JOIN</span> Department D <span class="keyword">ON</span> E.DeptID = D.DeptID;
+
+<span class="comment">// 2. LEFT JOIN</span>
+<span class="keyword">SELECT</span> E.Name, D.DeptName 
+<span class="keyword">FROM</span> Employee E 
+<span class="keyword">LEFT JOIN</span> Department D <span class="keyword">ON</span> E.DeptID = D.DeptID;
+
+<span class="comment">// 3. RIGHT JOIN</span>
+<span class="keyword">SELECT</span> E.Name, D.DeptName 
+<span class="keyword">FROM</span> Employee E 
+<span class="keyword">RIGHT JOIN</span> Department D <span class="keyword">ON</span> E.DeptID = D.DeptID;
+
+<span class="comment">// 4. FULL JOIN</span>
+<span class="keyword">SELECT</span> E.Name, D.DeptName 
+<span class="keyword">FROM</span> Employee E 
+<span class="keyword">FULL OUTER JOIN</span> Department D <span class="keyword">ON</span> E.DeptID = D.DeptID;
+
+<span class="comment">// 5. CROSS JOIN</span>
+<span class="keyword">SELECT</span> E.Name, D.DeptName 
+<span class="keyword">FROM</span> Employee E 
+<span class="keyword">CROSS JOIN</span> Department D;
+
+<span class="comment">// 6. SELF JOIN</span>
+<span class="keyword">SELECT</span> E1.Name <span class="keyword">as</span> Employee, E2.Name <span class="keyword">as</span> Manager
+<span class="keyword">FROM</span> Employee E1
+<span class="keyword">INNER JOIN</span> Employee E2 <span class="keyword">ON</span> E1.ManagerID = E2.EmployeeID;</code></pre>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is the difference between UNION and UNION ALL?</h4>
+              <ul>
+              <li><strong>UNION:</strong> Combines result sets of two SELECT queries, removes duplicates, and sorts the final list. Slower due to duplicate check overhead.</li>
+              <li><strong>UNION ALL:</strong> Combines result sets without removing duplicates, returning every row from both queries. Faster because it skips the sorting/hashing checks.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q24: What is a Subquery and what are its types?</h4>
+              <ul>
+              <li><strong>Subquery:</strong> A query nested inside another SQL query (using clauses like <code>WHERE</code>, <code>FROM</code>, or <code>SELECT</code>).</li>
+              <li><strong>Types:</strong>
+                <ul>
+                  <li><strong>Single-Row Subquery:</strong> Returns at most one row. Uses operators like <code>=</code>, <code>&gt;</code>, <code>&lt;</code>.</li>
+                  <li><strong>Multi-Row Subquery:</strong> Returns multiple rows. Uses operators like <code>IN</code>, <code>ANY</code>, <code>ALL</code>.</li>
+                  <li><strong>Correlated Subquery:</strong> A subquery that references columns of the outer query, executing once for every row processed by the outer query.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q25: Write a query utilizing a Correlated Subquery.</h4>
+              <p>Example: Retrieve employees who earn more than the average salary of their respective department:</p>
+            <pre class="theory-code"><code><span class="keyword">SELECT</span> E1.Name, E1.Salary, E1.DeptID
+<span class="keyword">FROM</span> Employee E1
+<span class="keyword">WHERE</span> E1.Salary > (
+    <span class="keyword">SELECT</span> AVG(E2.Salary)
+    <span class="keyword">FROM</span> Employee E2
+    <span class="keyword">WHERE</span> E2.DeptID = E1.DeptID
+);</code></pre>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q26: Explain the difference between EXISTS and IN.</h4>
+              <ul>
+              <li><strong>IN:</strong> Scans the entire subquery result set and matches values. Best when the subquery result is small, as it operates on loaded memory lists.</li>
+              <li><strong>EXISTS:</strong> Returns true as soon as it finds the first matching row (stops scanning). Best when the subquery result is large or depends on indexing.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q27: Difference between DELETE, TRUNCATE, and DROP?</h4>
+              <p>Comparison of data removal commands:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Feature</th><th>DELETE</th><th>TRUNCATE</th><th>DROP</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Command Type</strong></td><td>DML (Data Manipulation)</td><td>DDL (Data Definition)</td><td>DDL (Data Definition)</td></tr>
+                <tr><td><strong>Action</strong></td><td>Removes specific rows (uses <code>WHERE</code>).</td><td>Removes all rows from the table.</td><td>Deletes table structure and all data.</td></tr>
+                <tr><td><strong>Rollback</strong></td><td>Allowed (logs row deletes).</td><td>Allowed in transaction blocks (DBMS dependent).</td><td>Cannot rollback.</td></tr>
+                <tr><td><strong>Structure</strong></td><td>Table structure remains intact.</td><td>Table structure remains intact.</td><td>Table structure is completely removed.</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q28: What is the difference between SQL and NoSQL?</h4>
+              <ul>
+              <li><strong>SQL Databases:</strong> Tabular relations, fixed strict schema, vertically scalable, highly ACID compliant (e.g. MySQL, Postgres).</li>
+              <li><strong>NoSQL Databases:</strong> Flexible dynamic schemas, document/key-value/graph models, horizontally scalable (sharding), prioritizes CAP theorem tradeoffs over strict ACID (e.g. MongoDB, Redis).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q29: What is a Correlated Subquery and how is it evaluated?</h4>
+              <ul>
+              <li><strong>Correlated Subquery:</strong> A nested query that references variables or columns from the outer query.</li>
+              <li><strong>Evaluation:</strong> It cannot be executed independently of the outer query. The outer query reads a row, passes values to the subquery, runs the subquery, evaluates the condition, and moves to the next row. This is repeated for every candidate row of the outer query (nested loop).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is a Self Join? Give a practical scenario.</h4>
+              <ul>
+              <li><strong>Self Join:</strong> Joining a table with itself by creating two distinct aliases for the table in the same query.</li>
+              <li><strong>Scenario:</strong> Frequently used in hierarchical tables (e.g., finding the manager of each employee in an Employees table where `ManagerID` points to `EmployeeID` in the same table).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is NoSQL and what are its types?</h4>
+              <ul>
+              <li><strong>NoSQL (Not Only SQL):</strong> Non-relational databases that store data in formats other than traditional tables.</li>
+              <li><strong>Four Main Types:</strong>
+                <ol>
+                  <li><strong>Document Databases:</strong> Stores data as JSON/BSON records (e.g. MongoDB).</li>
+                  <li><strong>Key-Value Stores:</strong> Stores key-value mappings (e.g. Redis).</li>
+                  <li><strong>Column-Family Stores:</strong> Optimized for large scale columns (e.g. Cassandra).</li>
+                  <li><strong>Graph Databases:</strong> Stores nodes and edges (e.g. Neo4j).</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q32: What is MongoDB? How does it store data?</h4>
+              <ul>
+              <li><strong>MongoDB:</strong> A document-oriented NoSQL database.</li>
+              <li><strong>BSON:</strong> It stores records physically on disk as **BSON** (Binary JSON), which extends JSON to support additional types like Date, BinData, and ObjectId.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q33: Map SQL terminology to MongoDB terminology.</h4>
+              <table class="theory-table">
+              <thead>
+                <tr><th>SQL Relational</th><th>MongoDB NoSQL</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Database</td><td>Database</td></tr>
+                <tr><td>Table</td><td>Collection</td></tr>
+                <tr><td>Row (Tuple)</td><td>Document (BSON)</td></tr>
+                <tr><td>Column (Attribute)</td><td>Field</td></tr>
+                <tr><td>Primary Key</td><td><code>_id</code> field (ObjectId)</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q34: Provide CRUD command examples in MongoDB.</h4>
+              <p>BSON shell query examples:</p>
+            <pre class="theory-code"><code><span class="comment">// 1. INSERT</span>
+db.students.insertOne({ name: "Antony", age: 22 })
+
+<span class="comment">// 2. READ</span>
+db.students.find({ age: { $gt: 18 } })
+
+<span class="comment">// 3. UPDATE</span>
+db.students.updateOne(
+  { name: "Antony" },
+  { $set: { age: 23 } }
+)
+
+<span class="comment">// 4. DELETE</span>
+db.students.deleteOne({ name: "Antony" })</code></pre>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q35: What is Sharding in MongoDB?</h4>
+              <ul>
+              <li><strong>Sharding:</strong> The process of storing data records across multiple physical machine clusters. MongoDB uses sharding to support horizontal scaling, distributing large datasets and write operations across nodes.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q36: What is Replication in MongoDB?</h4>
+              <ul>
+              <li><strong>Replication:</strong> Syncing data copies across multiple database nodes using replica sets. Supports high availability. A replica set contains:
+                <ul>
+                  <li><strong>Primary Node:</strong> Receives all write operations.</li>
+                  <li><strong>Secondary Nodes:</strong> Replicate the primary's oplog and apply updates to sync data copies. Can serve read queries. If the primary node crashes, the secondary nodes elect a new primary node automatically.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q37: What is the difference between Sharding and Replication?</h4>
+              <ul>
+              <li><strong>Replication:</strong> Creates exact copies of the database on separate nodes to guarantee high availability and failover protection.</li>
+              <li><strong>Sharding:</strong> Splits the database horizontally into ranges, storing different parts of the dataset on different servers to scale storage size and write capacity.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q38: Explain MongoDB's Aggregation Pipeline.</h4>
+              <ul>
+              <li><strong>Aggregation Pipeline:</strong> MongoDB's framework for data aggregation modeled on data processing concepts. Documents enter a multi-stage pipeline that transforms them.</li>
+              <li><strong>Common Stages:</strong> <code>$match</code> (filter), <code>$group</code> (aggregate), <code>$sort</code>, <code>$project</code> (select fields), and <code>$limit</code>.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q39: How does Indexing work in MongoDB?</h4>
+              <ul>
+              <li>MongoDB uses B-Trees to index fields. By default, MongoDB indexes the unique <code>_id</code> field. Developers can create custom single-field, compound, text, or geospatial indexes to speed up lookup operations.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q40: What is BSON? Why does MongoDB use BSON instead of plain JSON?</h4>
+              <ul>
+              <li><strong>BSON (Binary JSON):</strong> A binary representation of JSON documents.</li>
+              <li><strong>Why used:</strong> MongoDB uses BSON because it parses faster than plain text JSON, stores binary formats directly, and includes data types not present in JSON (e.g. <code>Date</code>, <code>ObjectId</code>, <code>Double</code>).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q41: What is Data Independence and what are its types?</h4>
+              <ul>
+              <li><strong>Data Independence:</strong> The ability to modify schema definitions at one level of the database architecture without forcing changes at other levels.</li>
+              <li><strong>Types:</strong>
+                <ul>
+                  <li><strong>Logical Data Independence:</strong> Modifying conceptual schemas (adding/altering tables) without breaking external views or user queries.</li>
+                  <li><strong>Physical Data Independence:</strong> Changing physical files, disks, or index designs without modifying conceptual schemas or database queries.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q42: Explain the Three-Schema Architecture in DBMS.</h4>
+              <ul>
+              <li><strong>Three-Schema Architecture:</strong> Also called the ANSI-SPARC architecture. It divides databases into three levels to separate user applications from the physical database:
+                <ol>
+                  <li><strong>External Level (View Schema):</strong> Defines custom, user-specific views of tables.</li>
+                  <li><strong>Conceptual Level (Logical Schema):</strong> Defines the database tables, attributes, constraints, and relationships.</li>
+                  <li><strong>Internal Level (Physical Schema):</strong> Defines how data is physically saved on disk blocks, indexing, and compression.</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q43: What are Database Anomalies? Explain with examples.</h4>
+              <p>Operational inconsistencies caused by redundant database designs:</p>
+            <ul>
+              <li><strong>Insert Anomaly:</strong> Inability to insert a record because parent data is missing (e.g. cannot add course details until a student enrolls).</li>
+              <li><strong>Update Anomaly:</strong> Updating a value requires changes across multiple redundant rows. A partial update leaves data corrupt.</li>
+              <li><strong>Delete Anomaly:</strong> Deleting a row accidentally deletes completely unrelated critical data (e.g., deleting a student delete's the only copy of course info).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q44: What is Serializability? Why is it important?</h4>
+              <ul>
+              <li><strong>Serializability:</strong> The gold standard for correctness in concurrent transaction schedules. A schedule is serializable if its final database state matches some sequential (non-interleaved) execution of the same transactions.</li>
+              <li><strong>Importance:</strong> Ensures transaction isolation and prevents race conditions.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q45: Explain the Two-Phase Locking (2PL) Protocol.</h4>
+              <ul>
+              <li><strong>2PL:</strong> A concurrency control protocol guaranteeing serializability. It requires transactions to acquire and release locks in two separate phases:
+                <ol>
+                  <li><strong>Growing Phase:</strong> Transaction can acquire locks but cannot release any.</li>
+                  <li><strong>Shrinking Phase:</strong> Transaction can release locks but cannot acquire new ones.</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q46: What is Shadow Paging and when is it used?</h4>
+              <ul>
+              <li><strong>Shadow Paging:</strong> A recovery technique that avoids log files. The database maintains two page tables: a current page table and a shadow page table.</li>
+              <li><strong>Mechanism:</strong> Writes are directed to duplicate pages, and the current table is updated. On success, the pointer is swapped. On failure, the current table is discarded and restored from the shadow table.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q47: What is Checkpointing in DBMS?</h4>
+              <ul>
+              <li><strong>Checkpointing:</strong> An optimization technique in recovery. The database forces all dirty pages in volatile memory buffers to be written to disk, and writes a CHECKPOINT record to the log file.</li>
+              <li><strong>Benefit:</strong> Minimizes recovery times after system crashes, as the recovery engine does not need to parse log transactions executed prior to the checkpoint.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q48: What is the CAP Theorem in NoSQL?</h4>
+              <ul>
+              <li><strong>CAP Theorem:</strong> States that a distributed database system can guarantee at most **two** of these three properties:
+                <ul>
+                  <li><strong>Consistency (C):</strong> Every read returns the most recent write.</li>
+                  <li><strong>Availability (A):</strong> Every request receives a non-error response.</li>
+                  <li><strong>Partition Tolerance (P):</strong> System continues to operate despite network failures.</li>
+                </ul>
+              </li>
+              <li><strong>Tradeoff:</strong> In distributed networks, Partition Tolerance (P) is mandatory, forcing databases to choose between Consistency (CP) or Availability (AP).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q49: Difference between OLTP and OLAP?</h4>
+              <ul>
+              <li><strong>OLTP (Online Transaction Processing):</strong> Supports operational, transactional databases (inserting updates; normalized; fast query execution times; e.g. banking transactions).</li>
+              <li><strong>OLAP (Online Analytical Processing):</strong> Supports analytical, historical reporting (denormalized; large aggregations; e.g. business intelligence databases).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent-dbms); margin-bottom: 4px; font-size: 1.1rem;">Q50: Explain the differences between Star Schema and Snowflake Schema.</h4>
+              <ul>
+              <li><strong>Star Schema:</strong> Fact table in the center surrounded by dimension tables. Dimension tables are completely denormalized. Simple structure, fewer joins.</li>
+              <li><strong>Snowflake Schema:</strong> An extension of Star Schema where dimension tables are normalized into sub-dimension tables. Reduces redundancy, but queries are slower due to more joins.</li>
             </ul>
             </div>
 

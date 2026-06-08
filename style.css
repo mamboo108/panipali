@@ -13,6 +13,7 @@
   --accent5: #c97bff;    /* Lavender */
   --accent6: #ff9d5c;    /* Soft Orange */
   --accent-os: #34d399;   /* Mint / Emerald Green */
+  --accent-dbms: #f59e0b;   /* Amber / Gold */
   --text: #f0f2f5;
   --muted: #7a8090;
   --heading-color: #ffffff;
@@ -38,6 +39,7 @@ html[data-theme="light"] {
   --accent5: #7c3aed;    /* Violet */
   --accent6: #d97706;    /* Amber */
   --accent-os: #059669;   /* Emerald Green */
+  --accent-dbms: #d97706;   /* Amber / Gold */
   --text: #0f172a;
   --muted: #475569;
   --heading-color: #0f172a;
@@ -423,6 +425,11 @@ p strong {
 .card-hoverable.theory-os-card {
   border-left: 5px solid var(--accent-os);
 }
+
+.card-hoverable.theory-dbms-card {
+  border-left: 5px solid var(--accent-dbms);
+}
+
 
 .card-hoverable.interview-qa-card {
   border-left: 5px solid var(--accent3);
@@ -1654,6 +1661,11 @@ footer {
   border-left: 4px solid var(--accent-os);
 }
 
+.theory-card.dbms {
+  border-left: 4px solid var(--accent-dbms);
+}
+
+
 .theory-card-header {
   display: flex;
   align-items: center;
@@ -1821,6 +1833,12 @@ footer {
   box-shadow: 0 0 15px rgba(52, 211, 153, 0.15);
 }
 
+.qa-selector-card.active[data-target-category="dbms"] {
+  border-color: var(--accent-dbms);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+
 .qa-selector-icon {
   font-size: 1.8rem;
   display: flex;
@@ -1881,6 +1899,13 @@ footer {
   color: var(--accent-os);
   border-color: rgba(52, 211, 153, 0.2);
 }
+
+.qa-selector-card.active[data-target-category="dbms"] .qa-selector-badge {
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--accent-dbms);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
 
 /* Panel Toggling */
 .qa-panel {
