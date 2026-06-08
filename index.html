@@ -40,6 +40,7 @@
     <a class="nav-item" data-target="dsa-theory" id="nav-dsa-theory">📚 DSA Theory</a>
     <a class="nav-item" data-target="aad-theory" id="nav-aad-theory">⚙️ AAD Theory</a>
     <a class="nav-item" data-target="oops-theory" id="nav-oops-theory">🧩 OOPs Theory</a>
+    <a class="nav-item" data-target="os-theory" id="nav-os-theory">💿 OS Theory</a>
 
     <div class="nav-section">Interview Prep</div>
     <a class="nav-item" data-target="interview-qa" id="nav-interview-qa">❓ Top Interview Q&amp;A</a>
@@ -240,10 +241,15 @@
           <p>Core object-oriented concepts: Classes, Objects, the 4 Pillars, SOLID design principles, and memory management (GC).</p>
           <span class="badge file" style="background: rgba(201, 123, 255, 0.12); color: var(--accent5);">10 Topics</span>
         </div>
+        <div class="card card-hoverable theory-os-card" data-target="os-theory">
+          <h3>💿 OS Theory Notes</h3>
+          <p>Detailed OS concepts: Processes, Threads, CPU Scheduling, Synchronization, Deadlocks, Memory, and Kernels.</p>
+          <span class="badge file" style="background: rgba(52, 211, 153, 0.12); color: var(--accent-os);">27 Topics</span>
+        </div>
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">82 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">112 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -1877,6 +1883,542 @@ myCar.drive();</code></pre>
       </div>
     </div>
 
+    
+    <!-- SECTION: OS THEORY -->
+    <div class="section" id="section-os-theory">
+      <h1 class="section-title">💿 Operating Systems (OS)</h1>
+      <div class="page-subtitle">Detailed placement tutorials and core concepts of Operating Systems.</div>
+
+      <div class="theory-container">
+
+        <!-- 01. INTRODUCTION TO OPERATING SYSTEM -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">01</span>
+            <h2>Introduction to Operating System</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Operating System (OS):</strong> A system software that acts as an intermediary interface between computer hardware and user applications. It governs execution of all programs.</li>
+              <li><strong>Core Objectives:</strong>
+                <ul>
+                  <li><strong>User Convenience:</strong> Provides a simplified environment (GUI/CLI) so users don't need to write machine code to run programs.</li>
+                  <li><strong>Resource Management:</strong> Fairly and optimally allocates CPU, RAM, disk space, and I/O components among running tasks.</li>
+                  <li><strong>Abstraction:</strong> Hides complex, low-level physical registers and device driver calls behind standard interfaces.</li>
+                </ul>
+              </li>
+              <li><strong>Examples:</strong> Windows (NT kernel), Linux (Monolithic), macOS/iOS (Hybrid kernel), Android (Linux-based).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 02. FUNCTIONS OF OPERATING SYSTEM -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">02</span>
+            <h2>Functions of Operating System</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Memory Management:</strong> Allocates/deallocates RAM space and tracks which parts are currently in use or free.</li>
+              <li><strong>Process Management:</strong> Handles CPU scheduling, creation, state transitions, termination, and process synchronization/deadlocks.</li>
+              <li><strong>File System Management:</strong> Coordinates directories, files, file permissions, and maps files to blocks on secondary storage.</li>
+              <li><strong>Device Management:</strong> Interacts with peripheral controllers using device drivers, managing I/O caching, buffering, and spooling.</li>
+              <li><strong>Security &amp; Protection:</strong> Employs authentication, credentials, access controls, and sandboxing to isolate resources.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 03. TYPES OF OPERATING SYSTEMS -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">03</span>
+            <h2>Types of Operating Systems</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Batch OS:</strong> Group-based processing without active user interaction. High throughput, but suffers from long waiting times and difficult debugging.</li>
+              <li><strong>Time-Sharing OS:</strong> Switches CPU among users via short time-slices (quantum), providing fast interactive response times.</li>
+              <li><strong>Distributed OS:</strong> Networks separate physical computers to run unified services, supporting high reliability and resource sharing.</li>
+              <li><strong>Real-Time OS (RTOS):</strong> Processes events within hard timing constraints.
+                <ul>
+                  <li><strong>Hard RTOS:</strong> Missing a deadline triggers system failure (e.g., airbags, missile guidance systems).</li>
+                  <li><strong>Soft RTOS:</strong> Short delays degrade service quality but don't cause failures (e.g., audio/video streaming).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 04. PROCESS CONCEPT -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">04</span>
+            <h2>Process Concept</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>What is a Process?</strong> A program in execution. While a program is a passive file on disk, a process is an active runtime entity in RAM.</li>
+              <li><strong>Memory Architecture:</strong>
+                <ul>
+                  <li><strong>Text Section:</strong> Stores the compile-time binary machine code instructions.</li>
+                  <li><strong>Data Section:</strong> Holds global and static variables.</li>
+                  <li><strong>Heap:</strong> Dynamically allocated memory (via <code>malloc</code> or <code>new</code>) that expands upwards at runtime.</li>
+                  <li><strong>Stack:</strong> Stores local scope variables, function call frames, and return addresses. Grows downwards.</li>
+                </ul>
+              </li>
+              <li><strong>Program Counter (PC):</strong> Register pointing to the next instruction in memory to be run.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 05. PROCESS STATES -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">05</span>
+            <h2>Process States</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Process Life Cycle States:</strong>
+                <ul>
+                  <li><strong>New:</strong> The process is being initialized.</li>
+                  <li><strong>Ready:</strong> Process is loaded in memory and waiting for CPU execution.</li>
+                  <li><strong>Running:</strong> The CPU is actively running instructions.</li>
+                  <li><strong>Waiting / Blocked:</strong> Process is waiting for an I/O completion or external signal.</li>
+                  <li><strong>Terminated:</strong> Execution has finished, freeing up resources.</li>
+                </ul>
+              </li>
+              <li><strong>Transitions:</strong> New &rarr; Ready &rarr; Running &rarr; Waiting &rarr; Ready &rarr; Running &rarr; Terminated. Interrupts trigger Running &rarr; Ready.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 06. PROCESS VS PROGRAM -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">06</span>
+            <h2>Process vs Program</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Comparison:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Program</th><th>Process</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Nature</strong></td><td>Static passive file on disk</td><td>Active dynamic entity in memory</td></tr>
+                    <tr><td><strong>Resources</strong></td><td>Occupies only disk space</td><td>Occupies CPU, RAM, registers, I/O channels</td></tr>
+                    <tr><td><strong>Lifetime</strong></td><td>Exists until deleted</td><td>Exists only from execution start to exit</td></tr>
+                  </tbody>
+                </table>
+              </li>
+              <li><strong>Analogy:</strong> A program is a cake recipe in a book; a process is the chef actively baking the cake in the kitchen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 07. THREAD CONCEPT -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">07</span>
+            <h2>Thread Concept</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Thread:</strong> A lightweight process (LWP) and the basic unit of CPU execution.</li>
+              <li><strong>Resource Division:</strong>
+                <ul>
+                  <li><strong>Shared:</strong> Code section, Data section, Heap, and OS resources (open files/sockets).</li>
+                  <li><strong>Private:</strong> Program Counter (PC), Register set, and private execution Stack.</li>
+                </ul>
+              </li>
+              <li><strong>Advantages:</strong> Significantly lower context-switching and creation times compared to processes, and fast communication via shared address space.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 08. PROCESS VS THREAD -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">08</span>
+            <h2>Process vs Thread</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Comparison Table:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Process</th><th>Thread</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Weight</strong></td><td>Heavyweight: slow creation and deletion</td><td>Lightweight: rapid creation and deletion</td></tr>
+                    <tr><td><strong>Memory</strong></td><td>Isolated: has its own address space</td><td>Shared: shares address space with sibling threads</td></tr>
+                    <tr><td><strong>Context Switch</strong></td><td>High: flushes memory cache and page table pointer</td><td>Low: only swaps CPU registers and stack pointer</td></tr>
+                    <tr><td><strong>Crash Effect</strong></td><td>Isolated: crash doesn't affect other processes</td><td>Vulnerable: thread crash crashes entire process</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 09. CPU SCHEDULING OBJECTIVES -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">09</span>
+            <h2>CPU Scheduling Objectives</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>CPU Utilization:</strong> Keep the CPU as busy as possible (aiming for 100%).</li>
+              <li><strong>Throughput:</strong> Total processes completed per unit time.</li>
+              <li><strong>Turnaround Time (TAT):</strong> Duration from process submission to completion ($TAT = Completion\ Time - Arrival\ Time$).</li>
+              <li><strong>Waiting Time (WT):</strong> Cumulative time a process spends waiting in the ready queue ($WT = TAT - Burst\ Time$).</li>
+              <li><strong>Response Time (RT):</strong> Time from process submission to the first CPU action.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10. SCHEDULING ALGORITHMS -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">10</span>
+            <h2>Scheduling Algorithms</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>FCFS (First-Come First-Served):</strong> Non-preemptive. Simple FIFO logic. Suffers from the <strong>Convoy Effect</strong> (short tasks wait behind a long task).</li>
+              <li><strong>SJF (Shortest Job First):</strong> Preemptive (SRTF) or non-preemptive. Schedules shortest CPU burst next. Minimizes average WT, but causes <strong>Starvation</strong> of long processes.</li>
+              <li><strong>Priority Scheduling:</strong> Allocates CPU to highest priority. Causes <strong>Starvation</strong>; solved by <strong>Aging</strong> (gradually increasing priority of waiting processes).</li>
+              <li><strong>Round Robin (RR):</strong> Preemptive. Cycles through ready tasks allocating a fixed time slice (quantum). Extremely fair, but high context switch overhead if the quantum is too short.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 11. CONTEXT SWITCHING -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">11</span>
+            <h2>Context Switching</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Concept:</strong> Mechanism of saving the active CPU context (registers, PC) into its Process Control Block (PCB) and loading the context of another process from its PCB.</li>
+              <li><strong>PCB Contents:</strong> PID, process state, program counter, registers, scheduling info, page tables, files lists.</li>
+              <li><strong>Overhead:</strong> CPU does no productive work during switching. Hardware register sets help minimize this latency.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 12. PROCESS SYNCHRONIZATION -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">12</span>
+            <h2>Process Synchronization</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Cooperating Processes:</strong> Processes that can affect or be affected by other running processes, sharing data or files.</li>
+              <li><strong>Race Condition:</strong> A state where multiple threads read/write shared variables concurrently, and the final state depends on the timing/sequence of execution.</li>
+              <li><strong>Non-Atomicity:</strong> Statements like <code>count++</code> compile to three instructions (Load, Add, Store). A context switch in between corrupts the shared state.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 13. CRITICAL SECTION PROBLEM -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">13</span>
+            <h2>Critical Section Problem</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Critical Section:</strong> The region of code where shared resources, databases, or variables are modified.</li>
+              <li><strong>Requirements for Solution:</strong>
+                <ol>
+                  <li><strong>Mutual Exclusion:</strong> If process $P_i$ is in its critical section, no other process can enter the critical section for that resource.</li>
+                  <li><strong>Progress:</strong> If empty, only processes not in remainder sections can decide who enters next, preventing deadlocks.</li>
+                  <li><strong>Bounded Waiting:</strong> There must be a limit on the number of times other processes can enter before a waiting request is granted (prevents starvation).</li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 14. MUTEX AND SEMAPHORE -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">14</span>
+            <h2>Mutex and Semaphore</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Mutex (Mutual Exclusion Lock):</strong> Lock-based tool with ownership. Only the thread that locks it can unlock it. Used to manage exclusive access to a single resource instance.</li>
+              <li><strong>Semaphore:</strong> Signaling tool using an integer variable accessed via atomic <code>wait()</code> and <code>signal()</code>. No ownership.
+                <ul>
+                  <li><strong>Binary Semaphore:</strong> Value is 0 or 1. Used for mutual exclusion (lacks ownership).</li>
+                  <li><strong>Counting Semaphore:</strong> Unrestricted integer range. Controls access to resource pools of size N.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 15. DEADLOCK CONDITIONS -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">15</span>
+            <h2>Deadlock Conditions</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Deadlock:</strong> A state where a group of processes are blocked because each holds a resource and waits for another resource held by another process in the loop.</li>
+              <li><strong>Four Coffman Conditions (Must hold simultaneously):</strong>
+                <ul>
+                  <li><strong>Mutual Exclusion:</strong> Resources must be non-shareable.</li>
+                  <li><strong>Hold and Wait:</strong> Processes hold allocated resources while requesting new ones.</li>
+                  <li><strong>No Preemption:</strong> Resources cannot be forcibly taken.</li>
+                  <li><strong>Circular Wait:</strong> A closed chain ($P_0 \rightarrow P_1 \rightarrow P_0$) exists where each process waits for the next.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 16. STARVATION VS DEADLOCK -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">16</span>
+            <h2>Starvation vs Deadlock</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Comparison:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Starvation</th><th>Deadlock</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Definition</strong></td><td>Indefinite waiting due to biased scheduling (e.g. low priority)</td><td>Circular blocking where no process can progress</td></tr>
+                    <tr><td><strong>System State</strong></td><td>Active: high-priority tasks keep running</td><td>Frozen: deadlocked threads make zero progress</td></tr>
+                    <tr><td><strong>Prevention</strong></td><td>Prevented via <strong>Aging</strong> (raising priority)</td><td>Avoidance (Banker's), detection, or breaking conditions</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 17. MEMORY MANAGEMENT -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">17</span>
+            <h2>Memory Management</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Relocation:</strong> Mapping a program's logical address space to physical RAM cells so the program can be loaded anywhere.</li>
+              <li><strong>Address Separation:</strong>
+                <ul>
+                  <li><strong>Logical Address:</strong> Virtual address generated by the CPU during execution.</li>
+                  <li><strong>Physical Address:</strong> Coordinates of actual cells in physical RAM chips.</li>
+                </ul>
+              </li>
+              <li><strong>MMU (Memory Management Unit):</strong> Hardware device translating logical to physical addresses at runtime using base relocation registers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 18. PAGING -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">18</span>
+            <h2>Paging</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Paging:</strong> Memory allocation scheme storing processes non-contiguously in RAM.
+                <ul>
+                  <li>Logical memory is split into fixed blocks called <strong>Pages</strong>.</li>
+                  <li>Physical memory is split into same-size blocks called <strong>Frames</strong>.</li>
+                </ul>
+              </li>
+              <li><strong>Page Table:</strong> Data structure mapping page indices to frame indices.</li>
+              <li><strong>Fragmentation:</strong> Completely avoids **External Fragmentation**, but suffers from **Internal Fragmentation** (unused space at the end of the last frame).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 19. SEGMENTATION -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">19</span>
+            <h2>Segmentation</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Segmentation:</strong> Memory management matching the programmer's view. Divided into variable-sized logical segments (Code, Stack, Heap, libraries).</li>
+              <li><strong>Segment Table:</strong> Maps segment numbers to physical locations. Contains **Base** (starting physical RAM address) and **Limit** (size of segment).</li>
+              <li><strong>Fragmentation:</strong> Prevents **Internal Fragmentation** (segments match sizes exactly), but causes **External Fragmentation** (variable holes left in memory). Requires expensive compaction.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 20. PAGING VS SEGMENTATION -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">20</span>
+            <h2>Paging vs Segmentation</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Comparison Table:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Paging</th><th>Segmentation</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Block Size</strong></td><td>Fixed size (e.g. 4KB)</td><td>Variable size (matches logical block)</td></tr>
+                    <tr><td><strong>Fragmentation</strong></td><td>Internal fragmentation; no external</td><td>No internal fragmentation; external exists</td></tr>
+                    <tr><td><strong>View</strong></td><td>Physical partitioning (compiler-hidden)</td><td>Logical partitioning (programmer-defined)</td></tr>
+                    <tr><td><strong>Translation</strong></td><td>Page # + Offset &rarr; Frame # + Offset</td><td>Segment # &rarr; Segment Table (Base, Limit)</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 21. VIRTUAL MEMORY -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">21</span>
+            <h2>Virtual Memory</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Concept:</strong> Separates logical memory from physical memory, permitting processes to exceed physical RAM limits.</li>
+              <li><strong>Demand Paging:</strong> Pages are loaded into RAM only when referenced.
+                <ul>
+                  <li><strong>Page Fault:</strong> CPU accesses page marked "invalid" in page table. The CPU traps to the OS kernel, which reads the page from disk (swap space), updates the page table, and restarts the instruction.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 22. THRASHING -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">22</span>
+            <h2>Thrashing</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Thrashing:</strong> A state where the OS spends more time page-faulting (swapping pages in/out) than executing instruction commands.</li>
+              <li><strong>Cause:</strong> Occurs when the sum of working sets of all running processes exceeds available RAM. CPU utilization crashes as all processes block on disk I/O.</li>
+              <li><strong>Cures:</strong> Reduce the degree of multiprogramming, restrict active processes, or install more RAM.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 23. FILE SYSTEM -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">23</span>
+            <h2>File System</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Allocation Methods:</strong>
+                <ul>
+                  <li><strong>Contiguous Allocation:</strong> Consecutive blocks on disk. Fast read/writes, but causes high external fragmentation.</li>
+                  <li><strong>Linked Allocation:</strong> Blocks contain pointers to the next block. No fragmentation, but slow sequential reads and pointer overhead.</li>
+                  <li><strong>Indexed Allocation:</strong> An index block compiles pointers to all file blocks. Fast random access without external fragmentation.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 24. SYSTEM CALLS -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">24</span>
+            <h2>System Calls</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>System Call:</strong> Programmatic bridge allowing user applications to request core kernel services.</li>
+              <li><strong>Mode Swapping:</strong> Triggers a software interrupt (trap), switching CPU execution state from User Mode (mode bit = 1) to Kernel Mode (mode bit = 0) to execute the privileged operation.</li>
+              <li><strong>Key Functions:</strong> <code>fork()</code> (process creation), <code>exec()</code> (load binary), <code>read()</code>/<code>write()</code> (I/O).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 25. KERNEL CONCEPT -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">25</span>
+            <h2>Kernel Concept</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Kernel:</strong> Core portion of the OS loaded in RAM at boot. Runs in privileged Kernel Mode, managing RAM, CPU states, and devices.</li>
+              <li><strong>Dual-Mode Isolation:</strong> Hardware protection via a mode bit. User programs run in User Mode with restricted instructions. Attempting privileged actions (e.g. raw disk write) causes a CPU fault, keeping the OS safe.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 26. MONOLITHIC KERNEL VS MICROKERNEL -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">26</span>
+            <h2>Monolithic Kernel vs Microkernel</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Monolithic Kernel:</strong> All services (scheduler, drivers, VFS, VM) run inside a single kernel address space.
+                <ul>
+                  <li><em>Pros/Cons:</em> High performance (direct function calls); a driver bug crashes the entire system (Linux).</li>
+                </ul>
+              </li>
+              <li><strong>Microkernel:</strong> Moves non-essential services (VFS, drivers) to User-Space server daemons, keeping kernel code minimal.
+                <ul>
+                  <li><em>Pros/Cons:</em> Highly modular, robust, and secure; slower performance due to IPC message-passing overhead across spaces (Mach, QNX).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 27. INTER-PROCESS COMMUNICATION (IPC) -->
+        <div class="theory-card os">
+          <div class="theory-card-header">
+            <span class="theory-card-num">27</span>
+            <h2>Inter-Process Communication (IPC)</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Shared Memory:</strong> Processes share a segment of physical RAM.
+                <ul>
+                  <li><em>Pros/Cons:</em> Fastest communication (no system calls after setup); requires processes to manually coordinate synchronization (mutexes).</li>
+                </ul>
+              </li>
+              <li><strong>Message Passing:</strong> Processes exchange messages via kernel mailboxes.
+                <ul>
+                  <li><em>Pros/Cons:</em> Safe, modular, easily distributed; slower due to kernel system call overhead and data copying.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- SECTION: INTERVIEW Q&A -->
     <div class="section" id="section-interview-qa">
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
@@ -1907,6 +2449,14 @@ myCar.drive();</code></pre>
             <p>Classes, Objects, Pillars, SOLID, Design Patterns</p>
           </div>
           <div class="qa-selector-badge">25 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="os">
+          <div class="qa-selector-icon">💿</div>
+          <div class="qa-selector-details">
+            <h3>Operating Systems</h3>
+            <p>Processes, Threads, CPU Scheduling, Deadlocks, Memory, Kernels</p>
+          </div>
+          <div class="qa-selector-badge">30 Qs</div>
         </div>
       </div>
 
@@ -3132,6 +3682,371 @@ myCar.drive();</code></pre>
                 <li><strong>Algorithm:</strong> Resolves ambiguities using the <strong>C3 Linearization Algorithm</strong>.</li>
                 <li><strong>Lookup Chain:</strong> Follows the sequence: child class first, then left-to-right parent siblings, and finally grandparents. (Prevents visiting the same class twice).</li>
               </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- OS PANEL -->
+        <div class="qa-panel" id="qa-panel-os">
+          <div class="theory-card os">
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is an Operating System?</h4>
+              <ul>
+              <li><strong>Definition:</strong> An Operating System (OS) is a system software that acts as an interface between computer hardware and the user/applications. It runs continuously in the background.</li>
+              <li><strong>Main Functions:</strong>
+                <ul>
+                  <li><strong>Resource Allocator:</strong> Allocates CPU, memory, storage, and I/O devices to processes fairly.</li>
+                  <li><strong>Control Program:</strong> Oversees program execution to prevent errors and improper hardware use.</li>
+                  <li><strong>Abstraction Provider:</strong> Hides underlying low-level registers and physical controllers behind standard system calls.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q2: What are the main functions of an Operating System?</h4>
+              <ul>
+              <li><strong>Memory Management:</strong> Tracks primary RAM allocations, maps logical addresses, and frees memory when processes finish.</li>
+              <li><strong>Process Management:</strong> Coordinates process creation, deletion, CPU scheduling, synchronization, and deadlock management.</li>
+              <li><strong>File System Management:</strong> Oversees directories, files, block mappings on disk, and file permissions.</li>
+              <li><strong>Device Management:</strong> Manages peripheral drivers, buffering, caching, and printer spooling.</li>
+              <li><strong>Security &amp; Protection:</strong> Employs authentication, resource privileges, and dual-mode CPU controls.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q3: What is a Process?</h4>
+              <ul>
+              <li><strong>Process:</strong> A program in execution. It is the active, runtime representation of a program loaded in RAM.</li>
+              <li><strong>Memory Anatomy:</strong>
+                <ul>
+                  <li><strong>Text Segment:</strong> Stores compile-time binary machine code instructions.</li>
+                  <li><strong>Data Segment:</strong> Stores global and static variables.</li>
+                  <li><strong>Heap:</strong> Memory dynamically allocated at runtime (via <code>new</code> or <code>malloc</code>).</li>
+                  <li><strong>Stack:</strong> Stores local scope variables, function call structures, and return addresses.</li>
+                </ul>
+              </li>
+              <li><strong>Control Block:</strong> Each process is tracked via a **Process Control Block (PCB)** in kernel space.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is a Thread?</h4>
+              <ul>
+              <li><strong>Thread:</strong> A lightweight process (LWP) representing a single flow of control inside a process.</li>
+              <li><strong>Resource Sharing:</strong>
+                <ul>
+                  <li><strong>Shared:</strong> Sibling threads share Code segment, Data segment, Heap, and OS resources (open files/sockets).</li>
+                  <li><strong>Private:</strong> Each thread maintains its own Program Counter (PC), CPU registers, and private Stack.</li>
+                </ul>
+              </li>
+              <li><strong>Importance:</strong> High responsiveness (UI thread separates from file loader), fast context switching, and lightweight communication.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q5: Difference between Process and Thread?</h4>
+              <p>Processes and threads represent execution units, but differ in memory isolation and overhead:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Attribute</th><th>Process</th><th>Thread</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Weight</strong></td><td>Heavyweight: slow creation and termination.</td><td>Lightweight: rapid creation and termination.</td></tr>
+                <tr><td><strong>Memory Isolation</strong></td><td>Isolated: gets its own address space.</td><td>Shared: shares parent process address space.</td></tr>
+                <tr><td><strong>Context Switch</strong></td><td>High overhead: flushes cached memory mappings (TLB).</td><td>Low overhead: only swaps CPU registers and stack pointer.</td></tr>
+                <tr><td><strong>Inter-Communication</strong></td><td>Requires IPC (pipes, sockets, shared RAM).</td><td>Can write directly to shared memory variables.</td></tr>
+                <tr><td><strong>Robustness</strong></td><td>Highly robust: one crash doesn't affect others.</td><td>Vulnerable: one thread crash crashes the whole process.</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q6: What are the states of a process?</h4>
+              <ul>
+              <li><strong>Process States:</strong>
+                <ul>
+                  <li><strong>New:</strong> Process is being created.</li>
+                  <li><strong>Ready:</strong> Loaded in memory, waiting to be assigned to the CPU.</li>
+                  <li><strong>Running:</strong> Instructions are being run by the CPU.</li>
+                  <li><strong>Waiting / Blocked:</strong> Stopped, waiting for an I/O completion or signal event.</li>
+                  <li><strong>Terminated:</strong> Completed execution and resources released.</li>
+                </ul>
+              </li>
+              <li><strong>Transition Triggers:</strong> Scheduler dispatch moves Ready &rarr; Running. I/O requests move Running &rarr; Waiting. Time-slice expiration (Round Robin) moves Running &rarr; Ready. I/O complete moves Waiting &rarr; Ready.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is CPU Scheduling?</h4>
+              <ul>
+              <li><strong>CPU Scheduling:</strong> The mechanism by which the **Short-Term Scheduler** chooses which ready process in main memory is allocated the CPU next.</li>
+              <li><strong>Dispatcher Role:</strong> The dispatcher is the module that gives control of the CPU to the selected process. It handles:
+                <ul>
+                  <li>Context switching.</li>
+                  <li>Switching to User Mode.</li>
+                  <li>Jumping to the proper program counter location to restart execution.</li>
+                </ul>
+              </li>
+              <li><strong>Objectives:</strong> Maximize CPU usage and throughput; minimize turnaround, waiting, and response times.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is FCFS Scheduling?</h4>
+              <ul>
+              <li><strong>FCFS (First-Come, First-Served):</strong> A non-preemptive scheduling algorithm where the CPU is allocated to processes in their arrival order.</li>
+              <li><strong>The Convoy Effect:</strong> A major disadvantage where short processes wait a long time in the queue behind one very long, CPU-bound process. This severely inflates the average waiting time.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is Round Robin Scheduling?</h4>
+              <ul>
+              <li><strong>Round Robin (RR):</strong> A preemptive, time-sharing scheduler. The ready queue is treated as circular. Each process gets the CPU for a small time slice called a **quantum** (typically 10-100ms).</li>
+              <li><strong>Quantum Impact:</strong>
+                <ul>
+                  <li>If the quantum is too small, context-switching overhead dominates CPU time, killing performance.</li>
+                  <li>If the quantum is too large, the scheduler degenerates into FCFS, creating convoy effects.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q10: What is Context Switching?</h4>
+              <ul>
+              <li><strong>Definition:</strong> The mechanism of saving the active state of a running process (CPU registers, Program Counter, stack pointers) in its PCB and restoring the state of another ready process from its PCB.</li>
+              <li><strong>Why it's needed:</strong> Supports multitasking and CPU time-sharing.</li>
+              <li><strong>Overhead:</strong> The CPU does no productive work during switching, making it pure overhead. It depends heavily on memory speeds and cache flushing.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q11: What is a Deadlock?</h4>
+              <ul>
+              <li><strong>Deadlock:</strong> A state where a set of processes are permanently blocked because each process holds a resource and waits for another resource held by another process in that same set.</li>
+              <li><strong>Analogy:</strong> A intersection gridlock where four cars are blocked by each other, and none can reverse.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q12: What are the four conditions for Deadlock?</h4>
+              <p>All four **Coffman conditions** must occur simultaneously for a deadlock to happen:</p>
+            <ul>
+              <li><strong>1. Mutual Exclusion:</strong> At least one resource must be held in a non-shareable mode (only one process can use it at a time).</li>
+              <li><strong>2. Hold and Wait:</strong> A process must hold at least one resource while waiting to acquire another resource held by others.</li>
+              <li><strong>3. No Preemption:</strong> Resources cannot be taken away by force; they can only be released voluntarily.</li>
+              <li><strong>4. Circular Wait:</strong> A closed chain of processes exists ($P_0 \rightarrow P_1 \rightarrow P_0$) where each process waits for a resource held by the next.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is Starvation?</h4>
+              <ul>
+              <li><strong>Starvation:</strong> Indefinite blocking of a process because the CPU scheduler repeatedly prioritizes other processes.</li>
+              <li><strong>Starvation vs Deadlock:</strong>
+                <ul>
+                  <li>In <strong>Starvation</strong>, the system is active and making progress on other tasks. The starved process *can* run if scheduling bias ceases.</li>
+                  <li>In <strong>Deadlock</strong>, all processes involved are completely stuck. No progress can be made, regardless of scheduling.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q14: What is Aging?</h4>
+              <ul>
+              <li><strong>Aging:</strong> A scheduling technique used to prevent starvation in priority-based schedulers.</li>
+              <li><strong>How it works:</strong> It gradually increases the priority of processes that have been waiting in the ready queue for a long time. Eventually, even a low-priority process becomes the highest priority and runs.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is a Critical Section?</h4>
+              <ul>
+              <li><strong>Critical Section:</strong> A block of code in which shared resources (variables, databases, files) are accessed and modified.</li>
+              <li><strong>Solution Criteria:</strong> Any valid solution to the critical section problem must meet:
+                <ol>
+                  <li><strong>Mutual Exclusion:</strong> Only one process can enter at a time.</li>
+                  <li><strong>Progress:</strong> If empty, only processes wanting to enter decide who gets in next.</li>
+                  <li><strong>Bounded Waiting:</strong> There is a limit on other entries before a waiting process gets in.</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is Semaphore?</h4>
+              <ul>
+              <li><strong>Semaphore:</strong> A software synchronization tool. It is an integer variable accessed via two atomic operations:
+                <ul>
+                  <li><code>wait()</code> (or <code>P()</code>): Decrements the value. Blocks the caller if the value is $< 0$.</li>
+                  <li><code>signal()</code> (or <code>V()</code>): Increments the value. Wakes up a blocked process.</li>
+                </ul>
+              </li>
+              <li><strong>Types:</strong>
+                <ul>
+                  <li><strong>Binary Semaphore:</strong> Value ranges only between 0 and 1. Used for mutual exclusion.</li>
+                  <li><strong>Counting Semaphore:</strong> Value ranges over any integer. Used to manage access to a resource pool.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q17: Difference between Mutex and Semaphore?</h4>
+              <ul>
+              <li><strong>Mutex (Mutual Exclusion Lock):</strong>
+                <ul>
+                  <li>A lock-based mechanism with **ownership**. Only the thread that locks it can unlock it.</li>
+                  <li>Cannot be accessed by multiple threads concurrently (value is binary).</li>
+                </ul>
+              </li>
+              <li><strong>Semaphore:</strong>
+                <ul>
+                  <li>A **signaling** mechanism. Any thread can trigger <code>signal()</code> to unblock a waiting thread. No ownership.</li>
+                  <li>Can be used for coordination (e.g. Producer-Consumer signaling) or resource pooling.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q18: What is Paging?</h4>
+              <ul>
+              <li><strong>Paging:</strong> A memory management scheme that stores process pages non-contiguously in physical RAM, eliminating external fragmentation.</li>
+              <li><strong>Page and Frame:</strong> Logical memory is split into fixed-size **Pages**. Physical memory is split into same-size **Frames**.</li>
+              <li><strong>Page Table:</strong> Translates logical Page Numbers to physical Frame Numbers.</li>
+              <li><strong>Drawbacks:</strong> Causes internal fragmentation in the last frame of a process, and requires double memory lookups (mitigated by TLB).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is Segmentation?</h4>
+              <ul>
+              <li><strong>Segmentation:</strong> A memory management scheme that aligns with the programmer's view of memory.</li>
+              <li><strong>How it works:</strong> The program is divided into variable-sized logical segments (Code, Stack, Heap, libraries).</li>
+              <li><strong>Segment Table:</strong> Maps segment numbers to physical locations. Entries contain:
+                <ul>
+                  <li><strong>Base Address:</strong> Starting physical address in RAM.</li>
+                  <li><strong>Limit:</strong> Length of the segment.</li>
+                </ul>
+              </li>
+              <li><strong>Drawback:</strong> Causes high external fragmentation as variable segments are loaded and deleted, requiring compaction.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q20: Difference between Paging and Segmentation?</h4>
+              <p>Paging and segmentation structure memory allocations differently:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Attribute</th><th>Paging</th><th>Segmentation</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Block Size</strong></td><td>Fixed size (e.g. 4KB).</td><td>Variable size (matches compiler segments).</td></tr>
+                <tr><td><strong>Fragmentation</strong></td><td>Internal fragmentation; no external.</td><td>No internal fragmentation; external exists.</td></tr>
+                <tr><td><strong>User View</strong></td><td>Physical view (divided blindly).</td><td>Logical view (divided by module/function).</td></tr>
+                <tr><td><strong>Table Entry</strong></td><td>Page Number &rarr; Frame Number.</td><td>Segment Number &rarr; Base + Limit.</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q21: What is Virtual Memory?</h4>
+              <ul>
+              <li><strong>Virtual Memory:</strong> A technique that separates logical user memory from physical RAM, letting programs execute even if they exceed physical memory size.</li>
+              <li><strong>Demand Paging:</strong> Pages are loaded from disk into RAM only when referenced.</li>
+              <li><strong>Page Fault:</strong> Triggered when a process references an invalid page. The CPU traps to the kernel, fetches the page from disk swap space into a free frame, updates the page table, and restarts the instruction.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q22: What is Thrashing?</h4>
+              <ul>
+              <li><strong>Thrashing:</strong> A state of high paging activity where the system spends more time swapping pages in and out of RAM than running instructions.</li>
+              <li><strong>Cause:</strong> Sum of active pages (working sets) of running processes exceeds available physical RAM. Processes repeatedly fault and block on disk I/O.</li>
+              <li><strong>Cure:</strong> Suspend processes to reduce the degree of multiprogramming, allocate more frames, or add RAM.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is a System Call?</h4>
+              <ul>
+              <li><strong>System Call:</strong> Programmatic interface through which user applications request privileged services from the kernel.</li>
+              <li><strong>Transition:</strong> User mode programs trigger a software interrupt (trap), switching CPU execution from **User Mode** (mode bit = 1) to **Kernel Mode** (mode bit = 0) and executing the privileged OS routine.</li>
+              <li><strong>Examples:</strong> <code>fork()</code>, <code>exec()</code>, <code>read()</code>, <code>write()</code>, <code>open()</code>, <code>close()</code>.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q24: What is a Kernel?</h4>
+              <ul>
+              <li><strong>Kernel:</strong> The central, core component of the Operating System loaded in RAM at boot. It runs in privileged Kernel Mode, managing memory, processes, systems files, and hardware devices.</li>
+              <li><strong>Dual Mode Isolation:</strong> Protects the system from user program bugs. Privileged instructions (like editing page tables, talking directly to disk, or changing CPU interrupts) can only run in Kernel Mode. A user program attempting this triggers a CPU fault.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is a Monolithic Kernel?</h4>
+              <ul>
+              <li><strong>Monolithic Kernel:</strong> An OS architecture where all OS services (scheduling, memory management, Virtual File System, device drivers) run together inside a single large address space in Kernel Mode.</li>
+              <li><strong>Pros &amp; Cons:</strong> High execution performance (direct function calls). However, if any driver crashes, it can crash the entire operating system.</li>
+              <li><strong>Examples:</strong> Linux, Unix.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q26: What is IPC?</h4>
+              <ul>
+              <li><strong>Inter-Process Communication (IPC):</strong> The mechanism that allows processes to communicate and transfer data.</li>
+              <li><strong>Methods:</strong>
+                <ul>
+                  <li><strong>Shared Memory:</strong> OS maps a common RAM region to processes. Fastest (direct RAM speed), but processes must handle synchronization themselves.</li>
+                  <li><strong>Message Passing:</strong> Processes send/receive messages via kernel system calls (pipes, sockets, queues). Safer, distributed, but slower due to context switches.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q27: What is Multiprogramming?</h4>
+              <ul>
+              <li><strong>Multiprogramming:</strong> Keeping multiple programs in main memory at the same time so that the CPU is never idle.</li>
+              <li><strong>Mechanism:</strong> If the running process initiates a slow I/O request, the OS switches the CPU to another ready process in memory rather than letting the CPU sit idle.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q28: What is Multitasking?</h4>
+              <ul>
+              <li><strong>Multitasking:</strong> A logical extension of multiprogramming. The CPU switches execution attention among multiple active tasks so rapidly (using time-sharing) that users can interact with each program while it runs.</li>
+              <li><strong>Goal:</strong> Minimize user response times.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q29: What is a Socket?</h4>
+              <ul>
+              <li><strong>Socket:</strong> An endpoint for network communication between two applications.</li>
+              <li><strong>Composition:</strong> Defined by an IP address combined with a Port number (e.g., <code>127.0.0.1:8080</code>). Sockets allow connection-oriented (TCP) or connectionless (UDP) communications.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is a Real-Time Operating System?</h4>
+              <ul>
+              <li><strong>Real-Time OS (RTOS):</strong> A specialized OS that guarantees input processing and output response within strict timing constraints.</li>
+              <li><strong>Subtypes:</strong>
+                <ul>
+                  <li><strong>Hard RTOS:</strong> Missing a deadline triggers complete system failure (e.g., medical pacemakers, rocket boosters).</li>
+                  <li><strong>Soft RTOS:</strong> Deadlines are critical but occasional minor delays are acceptable (e.g., video games, media players).</li>
+                </ul>
+              </li>
+            </ul>
             </div>
 
           </div>
