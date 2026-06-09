@@ -87,217 +87,173 @@
 
     <!-- SECTION: OVERVIEW -->
     <div class="section active" id="section-overview">
-      <h1 class="page-title">Panipali</h1>
-      <div class="page-subtitle">Interactive tracker & guide built to navigate you through campus drives.</div>
-
-      <div class="highlight">
-        <strong>Welcome to Panipali!</strong> This is a custom workspace designed to keep track of placement
-        preparation. Use the sidebar to switch between DSA and Aptitude checklists, filter topics by difficulty or
-        completion state, and mark items complete to watch your progress bars advance.
-        <div style="margin-top: 12px;">
-          <button class="btn btn-primary" id="start-here-btn" style="display: inline-flex; align-items: center; gap: 8px;">
-            🚀 Start Here Guide
-          </button>
-        </div>
-      </div>
-
-      <!-- COLLAPSIBLE HOW TO USE PANIPALI GUIDE -->
-      <div class="collapsible-guide" id="guide-section">
-        <button class="guide-toggle-btn" id="guide-toggle-btn" aria-expanded="false" aria-controls="guide-content">
-          <span class="guide-toggle-title">💡 How to Use Panipali (Prep Guide)</span>
-          <span class="guide-toggle-icon">▼</span>
-        </button>
-        <div class="guide-content" id="guide-content">
-          <div class="guide-inner">
-            <p class="guide-intro">Follow these systematic workflows to optimize your study sessions using the site alongside external resources.</p>
-            
-            <div class="flow-container">
-              <!-- DSA PATH -->
-              <div class="flow-column">
-                <h3 class="flow-title">💻 DSA Practice Workflow</h3>
-                <div class="flow-steps">
-                  <div class="flow-step-card dsa-step">
-                    <div class="step-num">1</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Pick Topic</div>
-                      <div class="step-desc">Open Panipali and pick the next unchecked topic.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card dsa-step">
-                    <div class="step-num">2</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Find Problems</div>
-                      <div class="step-desc">Go to the Striver link and find that topic's problems.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card dsa-step">
-                    <div class="step-num">3</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Watch Video</div>
-                      <div class="step-desc">Watch the video for logic at a pseudocode level.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card dsa-step">
-                    <div class="step-num">4</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Ask Claude</div>
-                      <div class="step-desc">Ask Claude "explain this logic in Python" or syntax details.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card dsa-step">
-                    <div class="step-num">5</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Solve &amp; Tick</div>
-                      <div class="step-desc">Solve the problem, then come back and tick it off.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- APTITUDE PATH -->
-              <div class="flow-column">
-                <h3 class="flow-title">🧮 Aptitude Practice Workflow</h3>
-                <div class="flow-steps">
-                  <div class="flow-step-card apt-step">
-                    <div class="step-num">1</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Check Priority</div>
-                      <div class="step-desc">Check the priority list and start from High Priority.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card apt-step">
-                    <div class="step-num">2</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Practice</div>
-                      <div class="step-desc">Go to IndiaBix and practice that specific subtopic.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card apt-step">
-                    <div class="step-num">3</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Glance Formulas</div>
-                      <div class="step-desc">Stuck on a formula? Open the Panipali Cheat Sheet.</div>
-                    </div>
-                  </div>
-                  <div class="flow-arrow"></div>
-                  <div class="flow-step-card apt-step">
-                    <div class="step-num">4</div>
-                    <div class="step-card-content">
-                      <div class="step-keyword">Tick Off</div>
-                      <div class="step-desc">Tick the topic off when you feel comfortable with it.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- HERO HEADER -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
+          <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
+          <p class="hero-desc">
+            DSA, Aptitude, CS theory, and 197 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+          </p>
+          <div class="hero-buttons">
+            <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
+            <button class="hero-btn-apt" id="hero-start-apt-btn">🧮 Aptitude Track</button>
           </div>
         </div>
       </div>
 
-      <h2>Preparation Progress</h2>
-      <div class="overview-dashboard-container">
-        <div class="dashboard">
-          <div class="stat-card">
-            <div class="stat-header">
-              <span class="stat-title">DSA Progress</span>
-              <span class="stat-value" id="dsa-progress-text">0 / 9</span>
-            </div>
-            <div class="progress-bar-container">
-              <div class="progress-bar" id="dsa-progress-bar" style="width: 0%"></div>
-            </div>
+      <!-- WORKFLOW TIMELINE BANNER -->
+      <div class="workflow-banner">
+        <span class="workflow-label">DSA WORKFLOW</span>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span class="step-circle">1</span>
+            <span class="step-text">Pick Topic</span>
           </div>
-
-          <div class="stat-card">
-            <div class="stat-header">
-              <span class="stat-title">Aptitude Progress</span>
-              <span class="stat-value" id="apt-progress-text">0 / 18</span>
-            </div>
-            <div class="progress-bar-container">
-              <div class="progress-bar" id="apt-progress-bar" style="width: 0%"></div>
-            </div>
+          <span class="workflow-separator">›</span>
+          <div class="workflow-step">
+            <span class="step-circle">2</span>
+            <span class="step-text">Striver Sheet</span>
+          </div>
+          <span class="workflow-separator">›</span>
+          <div class="workflow-step">
+            <span class="step-circle">3</span>
+            <span class="step-text">Watch Video</span>
+          </div>
+          <span class="workflow-separator">›</span>
+          <div class="workflow-step">
+            <span class="step-circle">4</span>
+            <span class="step-text">Ask Claude</span>
+          </div>
+          <span class="workflow-separator">›</span>
+          <div class="workflow-step">
+            <span class="step-circle">5</span>
+            <span class="step-text">Solve &amp; Tick ✓</span>
           </div>
         </div>
       </div>
 
-      <h2>🚀 Guide Sections Quick View</h2>
-      <div class="dashboard-grid-container" style="margin-top: 16px;">
-        <div class="dashboard-sub-section">
-          <h3 class="dashboard-sub-title">📋 Practice Checklists</h3>
-          <div class="card-grid">
-            <div class="card card-hoverable dsa-card" data-target="dsa">
-              <h3>💻 DSA Checklist</h3>
-              <p>A curated resource list containing Arrays, Recursion, Trees, Graphs, and DP topics. Strivers A2Z Sheet reference included.</p>
-              <span class="badge file">9 Topics</span>
-            </div>
-            <div class="card card-hoverable aptitude-card" data-target="aptitude">
-              <h3>🧮 Quantitative Aptitude</h3>
-              <p>Color-coded checklists split into High Priority, Medium Priority, and Skip categories. IndiaBix references included.</p>
-              <span class="badge file">18 Topics</span>
-            </div>
+      <!-- ALL SECTIONS FILTER HEADER -->
+      <div class="sections-filter-header">
+        <h2 class="sections-title">All Sections</h2>
+        <div class="filter-chips">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="checklist">Checklists</button>
+          <button class="filter-chip" data-filter="theory">Theory</button>
+          <button class="filter-chip" data-filter="interview">Interview</button>
+        </div>
+      </div>
+
+      <!-- CARD GRID -->
+      <div class="card-grid" id="main-card-grid">
+        <!-- Card 1: DSA Checklist -->
+        <div class="card card-hoverable" data-target="dsa" data-category="checklist">
+          <div class="card-header-top">
+            <div class="card-icon-box">💻</div>
+            <span class="card-badge checklist">Checklist</span>
           </div>
+          <h3>DSA Checklist</h3>
+          <p>Arrays, Recursion, Trees, Graphs, DP — sorted by learning order. Linked to Striver's A2Z sheet. 9 topics, study sequentially.</p>
         </div>
 
-        <div class="dashboard-sub-section" style="margin-top: 1.5rem;">
-          <h3 class="dashboard-sub-title">📚 Core Theory Notes</h3>
-          <div class="card-grid">
-            <div class="card card-hoverable theory-dsa-card" data-target="dsa-theory">
-              <h3>📚 DSA Theory Notes</h3>
-              <p>Detailed placement guides on Arrays, Linked Lists, Stack, Queue, Trees, Heaps, traversals, and dynamic allocations.</p>
-              <span class="badge file" style="background: rgba(59, 130, 246, 0.12); color: var(--accent4);">15 Topics</span>
-            </div>
-            <div class="card card-hoverable theory-aad-card" data-target="aad-theory">
-              <h3>⚙️ AAD Theory Notes</h3>
-              <p>In-depth Analysis and Design of Algorithms. Big-O Complexity, DFS/BFS graphs, Dijkstra, sorting algorithms, Greedy, and DP.</p>
-              <span class="badge file" style="background: rgba(79, 195, 161, 0.12); color: var(--accent2);">9 Topics</span>
-            </div>
-            <div class="card card-hoverable theory-oops-card" data-target="oops-theory">
-              <h3>🧩 OOPs Theory Notes</h3>
-              <p>Core object-oriented concepts: Classes, Objects, the 4 Pillars, SOLID design principles, and memory management (GC).</p>
-              <span class="badge file" style="background: rgba(201, 123, 255, 0.12); color: var(--accent5);">10 Topics</span>
-            </div>
-            <div class="card card-hoverable theory-os-card" data-target="os-theory">
-              <h3>💿 OS Theory Notes</h3>
-              <p>Detailed OS concepts: Processes, Threads, CPU Scheduling, Synchronization, Deadlocks, Memory, and Kernels.</p>
-              <span class="badge file" style="background: rgba(52, 211, 153, 0.12); color: var(--accent-os);">27 Topics</span>
-            </div>
-            <div class="card card-hoverable theory-dbms-card" data-target="dbms-theory">
-              <h3>🗄️ DBMS Theory Notes</h3>
-              <p>Database fundamentals: Relational Model, SQL queries, Normalization, ACID, Concurrency Control, and NoSQL / MongoDB.</p>
-              <span class="badge file" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-dbms);">15 Topics</span>
-            </div>
-            <div class="card card-hoverable theory-cn-card" data-target="cn-theory">
-              <h3>🌐 CN Theory Notes</h3>
-              <p>Computer Networks: OSI &amp; TCP/IP Models, IP Addressing, Subnetting, TCP/UDP, Flow Control, and Security.</p>
-              <span class="badge file" style="background: rgba(244, 63, 94, 0.12); color: var(--accent-cn);">12 Topics</span>
-            </div>
+        <!-- Card 2: Aptitude Checklist -->
+        <div class="card card-hoverable" data-target="aptitude" data-category="checklist">
+          <div class="card-header-top">
+            <div class="card-icon-box">🧮</div>
+            <span class="card-badge checklist">Checklist</span>
           </div>
+          <h3>Aptitude Checklist</h3>
+          <p>18 topics split into High / Medium / Skip priority. IndiaBix linked.</p>
         </div>
 
-        <div class="dashboard-sub-section" style="margin-top: 1.5rem;">
-          <h3 class="dashboard-sub-title">⚡ Interview Prep &amp; Resources</h3>
-          <div class="card-grid">
-            <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
-              <h3>❓ Top Interview Q&amp;A</h3>
-              <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-              <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">197 Q&amp;As</span>
-            </div>
-            <div class="card card-hoverable formula-card" data-target="formulas">
-              <h3>📐 Formula Cheat Sheet</h3>
-              <p>Quick reference mathematical formulas and shortcuts categorized by priority (High, Medium, Skip) for quick recall.</p>
-              <span class="badge file" style="background: rgba(255, 157, 92, 0.12); color: var(--accent6);">23 Topics</span>
-            </div>
-            <div class="card card-hoverable more-sections-card" data-target="coming-soon">
-              <h3>⏳ More Sections</h3>
-              <p>Expand your prep deck with upcoming subjects like Core CS and HR skills.</p>
-              <span class="badge file" style="background: rgba(120, 120, 120, 0.12); color: var(--muted);">2 Sections</span>
-            </div>
+        <!-- Card 3: DSA Theory Notes -->
+        <div class="card card-hoverable" data-target="dsa-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">📚</div>
+            <span class="card-badge theory">15 Topics</span>
           </div>
+          <h3>DSA Theory Notes</h3>
+          <p>Arrays, Linked Lists, Stacks, Trees, Heaps, Graphs — with complexity tables and Python code.</p>
+        </div>
+
+        <!-- Card 4: AAD Theory -->
+        <div class="card card-hoverable" data-target="aad-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">⚙️</div>
+            <span class="card-badge theory">9 Topics</span>
+          </div>
+          <h3>AAD Theory</h3>
+          <p>Big-O, Dijkstra, sorting algorithms, Greedy, and Dynamic Programming.</p>
+        </div>
+
+        <!-- Card 5: OOPs Theory -->
+        <div class="card card-hoverable" data-target="oops-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">🧩</div>
+            <span class="card-badge theory">10 Topics</span>
+          </div>
+          <h3>OOPs Theory</h3>
+          <p>4 pillars, SOLID principles, constructors, and memory management.</p>
+        </div>
+
+        <!-- Card 6: OS Theory -->
+        <div class="card card-hoverable" data-target="os-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">💿</div>
+            <span class="card-badge theory">27 Topics</span>
+          </div>
+          <h3>OS Theory</h3>
+          <p>Processes, Threads, CPU Scheduling, Synchronization, Deadlocks, Memory, and Kernels.</p>
+        </div>
+
+        <!-- Card 7: DBMS Theory -->
+        <div class="card card-hoverable" data-target="dbms-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">🗄️</div>
+            <span class="card-badge theory">15 Topics</span>
+          </div>
+          <h3>DBMS Theory</h3>
+          <p>Database fundamentals: Relational Model, SQL queries, Normalization, ACID, Concurrency Control, and NoSQL / MongoDB.</p>
+        </div>
+
+        <!-- Card 8: CN Theory -->
+        <div class="card card-hoverable" data-target="cn-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">🌐</div>
+            <span class="card-badge theory">12 Topics</span>
+          </div>
+          <h3>CN Theory</h3>
+          <p>Computer Networks: OSI &amp; TCP/IP Models, IP Addressing, Subnetting, TCP/UDP, Flow Control, and Security.</p>
+        </div>
+
+        <!-- Card 9: Top Interview Q&A -->
+        <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
+          <div class="card-header-top">
+            <div class="card-icon-box">❓</div>
+            <span class="card-badge interview">197 Q&amp;As</span>
+          </div>
+          <h3>Top Interview Q&amp;A</h3>
+          <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
+        </div>
+
+        <!-- Card 10: Formula Cheat Sheet -->
+        <div class="card card-hoverable" data-target="formulas" data-category="interview">
+          <div class="card-header-top">
+            <div class="card-icon-box">📐</div>
+            <span class="card-badge interview">23 Topics</span>
+          </div>
+          <h3>Formula Cheat Sheet</h3>
+          <p>Quick reference mathematical formulas and shortcuts categorized by priority (High, Medium, Skip) for quick recall.</p>
+        </div>
+
+        <!-- Card 11: More Sections -->
+        <div class="card card-hoverable" data-target="coming-soon" data-category="interview">
+          <div class="card-header-top">
+            <div class="card-icon-box">⏳</div>
+            <span class="card-badge interview">2 Sections</span>
+          </div>
+          <h3>More Sections</h3>
+          <p>Expand your prep deck with upcoming subjects like Core CS and HR skills.</p>
         </div>
       </div>
     </div>

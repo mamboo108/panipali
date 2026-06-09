@@ -573,6 +573,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- HOMEPAGE CARD FILTERING ---
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const cards = document.querySelectorAll('#main-card-grid .card');
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      // Toggle active classes on chips
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const filterVal = chip.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterVal === 'all' || category === filterVal) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // --- HERO BUTTON NAVIGATION ---
+  const heroDsaBtn = document.getElementById('hero-start-dsa-btn');
+  const heroAptBtn = document.getElementById('hero-start-apt-btn');
+
+  if (heroDsaBtn) {
+    heroDsaBtn.addEventListener('click', () => {
+      switchSection('dsa');
+    });
+  }
+  if (heroAptBtn) {
+    heroAptBtn.addEventListener('click', () => {
+      switchSection('aptitude');
+    });
+  }
+
   // --- INITIALIZATION ---
   loadProgress();
 });
