@@ -43,6 +43,7 @@
       <a class="nav-item" data-target="oops-theory" id="nav-oops-theory">🧩 OOPs Theory</a>
       <a class="nav-item" data-target="os-theory" id="nav-os-theory">💿 OS Theory</a>
       <a class="nav-item" data-target="dbms-theory" id="nav-dbms-theory">🗄️ DBMS Theory</a>
+      <a class="nav-item" data-target="cn-theory" id="nav-cn-theory">🌐 CN Theory</a>
 
       <div class="nav-section">Interview Prep</div>
       <a class="nav-item" data-target="interview-qa" id="nav-interview-qa">❓ Top Interview Q&amp;A</a>
@@ -256,10 +257,15 @@
           <p>Database fundamentals: Relational Model, SQL queries, Normalization, ACID, Concurrency Control, and NoSQL / MongoDB.</p>
           <span class="badge file" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-dbms);">15 Topics</span>
         </div>
+        <div class="card card-hoverable theory-cn-card" data-target="cn-theory">
+          <h3>🌐 CN Theory Notes</h3>
+          <p>Computer Networks: OSI &amp; TCP/IP Models, IP Addressing, Subnetting, TCP/UDP, Flow Control, and Security.</p>
+          <span class="badge file" style="background: rgba(244, 63, 94, 0.12); color: var(--accent-cn);">12 Topics</span>
+        </div>
         <div class="card card-hoverable interview-qa-card" data-target="interview-qa">
           <h3>❓ Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
-          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">162 Q&amp;As</span>
+          <span class="badge file" style="background: rgba(255, 107, 107, 0.12); color: var(--accent3);">197 Q&amp;As</span>
         </div>
         <div class="card card-hoverable aptitude-card" data-target="aptitude">
           <h3>🧮 Quantitative Aptitude</h3>
@@ -2858,6 +2864,353 @@ myCar.drive();</code></pre>
       </div>
     </div>
 
+    
+    <!-- SECTION: CN THEORY -->
+    <div class="section" id="section-cn-theory">
+      <h1 class="section-title">🌐 Computer Networks (CN)</h1>
+      <div class="page-subtitle">Detailed placement tutorials and core concepts of Computer Networks.</div>
+
+      <div class="theory-container">
+
+        <!-- 01. OSI MODEL (OPEN SYSTEMS INTERCONNECTION) -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">01</span>
+            <h2>OSI Model (Open Systems Interconnection)</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>OSI Model:</strong> A conceptual 7-layer framework developed by ISO that standardizes communication functions in networks, regardless of underlying hardware/software.</li>
+              <li><strong>The 7 Layers &amp; Key Responsibilities:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Layer</th><th>Name</th><th>Function</th><th>Data Unit</th><th>Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>7</td><td><strong>Application</strong></td><td>Direct interface for user applications (browsers, email).</td><td>Data</td><td>HTTP, FTP, DNS, SMTP</td></tr>
+                    <tr><td>6</td><td><strong>Presentation</strong></td><td>Data translation, encryption, compression, and formatting.</td><td>Data</td><td>SSL, TLS, JPEG, ASCII</td></tr>
+                    <tr><td>5</td><td><strong>Session</strong></td><td>Establishes, manages, and terminates dialogue sessions.</td><td>Data</td><td>NetBIOS, PPTP, RPC</td></tr>
+                    <tr><td>4</td><td><strong>Transport</strong></td><td>End-to-end communication, flow control, and error recovery.</td><td>Segment (TCP) / Datagram (UDP)</td><td>TCP, UDP</td></tr>
+                    <tr><td>3</td><td><strong>Network</strong></td><td>Logical addressing (IP) and routing packets across subnets.</td><td>Packet</td><td>IP, ICMP, IPSec, ARP</td></tr>
+                    <tr><td>2</td><td><strong>Data Link</strong></td><td>MAC addressing, physical framing, and hop-to-hop error control.</td><td>Frame</td><td>Ethernet, PPP, Switch, Bridge</td></tr>
+                    <tr><td>1</td><td><strong>Physical</strong></td><td>Physical bits transmission over medium wires or signals.</td><td>Bits</td><td>Fiber, Coaxial, Hub, Repeater</td></tr>
+                  </tbody>
+                </table>
+              </li>
+              <li><strong>ISO Mnemonic:</strong> "All People Seem To Need Data Processing" (Application down to Physical).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 02. TCP/IP MODEL & MAPPINGS -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">02</span>
+            <h2>TCP/IP Model & Mappings</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>TCP/IP Model:</strong> The practical, implementation-oriented networking model developed by DARPA, which serves as the architectural foundation of the Internet.</li>
+              <li><strong>4-Layer Model and OSI Mappings:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>TCP/IP Layer</th><th>OSI Equivalent Layers</th><th>Core Protocols</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Application</strong></td><td>Application + Presentation + Session</td><td>HTTP, HTTPS, FTP, DNS, DHCP, SSH</td></tr>
+                    <tr><td><strong>Transport</strong></td><td>Transport</td><td>TCP, UDP</td></tr>
+                    <tr><td><strong>Internet</strong></td><td>Network</td><td>IP (IPv4, IPv6), ICMP, ARP</td></tr>
+                    <tr><td><strong>Network Access</strong></td><td>Data Link + Physical</td><td>Ethernet, Wi-Fi (802.11), Point-to-Point (PPP)</td></tr>
+                  </tbody>
+                </table>
+              </li>
+              <li><strong>Core Difference:</strong> OSI is a strict theoretical model used for education and layering conceptualization, while TCP/IP is the actual suite of protocols implemented on operating systems globally.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 03. ENCAPSULATION & DECAPSULATION -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">03</span>
+            <h2>Encapsulation & Decapsulation</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Encapsulation:</strong> The process of adding control headers (and trailers) to data as it moves from upper layers to lower layers of the network stack at the sender side.</li>
+              <li><strong>Decapsulation:</strong> The reverse process at the receiver side, where headers are parsed and stripped off layer-by-layer as the payload moves up the stack to the user.</li>
+              <li><strong>Protocol Data Unit (PDU) Transitions:</strong>
+                <ul>
+                  <li><strong>Application Layer:</strong> Raw payload is user data.</li>
+                  <li><strong>Transport Layer:</strong> Prepends TCP/UDP headers, creating a **Segment** or **Datagram**.</li>
+                  <li><strong>Network Layer:</strong> Prepends IP headers (source/dest IPs), creating a **Packet**.</li>
+                  <li><strong>Data Link Layer:</strong> Prepends MAC headers and appends a checksum trailer, creating a **Frame**.</li>
+                  <li><strong>Physical Layer:</strong> Converts frames into serialized physical **Bits** for hardware transmissions.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 04. COMMON NETWORK PROTOCOLS -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">04</span>
+            <h2>Common Network Protocols</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Protocol:</strong> A formal set of rules and syntax governing data exchanges between network devices.</li>
+              <li><strong>Directory of Common Protocols:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Protocol</th><th>Port</th><th>Purpose</th><th>Transport</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>HTTP</strong></td><td>80</td><td>HyperText Transfer Protocol - Unsecured web page delivery.</td><td>TCP</td></tr>
+                    <tr><td><strong>HTTPS</strong></td><td>443</td><td>HTTP Secure - Encryption via SSL/TLS certificates.</td><td>TCP</td></tr>
+                    <tr><td><strong>FTP</strong></td><td>20, 21</td><td>File Transfer Protocol - Uploading/downloading files. Port 20 (data), 21 (control).</td><td>TCP</td></tr>
+                    <tr><td><strong>DNS</strong></td><td>53</td><td>Domain Name System - Resolves user domain URLs to IP addresses.</td><td>UDP/TCP</td></tr>
+                    <tr><td><strong>DHCP</strong></td><td>67, 68</td><td>Dynamic Host Configuration Protocol - Auto-leases IPs to clients.</td><td>UDP</td></tr>
+                    <tr><td><strong>TCP</strong></td><td>-</td><td>Transmission Control Protocol - Reliable, ordered, connection-oriented data stream.</td><td>-</td></tr>
+                    <tr><td><strong>UDP</strong></td><td>-</td><td>User Datagram Protocol - Fast, connectionless, lightweight datagram flow.</td><td>-</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 05. ERROR DETECTION (PARITY, CHECKSUM, CRC) -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">05</span>
+            <h2>Error Detection (Parity, Checksum, CRC)</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Purpose:</strong> Identifies bit corruption caused by network noise or physical wire interference during transmission.</li>
+              <li><strong>Primary Methodologies:</strong>
+                <ul>
+                  <li><strong>Parity Bit:</strong> Appends a single bit to data (even or odd parity). It only detects single-bit errors and fails on double-bit swaps.</li>
+                  <li><strong>Checksum:</strong> Sums data blocks using 1's complement arithmetic and sends the complemented checksum value. The receiver sums all blocks; a non-zero result indicates corruption.</li>
+                  <li><strong>CRC (Cyclic Redundancy Check):</strong> A powerful, division-based error detection method:
+                    <ol>
+                      <li>A generator polynomial (divisor) is agreed upon by sender and receiver.</li>
+                      <li>The sender appends $N$ zeros (where $N$ is the degree of the divisor) to the data block.</li>
+                      <li>Binary division using XOR arithmetic is performed on the data.</li>
+                      <li>The division remainder replaces the appended zeros as the **CRC bits**.</li>
+                      <li>The receiver divides the block by the same divisor; any non-zero remainder indicates an error.</li>
+                    </ol>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 06. ROUTING CONCEPTS & DEVICES -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">06</span>
+            <h2>Routing Concepts & Devices</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Routing:</strong> The Network Layer process of selecting optimal paths through intermediate router hops to deliver packets.</li>
+              <li><strong>Devices:</strong>
+                <ul>
+                  <li><strong>Router (Layer 3):</strong> Forwards packets between distinct networks using IP routing tables.</li>
+                  <li><strong>Layer 3 Switch:</strong> Combines hardware-based switching speeds with logical IP routing capabilities.</li>
+                </ul>
+              </li>
+              <li><strong>Static vs. Dynamic Routing:</strong>
+                <ul>
+                  <li><strong>Static:</strong> Routes are configured manually by administrators. Simple, but doesn't adapt to link failures.</li>
+                  <li><strong>Dynamic:</strong> Routers exchange topologies automatically using dynamic routing protocols.</li>
+                </ul>
+              </li>
+              <li><strong>Dynamic Routing Protocols:</strong>
+                <ul>
+                  <li><strong>RIP (Routing Information Protocol):</strong> Distance-vector protocol using **hop count** as metric (limit: 15 hops).</li>
+                  <li><strong>OSPF (Open Shortest Path First):</strong> Link-state protocol using **Dijkstra's Algorithm** to calculate shortest paths based on bandwidth.</li>
+                  <li><strong>BGP (Border Gateway Protocol):</strong> Path-vector protocol routing traffic between distinct Autonomous Systems (AS) on the global Internet.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 07. IP ADDRESSING (IPV4 VS. IPV6) -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">07</span>
+            <h2>IP Addressing (IPv4 vs. IPv6)</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>IP Address:</strong> A logical, software-based address assigned to network interfaces, allowing global packets forwarding.</li>
+              <li><strong>Private vs. Public IPs:</strong>
+                <ul>
+                  <li><strong>Private IPs:</strong> Used inside local area networks (LANs). They are non-routable on the Internet, saving IP address space.
+                    <ul>
+                      <li>Class A: <code>10.0.0.0</code> &ndash; <code>10.255.255.255</code></li>
+                      <li>Class B: <code>172.16.0.0</code> &ndash; <code>172.31.255.255</code></li>
+                      <li>Class C: <code>192.168.0.0</code> &ndash; <code>192.168.255.255</code></li>
+                    </ul>
+                  </li>
+                  <li><strong>Public IPs:</strong> Globally unique, registered IPs assigned by ISPs to route traffic over the Internet.</li>
+                </ul>
+              </li>
+              <li><strong>IPv4 vs. IPv6 Comparison:</strong>
+                <table class="theory-table">
+                  <thead>
+                    <tr><th>Feature</th><th>IPv4</th><th>IPv6</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Address Size</strong></td><td>32 bits (4 bytes)</td><td>128 bits (16 bytes)</td></tr>
+                    <tr><td><strong>Format</strong></td><td>Dotted-decimal (e.g. <code>192.168.1.1</code>)</td><td>Hexadecimal separated by colons (e.g. <code>2001:db8::1</code>)</td></tr>
+                    <tr><td><strong>Address Space</strong></td><td>$2^{32} \approx 4.3$ billion addresses (exhausted)</td><td>$2^{128} \approx 3.4 \times 10^{38}$ (virtually infinite)</td></tr>
+                    <tr><td><strong>Security</strong></td><td>IPSec integration is optional</td><td>IPSec integration is built-in</td></tr>
+                  </tbody>
+                </table>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 08. SUBNETTING & CIDR CALCULATIONS -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">08</span>
+            <h2>Subnetting & CIDR calculations</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Subnetting:</strong> The process of dividing a single large network into smaller, logical sub-networks (subnets).</li>
+              <li><strong>Advantages:</strong>
+                <ul>
+                  <li><strong>Security:</strong> Restricts broadcasts to individual subnets, isolating network traffic.</li>
+                  <li><strong>Performance:</strong> Reduces broadcast storms and improves routing speeds.</li>
+                  <li><strong>Resource Efficiency:</strong> Minimizes IP address waste by customizing subnet sizes.</li>
+                </ul>
+              </li>
+              <li><strong>CIDR (Classless Inter-Domain Routing):</strong> Uses variable-length subnet masks (VLSM) indicated by prefix lengths (e.g., <code>/24</code> or <code>/26</code>).</li>
+              <li><strong>Host Formula:</strong>
+                <ul>
+                  <li>Number of usable hosts per subnet = $2^{(32 - N)} - 2$ (where $N$ is the prefix size).</li>
+                  <li>We subtract **2** to account for the **Network Address** (first IP, host bits = all 0s) and the **Broadcast Address** (last IP, host bits = all 1s).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 09. TRANSPORT PROTOCOL: TCP -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">09</span>
+            <h2>Transport Protocol: TCP</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>TCP (Transmission Control Protocol):</strong> A connection-oriented, highly reliable Transport Layer protocol that guarantees in-order delivery of segments.</li>
+              <li><strong>Core Features:</strong>
+                <ul>
+                  <li><strong>Three-Way Handshake:</strong> Establishes connections using SYN &rarr; SYN-ACK &rarr; ACK.</li>
+                  <li><strong>Reliability:</strong> Mandates positive acknowledgments (ACKs) and manages retransmissions for lost segments.</li>
+                  <li><strong>Ordered Delivery:</strong> Uses sequence numbers to reassemble packets in correct sequence.</li>
+                  <li><strong>Flow Control:</strong> Employs sliding window limits to avoid overwhelming receiver memory.</li>
+                  <li><strong>Congestion Control:</strong> Regulates segment launch speeds to avoid saturating network switches.</li>
+                </ul>
+              </li>
+              <li><strong>Applications:</strong> Web browsing (HTTP/HTTPS), File transfers (FTP), Email (SMTP/IMAP), Remote access (SSH).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10. TRANSPORT PROTOCOL: UDP -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">10</span>
+            <h2>Transport Protocol: UDP</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>UDP (User Datagram Protocol):</strong> A lightweight, connectionless, and unreliable Transport Layer protocol designed for speed and minimal overhead.</li>
+              <li><strong>Core Features:</strong>
+                <ul>
+                  <li><strong>Lightweight:</strong> No handshake connection delays, and small header size (8 bytes compared to TCP's 20 bytes).</li>
+                  <li><strong>Best-Effort Delivery:</strong> No acknowledgments, no sequence numbering, and no retransmissions. Corrupted segments are simply dropped.</li>
+                  <li><strong>Broadcasting:</strong> Naturally supports multicast and broadcast transmissions.</li>
+                </ul>
+              </li>
+              <li><strong>Applications:</strong> Real-time streaming (YouTube/Netflix video packets), Online gaming (low latency), VoIP calls, DNS queries, DHCP lease request packets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 11. FLOW & CONGESTION CONTROL -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">11</span>
+            <h2>Flow & Congestion Control</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Flow Control:</strong> Prevents the sender from transmitting data faster than the receiver's memory buffer can process.
+                <ul>
+                  <li><em>Sliding Window Protocol:</em> The receiver dynamically advertises its free buffer size (Receive Window - RWND) in ACK packets. The sender cannot transmit more bytes than the advertised RWND.</li>
+                </ul>
+              </li>
+              <li><strong>Congestion Control:</strong> Regulates the sender's transmission rate to prevent congestion in the intermediate routers. The sender maintains a Congestion Window (CWND).
+                <ul>
+                  <li><strong>1. Slow Start:</strong> Starts with a small CWND (e.g. 1 MSS) and doubles it with every RTT (exponential growth) until it reaches the slow start threshold (ssthresh).</li>
+                  <li><strong>2. Congestion Avoidance:</strong> Increases CWND linearly (+1 MSS per RTT) once ssthresh is crossed, avoiding aggressive jumps.</li>
+                  <li><strong>3. Fast Retransmit:</strong> If the sender receives **3 duplicate ACKs**, it assumes the segment is lost and immediately retransmits it without waiting for a retransmission timeout.</li>
+                  <li><strong>4. Fast Recovery:</strong> Halves the ssthresh and reduces the CWND instead of resetting it back to 1, maintaining throughput.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 12. APPLICATION LAYER & BASIC SECURITY -->
+        <div class="theory-card cn">
+          <div class="theory-card-header">
+            <span class="theory-card-num">12</span>
+            <h2>Application Layer & Basic Security</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Application Layer Services:</strong>
+                <ul>
+                  <li><strong>DNS:</strong> Translates human-readable domain names (e.g. <code>google.com</code>) to network-routable IP addresses (e.g. <code>142.250.x.x</code>).</li>
+                  <li><strong>DHCP:</strong> Automates IP configuration using the **DORA process** (Discover, Offer, Request, Acknowledge).</li>
+                  <li><strong>FTP:</strong> Handles file transfers using separate **Control** (port 21) and **Data** (port 20) channels.</li>
+                </ul>
+              </li>
+              <li><strong>CIA Triad of Security:</strong>
+                <ul>
+                  <li><strong>Confidentiality:</strong> Encrypting data (e.g., using TLS) to prevent unauthorized interception.</li>
+                  <li><strong>Integrity:</strong> Using cryptographic hashes (checksums, MACs) to guarantee data is not altered in transit.</li>
+                  <li><strong>Availability:</strong> Ensuring system services remain online (e.g., mitigating DDoS attacks).</li>
+                </ul>
+              </li>
+              <li><strong>Defense Technologies:</strong>
+                <ul>
+                  <li><strong>Firewall:</strong> Filters incoming/outgoing packet traffic based on port/IP access rules.</li>
+                  <li><strong>VPN (Virtual Private Network):</strong> Establishes a secure, encrypted tunnel over public networks.</li>
+                  <li><strong>IPS (Intrusion Prevention System):</strong> Inspects packet payloads to block attacks in real-time.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- SECTION: INTERVIEW Q&A -->
     <div class="section" id="section-interview-qa">
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
@@ -2904,6 +3257,14 @@ myCar.drive();</code></pre>
             <p>Relational Model, SQL Queries, Normalization, ACID, Locks, NoSQL &amp; MongoDB</p>
           </div>
           <div class="qa-selector-badge">50 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="cn">
+          <div class="qa-selector-icon">🌐</div>
+          <div class="qa-selector-details">
+            <h3>Computer Networks</h3>
+            <p>OSI &amp; TCP/IP Models, IP Addressing &amp; Subnetting, TCP/UDP, Flow &amp; Congestion Control, Application Protocols, and Security</p>
+          </div>
+          <div class="qa-selector-badge">35 Qs</div>
         </div>
       </div>
 
@@ -5020,6 +5381,374 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
               <li><strong>Star Schema:</strong> Fact table in the center surrounded by dimension tables. Dimension tables are completely denormalized. Simple structure, fewer joins.</li>
               <li><strong>Snowflake Schema:</strong> An extension of Star Schema where dimension tables are normalized into sub-dimension tables. Reduces redundancy, but queries are slower due to more joins.</li>
             </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CN PANEL -->
+        <div class="qa-panel" id="qa-panel-cn">
+          <div class="theory-card cn">
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is the OSI Model?</h4>
+              <ul>
+              <li><strong>OSI Model:</strong> A conceptual 7-layer framework developed by ISO that standardizes computer network communication.</li>
+              <li><strong>The 7 Layers:</strong> Physical, Data Link, Network, Transport, Session, Presentation, Application.</li>
+              <li><strong>Purpose:</strong> Serves as a theoretical guideline for protocol designs and troubleshooting network connectivity.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q2: Name all 7 OSI layers and their main functions.</h4>
+              <ul>
+              <li><strong>1. Physical Layer:</strong> Transmits raw bits over cables or radio frequencies.</li>
+              <li><strong>2. Data Link Layer:</strong> Frame creation, MAC addressing, and link-level error checking.</li>
+              <li><strong>3. Network Layer:</strong> IP logical addressing and routing packets across subnets.</li>
+              <li><strong>4. Transport Layer:</strong> Flow control, segment ordering, and reliable end-to-end delivery (TCP/UDP).</li>
+              <li><strong>5. Session Layer:</strong> Manages connections and sessions between applications.</li>
+              <li><strong>6. Presentation Layer:</strong> Encrypts, compresses, and translates data into common formats.</li>
+              <li><strong>7. Application Layer:</strong> Direct network services for users (HTTP, DNS, FTP).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q3: Which OSI layer is responsible for routing?</h4>
+              <ul>
+              <li>The <strong>Network Layer (Layer 3)</strong> is responsible for logical routing. Devices like **routers** and **Layer 3 switches** inspect IP headers to select the best paths for packets across separate subnets.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q4: Which OSI layer adds MAC addresses?</h4>
+              <ul>
+              <li>The <strong>Data Link Layer (Layer 2)</strong> adds source and destination physical MAC addresses. It wraps the Network IP packet into a Layer 2 **Frame** for local network deliveries (e.g. Ethernet cards).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q5: What are the main differences between the OSI and TCP/IP Models?</h4>
+              <p>OSI and TCP/IP have different layer counts and conceptual focuses:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Feature</th><th>OSI Model</th><th>TCP/IP Model</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Layer Count</strong></td><td>7 Layers</td><td>4 Layers</td></tr>
+                <tr><td><strong>Approach</strong></td><td>Strict theoretical framework (ISO).</td><td>Practical implementation standard (DARPA).</td></tr>
+                <tr><td><strong>Focus</strong></td><td>Clear separation of services, interfaces, and protocols.</td><td>Protocol-centric model built around the IP suite.</td></tr>
+                <tr><td><strong>Session/Presentation</strong></td><td>Separate dedicated layers (5 &amp; 6).</td><td>Combined directly into the Application layer.</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q6: Which model is used on the practical Internet?</h4>
+              <ul>
+              <li>The <strong>TCP/IP Model</strong> is used on the practical Internet. It matches the operating system implementations globally, where protocols like TCP, UDP, IP, and Ethernet handle all network operations.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is Encapsulation?</h4>
+              <ul>
+              <li><strong>Encapsulation:</strong> The process of wrapping data with control headers (and trailers) as payload travels down the stack from the Application layer to the Physical layer at the sender side.</li>
+              <li><strong>Transitions:</strong> Data &rarr; Segment (Transport) &rarr; Packet (Network) &rarr; Frame (Data Link) &rarr; Bits (Physical).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is Decapsulation?</h4>
+              <ul>
+              <li><strong>Decapsulation:</strong> The reverse of encapsulation, occurring at the receiver side. The receiving host parses and strips headers layer-by-layer as payload moves up the network stack, eventually presenting the raw data to the target application.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is a Protocol?</h4>
+              <ul>
+              <li><strong>Protocol:</strong> A formal set of rules, syntax, and standards governing how data is formatted and transmitted between distinct network devices. Without protocols, devices cannot coordinate communication.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q10: Explain the Cyclic Redundancy Check (CRC) error detection process.</h4>
+              <ul>
+              <li><strong>CRC:</strong> A division-based error checking technique:
+                <ol>
+                  <li>The sender appends zeros to the data block (matching the degree of the divisor polynomial).</li>
+                  <li>Binary division using XOR arithmetic is performed to calculate a remainder.</li>
+                  <li>The remainder is appended to the data in place of the zeros.</li>
+                  <li>The receiver divides the block; if the remainder is 0, no bit errors occurred.</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q11: What is an IP Address?</h4>
+              <ul>
+              <li><strong>IP Address:</strong> A unique logical software address assigned to network interfaces, allowing routing devices to forward packets across different networks.</li>
+              <li><strong>Versions:</strong> IPv4 (32-bit addresses) and IPv6 (128-bit addresses).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is the difference between Public and Private IP addresses?</h4>
+              <ul>
+              <li><strong>Private IPs:</strong> Non-routable on the Internet, used strictly inside local area networks (LANs). Can be reused in different local networks (e.g. <code>192.168.1.1</code>).</li>
+              <li><strong>Public IPs:</strong> Globally unique IP addresses assigned by registrars (via ISPs) that are routable across the public Internet.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is Subnetting?</h4>
+              <ul>
+              <li><strong>Subnetting:</strong> The network design practice of breaking a large physical IP network into smaller, logical sub-networks (subnets).</li>
+              <li><strong>Benefits:</strong> Restricts broadcasts to improve network speeds, isolates traffic for security, and reduces IP address waste.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q14: How many hosts are possible in a /24 network? Show calculations.</h4>
+              <ul>
+              <li><strong>Prefix Length (N):</strong> 24.</li>
+              <li><strong>Host Bits:</strong> $32 - 24 = 8$ bits.</li>
+              <li><strong>Usable Hosts Formula:</strong> $2^{\text{Host Bits}} - 2$
+                <ul>
+                  <li>$2^8 - 2 = 256 - 2 = 254$ Usable Hosts.</li>
+                </ul>
+              </li>
+              <li><strong>Note:</strong> We subtract 2 because the first IP (host bits = 0s) is the Network ID, and the last IP (host bits = 1s) is the Broadcast ID.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is the difference between MAC Address and IP Address?</h4>
+              <p>MAC and IP addresses serve different levels of network routing:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Attribute</th><th>MAC Address</th><th>IP Address</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Layer</strong></td><td>Data Link Layer (Layer 2)</td><td>Network Layer (Layer 3)</td></tr>
+                <tr><td><strong>Nature</strong></td><td>Physical, hardware-burned address (unchangeable).</td><td>Logical, software-assigned address (changeable).</td></tr>
+                <tr><td><strong>Format</strong></td><td>48-bit hex (e.g. <code>00:1A:2B:3C:4D:5E</code>).</td><td>32-bit decimal or 128-bit hex IP format.</td></tr>
+                <tr><td><strong>Scope</strong></td><td>Identifies devices on the local link.</td><td>Identifies interfaces globally.</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is a Default Gateway?</h4>
+              <ul>
+              <li><strong>Default Gateway:</strong> The local router interface IP to which local hosts forward all traffic destined for external networks (outside the local subnet). If a host has no matching routing table rule, it sends packets to the gateway.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q17: What is Routing? List some common routing protocols.</h4>
+              <ul>
+              <li><strong>Routing:</strong> The Network Layer process of selecting optimal paths through network hops to forward packets from a source to a destination.</li>
+              <li><strong>Common Protocols:</strong>
+                <ul>
+                  <li><strong>RIP:</strong> Distance-vector (based on hop count).</li>
+                  <li><strong>OSPF:</strong> Link-state (calculates shortest path based on link bandwidth).</li>
+                  <li><strong>BGP:</strong> Path-vector (routing traffic between distinct Autonomous Systems on the global Internet).</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q18: What is the difference between Static and Dynamic Routing?</h4>
+              <ul>
+              <li><strong>Static Routing:</strong> Routes are configured manually by network administrators. It uses less memory and CPU, but does not adapt to link failures.</li>
+              <li><strong>Dynamic Routing:</strong> Routers exchange routing tables automatically using protocols (e.g., OSPF). It adapts dynamically to link failures, but consumes router overhead.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is the purpose of subnetting masks?</h4>
+              <ul>
+              <li><strong>Subnet Mask:</strong> A 32-bit value used to divide an IP address into **Network ID** bits (indicated by 1s) and **Host ID** bits (indicated by 0s). It helps hosts determine if a target destination IP is within their local network or requires a default gateway.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q20: How does ARP (Address Resolution Protocol) work?</h4>
+              <ul>
+              <li><strong>ARP Role:</strong> Resolves a known logical IP address to a physical MAC address on the local link.</li>
+              <li><strong>Process:</strong> The host sends an **ARP Request** as a Layer 2 broadcast. The host possessing the queried IP responds with an **ARP Reply** containing its MAC address. Results are cached in the host's ARP table.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q21: What is the difference between TCP and UDP?</h4>
+              <p>TCP and UDP offer different reliability and speed profiles:</p>
+            <table class="theory-table">
+              <thead>
+                <tr><th>Feature</th><th>TCP</th><th>UDP</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Connection</strong></td><td>Connection-oriented (handshake required)</td><td>Connectionless (fire-and-forget)</td></tr>
+                <tr><td><strong>Reliability</strong></td><td>Guaranteed delivery (ACKs + retransmissions)</td><td>Best-effort delivery (unreliable)</td></tr>
+                <tr><td><strong>Ordering</strong></td><td>Delivered in sequence (sequence numbers)</td><td>No ordering (handled by application)</td></tr>
+                <tr><td><strong>Header Size</strong></td><td>20 bytes (minimum)</td><td>8 bytes</td></tr>
+                <tr><td><strong>Speed</strong></td><td>Slower (higher overhead)</td><td>Faster (minimal overhead)</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q22: Why is TCP considered a reliable protocol?</h4>
+              <p>TCP guarantees reliable delivery using several mechanisms:</p>
+            <ul>
+              <li><strong>Three-Way Handshake:</strong> Establishes connection states.</li>
+              <li><strong>Sequence Numbers:</strong> Re-orders segments at the receiver.</li>
+              <li><strong>Acknowledgments (ACKs):</strong> Verifies packet delivery.</li>
+              <li><strong>Retransmission Timeouts (RTO):</strong> Resends segments if ACKs are not received.</li>
+              <li><strong>Flow &amp; Congestion Control:</strong> Regulates transmission rates.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q23: When would you prefer UDP over TCP?</h4>
+              <ul>
+              <li>UDP is preferred when **speed and low latency** are more critical than perfect reliability.</li>
+              <li><strong>Scenarios:</strong>
+                <ul>
+                  <li>Online multiplayer gaming (real-time movements).</li>
+                  <li>Live video streaming and VoIP calls (dropping a frame is better than freeze delays).</li>
+                  <li>Lightweight request-response queries like DNS or DHCP.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q24: What is Flow Control? How does TCP achieve it?</h4>
+              <ul>
+              <li><strong>Flow Control:</strong> Prevents a fast sender from overwhelming a slow receiver's memory buffer.</li>
+              <li><strong>TCP Sliding Window:</strong> The receiver advertises its available buffer size (Receive Window - RWND) in ACK packets. The sender cannot transmit more bytes than the advertised RWND.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is Congestion Control? List the key stages in TCP Congestion Control.</h4>
+              <ul>
+              <li><strong>Congestion Control:</strong> Regulates the sender's transmission rate to prevent congestion in the intermediate routers.</li>
+              <li><strong>Key Stages:</strong>
+                <ol>
+                  <li><strong>Slow Start:</strong> Exponential doubling of CWND every RTT.</li>
+                  <li><strong>Congestion Avoidance:</strong> Linear increment of CWND after reaching ssthresh.</li>
+                  <li><strong>Fast Retransmit:</strong> Retransmitting lost segments upon receiving 3 duplicate ACKs.</li>
+                  <li><strong>Fast Recovery:</strong> Halving ssthresh and reducing CWND instead of starting from 1.</li>
+                </ol>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q26: Explain the TCP Sliding Window Protocol.</h4>
+              <ul>
+              <li><strong>Sliding Window:</strong> Allows the sender to transmit multiple segments before receiving an acknowledgment.</li>
+              <li><strong>Benefits:</strong> Improves link utilization, throughput, and reduces transmission delays compared to simple stop-and-wait methods.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q27: What is the difference between HTTP and HTTPS?</h4>
+              <ul>
+              <li><strong>HTTP (Port 80):</strong> Transmits data in plain text, making it vulnerable to packet sniffing.</li>
+              <li><strong>HTTPS (Port 443):</strong> Encrypts communication using **SSL/TLS** certificates, ensuring data confidentiality, integrity, and authentication.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q28: How does DNS (Domain Name System) work?</h4>
+              <p>DNS translates user-friendly domain names to IP addresses:</p>
+            <ol>
+              <li>The user types <code>google.com</code> in the browser.</li>
+              <li>The host checks local caches (browser, OS host file).</li>
+              <li>If missing, a query is sent to the local DNS Resolver (ISP or <code>8.8.8.8</code>).</li>
+              <li>The resolver queries the Root DNS Server, which redirects to the TLD Server (e.g. <code>.com</code>).</li>
+              <li>The resolver queries the TLD server, which redirects to the Authoritative DNS Server for <code>google.com</code>.</li>
+              <li>The authoritative server returns the IP, which is cached and used by the browser.</li>
+            </ol>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q29: What is DHCP? Explain the lease assignment process.</h4>
+              <ul>
+              <li><strong>DHCP:</strong> Automates assigning IP configurations (IP, subnet mask, gateway, DNS) to clients.</li>
+              <li><strong>DORA Process:</strong>
+                <ul>
+                  <li><strong>D - Discover:</strong> Client broadcasts a DHCPDISCOVER packet to find servers.</li>
+                  <li><strong>O - Offer:</strong> Server responds with a DHCPOFFER packet containing lease settings.</li>
+                  <li><strong>R - Request:</strong> Client broadcasts a DHCPREQUEST to select the offered lease.</li>
+                  <li><strong>A - Acknowledge:</strong> Server responds with a DHCPACK, confirming the lease.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is FTP? Which ports does it use?</h4>
+              <ul>
+              <li><strong>FTP (File Transfer Protocol):</strong> Used for uploading and downloading files.</li>
+              <li><strong>Ports:</strong>
+                <ul>
+                  <li><strong>Port 21 (Control Connection):</strong> Used for commands, authentication, and session setup.</li>
+                  <li><strong>Port 20 (Data Connection):</strong> Used for actual file transfers.</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is a VPN?</h4>
+              <ul>
+              <li><strong>VPN (Virtual Private Network):</strong> Establishes a secure, encrypted tunnel over public networks. It encrypts all network packets leaving the client device, masking the client's public IP and protecting traffic on public networks.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q32: What is the difference between a Firewall and an IPS?</h4>
+              <ul>
+              <li><strong>Firewall:</strong> A barrier filtering traffic based on static rules (e.g., blocking incoming traffic on port 22, allowing port 80).</li>
+              <li><strong>IPS (Intrusion Prevention System):</strong> Inspects packet payloads to block attacks, malware, and exploits in real-time.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q33: Explain the CIA Triad in Network Security.</h4>
+              <ul>
+              <li><strong>Confidentiality:</strong> Restricting data access to authorized users (using SSL/TLS encryption).</li>
+              <li><strong>Integrity:</strong> Guaranteeing data has not been modified in transit (using SHA hashing or checksums).</li>
+              <li><strong>Availability:</strong> Ensuring resources remain accessible (mitigating DDoS attacks).</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q34: What is NAT (Network Address Translation)? Why is it used?</h4>
+              <ul>
+              <li><strong>NAT:</strong> Translated private IP addresses inside local subnets to a single public IP address at the router level.</li>
+              <li><strong>Why used:</strong> Saves IPv4 address space by allowing thousands of hosts to share a single public IP, and masks internal network IPs for security.</li>
+            </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q35: What happens when you type a URL (like google.com) in your browser and press Enter?</h4>
+              <p>A classic, high-frequency interview question combining multiple networking concepts:</p>
+            <ol>
+              <li><strong>DNS Resolution:</strong> Browser requests DNS resolver to translate <code>google.com</code> to an IP.</li>
+              <li><strong>TCP Handshake:</strong> The browser initiates a **3-way handshake** (SYN &rarr; SYN-ACK &rarr; ACK) to establish a TCP connection with the target server at port 443 (HTTPS).</li>
+              <li><strong>SSL/TLS Handshake:</strong> Establishes encryption keys for secure communication.</li>
+              <li><strong>HTTP Request:</strong> The browser sends an encrypted HTTP GET request for the web page resources.</li>
+              <li><strong>Server Processing:</strong> The web server processes the request, retrieves the HTML/CSS/JS files, and returns a response (e.g. <code>200 OK</code>).</li>
+              <li><strong>Browser Rendering:</strong> The browser parses the response, renders the HTML DOM structure, executes Javascript, and displays the page.</li>
+            </ol>
             </div>
 
           </div>

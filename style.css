@@ -14,6 +14,7 @@
   --accent6: #ff9d5c;    /* Soft Orange */
   --accent-os: #34d399;   /* Mint / Emerald Green */
   --accent-dbms: #f59e0b;   /* Amber / Gold */
+  --accent-cn: #f43f5e;     /* Rose / Pink-red */
   --text: #f0f2f5;
   --muted: #7a8090;
   --heading-color: #ffffff;
@@ -40,6 +41,7 @@ html[data-theme="light"] {
   --accent6: #d97706;    /* Amber */
   --accent-os: #059669;   /* Emerald Green */
   --accent-dbms: #d97706;   /* Amber / Gold */
+  --accent-cn: #be123c;     /* Deep Rose */
   --text: #0f172a;
   --muted: #475569;
   --heading-color: #0f172a;
@@ -440,6 +442,11 @@ p strong {
 .card-hoverable.theory-dbms-card {
   border-left: 5px solid var(--accent-dbms);
 }
+
+.card-hoverable.theory-cn-card {
+  border-left: 5px solid var(--accent-cn);
+}
+
 
 
 .card-hoverable.interview-qa-card {
@@ -1676,6 +1683,11 @@ footer {
   border-left: 4px solid var(--accent-dbms);
 }
 
+.theory-card.cn {
+  border-left: 4px solid var(--accent-cn);
+}
+
+
 
 .theory-card-header {
   display: flex;
@@ -1849,6 +1861,12 @@ footer {
   box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
 }
 
+.qa-selector-card.active[data-target-category="cn"] {
+  border-color: var(--accent-cn);
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+}
+
+
 
 .qa-selector-icon {
   font-size: 1.8rem;
@@ -1916,6 +1934,13 @@ footer {
   color: var(--accent-dbms);
   border-color: rgba(245, 158, 11, 0.2);
 }
+
+.qa-selector-card.active[data-target-category="cn"] .qa-selector-badge {
+  background: rgba(244, 63, 94, 0.08);
+  color: var(--accent-cn);
+  border-color: rgba(244, 63, 94, 0.2);
+}
+
 
 
 /* Panel Toggling */
