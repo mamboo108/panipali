@@ -550,13 +550,54 @@ p strong {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .hero-btn-apt:hover {
-  border-color: var(--border-focus);
-  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--accent-dbms);
+  background: rgba(245, 158, 11, 0.05);
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+.hero-btn-theory {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  color: white !important;
+  border: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-btn-theory:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+}
+
+.hero-btn-interview {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-btn-interview:hover {
+  border-color: var(--accent3);
+  background: rgba(255, 107, 107, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
 }
 
 /* WORKFLOW BANNER */
@@ -1436,7 +1477,7 @@ footer {
     gap: 12px;
   }
   
-  .hero-btn-dsa, .hero-btn-apt {
+  .hero-btn-dsa, .hero-btn-apt, .hero-btn-theory, .hero-btn-interview {
     width: 100%;
     justify-content: center;
   }

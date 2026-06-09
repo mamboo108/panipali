@@ -599,6 +599,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- HERO BUTTON NAVIGATION ---
   const heroDsaBtn = document.getElementById('hero-start-dsa-btn');
   const heroAptBtn = document.getElementById('hero-start-apt-btn');
+  const heroTheoryBtn = document.getElementById('hero-start-theory-btn');
+  const heroInterviewBtn = document.getElementById('hero-start-interview-btn');
 
   if (heroDsaBtn) {
     heroDsaBtn.addEventListener('click', () => {
@@ -608,6 +610,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroAptBtn) {
     heroAptBtn.addEventListener('click', () => {
       switchSection('aptitude');
+    });
+  }
+  if (heroTheoryBtn) {
+    heroTheoryBtn.addEventListener('click', () => {
+      switchSection('dsa-theory');
+    });
+  }
+  if (heroInterviewBtn) {
+    heroInterviewBtn.addEventListener('click', () => {
+      switchSection('interview-qa');
     });
   }
 
