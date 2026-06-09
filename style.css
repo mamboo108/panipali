@@ -157,6 +157,11 @@ body {
   flex-direction: column;
 }
 
+.clickable-logo {
+  cursor: pointer;
+  user-select: none;
+}
+
 .sidebar-logo span { 
   color: var(--muted); 
   font-size: 0.7rem; 

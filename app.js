@@ -611,6 +611,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- CLICKABLE LOGO HOMEPAGE NAVIGATION ---
+  const clickableLogos = document.querySelectorAll('.clickable-logo');
+  clickableLogos.forEach(logo => {
+    logo.addEventListener('click', () => {
+      switchSection('overview');
+    });
+  });
+
   // --- INITIALIZATION ---
   loadProgress();
 });
