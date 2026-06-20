@@ -93,7 +93,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 197 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 244 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -232,7 +232,7 @@
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">197 Q&amp;As</span>
+            <span class="card-badge interview">244 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3220,7 +3220,7 @@ myCar.drive();</code></pre>
             <h3>Object-Oriented Programming</h3>
             <p>Classes, Objects, Pillars, SOLID, Design Patterns</p>
           </div>
-          <div class="qa-selector-badge">25 Qs</div>
+          <div class="qa-selector-badge">72 Qs</div>
         </div>
         <div class="qa-selector-card" data-target-category="os">
           <div class="qa-selector-icon">💿</div>
@@ -4463,12 +4463,446 @@ myCar.drive();</code></pre>
               </ul>
             </div>
 
-            <div style="margin-bottom: 0;">
+            <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is Method Resolution Order (MRO) in Python?</h4>
               <ul>
                 <li><strong>Definition:</strong> Lookup order Python uses to search for methods in class hierarchies when multiple inheritance is involved.</li>
                 <li><strong>Algorithm:</strong> Resolves ambiguities using the <strong>C3 Linearization Algorithm</strong>.</li>
                 <li><strong>Lookup Chain:</strong> Follows the sequence: child class first, then left-to-right parent siblings, and finally grandparents. (Prevents visiting the same class twice).</li>
+              </ul>
+            </div>
+
+            <div class="qa-subject-header" style="color: var(--accent5); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">☕ Java Programming &amp; OOPs Quick Revision</div>
+
+            <!-- JAVA QUESTIONS START -->
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q26: Which JDBC class is used to establish a connection to a database?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>DriverManager</code></li>
+                <li><strong>Explanation:</strong> Acts as a bridge between the user and JDBC database drivers. It uses the <code>getConnection(url, user, password)</code> method to return a valid <code>Connection</code> object.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q27: Which JDBC method is used to execute a SELECT statement?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>executeQuery()</code></li>
+                <li><strong>Explanation:</strong> Used specifically for executing statements that retrieve data. It returns a <code>ResultSet</code> containing the records matching the query.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q28: Which JDBC method is used to execute INSERT, UPDATE, or DELETE statements?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>executeUpdate()</code></li>
+                <li><strong>Explanation:</strong> Used for non-SELECT DDL/DML statements. It returns an integer representing the number of rows affected by the operation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q29: Which class is used for reading characters from a file in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>FileReader</code></li>
+                <li><strong>Explanation:</strong> A character-oriented stream class used to read streams of characters (16-bit) from files. (Byte-oriented streams should use <code>FileInputStream</code> instead).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is the recommended way to stop a thread in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Using <code>interrupt()</code> and allowing the thread to terminate gracefully.</li>
+                <li><strong>Explanation:</strong> The old <code>Thread.stop()</code> is deprecated because it is unsafe. It releases all locked monitors immediately, potentially leaving shared resources in inconsistent states. Using <code>interrupt()</code> sets the interrupt flag, letting the thread check it and exit loops gracefully.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q31: Are Swing components lightweight components?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Yes.</li>
+                <li><strong>Explanation:</strong> Swing components are written entirely in Java and do not rely on native system peers (unlike AWT heavyweight components). Thus, they are platform-independent and consume fewer system resources.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q32: What is the default value of a boolean variable in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>false</code></li>
+                <li><strong>Explanation:</strong> When declared as an instance or static class field, boolean variables default to <code>false</code>. Note that local boolean variables inside methods do not get default values and must be explicitly initialized.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q33: Which UML diagram represents relationships between classes in a system?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Class Diagram</li>
+                <li><strong>Explanation:</strong> A static structural diagram that describes the structure of a system by showing the system's classes, their attributes, operations, and relationships (like inheritance, association, composition, aggregation).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q34: Which UML diagram represents object behavior based on events and state transitions?</h4>
+              <ul>
+                <li><strong>Answer:</strong> State Diagram (State Machine Diagram)</li>
+                <li><strong>Explanation:</strong> A behavioral diagram that models the life cycle of a single object, detailing the states it can enter, transitions between states, and events that trigger those transitions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q35: Which UML diagram is used to model the flow of control or data in a system?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Activity Diagram</li>
+                <li><strong>Explanation:</strong> A behavioral diagram representing step-by-step workflows of activities and actions. It supports choice, iteration, and concurrency, making it ideal for business process modeling.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q36: What is the main feature of the MVC architecture?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Separation of concerns using Model, View, and Controller.</li>
+                <li><strong>Details:</strong>
+                  <ul>
+                    <li><strong>Model:</strong> Represents application data and business rules.</li>
+                    <li><strong>View:</strong> Represents the visual representation (UI layout).</li>
+                    <li><strong>Controller:</strong> Translates user interactions into model updates or view updates.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q37: Which Java feature allows multiple methods with the same name but different parameters?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Method Overloading</li>
+                <li><strong>Explanation:</strong> A compile-time (static) polymorphism feature. Overloaded methods must differ in parameter lists (number, order, or data type of arguments). Return type changes alone are not sufficient.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q38: Which method is used to compare the contents of two strings?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>equals()</code></li>
+                <li><strong>Explanation:</strong> <code>s1.equals(s2)</code> compares the actual character-by-character values of two strings. The <code>==</code> operator compares object references (memory addresses) rather than content.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q39: Which keyword prevents a class from being inherited?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>final</code></li>
+                <li><strong>Explanation:</strong> When a class is declared <code>final</code>, it cannot be extended by any other class. For example, Java's utility classes like <code>java.lang.String</code> are final.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q40: Which interface must be implemented to support the enhanced for-each loop?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>Iterable</code></li>
+                <li><strong>Explanation:</strong> The compiler converts the enhanced for-each loop into an iterator-based loop. Any class implementing <code>Iterable&lt;T&gt;</code> exposes an <code>iterator()</code> method and can be targets of this syntax.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q41: Which component converts Java source code into bytecode?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Java Compiler (<code>javac</code>)</li>
+                <li><strong>Explanation:</strong> <code>javac</code> compiles human-readable <code>.java</code> source files into intermediate, platform-independent <code>.class</code> bytecode. The JVM then translates this bytecode at runtime.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q42: What does the <code>this</code> keyword refer to?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The current object (current class instance).</li>
+                <li><strong>Explanation:</strong> Used inside constructors or instance methods to refer to the invoking object. It helps resolve variable shadowing (when instance fields and method arguments share the same name).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q43: Which interface must a class implement to support serialization?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>Serializable</code></li>
+                <li><strong>Explanation:</strong> A marker interface (has no methods). Implementing it tells the JVM that the class objects are safe to be serialized into stream-packets.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q44: What is the output of the following code?</h4>
+              <pre class="theory-code"><code><span class="keyword">int</span> x = <span class="number">5</span>;
+<span class="keyword">int</span> y = <span class="number">3</span>;
+System.out.println(x / y);</code></pre>
+              <ul>
+                <li><strong>Answer:</strong> <code>1</code></li>
+                <li><strong>Explanation:</strong> Performs integer division because both <code>x</code> and <code>y</code> are integers. Any fractional part (<code>1.666...</code>) is truncated, yielding <code>1</code>. Cast one operand to get a decimal: <code>(double) x / y</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q45: Give an example of a checked exception.</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>IOException</code> (or <code>SQLException</code>, <code>ClassNotFoundException</code>)</li>
+                <li><strong>Explanation:</strong> Checked exceptions are checked at compile time. The compiler forces the programmer to handle them using <code>try-catch</code> blocks or declare them using the <code>throws</code> keyword.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q46: Java Applets run inside which environment?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Web Browser (or Applet Viewer)</li>
+                <li><strong>Explanation:</strong> Applets were client-side Java programs designed to run inside a web browser using a Java browser plug-in. (Note: Applets are deprecated and removed from modern Java platforms).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q47: Which access modifier allows access only within the same class?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>private</code></li>
+                <li><strong>Explanation:</strong> The most restrictive access modifier. Fields, methods, or constructors marked <code>private</code> cannot be accessed by any external class (even subclass variants).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q48: What is the main difference between String and StringBuffer?</h4>
+              <ul>
+                <li><strong>Answer:</strong> String is immutable, StringBuffer is mutable.</li>
+                <li><strong>Explanation:</strong> Modifying a <code>String</code> creates a new object in memory, while <code>StringBuffer</code> modifies the existing character sequence in-place without generating extra garbage. <code>StringBuffer</code> is also thread-safe (synchronized).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q49: What is the return type of a constructor?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Constructors do not have a return type.</li>
+                <li><strong>Explanation:</strong> A constructor initializes a newly created object. While it implicitly returns the class instance, it specifies no return type (not even <code>void</code>). Defining a return type converts it into a regular method.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q50: Which Java concept converts an object into a byte stream for storage or transmission?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Serialization</li>
+                <li><strong>Explanation:</strong> Serialization translates an object's state into a flat sequence of bytes. Its counterpart, **Deserialization**, reconstructs the live Java object back in memory from that byte stream.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q51: Which collection class provides dynamic array functionality?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>ArrayList</code></li>
+                <li><strong>Explanation:</strong> Implements the <code>List</code> interface using a resizable array. It automatically grows its internal capacity by 50% when full, providing $O(1)$ amortized insertion.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q52: What is the purpose of the <code>throws</code> keyword?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To declare exceptions that a method may throw.</li>
+                <li><strong>Explanation:</strong> Placed in the method signature to delegate exception handling up the call stack to the calling method. It acts as a contract warning users that they must handle or re-declare these checked exceptions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q53: What is the correct way to create a JFrame?</h4>
+              <pre class="theory-code"><code>JFrame frame = <span class="keyword">new</span> JFrame();</code></pre>
+              <ul>
+                <li><strong>Answer:</strong> This is the correct syntax.</li>
+                <li><strong>Explanation:</strong> Instantiates a standard GUI container window. To display it on screen, you must also call <code>frame.setSize(width, height)</code> and <code>frame.setVisible(true)</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q54: Which layout manager arranges components in a single row or column?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>BoxLayout</code> (or <code>FlowLayout</code> / <code>GridLayout</code>)</li>
+                <li><strong>Explanation:</strong> <code>BoxLayout</code> aligns components either vertically or horizontally in a single line. <code>FlowLayout</code> places them in a row, wrapping to the next line if width is exceeded. A single-row/column <code>GridLayout</code> is also valid.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q55: What is the purpose of Garbage Collection in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To automatically free memory occupied by unused objects.</li>
+                <li><strong>Explanation:</strong> Monitors the heap for unreachable objects (objects with no active reference paths) and reclaims their memory, preventing memory leaks without requiring manual memory release (like <code>free()</code> in C).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q56: What is the output of the following code?</h4>
+              <pre class="theory-code"><code>String s1 = <span class="string">"GATE"</span>;
+String s2 = <span class="keyword">new</span> String(<span class="string">"GATE"</span>);
+String s3 = <span class="string">"GATE"</span>;
+
+System.out.println(s1 == s2);
+System.out.println(s1 == s3);
+System.out.println(s1.equals(s2));</code></pre>
+              <ul>
+                <li><strong>Answer:</strong>
+                  <pre style="margin: 4px 0; color: var(--text); background: transparent; padding: 0; font-family: monospace;">false
+true
+true</pre>
+                </li>
+                <li><strong>Explanation:</strong>
+                  <ul>
+                    <li><code>s1 == s2</code> is <code>false</code> because <code>new</code> creates a distinct object on the heap, so they have different references.</li>
+                    <li><code>s1 == s3</code> is <code>true</code> because string literals are cached in the String Constant Pool, so <code>s1</code> and <code>s3</code> point to the exact same memory address.</li>
+                    <li><code>s1.equals(s2)</code> is <code>true</code> because <code>equals()</code> checks the character content ("GATE" vs "GATE"), which is identical.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q57: What is the correct syntax for a constructor?</h4>
+              <pre class="theory-code"><code>ClassName() {
+}</code></pre>
+              <ul>
+                <li><strong>Answer:</strong> Constructor name must be the same as the class name and have no return type.</li>
+                <li><strong>Explanation:</strong> Constructors are called when an object is instantiated using <code>new</code>. They cannot be declared static, final, abstract, or synchronized.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q58: Is the following a valid constructor?</h4>
+              <pre class="theory-code"><code><span class="keyword">public</span> ClassName() {
+}</code></pre>
+              <ul>
+                <li><strong>Answer:</strong> Yes.</li>
+                <li><strong>Explanation:</strong> This is a public default (or zero-argument) constructor. It allows any external class within or outside the package to instantiate the class objects.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q59: Is the following a constructor?</h4>
+              <pre class="theory-code"><code><span class="keyword">void</span> ClassName() {
+}</code></pre>
+              <ul>
+                <li><strong>Answer:</strong> No, it is a method because it has a return type (<code>void</code>).</li>
+                <li><strong>Explanation:</strong> Even though the name matches the class, the inclusion of a return type (like <code>void</code>) makes it a regular instance method. The compiler will not use it for object instantiation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q60: What is the primary responsibility of the JVM?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Executing Java bytecode.</li>
+                <li><strong>Explanation:</strong> The JVM (Java Virtual Machine) loads compiled class files, verifies bytecode safety, translates intermediate bytecode into native machine code (via JIT compiler), and manages memory (Heap, Stack, GC).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q61: What is the difference between JDK, JRE, and JVM?</h4>
+              <ul>
+                <li><strong>Answer:</strong>
+                  <ul>
+                    <li><strong>JVM (Java Virtual Machine):</strong> The core execution engine that runs compiled Java bytecode.</li>
+                    <li><strong>JRE (Java Runtime Environment):</strong> Packages the JVM along with standard class libraries required to execute Java programs.</li>
+                    <li><strong>JDK (Java Development Kit):</strong> The full developer toolkit, containing the JRE, compiler (<code>javac</code>), debugger, and other tools.</li>
+                  </ul>
+                </li>
+                <li><strong>Analogy:</strong> JVM is the engine, JRE is the complete car (engine + wheels + frame), and JDK is the service garage containing the car and all the mechanical tools needed to build/modify it.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q62: How can a thread be created in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> By extending the <code>Thread</code> class or by implementing the <code>Runnable</code> interface.</li>
+                <li><strong>Explanation:</strong> Implementing <code>Runnable</code> is highly preferred because Java only supports single class inheritance. By implementing an interface, your class remains free to inherit from another parent class.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q63: Which method starts a new thread?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>start()</code></li>
+                <li><strong>Explanation:</strong> Calling <code>start()</code> registers the thread with the JVM thread scheduler, allocates system resources/call stack frames, and runs the thread's <code>run()</code> method asynchronously. (Calling <code>run()</code> directly executes it synchronously in the caller thread).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q64: Which method contains the code executed by a thread?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>run()</code></li>
+                <li><strong>Explanation:</strong> The entry point containing the asynchronous code execution logic. Once the <code>run()</code> method finishes executing, the thread transitions to the terminated state.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q65: Why is <code>Thread.stop()</code> not recommended?</h4>
+              <ul>
+                <li><strong>Answer:</strong> It is deprecated and can leave objects in an inconsistent state.</li>
+                <li><strong>Explanation:</strong> <code>Thread.stop()</code> immediately halts a thread, forcing it to release all active monitor locks. If the thread was in the middle of a critical state change, shared objects are left corrupted.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q66: What is the purpose of synchronization?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To prevent race conditions when multiple threads access shared resources.</li>
+                <li><strong>Explanation:</strong> Synchronization uses monitor locks (via the <code>synchronized</code> keyword) to ensure that only one thread can execute a critical section of code at a time, enforcing thread safety.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q67: How many primitive data types are there in Java?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 8</li>
+                <li><strong>Explanation:</strong> Built-in data types predefined by the language. They represent raw, stack-allocated values rather than objects.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q68: Name the primitive data types in Java.</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code>, <code>boolean</code></li>
+                <li><strong>Details:</strong>
+                  <ul>
+                    <li><strong>Integers:</strong> <code>byte</code> (1 byte), <code>short</code> (2 bytes), <code>int</code> (4 bytes), <code>long</code> (8 bytes).</li>
+                    <li><strong>Floating-Points:</strong> <code>float</code> (4 bytes), <code>double</code> (8 bytes).</li>
+                    <li><strong>Text:</strong> <code>char</code> (2 bytes, supports 16-bit Unicode characters).</li>
+                    <li><strong>Logic:</strong> <code>boolean</code> (holds <code>true</code> or <code>false</code>, size depends on the JVM).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q69: Is <code>defragment</code> a Java keyword?</h4>
+              <ul>
+                <li><strong>Answer:</strong> No.</li>
+                <li><strong>Explanation:</strong> Java has a strict set of reserved keywords (such as <code>final</code>, <code>transient</code>, <code>volatile</code>, etc.). <code>defragment</code> is not a Java keyword.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q70: What is the purpose of the <code>final</code> keyword?</h4>
+              <ul>
+                <li><strong>Answer:</strong>
+                  <ul>
+                    <li><strong>Final variable:</strong> Value cannot be reassigned once initialized (acts as a constant).</li>
+                    <li><strong>Final method:</strong> Cannot be overridden by subclasses.</li>
+                    <li><strong>Final class:</strong> Cannot be extended (inherited).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q71: What is the purpose of the <code>this</code> keyword?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Refers to the current class instance/object.</li>
+                <li><strong>Explanation:</strong> Used to access instance variables when shadowed by local parameter variables, invoke overloaded constructors in the same class (via <code>this(...)</code>), or pass the current instance as a method argument.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 0;">
+              <h4 style="color: var(--accent5); margin-bottom: 4px; font-size: 1.1rem;">Q72: Difference between <code>throw</code> and <code>throws</code>?</h4>
+              <ul>
+                <li><strong>Answer:</strong>
+                  <ul>
+                    <li><strong><code>throw</code>:</strong> Used inside a method block to explicitly instantiate and throw an exception object (e.g., <code>throw new IOException("Failed to load");</code>). It is followed by an exception instance.</li>
+                    <li><strong><code>throws</code>:</strong> Used in the method signature to declare exceptions that a method might throw during its execution. It is followed by exception class names and delegates the responsibility of handling to the calling method.</li>
+                  </ul>
+                </li>
               </ul>
             </div>
 
