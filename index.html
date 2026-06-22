@@ -93,7 +93,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 244 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 294 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -232,7 +232,7 @@
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">244 Q&amp;As</span>
+            <span class="card-badge interview">294 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3228,7 +3228,7 @@ myCar.drive();</code></pre>
             <h3>Operating Systems</h3>
             <p>Processes, Threads, CPU Scheduling, Deadlocks, Memory, Kernels</p>
           </div>
-          <div class="qa-selector-badge">30 Qs</div>
+          <div class="qa-selector-badge">80 Qs</div>
         </div>
         <div class="qa-selector-card" data-target-category="dbms">
           <div class="qa-selector-icon">🗄️</div>
@@ -5258,7 +5258,7 @@ true</pre>
             </ul>
             </div>
 
-            <div style="margin-bottom: 0;">
+            <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is a Real-Time Operating System?</h4>
               <ul>
               <li><strong>Real-Time OS (RTOS):</strong> A specialized OS that guarantees input processing and output response within strict timing constraints.</li>
@@ -5270,6 +5270,457 @@ true</pre>
               </li>
             </ul>
             </div>
+
+            <div class="qa-subject-header" style="color: var(--accent-os); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">💿 OS Quick Revision &amp; MCQ Drill</div>
+
+            <!-- OS QUESTIONS START -->
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is the Producer-Consumer Problem?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A classic process synchronization problem where a producer generates data and places it in a shared buffer, while a consumer removes and uses the data.</li>
+                <li><strong>Explanation:</strong> The challenge is to prevent the producer from adding data when the buffer is full, and the consumer from removing data when the buffer is empty. Semaphores (like <code>empty</code>, <code>full</code>, and <code>mutex</code>) are commonly used to coordinate this and prevent race conditions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q32: What is a Process?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A program in execution.</li>
+                <li><strong>Explanation:</strong> A process is the active runtime instance of a static program file. It consists of the program code, current activity (tracked by the program counter and CPU registers), stack (local variables, function parameters), heap (dynamic memory), and data section (global variables).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q33: Where does Internal Fragmentation occur?</h4>
+              <ul>
+                <li><strong>Answer:</strong> In fixed-size memory allocation schemes, such as paging.</li>
+                <li><strong>Explanation:</strong> Internal fragmentation occurs when the memory partition allocated to a process is larger than the actual memory requested. The unused memory remains locked inside the partition and cannot be used by other processes.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q34: Does Paging suffer from Internal Fragmentation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Yes.</li>
+                <li><strong>Explanation:</strong> Paging divides memory into fixed-size pages. If a process requests memory that is not a multiple of the page size, the last allocated page will not be fully filled, leaving some unused memory at the end of the page (internal fragmentation).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q35: In Round Robin Scheduling, processes are assigned what?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A fixed time quantum (time slice).</li>
+                <li><strong>Explanation:</strong> The CPU scheduler cycles through the ready queue, allocating the CPU to each process for a tiny, predetermined interval called a time quantum. If the process does not finish within this slice, it is preempted and put back at the end of the queue.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q36: Which memory management technique suffers from External Fragmentation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Segmentation (or dynamic/variable partitioning).</li>
+                <li><strong>Explanation:</strong> External fragmentation occurs when total free memory is sufficient to satisfy a process request, but the memory is not contiguous (it is split into small, scattered blocks), so no single free slot can hold the process.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q37: Which page replacement algorithm suffers from Belady's Anomaly?</h4>
+              <ul>
+                <li><strong>Answer:</strong> FIFO (First-In First-Out).</li>
+                <li><strong>Explanation:</strong> Belady's Anomaly is a phenomenon where increasing the number of page frames allocated to a process results in an <em>increase</em> in the number of page faults for certain access patterns. FIFO suffers from this; stack-based algorithms like LRU (Least Recently Used) do not.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q38: Give an example of a Real-Time Operating System.</h4>
+              <ul>
+                <li><strong>Answer:</strong> VxWorks, QNX, or RTLinux.</li>
+                <li><strong>Explanation:</strong> Real-Time Operating Systems (RTOS) are designed to run applications with precise timing constraints. VxWorks and QNX are commercial RTOSs widely used in aerospace, automotive, and embedded systems where meeting deadlines is critical.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q39: What is the aim of Multiprogramming?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To maximize CPU utilization.</li>
+                <li><strong>Explanation:</strong> Multiprogramming keeps multiple processes in main memory simultaneously. When the currently running process waits for I/O operations, the OS immediately switches the CPU to another ready process, ensuring the CPU remains active.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q40: Which scheduling algorithm can cause starvation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Priority Scheduling (or Shortest Job First).</li>
+                <li><strong>Explanation:</strong> In Priority Scheduling, low-priority processes can wait indefinitely if there is a steady stream of high-priority processes arriving in the ready queue. This starvation can be solved using <strong>aging</strong> (gradually increasing a process's priority over time).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q41: What is a Semaphore used for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Process synchronization and mutual exclusion.</li>
+                <li><strong>Explanation:</strong> A semaphore is an integer variable accessed via atomic functions <code>wait()</code> (or <code>P</code>) and <code>signal()</code> (or <code>V</code>). It is used to manage concurrent access to shared resources and coordinate cooperation between processes.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q42: What causes Thrashing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Excessive page faults.</li>
+                <li><strong>Explanation:</strong> Thrashing occurs when an operating system spends more time swapping pages in and out of virtual memory (disk) than executing actual instructions. It happens when a process does not have enough page frames allocated to support its active working set.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q43: What values can a Binary Semaphore take?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 0 and 1.</li>
+                <li><strong>Explanation:</strong> Unlike counting semaphores which can take arbitrary non-negative values, a binary semaphore is restricted to 0 (resource locked/busy) and 1 (resource free/available), making it behave like a simple mutex lock.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q44: SCAN Disk Scheduling is also known as?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Elevator Algorithm.</li>
+                <li><strong>Explanation:</strong> In SCAN scheduling, the disk arm moves in one direction (towards one end of the disk), satisfying requests along the way, until it reaches the end. It then reverses direction and services requests in the opposite direction, mimicking an elevator moving up and down.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q45: What is Turnaround Time?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The total time taken by a process from arrival to completion.</li>
+                <li><strong>Explanation:</strong> It represents the complete lifespan of a process inside the system. <br><code>Turnaround Time (TAT) = Completion Time (CT) - Arrival Time (AT)</code></li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q46: What does Virtual Memory allow?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Execution of programs larger than the available physical RAM.</li>
+                <li><strong>Explanation:</strong> It maps a process's address space to secondary storage (disk) and swaps pages into physical RAM dynamically. This abstracts physical memory limits, giving the illusion of a massive, contiguous memory space.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q47: Which disk scheduling algorithm provides minimum seek time theoretically?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SSTF (Shortest Seek Time First).</li>
+                <li><strong>Explanation:</strong> SSTF selects the pending request closest to the current head position, minimizing immediate seek head movement. While theoretically efficient, it can cause starvation for requests located far from the disk head.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q48: What is Demand Paging?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Loading a page into physical memory only when a page fault occurs (when it is needed).</li>
+                <li><strong>Explanation:</strong> Instead of loading an entire program into RAM at startup, pages are kept on disk and brought into main memory only when the CPU attempts to reference them and triggers a page fault.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q49: What is the purpose of a Page Table?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To map logical addresses to physical addresses.</li>
+                <li><strong>Explanation:</strong> A page table is a data structure maintained by the OS for each process. It maps the CPU's logical page numbers to the corresponding physical frame numbers in RAM, enabling page-based virtual memory.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q50: Logical addresses are generated by?</h4>
+              <ul>
+                <li><strong>Answer:</strong> CPU.</li>
+                <li><strong>Explanation:</strong> The CPU generates logical (virtual) addresses during program execution. The Memory Management Unit (MMU) then translates these logical addresses into physical addresses using page tables before referencing actual physical RAM.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q51: What is Banker's Algorithm used for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Deadlock Avoidance.</li>
+                <li><strong>Explanation:</strong> It is a resource allocation and deadlock avoidance algorithm that simulates the allocation of predefined maximum resource claims to check for safe sequences. It determines if resource requests can be safely granted without leading to a deadlock state.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q52: What does the Optimal Page Replacement Algorithm replace?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The page that will not be used for the longest period of time in the future.</li>
+                <li><strong>Explanation:</strong> Also known as Belady's Optimal algorithm, it minimizes page faults. While theoretically optimal, it is impossible to implement in practice because it requires future knowledge of a process's page reference string.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q53: Which file allocation method provides direct access?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Indexed Allocation (and Contiguous Allocation).</li>
+                <li><strong>Explanation:</strong> Indexed allocation brings all file pointers together into a single block called an <em>index block</em>. This allows the OS to read any block index directly without traversing intermediate links (unlike Linked Allocation).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q54: What is the purpose of a Directory Structure?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To organize and manage files.</li>
+                <li><strong>Explanation:</strong> Directory structures provide logical organization (single-level, two-level, tree-structured) to categorize files, ensure namespace uniqueness (allowing duplicate filenames in different folders), and support directory operations.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q55: What are CPU Scheduling Criteria?</h4>
+              <ul>
+                <li><strong>Answer:</strong> CPU Utilization, Throughput, Turnaround Time, Waiting Time, and Response Time.</li>
+                <li><strong>Explanation:</strong>
+                  <ul>
+                    <li><strong>CPU Utilization:</strong> Keep the CPU as busy as possible.</li>
+                    <li><strong>Throughput:</strong> Number of processes completed per unit time.</li>
+                    <li><strong>Turnaround Time:</strong> Time from submission to completion.</li>
+                    <li><strong>Waiting Time:</strong> Total time spent in the ready queue.</li>
+                    <li><strong>Response Time:</strong> Time from submission to the first response.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q56: What is Deadlock?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A situation where a set of processes are blocked because each holds a resource and waits for another resource held by another process in the set.</li>
+                <li><strong>Explanation:</strong> It creates a dependency cycle where no process can progress. A classic example is when Process A holds Resource 1 and waits for Resource 2, while Process B holds Resource 2 and waits for Resource 1.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q57: Which scheduling algorithm gives minimum average waiting time?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Shortest Job First (SJF).</li>
+                <li><strong>Explanation:</strong> SJF (both preemptive/SRTF and non-preemptive) is optimal because it schedules the process with the shortest CPU burst first, minimizing the wait times for subsequent processes in the queue.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q58: What is a Safe State?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A state in which a safe sequence of process execution exists such that deadlock can be avoided.</li>
+                <li><strong>Explanation:</strong> In a safe state, the OS can allocate resources to each process up to its maximum claim in some order (safe sequence) and guarantee that all processes will eventually finish without deadlock.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q59: When does Context Switching occur?</h4>
+              <ul>
+                <li><strong>Answer:</strong> When the CPU switches execution control from one process (or thread) to another.</li>
+                <li><strong>Explanation:</strong> The OS kernel saves the current state (registers, program counter) of the running process into its PCB and loads the saved state of the next scheduled process from its PCB, introducing a small execution overhead.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q60: What does FAT stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> File Allocation Table.</li>
+                <li><strong>Explanation:</strong> FAT is a legacy file system developed by Microsoft that uses a table containing pointer links to map file cluster chains on disk. (Common variations include FAT12, FAT16, and FAT32).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q61: Critical Section Problem is associated with?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Process Synchronization.</li>
+                <li><strong>Explanation:</strong> The Critical Section is a code segment where shared resources (variables, files) are accessed. The problem is to design a protocol ensuring that only one process can execute in its critical section at a time to prevent race conditions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q62: What is Waiting Time?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The total time spent by a process waiting in the ready queue.</li>
+                <li><strong>Explanation:</strong> It measures the overhead wait before execution. <br><code>Waiting Time (WT) = Turnaround Time (TAT) - Burst Time (BT)</code></li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q63: Which component manages hardware resources?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Operating System (specifically the Kernel).</li>
+                <li><strong>Explanation:</strong> The OS kernel acts as the core controller, directly managing physical hardware (CPU, RAM, disk, network controllers) and exposing them securely to user space applications via system calls.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q64: What does PCB stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Process Control Block.</li>
+                <li><strong>Explanation:</strong> A kernel-space data structure containing all information about a process (Process State, Program Counter, CPU registers, CPU scheduling info, Memory limits, Open files). It represents the identity of a process.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q65: Which system call creates a new process in UNIX?</h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>fork()</code></li>
+                <li><strong>Explanation:</strong> The <code>fork()</code> system call clones the parent process to create a child process. The child gets a duplicate copy of the parent's address space, file descriptors, and execution state. They differ by their return values from <code>fork()</code> (0 for child, child PID for parent).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q66: Paging eliminates which type of fragmentation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> External Fragmentation.</li>
+                <li><strong>Explanation:</strong> Paging allocates non-contiguous physical memory frames to logical pages. Since any free physical frame can be allocated to any logical page, it completely eliminates external fragmentation. (However, it introduces minor internal fragmentation).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q67: What is a Thread?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The smallest unit of CPU execution within a process.</li>
+                <li><strong>Explanation:</strong> Often called a Lightweight Process (LWP), a thread shares the process's code, data, and OS resources with sibling threads, but maintains its own program counter, registers, and private stack.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q68: What is the difference between a Process and a Thread?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A process has its own isolated memory address space, while threads within a process share the same memory space.</li>
+                <li><strong>Explanation:</strong> Creating or switching processes has high overhead because it requires allocating memory and loading tables. Switching threads has very low overhead because they share the same address space and page tables.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q69: What is a Race Condition?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A situation where multiple execution threads access and manipulate shared data concurrently, and the final outcome depends on the order of execution.</li>
+                <li><strong>Explanation:</strong> Occurs when concurrent access is not synchronized. For example, if two threads increment a shared counter <code>count++</code> simultaneously, they can read the same initial value, resulting in lost updates.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q70: What is Mutual Exclusion?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Ensuring that only one process can access a shared resource (or critical section) at any given time.</li>
+                <li><strong>Explanation:</strong> Mutual exclusion is a core requirement for solving the Critical Section Problem. It prevents multiple processes from modifying the same data simultaneously, maintaining consistency.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q71: What are the four necessary conditions for Deadlock?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait.</li>
+                <li><strong>Explanation:</strong>
+                  <ul>
+                    <li><strong>Mutual Exclusion:</strong> Resources cannot be shared.</li>
+                    <li><strong>Hold and Wait:</strong> A process holding allocated resources can request additional ones.</li>
+                    <li><strong>No Preemption:</strong> Resources cannot be forcibly taken from a process.</li>
+                    <li><strong>Circular Wait:</strong> A circular chain of processes exists where each waits for a resource held by the next.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q72: What is the Convoy Effect?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A phenomenon where multiple short processes wait in the ready queue behind a single long, CPU-bound process.</li>
+                <li><strong>Explanation:</strong> Occurs in First-Come First-Served (FCFS) scheduling. While the CPU-bound process executes, I/O devices sit idle. When it finally blocks for I/O, the short processes execute quickly and then block on I/O, leaving the CPU idle. This leads to poor resource utilization.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q73: Which scheduling algorithm is preemptive?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Round Robin (and Shortest Remaining Time First / Preemptive Priority).</li>
+                <li><strong>Explanation:</strong> Round Robin scheduling uses a timer interrupt to preempt the running process when its time quantum expires. The process is then placed back in the ready queue, ensuring fair CPU sharing.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q74: What is the difference between Preemptive and Non-Preemptive Scheduling?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Preemptive scheduling can interrupt a running process mid-execution; non-preemptive scheduling cannot.</li>
+                <li><strong>Explanation:</strong> In non-preemptive scheduling, once a process gets the CPU, it keeps it until it terminates or blocks for I/O. In preemptive scheduling, the OS can reclaim the CPU at any time (e.g., when a higher-priority process arrives or a time slice expires).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q75: What is a Page Fault?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An interrupt raised by hardware when a program attempts to access a page that is mapped in virtual memory but is not loaded in physical RAM.</li>
+                <li><strong>Explanation:</strong> The OS catches the page fault interrupt, locates the page on disk, loads it into a free physical frame in RAM, updates the page table, and restarts the instruction.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q76: What is a Zombie Process?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A terminated process whose process table entry (PCB) is still maintained by the OS because the parent has not yet collected its exit status.</li>
+                <li><strong>Explanation:</strong> When a process terminates, its resources are freed, but its exit status remains in the process table. If the parent doesn't call <code>wait()</code>, the child remains a "zombie". If the parent terminates, the zombie child is inherited by the <code>init</code> process, which reaps it.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q77: What is a Daemon Process?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A background process that runs continuously to perform system utility tasks or provide services.</li>
+                <li><strong>Explanation:</strong> Daemons are usually initialized at startup and have no controlling terminal. Examples include system logging daemons (<code>syslogd</code>), print servers (<code>lpd</code>), or web servers (<code>httpd</code>).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q78: What is the purpose of the MMU?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Translating logical (virtual) addresses generated by the CPU into physical RAM addresses.</li>
+                <li><strong>Explanation:</strong> The Memory Management Unit (MMU) is a hardware component in the CPU that performs real-time address translation using page tables. It also checks access permissions (read/write protection) for memory security.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q79: What is a Semaphore?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A synchronization tool used to control access to a shared resource in concurrent systems.</li>
+                <li><strong>Explanation:</strong> It is an abstract data type containing an integer counter and atomic methods <code>wait()</code> (decrements counter and blocks if negative) and <code>signal()</code> (increments counter and wakes up a blocked process if <= 0).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-os); margin-bottom: 4px; font-size: 1.1rem;">Q80: What is the difference between Deadlock and Starvation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Deadlock blocks a set of processes permanently due to resource cycles; starvation occurs when a process waits indefinitely due to scheduling selection policies.</li>
+                <li><strong>Explanation:</strong> In a deadlock, no process can progress, and the system cannot resolve it without intervention. In starvation, other processes are executing, but the starved process is repeatedly bypassed (e.g., in low-priority queues), though it could execute if scheduling conditions change.</li>
+              </ul>
+            </div>
+
+            <div class="qa-subject-header" style="color: var(--accent-os); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">📊 OS Quick-Reference MCQ Guide</div>
+            
+            <table class="theory-table" style="margin-top: 10px; margin-bottom: 1.5rem;">
+              <thead>
+                <tr>
+                  <th>Question Summary</th>
+                  <th>Core Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>FIFO suffers from?</strong></td><td>Belady's Anomaly</td></tr>
+                <tr><td><strong>Real-Time OS example?</strong></td><td>VxWorks, QNX, or RTLinux</td></tr>
+                <tr><td><strong>Banker's Algorithm?</strong></td><td>Deadlock Avoidance</td></tr>
+                <tr><td><strong>SCAN Algorithm?</strong></td><td>Elevator Algorithm</td></tr>
+                <tr><td><strong>Binary Semaphore values?</strong></td><td>0 and 1</td></tr>
+                <tr><td><strong>UNIX process creation?</strong></td><td><code>fork()</code></td></tr>
+                <tr><td><strong>CPU generates?</strong></td><td>Logical Address</td></tr>
+                <tr><td><strong>Thread is?</strong></td><td>Lightweight Process (LWP)</td></tr>
+                <tr><td><strong>FAT stands for?</strong></td><td>File Allocation Table</td></tr>
+                <tr><td><strong>Paging eliminates?</strong></td><td>External Fragmentation</td></tr>
+                <tr><td><strong>SJF gives?</strong></td><td>Minimum Average Waiting Time</td></tr>
+                <tr><td><strong>Priority Scheduling may cause?</strong></td><td>Starvation</td></tr>
+                <tr><td><strong>SSTF minimizes?</strong></td><td>Seek Time</td></tr>
+                <tr><td><strong>PCB stands for?</strong></td><td>Process Control Block</td></tr>
+                <tr><td><strong>Virtual Memory allows?</strong></td><td>Larger Programs Than RAM</td></tr>
+                <tr><td><strong>Demand Paging loads pages?</strong></td><td>When Needed</td></tr>
+                <tr><td><strong>Semaphore used for?</strong></td><td>Synchronization / Mutual Exclusion</td></tr>
+                <tr><td><strong>Multiprogramming aims to?</strong></td><td>Maximize CPU Utilization</td></tr>
+                <tr><td><strong>Page Table used for?</strong></td><td>Address Translation</td></tr>
+                <tr><td><strong>Context Switch occurs when?</strong></td><td>CPU changes process execution</td></tr>
+              </tbody>
+            </table>
 
           </div>
         </div>
