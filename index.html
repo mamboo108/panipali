@@ -44,6 +44,7 @@
       <a class="nav-item" data-target="os-theory" id="nav-os-theory">💿 OS Theory</a>
       <a class="nav-item" data-target="dbms-theory" id="nav-dbms-theory">🗄️ DBMS Theory</a>
       <a class="nav-item" data-target="cn-theory" id="nav-cn-theory">🌐 CN Theory</a>
+      <a class="nav-item" data-target="sd-theory" id="nav-sd-theory">🏗️ SD Theory</a>
 
       <div class="nav-section">Interview Prep</div>
       <a class="nav-item" data-target="interview-qa" id="nav-interview-qa">❓ Top Interview Q&amp;A</a>
@@ -93,7 +94,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 354 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 414 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -228,11 +229,21 @@
           <p>Computer Networks: OSI &amp; TCP/IP Models, IP Addressing, Subnetting, TCP/UDP, Flow Control, and Security.</p>
         </div>
 
+        <!-- Card 9: SD Theory -->
+        <div class="card card-hoverable" data-target="sd-theory" data-category="theory">
+          <div class="card-header-top">
+            <div class="card-icon-box">🏗️</div>
+            <span class="card-badge theory">8 Topics</span>
+          </div>
+          <h3>SD Theory</h3>
+          <p>System Design &amp; Architecture: Scaling, Load Balancers, API Gateways, Caching, Sharding, CAP Theorem, Pub/Sub, and Design Patterns.</p>
+        </div>
+
         <!-- Card 9: Top Interview Q&A -->
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">354 Q&amp;As</span>
+            <span class="card-badge interview">414 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3191,6 +3202,138 @@ myCar.drive();</code></pre>
       </div>
     </div>
 
+    <!-- SECTION: SD THEORY -->
+    <div class="section" id="section-sd-theory">
+      <h1 class="section-title">🏗️ System Design &amp; Architecture (SD)</h1>
+      <div class="page-subtitle">Detailed placement tutorials and core concepts of System Design &amp; Architecture.</div>
+
+      <div class="theory-container">
+        <!-- 01. INTRODUCTION TO SYSTEM DESIGN & HLD/LLD -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">01</span>
+            <h2>Introduction to System Design & HLD/LLD</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>System Design Goals:</strong> Architecting reliable, available, scalable, fault-tolerant, and maintainable systems capable of handling millions of requests with low latency.</li>
+              <li><strong>High-Level Design (HLD):</strong> The macro architecture of a system. Focuses on system layout, detailing major building blocks (servers, databases, caches, load balancers, CDN distributions, queues) and how data flows between them.</li>
+              <li><strong>Low-Level Design (LLD):</strong> The micro design of individual components. Details class diagrams, database schemas, API endpoint specifications, internal algorithm choices, and object-oriented design patterns (e.g., Factory, Singleton).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 02. SCALING STRATEGIES (HORIZONTAL VS. VERTICAL) -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">02</span>
+            <h2>Scaling Strategies (Horizontal vs. Vertical)</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Vertical Scaling (Scaling Up):</strong> Adding more power (CPU cores, RAM capacity, SSD storage) to a single existing server. Easy to implement but has hardware limit constraints, incurs downtime during upgrades, and leaves a Single Point of Failure (SPOF).</li>
+              <li><strong>Horizontal Scaling (Scaling Out):</strong> Adding more servers to the system pool and distributing the workload using a load balancer. It offers infinite scalability, high availability, and elastic auto-scaling features, but introduces distributed system coordination overhead.</li>
+              <li><strong>Elasticity:</strong> The ability of a system to dynamically allocate and de-allocate resources (scale out/in) automatically in response to real-time workload fluctuations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 03. LOAD BALANCING & API GATEWAYS -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">03</span>
+            <h2>Load Balancing & API Gateways</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Load Balancer:</strong> Distributes incoming traffic across a pool of servers. Operating at OSI Layer 4 (Transport - TCP/UDP routing) or Layer 7 (Application - HTTP/cookies routing). Common software tools include NGINX, HAProxy, and AWS ALB.</li>
+              <li><strong>Load Balancing Algorithms:</strong> Includes Round Robin (sequential distribution), Least Connections (routes to server with fewest active connections), and IP Hashing (maps client IP to a specific server for session stickiness).</li>
+              <li><strong>API Gateway:</strong> Single entry point reverse proxy for client requests. It aggregates microservices and handles cross-cutting concerns: routing, authentication (JWT), SSL decryption, logging, request consolidation, and rate limiting (preventing DOS).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 04. CACHING & EVICTION POLICIES -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">04</span>
+            <h2>Caching & Eviction Policies</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Cache Concept:</strong> A high-speed, volatile memory layer (RAM) storing hot data to bypass slow disk reads. Caches can be local (in-memory) or distributed (Redis, Memcached clusters serving multiple app servers).</li>
+              <li><strong>Cache Write Policies:</strong> Cache-Aside (app queries cache; on miss, reads database and updates cache), Write-Through (writes to cache and database synchronously), and Write-Behind/Back (writes to cache immediately; database is updated asynchronously).</li>
+              <li><strong>Eviction Policies:</strong> Discards old cache data when memory limits are hit. Common algorithms include LRU (Least Recently Used), LFU (Least Frequently Used), FIFO (First-In First-Out), and TTL (Time To Live expiry).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 05. DATABASES, SHARDING & REPLICATION -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">05</span>
+            <h2>Databases, Sharding & Replication</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>SQL vs. NoSQL:</strong> Relational SQL databases (PostgreSQL, MySQL) enforce schemas, support joins, and guarantee ACID. NoSQL databases (Document: MongoDB, Key-Value: Redis, Columnar: Cassandra) are schema-less, optimized for specific access patterns, and scale out easily.</li>
+              <li><strong>Database Replication:</strong> Copying data to multiple servers. Primary-Replica (Master-Slave) routes writes to a single primary and replicates to replicas, scaling read operations. Failover systems automatically promote a replica if the primary crashes.</li>
+              <li><strong>Database Sharding:</strong> Horizontal partitioning of tables across separate database engines. Data is routed based on a <strong>Shard Key</strong>. Mitigated by using <strong>Consistent Hashing</strong> to minimize re-sharding data migration overhead during scaling.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 06. CAP THEOREM & CONSISTENCY MODELS -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">06</span>
+            <h2>CAP Theorem & Consistency Models</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>CAP Theorem:</strong> States that a distributed system can guarantee at most two out of three properties during a network partition: Consistency (C), Availability (A), and Partition Tolerance (P). Since partitions are inevitable in physical networks, systems must choose CP or AP.</li>
+              <li><strong>CP Systems (Consistency + Partition Tolerance):</strong> Prioritizes data correctness. If replica communication breaks down, the system blocks writes/reads or returns errors to avoid serving mismatched data.</li>
+              <li><strong>AP Systems (Availability + Partition Tolerance):</strong> Prioritizes uptime. If communication breaks down, all nodes remain accessible and serve requests, returning stale or outdated values, which eventually synchronize.</li>
+              <li><strong>Consistency Models:</strong> Strong Consistency (all nodes see updates instantly) vs. Eventual Consistency (nodes eventually converge after write updates stop, commonly seen in AP NoSQL stores).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 07. ASYNCHRONOUS PROCESSING & MESSAGE QUEUES -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">07</span>
+            <h2>Asynchronous Processing & Message Queues</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Asynchronous Tasks:</strong> Decouples fast HTTP request handling from slow background operations (like generating PDFs, sending batch emails, or transcribing video audio).</li>
+              <li><strong>Message Queue (RabbitMQ, ActiveMQ):</strong> Point-to-point task queue where Producers enqueue tasks and Consumers pull and process them. Tasks are acknowledged and removed upon completion.</li>
+              <li><strong>Event Streaming (Apache Kafka):</strong> Distributed commit log where publishers write records to persistent partitions. Multiple independent consumers can subscribe, read, and replay the stream at their own pace.</li>
+              <li><strong>Benefits:</strong> Buffers spikes in traffic (traffic shaping), decouples microservices, and guarantees fault tolerance (messages survive receiver crashes).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 08. SYSTEM DESIGN PATTERNS & KEY METRICS -->
+        <div class="theory-card sd">
+          <div class="theory-card-header">
+            <span class="theory-card-num">08</span>
+            <h2>System Design Patterns & Key Metrics</h2>
+          </div>
+          <div class="theory-card-body">
+            <ul>
+              <li><strong>Architecture Patterns:</strong> Microservices (independent modules communicating via REST/gRPC), Circuit Breaker (stops cascading failures by failing fast if a downstream service is down), and Saga Pattern (manages distributed database transactions).</li>
+              <li><strong>Key Performance Indicators:</strong> Latency (time delay for a request-response roundtrip, measured in ms), Throughput (amount of transactions processed per second, measured in RPS), and SLA Availability (represented in percentage uptime, e.g. 99.999% 'five nines').</li>
+              <li><strong>Single Point of Failure (SPOF):</strong> Any component without a redundant backup. Solved by active-active configurations, automated heartbeat detection, and database clustering.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
     <!-- SECTION: INTERVIEW Q&A -->
     <div class="section" id="section-interview-qa">
       <h1 class="section-title">❓ Top Interview Q&amp;A</h1>
@@ -3245,6 +3388,14 @@ myCar.drive();</code></pre>
             <p>OSI &amp; TCP/IP Models, IP Addressing &amp; Subnetting, TCP/UDP, Flow &amp; Congestion Control, Application Protocols, and Security</p>
           </div>
           <div class="qa-selector-badge">95 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="sd">
+          <div class="qa-selector-icon">🏗️</div>
+          <div class="qa-selector-details">
+            <h3>System Design</h3>
+            <p>Scaling, Load Balancers, API Gateways, Caching, Databases, Sharding, CAP Theorem, Pub/Sub, and Design Patterns</p>
+          </div>
+          <div class="qa-selector-badge">60 Qs</div>
         </div>
       </div>
 
@@ -7172,6 +7323,492 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
               </tbody>
             </table>
 
+
+          </div>
+        </div>
+
+        <!-- SYSTEM DESIGN PANEL -->
+        <div class="qa-panel" id="qa-panel-sd">
+          <div class="theory-card sd">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is a SPOF (Single Point of Failure)?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A component whose failure causes the entire system to fail.</li>
+                <li><strong>Explanation:</strong> A Single Point of Failure (SPOF) is any part of a system that, if it fails, will stop the entire system from working. SPOFs are undesirable in any system with a goal of high availability or reliability. They are mitigated by introducing redundancy and failover mechanisms at every layer (e.g., redundant load balancers, database replication, and multi-region deployment).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q2: Which networking protocol provides reliable, ordered, and error-checked delivery of data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TCP (Transmission Control Protocol)</li>
+                <li><strong>Explanation:</strong> TCP is a connection-oriented protocol that ensures data segments are delivered reliably, in the exact order they were sent, and without errors. It achieves this through mechanisms like sequence numbers, acknowledgements (ACKs), timeouts, retransmissions, and checksums. This makes it ideal for applications like web traffic (HTTP/HTTPS) and file transfers (FTP/SFTP).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q3: Elasticsearch is primarily used for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Fast searching and indexing of data.</li>
+                <li><strong>Explanation:</strong> Elasticsearch is a distributed, JSON-based search and analytics engine built on Apache Lucene. It is designed for horizontal scalability, reliability, and real-time search capabilities. It uses an inverted index structure to enable extremely fast full-text searches, making it a popular choice for log analytics, application search, and real-time monitoring.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q4: Which communication pattern decouples the sender from receivers and allows multiple receivers to receive the same message?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Publish–Subscribe (Pub/Sub)</li>
+                <li><strong>Explanation:</strong> In a Pub/Sub communication model, senders (publishers) categorize messages into topics without knowing who the receivers (subscribers) are. Subscribers express interest in one or more topics and receive messages asynchronously. This decouples the systems in terms of time, space, and synchronization, enabling high scalability and reliability.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q5: Which is NOT typically a function of an API Gateway?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Business logic processing.</li>
+                <li><strong>Explanation:</strong> An API Gateway acts as a reverse proxy to route requests, handle authentication, perform rate limiting, manage SSL termination, and aggregate requests. However, it should remain stateless and lightweight; processing core business logic belongs inside downstream microservices to maintain clean separation of concerns and avoid bottlenecking the gateway.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q6: What does eventual consistency mean in a distributed system?</h4>
+              <ul>
+                <li><strong>Answer:</strong> All replicas eventually become consistent.</li>
+                <li><strong>Explanation:</strong> Eventual consistency is a consistency model used in distributed computing. It guarantees that, if no new updates are made to a given data item, all replicas across the system will eventually converge and return the same value. It trades temporary strong consistency for high availability and low latency, which is common in NoSQL databases.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q7: Which metric is commonly used to measure web service throughput?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Requests Per Second (RPS)</li>
+                <li><strong>Explanation:</strong> Throughput refers to the amount of work a system can perform in a given time frame. For web services, it is typically measured in Requests Per Second (RPS) or Queries Per Second (QPS). Other related metrics include data bandwidth (e.g., Megabytes per second) and transaction processing rates.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q8: Which strategy prevents the Thundering Herd problem?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Caching with Mutex Locks / Jitter (or Caching generally)</li>
+                <li><strong>Explanation:</strong> The Thundering Herd problem occurs when a heavily requested cache key expires, causing all concurrent requests to query the database simultaneously, potentially crashing it. Mitigations include using mutually exclusive locks (forcing only one query to update the cache while others wait) or adding random offsets (Jitter) to cache expiration times.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is the primary benefit of introducing a cache?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Faster response time and reduced database load.</li>
+                <li><strong>Explanation:</strong> A cache stores frequently accessed data in high-speed, volatile memory (like RAM). By serving repeat read requests from the cache, systems can avoid expensive disk read operations, network round-trips, and database queries, resulting in sub-millisecond response times and improved system scalability.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q10: Which cache eviction policy removes the least recently accessed item?</h4>
+              <ul>
+                <li><strong>Answer:</strong> LRU (Least Recently Used)</li>
+                <li><strong>Explanation:</strong> LRU is an eviction policy that keeps track of when items are accessed. When the cache reaches its memory limit and needs to free space, it discards the item that has not been read or written to for the longest time, assuming that recently accessed items are more likely to be requested again.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q11: What does horizontal scaling refer to?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Adding more servers/nodes to the pool.</li>
+                <li><strong>Explanation:</strong> Horizontal scaling (scaling out) involves adding more machines to your infrastructure to distribute the processing load. This is in contrast to vertical scaling (scaling up), which involves adding more power (CPU, RAM) to an existing machine. Horizontal scaling is preferred for building highly available, fault-tolerant distributed systems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q12: If an application requires heavy background processing, which component should be introduced?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Message Queue</li>
+                <li><strong>Explanation:</strong> A Message Queue (like RabbitMQ or ActiveMQ) allows the web server to delegate time-consuming operations (like video processing or report generation) to worker processes asynchronously. The web server immediately returns a success status to the client, while workers consume and process tasks from the queue in the background, keeping the user interface highly responsive.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is Microservice Architecture?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An architectural style that structures an application as a collection of small, independent services.</li>
+                <li><strong>Explanation:</strong> Microservices are loosely coupled, independently deployable, and organized around specific business capabilities. Each service runs its own process, manages its own private database, and communicates via lightweight APIs (HTTP/gRPC). This enables modularity, agile deployments, and independent scaling of different parts of a system.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q14: In the CAP Theorem, what does C stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Consistency</li>
+                <li><strong>Explanation:</strong> Consistency in the CAP Theorem guarantees that every read receive the most recent write or an error. In other words, all nodes in the distributed system see the exact same data at the same time. This is distinct from ACID consistency, which is about database state transitions and invariants.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q15: Apache Kafka is best described as a?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Distributed Event Streaming Platform</li>
+                <li><strong>Explanation:</strong> Apache Kafka is designed for high-throughput, low-latency, and fault-tolerant event streaming. It stores streams of records in categories called topics, uses partitioning for parallel processing, and retains message streams on disk to allow multiple consumers to read and replay logs at their own pace.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q16: Which scaling strategy upgrades the hardware of an existing server?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Vertical Scaling (Scaling Up)</li>
+                <li><strong>Explanation:</strong> Vertical scaling upgrades the physical resources of a single server node, such as increasing CPU count, adding more RAM, or upgrading to faster SSD storage. While simple to implement, it has hardware limitations, incurs downtime during upgrades, and does not eliminate Single Points of Failure.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q17: Prometheus and Grafana are commonly used for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Monitoring and Visualization of system metrics.</li>
+                <li><strong>Explanation:</strong> Prometheus is a time-series database and monitoring tool that pulls metrics from target servers at set intervals. Grafana is an open-source visualization tool that queries Prometheus to render real-time dashboards, charts, and alerts, providing deep visibility into CPU usage, memory levels, and API latencies.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q18: Database sharding is used for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Horizontal partitioning of a database across multiple servers.</li>
+                <li><strong>Explanation:</strong> Sharding breaks a large database down into smaller, faster, and more manageable parts called shards. Each shard is a separate database partition hosted on a separate server instance. Data is distributed based on a shard key, preventing database storage and CPU bottlenecks.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q19: What does JWT stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> JSON Web Token</li>
+                <li><strong>Explanation:</strong> JWT is an open standard (RFC 7519) that defines a compact, self-contained way for securely transmitting information between parties as a JSON object. This information is cryptographically signed (using HMAC or RSA), allowing stateless authentication where backend servers verify the client token without querying a session database.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q20: Which encoding is commonly used in URL shorteners?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Base62 Encoding</li>
+                <li><strong>Explanation:</strong> Base62 uses alphanumeric characters [0-9, a-z, A-Z] to represent numeric IDs. By converting a database primary key (like 125,000,000) to Base62, we get a much shorter alphanumeric string (like '8M7a'), which forms the path of the shortened URL.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q21: According to the CAP Theorem, during a network partition, a system can guarantee?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Either Consistency (C) or Availability (A) — but not both.</li>
+                <li><strong>Explanation:</strong> Since physical network partitions (P) are inevitable in distributed systems, the system must choose between returning an error/blocking to keep replicas consistent (Consistency) or returning stale data to keep the system operational (Availability) during the partition.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q22: How does a CDN improve performance?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Serves static content from edge servers closer to the user.</li>
+                <li><strong>Explanation:</strong> A Content Delivery Network (CDN) consists of geographically distributed proxy servers. By caching static files (images, JS, CSS, videos) at edge nodes close to the user's location, CDNs drastically reduce network latency, minimize origin server load, and speed up page load times.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is the primary purpose of a Load Balancer?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Distribute incoming network traffic across multiple servers.</li>
+                <li><strong>Explanation:</strong> A Load Balancer acts as a traffic cop sitting in front of your servers. It routes client requests across all servers capable of fulfilling those requests, maximizing capacity utilization, ensuring high availability by routing traffic away from failed nodes, and improving response times.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q24: Which UML diagram shows structural components and their relationships?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Class Diagram</li>
+                <li><strong>Explanation:</strong> A Class Diagram is a static structure diagram that describes the structure of a system by showing its classes, their attributes, operations, and the relationships (inheritance, association, composition) among objects.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q25: What does High-Level Design (HLD) primarily focus on?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Overall system architecture and major component interactions.</li>
+                <li><strong>Explanation:</strong> HLD describes the macro architecture of a system, mapping out servers, load balancers, caching layers, CDN distributions, message queues, and database architectures. It details how data flows between these components and addresses security, scalability, and network topologies, without diving into code implementation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q26: Which type of database is schema-less and stores JSON-like documents?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Document Database (NoSQL)</li>
+                <li><strong>Explanation:</strong> Document databases (like MongoDB or CouchDB) store data as flexible semi-structured documents (JSON, BSON, or XML). They do not require a fixed table schema, making them ideal for rapid development, hierarchical data models, and scaling out horizontally.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q27: What does ACID stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Atomicity, Consistency, Isolation, Durability</li>
+                <li><strong>Explanation:</strong> ACID properties guarantee that database transactions are processed reliably: Atomicity (all-or-nothing), Consistency (state transitions obey constraints), Isolation (concurrent transactions execute independently without interference), and Durability (committed changes survive system crashes).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q28: Redis and Memcached are mainly used as?</h4>
+              <ul>
+                <li><strong>Answer:</strong> In-memory Caching Systems</li>
+                <li><strong>Explanation:</strong> Both store key-value data directly in RAM to enable extremely fast (sub-millisecond) reads and writes. Redis supports rich data structures (lists, sets, hashes) and persistence, while Memcached is a simpler, multithreaded caching solution optimized for simple key-value strings.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q29: AWS S3 uses which storage type?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Object Storage</li>
+                <li><strong>Explanation:</strong> Amazon Simple Storage Service (S3) stores files as objects within buckets. Each object consists of the file data, a unique key (path name), and metadata. Unlike block storage (Hard Drives) or file storage (NFS), object storage is flat (no true nested directories) and highly scalable.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q30: Which replication strategy routes all writes to a single primary node?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Primary–Replica (Master–Slave) Replication</li>
+                <li><strong>Explanation:</strong> In this model, all write operations are executed on a designated 'Primary' server, which replicates the updates to one or more 'Replicas' asynchronously or synchronously. Read operations can be distributed across the replicas to scale read traffic, while writes remain centralized.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is the primary role of an API Gateway?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To act as a single entry point for all client requests.</li>
+                <li><strong>Explanation:</strong> An API Gateway aggregates backend microservice endpoints. It sits between clients and microservices, handling cross-cutting concerns like security token validation, SSL decryption, traffic routing, protocol translation, and rate limiting.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q32: Which load balancing algorithm sends requests sequentially to each server?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Round Robin</li>
+                <li><strong>Explanation:</strong> Round Robin distributes incoming requests sequentially across the list of available servers in a circular fashion. It is simple to implement but assumes all servers have equal capacity and that requests require similar processing power.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q33: Which technology is best for real-time, bidirectional communication?</h4>
+              <ul>
+                <li><strong>Answer:</strong> WebSocket</li>
+                <li><strong>Explanation:</strong> WebSockets establish a persistent, full-duplex TCP connection between the client and server. This allows both parties to send data instantly with low latency, making it ideal for chat applications, multiplayer games, and live financial tickers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q34: A CDN is primarily used to serve?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Static Content</li>
+                <li><strong>Explanation:</strong> CDNs cache static assets (like images, video files, stylesheets, and scripts) on edge servers close to users. While some CDNs support dynamic content acceleration, caching static content remains their primary use case to minimize latency.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q35: In a message queue system, the component that sends messages is called?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Producer (or Publisher)</li>
+                <li><strong>Explanation:</strong> The Producer is the application or service that creates messages containing task data and writes them to the message broker. The broker queues the messages until they are read and processed by a Consumer.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q36: System reliability and availability are commonly measured using?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Uptime (Availability) and SLA Metrics.</li>
+                <li><strong>Explanation:</strong> Availability is measured as the percentage of time a system is fully operational (e.g., 'three nines' or 99.9% uptime, which allows ~8.76 hours of downtime per year). Reliability is measured as the probability that a system performs its required function under specified conditions for a set time.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q37: Which design pattern ensures only one instance of a class exists?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Singleton Pattern</li>
+                <li><strong>Explanation:</strong> The Singleton pattern restricts the instantiation of a class to one single object instance. It is commonly used for global configurations, logging services, database connection pools, or thread pools where multiple instances would cause resource conflicts.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q38: Which system design concept uses duplicate components for fault tolerance?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Redundancy</li>
+                <li><strong>Explanation:</strong> Redundancy involves duplicating critical components of a system (such as power supplies, network switches, servers, or disks) so that if one fails, a backup component takes over immediately without interrupting service.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q39: Which algorithm is commonly used for rate limiting?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Token Bucket (or Leaky Bucket) Algorithm</li>
+                <li><strong>Explanation:</strong> The Token Bucket algorithm generates tokens at a fixed rate and stores them in a bucket of fixed capacity. Each request consumes a token. If the bucket is empty, the request is discarded or delayed. This allows traffic bursts while enforcing rate limits over time.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q40: Why is rate limiting implemented?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To prevent API abuse and protect system resources.</li>
+                <li><strong>Explanation:</strong> Rate limiting protects servers from Denial of Service (DoS) attacks, brute-force security attempts, API scraping, and runaway scripts by limiting the number of requests a user or IP can make in a given timeframe.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q41: Which protocol automatically assigns IP addresses?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DHCP (Dynamic Host Configuration Protocol)</li>
+                <li><strong>Explanation:</strong> DHCP is a UDP-based protocol that automatically assigns dynamic IP addresses, subnet masks, default gateways, and DNS server details to client devices when they connect to the local network segment.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q42: Which protocol translates domain names into IP addresses?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DNS (Domain Name System)</li>
+                <li><strong>Explanation:</strong> DNS acts as the phonebook of the Internet. It translates alphabetical hostnames (like `example.com`) to numeric IP addresses (like `93.184.216.34`) so network routers can deliver packets.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q43: Which protocol is connectionless?</h4>
+              <ul>
+                <li><strong>Answer:</strong> UDP (User Datagram Protocol)</li>
+                <li><strong>Explanation:</strong> UDP is connectionless; it does not perform handshakes or track delivery status, sending datagrams immediately. This minimizes latency and protocol overhead but does not guarantee reliability.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q44: Which protocol provides secure web communication?</h4>
+              <ul>
+                <li><strong>Answer:</strong> HTTPS (Hypertext Transfer Protocol Secure)</li>
+                <li><strong>Explanation:</strong> HTTPS is the encrypted version of HTTP. It uses SSL/TLS to encrypt all communications between the browser and web server, ensuring data privacy and validation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q45: Which protocol is used to transfer web pages?</h4>
+              <ul>
+                <li><strong>Answer:</strong> HTTP (Hypertext Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> HTTP is the foundational protocol of the World Wide Web, defining how resources (HTML files, images) are requested, formatted, and served across the network.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q46: Which protocol is commonly used for file transfer?</h4>
+              <ul>
+                <li><strong>Answer:</strong> FTP (File Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> FTP is a standard network protocol used to copy files between client and server hosts. It uses two separate channels: port 21 for commands (control) and port 20 for data transfer.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q47: Which protocol is used to securely transfer files?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SFTP (SSH File Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> SFTP runs inside secure SSH sessions, encrypting control packets and file data. In contrast, legacy FTP sends files and passwords in plaintext.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q48: Which database type stores data in tables?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Relational Database (RDBMS/SQL)</li>
+                <li><strong>Explanation:</strong> Relational databases store data in tables consisting of rows (tuples) and columns (attributes). They enforce strict schemas, support complex SQL joins, and guarantee ACID properties.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q49: Which database is best suited for flexible, unstructured data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> NoSQL Database</li>
+                <li><strong>Explanation:</strong> NoSQL databases (like document, key-value, graph, and columnar databases) do not require a fixed table schema, making them ideal for handling hierarchical, changing, or unstructured payloads.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q50: Which NoSQL database stores key-value pairs?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Redis (or Amazon DynamoDB)</li>
+                <li><strong>Explanation:</strong> Key-value databases store data as a collection of key-value pairs, where the key acts as a unique identifier. Redis is a popular in-memory key-value database used for caching and session state storage.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q51: What is database indexing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A database structure designed to speed up search operations.</li>
+                <li><strong>Explanation:</strong> Indexes (typically B-Trees or Hash Indexes) create a fast lookup path to rows matching search conditions, allowing the query engine to find data without performing slow, full-table scans.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q52: What is replication?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Copying data across multiple database servers.</li>
+                <li><strong>Explanation:</strong> Replication distributes copies of the database across multiple physical servers. This improves read scalability (by routing reads to replicas), enables high availability, and provides disaster recovery.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q53: What is failover?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Automatic transition of services to a standby backup component upon failure.</li>
+                <li><strong>Explanation:</strong> Failover detects the failure of a primary server or database and automatically routes application traffic to a synchronized secondary or standby node, minimizing downtime.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q54: Which component distributes traffic among multiple servers?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Load Balancer</li>
+                <li><strong>Explanation:</strong> A Load Balancer intercepts network traffic and forwards requests across a pool of backend servers using scheduling policies, avoiding server overload and balancing resource usage.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q55: What is latency?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The round-trip delay time taken for data to travel from source to destination.</li>
+                <li><strong>Explanation:</strong> Latency is the duration between sending a request and receiving the response, typically measured in milliseconds (ms). Low latency is essential for highly interactive real-time systems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q56: What is throughput?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The amount of work or data processed by a system in a given time.</li>
+                <li><strong>Explanation:</strong> In system design, throughput is often measured as Requests Per Second (RPS), transactions per second, or data bits per second. A system can have high throughput but high latency under heavy loads.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q57: What is fault tolerance?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The ability of a system to continue operating properly in the event of hardware or software failures.</li>
+                <li><strong>Explanation:</strong> A fault-tolerant system is designed to anticipate failures and dynamically bypass broken elements using redundancy, data replication, and graceful degradation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q58: What is scalability?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The ability of a system to handle a growing amount of work by adding resources.</li>
+                <li><strong>Explanation:</strong> A system is scalable if it can handle increased user traffic or data volume proportionally by upgrading existing hardware (vertical) or adding more server instances (horizontal).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q59: What is availability?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The percentage of time a system remains operational and accessible to handle requests.</li>
+                <li><strong>Explanation:</strong> Availability is mathematically defined as `Uptime / (Uptime + Downtime)`. Achieving high availability ('five nines' or 99.999% uptime) requires eliminating single points of failure, automated failover, and active-active setups.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-sd); margin-bottom: 4px; font-size: 1.1rem;">Q60: What is consistency in distributed systems?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The requirement that all replica nodes return the exact same data value for a read operation.</li>
+                <li><strong>Explanation:</strong> Consistency guarantees that once a write operation completes, all subsequent reads across the distributed cluster will return the new written value. Eventual consistency relax this constraint to boost performance.</li>
+              </ul>
+            </div>
 
           </div>
         </div>

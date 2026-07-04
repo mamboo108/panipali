@@ -15,6 +15,7 @@
   --accent-os: #34d399;   /* Mint / Emerald Green */
   --accent-dbms: #f59e0b;   /* Amber / Gold */
   --accent-cn: #f43f5e;     /* Rose / Pink-red */
+  --accent-sd: #818cf8;     /* Indigo for System Design */
   --text: #f0f2f5;
   --muted: #7a8090;
   --heading-color: #ffffff;
@@ -42,6 +43,7 @@ html[data-theme="light"] {
   --accent-os: #059669;   /* Emerald Green */
   --accent-dbms: #d97706;   /* Amber / Gold */
   --accent-cn: #be123c;     /* Deep Rose */
+  --accent-sd: #4f46e5;     /* Indigo for System Design */
   --text: #0f172a;
   --muted: #475569;
   --heading-color: #0f172a;
@@ -2084,6 +2086,11 @@ footer {
   border-left: 4px solid var(--accent-cn);
 }
 
+.theory-card.sd {
+  border-left: 4px solid var(--accent-sd);
+}
+
+
 
 
 .theory-card-header {
@@ -2263,6 +2270,11 @@ footer {
   box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
 }
 
+.qa-selector-card.active[data-target-category="sd"] {
+  border-color: var(--accent-sd);
+  box-shadow: 0 0 15px rgba(129, 140, 248, 0.15);
+}
+
 
 
 .qa-selector-icon {
@@ -2336,6 +2348,12 @@ footer {
   background: rgba(244, 63, 94, 0.08);
   color: var(--accent-cn);
   border-color: rgba(244, 63, 94, 0.2);
+}
+
+.qa-selector-card.active[data-target-category="sd"] .qa-selector-badge {
+  background: rgba(129, 140, 248, 0.08);
+  color: var(--accent-sd);
+  border-color: rgba(129, 140, 248, 0.2);
 }
 
 
