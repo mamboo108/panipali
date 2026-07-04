@@ -93,7 +93,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 294 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 354 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -232,7 +232,7 @@
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">294 Q&amp;As</span>
+            <span class="card-badge interview">354 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3244,7 +3244,7 @@ myCar.drive();</code></pre>
             <h3>Computer Networks</h3>
             <p>OSI &amp; TCP/IP Models, IP Addressing &amp; Subnetting, TCP/UDP, Flow &amp; Congestion Control, Application Protocols, and Security</p>
           </div>
-          <div class="qa-selector-badge">35 Qs</div>
+          <div class="qa-selector-badge">95 Qs</div>
         </div>
       </div>
 
@@ -6603,7 +6603,7 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
             </ul>
             </div>
 
-            <div style="margin-bottom: 0;">
+            <div style="margin-bottom: 1.5rem;">
               <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q35: What happens when you type a URL (like google.com) in your browser and press Enter?</h4>
               <p>A classic, high-frequency interview question combining multiple networking concepts:</p>
             <ol>
@@ -6615,6 +6615,563 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
               <li><strong>Browser Rendering:</strong> The browser parses the response, renders the HTML DOM structure, executes Javascript, and displays the page.</li>
             </ol>
             </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q36: Which protocol is used to map a known IP address to a physical MAC address?</h4>
+              <ul>
+                <li><strong>Answer:</strong> ARP (Address Resolution Protocol)</li>
+                <li><strong>Explanation:</strong> ARP converts an IP address into a MAC address within a local network. If a device knows the destination IP but not its MAC address, it sends an ARP request broadcast to find the hardware owner.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q37: The process of adding headers and trailers as data moves down through the OSI layers is called?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Encapsulation</li>
+                <li><strong>Explanation:</strong> Each OSI layer adds its own header (and the Data Link layer also adds a trailer) before transmitting the data block as a payload to the layer below it.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q38: Which protocol uses the Three-Way Handshake for connection establishment?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TCP (Transmission Control Protocol)</li>
+                <li><strong>Explanation:</strong> TCP establishes a reliable connection using three packets: SYN (Synchronize), SYN-ACK (Synchronize-Acknowledge), and ACK (Acknowledge) to align sequence numbers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q39: Which error detection method adds a parity bit to a block of data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Parity Checking (VRC - Vertical Redundancy Check)</li>
+                <li><strong>Explanation:</strong> A parity bit is appended to a block of data so that the total number of 1s is either even (Even Parity) or odd (Odd Parity). It can only detect single-bit errors.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q40: A resource has permanently moved to a new URL. Which HTTP status code should the server return?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 301 Moved Permanently</li>
+                <li><strong>Explanation:</strong> The HTTP status code 301 is used for permanent URL redirection. It indicates that the resource has permanently moved to a new URI, and search engines should update their indexes to point to the new URL.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q41: Which HTTP method is idempotent and completely replaces an existing resource?</h4>
+              <ul>
+                <li><strong>Answer:</strong> PUT</li>
+                <li><strong>Explanation:</strong> The PUT method is idempotent, meaning making identical requests multiple times will produce the same result. It completely replaces the resource at the target URL with the requested payload.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q42: During the TLS handshake, what is the primary purpose of asymmetric encryption?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Securely establish/exchange the symmetric session key.</li>
+                <li><strong>Explanation:</strong> Asymmetric (public-key) encryption is computationally slow and is only used during the handshake to authenticate the server's identity and securely exchange a symmetric key, which is then used for fast data encryption.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q43: Which protocol does a router use to find a destination MAC address if it is not already in its cache?</h4>
+              <ul>
+                <li><strong>Answer:</strong> ARP (Address Resolution Protocol)</li>
+                <li><strong>Explanation:</strong> If the destination MAC address for an IP on a local subnet is not in the router's ARP table, the router broadcasts an ARP request across the interface to learn the physical mapping.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q44: Which TCP algorithm doubles the congestion window until a threshold is reached?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Slow Start</li>
+                <li><strong>Explanation:</strong> Slow Start is part of TCP's congestion control. It starts with a small congestion window (cwnd) and doubles it every round-trip time (RTT) (exponential growth) until it reaches the slow start threshold (ssthresh).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q45: Which protocol is used by network administrators to monitor and manage network devices?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SNMP (Simple Network Management Protocol)</li>
+                <li><strong>Explanation:</strong> SNMP is an Application layer protocol used to collect system status data and configure hardware nodes (like routers, switches, servers) on an IP network.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q46: Which port does SSH use?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TCP Port 22</li>
+                <li><strong>Explanation:</strong> Secure Shell (SSH) uses TCP port 22 by default to support secure command-line logins and secure file transfers (SFTP).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q47: What is the primary advantage of WebSockets?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Real-time bidirectional (full-duplex) communication over a persistent connection.</li>
+                <li><strong>Explanation:</strong> Unlike HTTP's half-duplex request-response model, WebSockets maintain a single persistent TCP connection. This allows the client and server to push data at any time without the overhead of repeating HTTP headers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q48: In the TCP/IP model, which layer combines the OSI Session, Presentation, and Application layers?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Application Layer</li>
+                <li><strong>Explanation:</strong> The TCP/IP model simplifies the stack by merging Session, Presentation, and Application layers into a single Application layer, leaving formatting and session logic to the application software.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q49: Which device forwards frames using MAC addresses?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Switch</li>
+                <li><strong>Explanation:</strong> A network switch operates at the Data Link layer (Layer 2) and forwards Ethernet frames specifically to ports associated with the destination MAC addresses using its CAM table.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q50: Which DNS record maps one domain name to another domain name?</h4>
+              <ul>
+                <li><strong>Answer:</strong> CNAME Record (Canonical Name)</li>
+                <li><strong>Explanation:</strong> A CNAME record acts as an alias, mapping a subdomain or alternative domain name to the canonical (actual) domain name, resolving to its standard DNS records.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q51: Which command shows the exact path packets take to reach a destination?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Traceroute (tracert in Windows)</li>
+                <li><strong>Explanation:</strong> Traceroute sends probe packets with incrementing Time-to-Live (TTL) values. Each gateway decrements the TTL and sends an ICMP Time Exceeded response when TTL hits 0, mapping out the routing hops.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q52: Which OSI layer is responsible for logical addressing and routing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Network Layer (Layer 3)</li>
+                <li><strong>Explanation:</strong> The Network layer is responsible for packet delivery across multiple networks, assigning logical IP addresses, and determining the best physical paths via routing tables.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q53: Which system translates domain names into IP addresses?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DNS (Domain Name System)</li>
+                <li><strong>Explanation:</strong> DNS translates human-readable domain names (like google.com) into numerical IP addresses (like 142.250.190.46) so browsers can load online resources.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q54: Which device forwards packets between different networks?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Router</li>
+                <li><strong>Explanation:</strong> A router is a Layer 3 device that connects distinct logical subnets and routes IP packets between them by evaluating destination network addresses.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q55: Main advantage of Link State Routing over Distance Vector Routing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Faster convergence and fewer routing loops.</li>
+                <li><strong>Explanation:</strong> Link State protocols (like OSPF) build a complete topological map of the entire network at each node, allowing faster recalculation and convergence when state changes occur, avoiding looping.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q56: Which sliding window protocol retransmits only the damaged frame?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Selective Repeat ARQ</li>
+                <li><strong>Explanation:</strong> In Selective Repeat ARQ, the receiver accepts out-of-order frames and buffers them. The sender is only required to retransmit the specific lost or damaged frames, saving bandwidth.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q57: Which device connects networks using completely different protocols or architectures?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Gateway</li>
+                <li><strong>Explanation:</strong> A gateway acts as a protocol converter, operating at all levels of the OSI stack to translate formats and rules between completely different networking systems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q58: Which DNS record maps a domain name to an IPv4 address?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A Record (Address Record)</li>
+                <li><strong>Explanation:</strong> An A record is a primary DNS record that maps a domain name directly to a 32-bit IPv4 address.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q59: Which routing protocol exchanges routing information between different Autonomous Systems?</h4>
+              <ul>
+                <li><strong>Answer:</strong> BGP (Border Gateway Protocol)</li>
+                <li><strong>Explanation:</strong> BGP is the exterior gateway protocol (EGP) used to route data across the global Internet by exchanging path vector information between autonomous ISP systems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q60: Which TCP mechanism prevents a fast sender from overwhelming a slow receiver?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Flow Control (Receive Window)</li>
+                <li><strong>Explanation:</strong> TCP Flow Control uses a sliding window (notably the Receive Window size, rwnd) declared by the receiver to limit how much unacknowledged data the sender can transmit.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q61: Which protocol provides best-effort delivery without connection establishment or flow control?</h4>
+              <ul>
+                <li><strong>Answer:</strong> UDP (User Datagram Protocol)</li>
+                <li><strong>Explanation:</strong> UDP is a lightweight, connectionless transport protocol that sends datagrams without setup handshakes or recovery mechanisms, prioritizing low latency over reliability.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q62: Which device regenerates signals to extend network distance?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Repeater</li>
+                <li><strong>Explanation:</strong> A repeater operates at the Physical layer (Layer 1). It cleans, amplifies, and regenerates incoming electrical or optical signals to overcome transmission attenuation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q63: A bridge operates at which OSI layer?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Data Link Layer (Layer 2)</li>
+                <li><strong>Explanation:</strong> A network bridge filters and forwards frames using MAC addresses, segmenting local networks at the Data Link layer.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q64: What is the size of an IPv6 address?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 128 bits</li>
+                <li><strong>Explanation:</strong> IPv6 addresses are 128 bits long (represented as eight blocks of hexadecimal numbers), providing a vastly larger address pool than the 32-bit IPv4 standard.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q65: Which DHCP message is broadcast to discover DHCP servers?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DHCP Discover</li>
+                <li><strong>Explanation:</strong> The DORA lease allocation process begins with a broadcast DHCP Discover packet sent by the client, followed by Offer, Request, and Acknowledge.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q66: An attacker floods a server with SYN packets, creating half-open connections. What is this attack?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TCP SYN Flood Attack</li>
+                <li><strong>Explanation:</strong> A SYN flood is a DoS attack where the attacker floods the target with TCP SYN packets and ignores the SYN-ACK responses, filling the server's connection buffer and blocking legitimate clients.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q67: A Class C network needs at least 6 subnets. Minimum bits to borrow?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 3 bits</li>
+                <li><strong>Explanation:</strong> Borrowing bits from the host portion allows subnetting. Borrowing 2 bits gives 2^2 = 4 subnets (insufficient), while borrowing 3 bits gives 2^3 = 8 subnets, satisfying the requirement.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q68: Which IPv4 header field prevents packets from looping indefinitely?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TTL (Time To Live)</li>
+                <li><strong>Explanation:</strong> The TTL is an 8-bit counter in the IP header decremented by every router. When TTL reaches 0, the packet is discarded, and an ICMP Time Exceeded packet is returned to the source.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q69: During TCP connection termination, which flag initiates closing a connection?</h4>
+              <ul>
+                <li><strong>Answer:</strong> FIN (Finish)</li>
+                <li><strong>Explanation:</strong> The FIN flag is sent in a TCP segment to notify the receiver that the sender has finished transmitting data. Complete closure uses a 4-way handshake (FIN -> ACK, FIN -> ACK).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q70: Which protocol automatically assigns IP addresses?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DHCP (Dynamic Host Configuration Protocol)</li>
+                <li><strong>Explanation:</strong> DHCP dynamically configures network settings (IP addresses, subnet masks, gateways, DNS) for devices when they connect to the local network.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q71: Which OSI layer handles dialogue control and synchronization?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Session Layer (Layer 5)</li>
+                <li><strong>Explanation:</strong> The Session layer establishes, maintains, and synchronizes dialogue checkpoints between applications to prevent data loss in case of mid-transfer disconnects.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q72: Which protocol translates a MAC address into an IP address?</h4>
+              <ul>
+                <li><strong>Answer:</strong> RARP (Reverse Address Resolution Protocol) - Legacy</li>
+                <li><strong>Explanation:</strong> RARP maps a known physical MAC hardware address to an IP address during client startup. It has been replaced by BOOTP and DHCP.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q73: Which protocol is used to send email?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SMTP (Simple Mail Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> SMTP is the standard Application layer protocol used to transmit mail files between email servers, running on TCP port 25.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q74: Which protocol retrieves emails?</h4>
+              <ul>
+                <li><strong>Answer:</strong> POP3 or IMAP</li>
+                <li><strong>Explanation:</strong> POP3 downloads mail and deletes it from the server by default. IMAP synchronizes mail state across devices, keeping the storage on the remote server.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q75: Which protocol securely transfers files?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SFTP (SSH File Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> SFTP is a secure file transfer protocol that leverages an established SSH connection to encrypt commands and raw data transfers over port 22.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q76: Which protocol transfers web pages securely?</h4>
+              <ul>
+                <li><strong>Answer:</strong> HTTPS (Hypertext Transfer Protocol Secure)</li>
+                <li><strong>Explanation:</strong> HTTPS secures web traffic by wrapping standard HTTP messages inside a TLS/SSL encrypted connection, typically running on TCP port 443.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q77: Which protocol is used to resolve IP addresses to domain names?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DNS (Reverse DNS Lookup using PTR records)</li>
+                <li><strong>Explanation:</strong> A reverse DNS query uses pointer (PTR) records inside the in-addr.arpa domain space to find the hostname associated with a specific IP address.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q78: Which OSI layer is responsible for encryption and compression?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Presentation Layer (Layer 6)</li>
+                <li><strong>Explanation:</strong> The Presentation layer standardizes data representations by managing formats, syntax conversions, and cryptographic structures (encryption/compression).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q79: Which OSI layer converts bits into electrical or optical signals?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Physical Layer (Layer 1)</li>
+                <li><strong>Explanation:</strong> The Physical layer manages mechanical and electrical transmission specifications, sending unstructured binary bit streams over cables, fibers, or wireless frequencies.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q80: Which protocol provides reliable communication?</h4>
+              <ul>
+                <li><strong>Answer:</strong> TCP (Transmission Control Protocol)</li>
+                <li><strong>Explanation:</strong> TCP is connection-oriented and guarantees ordered, error-checked, and reliable packet delivery using handshakes, acknowledgements, and retransmissions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q81: Which protocol is connectionless?</h4>
+              <ul>
+                <li><strong>Answer:</strong> UDP (User Datagram Protocol)</li>
+                <li><strong>Explanation:</strong> UDP is connectionless, sending datagram payloads immediately without handshake setups or packet acknowledgements, offering low overhead.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q82: Which protocol uses port 53?</h4>
+              <ul>
+                <li><strong>Answer:</strong> DNS (Domain Name System)</li>
+                <li><strong>Explanation:</strong> DNS services listen on port 53, using UDP for standard, fast client queries and falling back to TCP for large zone transfers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q83: Which protocol uses port 80?</h4>
+              <ul>
+                <li><strong>Answer:</strong> HTTP (Hypertext Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> HTTP communicates over TCP port 80 to request and deliver unencrypted hypertext documents for web browsers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q84: Which protocol uses port 443?</h4>
+              <ul>
+                <li><strong>Answer:</strong> HTTPS (HTTP Secure)</li>
+                <li><strong>Explanation:</strong> HTTPS runs over TCP port 443, securing web pages by encrypting the traffic using SSL/TLS.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q85: Which protocol uses port 21?</h4>
+              <ul>
+                <li><strong>Answer:</strong> FTP (File Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> FTP uses TCP port 21 to send control and state commands, establishing separate connections on other ports to perform data transfers.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q86: Which protocol uses port 25?</h4>
+              <ul>
+                <li><strong>Answer:</strong> SMTP (Simple Mail Transfer Protocol)</li>
+                <li><strong>Explanation:</strong> SMTP routing and mail transfers between primary mail servers operate over TCP port 25.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q87: Which protocol uses port 23?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Telnet</li>
+                <li><strong>Explanation:</strong> Telnet is a legacy command-line terminal protocol that operates over TCP port 23. It transmits user credentials and sessions in plaintext, making it highly insecure.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q88: Which routing algorithm is used by OSPF?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Dijkstra's Shortest Path First (SPF) algorithm</li>
+                <li><strong>Explanation:</strong> OSPF is a Link State routing protocol. It uses Dijkstra's algorithm to compute the shortest-path spanning tree to all network nodes based on link costs.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q89: Which routing protocol uses the Bellman-Ford algorithm?</h4>
+              <ul>
+                <li><strong>Answer:</strong> RIP (Routing Information Protocol)</li>
+                <li><strong>Explanation:</strong> RIP is a Distance Vector protocol that calculates routing tables using the Bellman-Ford algorithm. It counts hop counts as metrics, with a maximum limit of 15.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q90: Which network device separates collision domains?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Switch</li>
+                <li><strong>Explanation:</strong> A switch separates collision domains on every individual port because it buffers packets and forwards them to target MAC addresses. Hubs, conversely, share a single collision domain.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q91: Which device separates broadcast domains?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Router</li>
+                <li><strong>Explanation:</strong> A router isolates broadcast traffic by dropping local broadcast packets at its interfaces, defining distinct broadcast domains.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q92: What is the default subnet mask of a Class C network?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 255.255.255.0 (/24)</li>
+                <li><strong>Explanation:</strong> Class C networks dedicate the first 3 octets (24 bits) to the network portion and the remaining 8 bits to identify up to 254 hosts.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q93: What is the default subnet mask of a Class B network?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 255.255.0.0 (/16)</li>
+                <li><strong>Explanation:</strong> Class B networks dedicate the first 2 octets (16 bits) to the network portion, leaving 16 bits to support up to 65,534 host addresses.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q94: What is the default subnet mask of a Class A network?</h4>
+              <ul>
+                <li><strong>Answer:</strong> 255.0.0.0 (/8)</li>
+                <li><strong>Explanation:</strong> Class A networks dedicate only the first octet (8 bits) to the network portion, leaving 24 bits to support up to 16,777,214 hosts.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-cn); margin-bottom: 4px; font-size: 1.1rem;">Q95: Which protocol is used by the ping command?</h4>
+              <ul>
+                <li><strong>Answer:</strong> ICMP (Internet Control Message Protocol)</li>
+                <li><strong>Explanation:</strong> The ping command generates ICMP Echo Request packets and waits for the target host's ICMP Echo Reply response to verify IP layer reachability.</li>
+              </ul>
+            </div>
+
+            <div class="qa-subject-header" style="color: var(--accent-cn); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">🔌 Most Important Port Numbers</div>
+            <table class="theory-table" style="margin-top: 10px; margin-bottom: 1.5rem;">
+              <thead>
+                <tr><th>Protocol</th><th>Port Number</th><th>Usage / Transport</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>FTP</strong></td><td>21</td><td>File Transfer Protocol (Control) — TCP</td></tr>
+                <tr><td><strong>SSH</strong></td><td>22</td><td>Secure Shell (Remote Access/SFTP) — TCP</td></tr>
+                <tr><td><strong>Telnet</strong></td><td>23</td><td>Unencrypted Remote Login — TCP</td></tr>
+                <tr><td><strong>SMTP</strong></td><td>25</td><td>Simple Mail Transfer Protocol (Email Routing) — TCP</td></tr>
+                <tr><td><strong>DNS</strong></td><td>53</td><td>Domain Name System — UDP/TCP</td></tr>
+                <tr><td><strong>DHCP Server</strong></td><td>67</td><td>Bootstrap Protocol Server — UDP</td></tr>
+                <tr><td><strong>DHCP Client</strong></td><td>68</td><td>Bootstrap Protocol Client — UDP</td></tr>
+                <tr><td><strong>HTTP</strong></td><td>80</td><td>Hypertext Transfer Protocol (Web) — TCP</td></tr>
+                <tr><td><strong>POP3</strong></td><td>110</td><td>Post Office Protocol v3 (Email Retrieval) — TCP</td></tr>
+                <tr><td><strong>IMAP</strong></td><td>143</td><td>Internet Message Access Protocol — TCP</td></tr>
+                <tr><td><strong>HTTPS</strong></td><td>443</td><td>HTTP Secure (TLS Encrypted Web) — TCP</td></tr>
+              </tbody>
+            </table>
+
+            <div class="qa-subject-header" style="color: var(--accent-cn); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">📚 OSI Layers Reference</div>
+            <table class="theory-table" style="margin-top: 10px; margin-bottom: 1.5rem;">
+              <thead>
+                <tr><th>Layer #</th><th>OSI Layer</th><th>Data Unit</th><th>Mnemonic Helper</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Layer 7</td><td><strong>Application</strong></td><td>Data</td><td><strong>A</strong>ll</td></tr>
+                <tr><td>Layer 6</td><td><strong>Presentation</strong></td><td>Data</td><td><strong>P</strong>eople</td></tr>
+                <tr><td>Layer 5</td><td><strong>Session</strong></td><td>Data</td><td><strong>S</strong>eem</td></tr>
+                <tr><td>Layer 4</td><td><strong>Transport</strong></td><td>Segment / Datagram</td><td><strong>T</strong>o</td></tr>
+                <tr><td>Layer 3</td><td><strong>Network</strong></td><td>Packet</td><td><strong>N</strong>eed</td></tr>
+                <tr><td>Layer 2</td><td><strong>Data Link</strong></td><td>Frame</td><td><strong>D</strong>ata</td></tr>
+                <tr><td>Layer 1</td><td><strong>Physical</strong></td><td>Bits</td><td><strong>P</strong>rocessing</td></tr>
+              </tbody>
+            </table>
+
+            <div class="qa-subject-header" style="color: var(--accent-cn); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">🔄 TCP vs UDP Quick Comparison</div>
+            <table class="theory-table" style="margin-top: 10px; margin-bottom: 1.5rem;">
+              <thead>
+                <tr><th>Feature</th><th>TCP</th><th>UDP</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Connection Status</strong></td><td>Connection-oriented</td><td>Connectionless</td></tr>
+                <tr><td><strong>Reliability</strong></td><td>Reliable (Guaranteed delivery)</td><td>Unreliable (Best effort)</td></tr>
+                <tr><td><strong>Flow Control</strong></td><td>Yes (Using sliding window)</td><td>No flow control</td></tr>
+                <tr><td><strong>Congestion Control</strong></td><td>Yes (Slow start, congestion avoidance)</td><td>No congestion control</td></tr>
+                <tr><td><strong>Packet Order</strong></td><td>Ordered delivery (uses sequence numbers)</td><td>No ordering guaranteed</td></tr>
+                <tr><td><strong>Handshake</strong></td><td>Three-way handshake required</td><td>No handshake</td></tr>
+                <tr><td><strong>Speed</strong></td><td>Slower (higher overhead)</td><td>Faster (minimal overhead)</td></tr>
+              </tbody>
+            </table>
+
+            <div class="qa-subject-header" style="color: var(--accent-cn); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">⚙️ DHCP DORA & TCP Handshake Guide</div>
+            <table class="theory-table" style="margin-top: 10px; margin-bottom: 1.5rem;">
+              <thead>
+                <tr><th>Process</th><th>Sequence / Flow</th><th>Details</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>DHCP DORA Process</strong></td>
+                  <td><strong>D</strong>iscover &rarr; <strong>O</strong>ffer &rarr; <strong>R</strong>equest &rarr; <strong>A</strong>cknowledge</td>
+                  <td>Used by clients to dynamically request and obtain IP configuration leases from servers.</td>
+                </tr>
+                <tr>
+                  <td><strong>TCP Connection Setup</strong></td>
+                  <td><strong>SYN</strong> &rarr; <strong>SYN-ACK</strong> &rarr; <strong>ACK</strong></td>
+                  <td>A 3-way handshake that establishes synchronizing sequences and initial windows.</td>
+                </tr>
+                <tr>
+                  <td><strong>TCP Connection teardown</strong></td>
+                  <td><strong>FIN</strong> &rarr; <strong>ACK</strong> &rarr; <strong>FIN</strong> &rarr; <strong>ACK</strong></td>
+                  <td>A 4-way termination handshake closing sender and receiver data paths independently.</td>
+                </tr>
+              </tbody>
+            </table>
+
 
           </div>
         </div>
