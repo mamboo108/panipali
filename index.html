@@ -94,7 +94,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 474 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 499 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -243,7 +243,7 @@
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">474 Q&amp;As</span>
+            <span class="card-badge interview">499 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3404,6 +3404,14 @@ myCar.drive();</code></pre>
             <p>Supervised/Unsupervised Learning, Deep Learning, GenAI, LLMs, RAG, Prompt Engineering, Virtualization, and Cloud Systems</p>
           </div>
           <div class="qa-selector-badge">60 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="python">
+          <div class="qa-selector-icon">🐍</div>
+          <div class="qa-selector-details">
+            <h3>Python Basics</h3>
+            <p>References, Shallow Copy, Logical Operators, Division, Lists, Slicing, Dictionaries, Loops, and Functions</p>
+          </div>
+          <div class="qa-selector-badge">25 Qs</div>
         </div>
       </div>
 
@@ -8304,6 +8312,289 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
               </ul>
             </div>
 
+          </div>
+        </div>
+
+        <!-- PYTHON BASICS PANEL -->
+        <div class="qa-panel" id="qa-panel-python">
+          <div class="theory-card python">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is the output of the following code?
+<pre class="theory-code"><code>L1 = [1, 2, 3]
+L2 = L1
+L1.append(4)
+print(L2)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, 2, 3, 4]</code></li>
+                <li><strong>Explanation:</strong> Assigning <code>L1</code> to <code>L2</code> does not copy the list; it copies the reference. Both variables point to the exact same list object in memory. Therefore, appending to <code>L1</code> is reflected when printing <code>L2</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q2: What is the output of the following code?
+<pre class="theory-code"><code>L1 = [1, 2, 3]
+L2 = L1.copy()
+L1.append(4)
+print(L2)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, 2, 3]</code></li>
+                <li><strong>Explanation:</strong> The <code>copy()</code> method performs a shallow copy of the list, allocating a new list object in memory with the same initial elements. Modifying the original list <code>L1</code> does not affect the copy <code>L2</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q3: What is the output of the following code?
+<pre class="theory-code"><code>a = [1, 2]
+b = a
+a = [3, 4]
+print(b)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, 2]</code></li>
+                <li><strong>Explanation:</strong> Initially, <code>b</code> references the list object <code>[1, 2]</code>. Reassigning <code>a = [3, 4]</code> points the variable <code>a</code> to a completely new list, but does not modify the original list object that <code>b</code> still references.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is the output of the following code?
+<pre class="theory-code"><code>print(True and False or True)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>True</code></li>
+                <li><strong>Explanation:</strong> Logical operator precedence dictates that <code>and</code> is evaluated before <code>or</code>. Thus, <code>True and False</code> evaluates first to <code>False</code>. Then, <code>False or True</code> is evaluated, yielding <code>True</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q5: What is the output of the following code?
+<pre class="theory-code"><code>print(not False and True)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>True</code></li>
+                <li><strong>Explanation:</strong> Operator precedence dictates that <code>not</code> is evaluated first, then <code>and</code>. <code>not False</code> yields <code>True</code>. Then, <code>True and True</code> evaluates to <code>True</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q6: What is the output of the following code?
+<pre class="theory-code"><code>x = 5
+print(x > 3 and x < 10)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>True</code></li>
+                <li><strong>Explanation:</strong> Comparison operators have higher precedence than logical operators. The comparisons <code>5 > 3</code> and <code>5 < 10</code> both yield <code>True</code>. Finally, <code>True and True</code> evaluates to <code>True</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q7: What is the output of the following code?
+<pre class="theory-code"><code>print(10 // 3)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>3</code></li>
+                <li><strong>Explanation:</strong> The <code>//</code> operator performs floor division, dividing the numbers and rounding down to the nearest integer.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is the output of the following code?
+<pre class="theory-code"><code>print(10 / 3)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>3.3333333333333335</code></li>
+                <li><strong>Explanation:</strong> The <code>/</code> operator performs standard floating-point division, returning a float value with decimal precision.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is the output of the following code?
+<pre class="theory-code"><code>print(2 ** 3)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>8</code></li>
+                <li><strong>Explanation:</strong> The <code>**</code> operator represents exponentiation in Python, raising the base (2) to the power of the exponent (3).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q10: What is the output of the following code?
+<pre class="theory-code"><code>print(len("Litmus7"))</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>7</code></li>
+                <li><strong>Explanation:</strong> The <code>len()</code> function returns the number of characters in a string. The string <code>"Litmus7"</code> consists of exactly 7 characters: L-i-t-m-u-s-7.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q11: What is the output of the following code?
+<pre class="theory-code"><code>s = "Python"
+print(s[2])</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>t</code></li>
+                <li><strong>Explanation:</strong> Python uses 0-based indexing for strings. In the string <code>"Python"</code>, index 0 is <code>'P'</code>, index 1 is <code>'y'</code>, and index 2 is <code>'t'</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is the output of the following code?
+<pre class="theory-code"><code>print("Python"[::-1])</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>nohtyP</code></li>
+                <li><strong>Explanation:</strong> The slice notation syntax <code>[start:stop:step]</code> with a step of <code>-1</code> traverses the string in reverse, starting from the end to the beginning.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is the output of the following code?
+<pre class="theory-code"><code>x = [1, 2, 3]
+print(x[-1])</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>3</code></li>
+                <li><strong>Explanation:</strong> Negative indexing in Python accesses sequence elements relative to the end. Index <code>-1</code> represents the last element of the list, which is <code>3</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q14: What is the output of the following code?
+<pre class="theory-code"><code>x = [10, 20, 30, 40]
+print(x[1:3])</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[20, 30]</code></li>
+                <li><strong>Explanation:</strong> List slices are start-inclusive and stop-exclusive. <code>x[1:3]</code> retrieves elements starting at index 1 up to (but not including) index 3, which evaluates to <code>[20, 30]</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is the output of the following code?
+<pre class="theory-code"><code>d = {"a": 1, "b": 2}
+print(d["a"])</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>1</code></li>
+                <li><strong>Explanation:</strong> Dictionaries map unique keys to values. Accessing <code>d["a"]</code> retrieves the value associated with key <code>"a"</code>, which is <code>1</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is the output of the following code?
+<pre class="theory-code"><code>d = {"a": 1}
+d["b"] = 2
+print(len(d))</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>2</code></li>
+                <li><strong>Explanation:</strong> Assigning a value to a new key <code>d["b"] = 2</code> adds the key-value pair to the dictionary, raising its size (length) to <code>2</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q17: What is the output of the following code?
+<pre class="theory-code"><code>for i in range(3):
+    print(i, end=" ")</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>0 1 2</code></li>
+                <li><strong>Explanation:</strong> The <code>range(3)</code> generator produces integers from 0 up to (but not including) 3. The <code>end=" "</code> argument prints the numbers separated by spaces instead of newlines.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q18: What is the output of the following code?
+<pre class="theory-code"><code>sum = 0
+for i in range(1, 4):
+    sum += i
+print(sum)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>6</code></li>
+                <li><strong>Explanation:</strong> The <code>range(1, 4)</code> function generates the numbers 1, 2, and 3. The loop sums these numbers: <code>1 + 2 + 3 = 6</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is the output of the following code?
+<pre class="theory-code"><code>x = [1, 2]
+x.extend([3, 4])
+print(x)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, 2, 3, 4]</code></li>
+                <li><strong>Explanation:</strong> The <code>extend()</code> method modifies the list in-place by appending all elements of the provided iterable (the list <code>[3, 4]</code>) to the end.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q20: What is the output of the following code?
+<pre class="theory-code"><code>x = [1, 2, 3]
+x.remove(2)
+print(x)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, 3]</code></li>
+                <li><strong>Explanation:</strong> The <code>remove()</code> method searches for the first occurrence of the specified value (<code>2</code>) in the list and deletes it in-place.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q21: What is the output of the following code?
+<pre class="theory-code"><code>def add(a, b=5):
+    return a + b
+
+print(add(3))</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>8</code></li>
+                <li><strong>Explanation:</strong> The function <code>add</code> defines a default parameter value <code>b=5</code>. When called as <code>add(3)</code>, parameter <code>a</code> is bound to <code>3</code> while <code>b</code> falls back to its default value <code>5</code>, returning <code>3 + 5 = 8</code>.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q22: What is the output of the following code?
+<pre class="theory-code"><code>def func():
+    return 10
+
+print(func())</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>10</code></li>
+                <li><strong>Explanation:</strong> The function <code>func()</code> evaluates and returns the integer value <code>10</code> when executed.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q23: What is the output of the following code?
+<pre class="theory-code"><code>x = (1, 2, 3)
+print(type(x))</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>&lt;class 'tuple'&gt;</code></li>
+                <li><strong>Explanation:</strong> Comma-separated values enclosed in parentheses define a tuple, which is an immutable, ordered sequence data type in Python.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q24: What is the output of the following code?
+<pre class="theory-code"><code>x = {1, 2, 2, 3}
+print(x)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>{1, 2, 3}</code></li>
+                <li><strong>Explanation:</strong> Sets are unordered collections of unique elements. Any duplicate values (like the second <code>2</code>) are automatically filtered out when the set is created.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-python); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is the output of the following code?
+<pre class="theory-code"><code>L1 = [1, [2, 3]]
+L2 = L1.copy()
+L1[1][0] = 5
+print(L2)</code></pre></h4>
+              <ul>
+                <li><strong>Answer:</strong> <code>[1, [5, 3]]</code></li>
+                <li><strong>Explanation:</strong> The <code>copy()</code> method creates a shallow copy. The outer list is a new object, but the inner list is copied by reference only. Therefore, modifying the nested list via <code>L1[1][0] = 5</code> changes the shared inner list object, affecting both <code>L1</code> and <code>L2</code>.</li>
+              </ul>
+            </div>
+
+            <div class="qa-subject-header" style="color: var(--accent-python); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 2.5rem 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700;">📝 Key Python Topics to Revise</div>
+            
+            <div style="background: rgba(163, 230, 53, 0.03); border: 1px solid var(--border); border-left: 4px solid var(--accent-python); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+              <p style="margin-bottom: 12px; font-weight: 600;">Based on previous placement screening and aptitude papers, be sure to revise these core concepts:</p>
+              <ul style="padding-left: 20px; list-style-type: square; line-height: 1.6;">
+                <li><strong>Variables &amp; Data Types:</strong> Dynamic typing, integers, floats, booleans, and type conversion using <code>int()</code>, <code>float()</code>, <code>str()</code>.</li>
+                <li><strong>Sequence Types:</strong> Lists (mutable), Tuples (immutable), and Sets (unique, unordered elements).</li>
+                <li><strong>Reference Mechanics:</strong> Shallow copy (<code>list.copy()</code>) vs. reference assignment (<code>L2 = L1</code>) and deep mutation behaviors.</li>
+                <li><strong>List Operations:</strong> Modifying elements, slicing (<code>L[start:stop:step]</code>), appending (<code>.append()</code>), extending (<code>.extend()</code>), and removing (<code>.remove()</code>).</li>
+                <li><strong>Dictionaries:</strong> Key-value lookups, adding keys, dictionary length (<code>len()</code>), and membership checks.</li>
+                <li><strong>String Slicing &amp; Slices:</strong> Accessing indexes, negative indexing (<code>s[-1]</code>), and reversing strings using slice steps (<code>s[::-1]</code>).</li>
+                <li><strong>Operators:</strong> Arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code>), Comparison (<code>==</code>, <code>&gt;</code>, <code>&lt;</code>), and Logical (<code>and</code>, <code>or</code>, <code>not</code>).</li>
+                <li><strong>Control Flow:</strong> <code>if-elif-else</code> statements, <code>for</code> loops over collections, and looping using <code>range(start, stop, step)</code>.</li>
+                <li><strong>Functions:</strong> Definition (<code>def</code>), return values, local vs. global scope, and default arguments (e.g. <code>def f(a, b=5)</code>).</li>
+                <li><strong>Built-in Utilities:</strong> <code>len()</code> for sizes and <code>type()</code> for data type verification.</li>
+              </ul>
+            </div>
           </div>
         </div>
 

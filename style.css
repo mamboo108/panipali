@@ -17,6 +17,7 @@
   --accent-cn: #f43f5e;     /* Rose / Pink-red */
   --accent-sd: #818cf8;     /* Indigo for System Design */
   --accent-aiml: #ec4899;   /* Fuchsia for AI & ML */
+  --accent-python: #a3e635; /* Lime/Green for Python */
   --text: #f0f2f5;
   --muted: #7a8090;
   --heading-color: #ffffff;
@@ -46,6 +47,7 @@ html[data-theme="light"] {
   --accent-cn: #be123c;     /* Deep Rose */
   --accent-sd: #4f46e5;     /* Indigo for System Design */
   --accent-aiml: #db2777;    /* Fuchsia for AI & ML */
+  --accent-python: #65a30d;   /* Lime/Green for Python */
   --text: #0f172a;
   --muted: #475569;
   --heading-color: #0f172a;
@@ -2096,6 +2098,10 @@ footer {
   border-left: 4px solid var(--accent-aiml);
 }
 
+.theory-card.python {
+  border-left: 4px solid var(--accent-python);
+}
+
 
 
 
@@ -2286,6 +2292,11 @@ footer {
   box-shadow: 0 0 15px rgba(236, 72, 153, 0.15);
 }
 
+.qa-selector-card.active[data-target-category="python"] {
+  border-color: var(--accent-python);
+  box-shadow: 0 0 15px rgba(163, 230, 53, 0.15);
+}
+
 
 
 .qa-selector-icon {
@@ -2371,6 +2382,12 @@ footer {
   background: rgba(236, 72, 153, 0.08);
   color: var(--accent-aiml);
   border-color: rgba(236, 72, 153, 0.2);
+}
+
+.qa-selector-card.active[data-target-category="python"] .qa-selector-badge {
+  background: rgba(163, 230, 53, 0.08);
+  color: var(--accent-python);
+  border-color: rgba(163, 230, 53, 0.2);
 }
 
 
