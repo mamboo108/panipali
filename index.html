@@ -94,7 +94,7 @@
           <span class="hero-accent">CAMPUS PLACEMENT PREP</span>
           <h1 class="hero-title">Your guide to <span class="gradient-text">cracking placements.</span></h1>
           <p class="hero-desc">
-            DSA, Aptitude, CS theory, and 414 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
+            DSA, Aptitude, CS theory, and 474 interview Q&amp;As — all in one place. Track what you’ve studied, follow the workflow, and show up ready.
           </p>
           <div class="hero-buttons">
             <button class="hero-btn-dsa" id="hero-start-dsa-btn">💻 Start DSA Checklist →</button>
@@ -243,7 +243,7 @@
         <div class="card card-hoverable" data-target="interview-qa" data-category="interview">
           <div class="card-header-top">
             <div class="card-icon-box">❓</div>
-            <span class="card-badge interview">414 Q&amp;As</span>
+            <span class="card-badge interview">474 Q&amp;As</span>
           </div>
           <h3>Top Interview Q&amp;A</h3>
           <p>Subject-wise compiled viva questions and answers covering dynamic scoping, memory limits, Dijkstra failures, and sorting details.</p>
@@ -3394,6 +3394,14 @@ myCar.drive();</code></pre>
           <div class="qa-selector-details">
             <h3>System Design</h3>
             <p>Scaling, Load Balancers, API Gateways, Caching, Databases, Sharding, CAP Theorem, Pub/Sub, and Design Patterns</p>
+          </div>
+          <div class="qa-selector-badge">60 Qs</div>
+        </div>
+        <div class="qa-selector-card" data-target-category="aiml">
+          <div class="qa-selector-icon">🧠</div>
+          <div class="qa-selector-details">
+            <h3>AI, ML &amp; Cloud</h3>
+            <p>Supervised/Unsupervised Learning, Deep Learning, GenAI, LLMs, RAG, Prompt Engineering, Virtualization, and Cloud Systems</p>
           </div>
           <div class="qa-selector-badge">60 Qs</div>
         </div>
@@ -7807,6 +7815,492 @@ db.students.deleteOne({ name: "Antony" })</code></pre>
               <ul>
                 <li><strong>Answer:</strong> The requirement that all replica nodes return the exact same data value for a read operation.</li>
                 <li><strong>Explanation:</strong> Consistency guarantees that once a write operation completes, all subsequent reads across the distributed cluster will return the new written value. Eventual consistency relax this constraint to boost performance.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- AI, ML & CLOUD PANEL -->
+        <div class="qa-panel" id="qa-panel-aiml">
+          <div class="theory-card aiml">
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q1: What is Artificial Intelligence (AI)?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The ability of a computer system to perform tasks that normally require human intelligence.</li>
+                <li><strong>Explanation:</strong> AI is a broad field of computer science focused on creating smart systems capable of decision-making, visual perception, translation, and speech recognition. It ranges from narrow AI (task-specific, like chess computers) to Artificial General Intelligence (AGI, matching human-level capabilities across domains).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q2: What is Machine Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A subset of AI where computers learn patterns from data without being explicitly programmed.</li>
+                <li><strong>Explanation:</strong> Instead of writing rigid, hardcoded rules, developers feed machine learning models datasets of historical observations. The algorithms optimize their internal parameters to identify underlying trends and predict outcomes on new, unseen data.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q3: What is Deep Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A subset of Machine Learning that uses neural networks with multiple layers to learn complex patterns.</li>
+                <li><strong>Explanation:</strong> Deep Learning utilizes artificial neural networks consisting of an input layer, an output layer, and multiple hidden layers (hence 'deep'). By passing data through these layers, the system can automatically extract high-level features from unstructured datasets like images and audio.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q4: What is the difference between AI, ML, and Deep Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> They represent nested subsets of computational intelligence.</li>
+                <li><strong>Explanation:</strong> <ul><li><strong>AI</strong> is the broad concept of making machines perform tasks intelligently.</li><li><strong>ML</strong> is the subset of AI that learns directly from data rather than hardcoded rules.</li><li><strong>Deep Learning</strong> is the subset of ML that uses deep neural networks to automate feature extraction.</li></ul></li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q5: What is supervised learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A learning method where the model is trained using labeled data.</li>
+                <li><strong>Explanation:</strong> In supervised learning, each training example is paired with its corresponding correct output label. The model learns a mapping function from inputs to outputs to predict classes or continuous values for new data. <strong>Example:</strong> Spam email filtering (labeled spam/ham).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q6: What is unsupervised learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A learning method where the model finds hidden patterns in unlabeled data.</li>
+                <li><strong>Explanation:</strong> Unsupervised learning operates without predefined targets or feedback. The algorithm inspects the structure of the dataset to identify natural groupings, densities, or dimensions. <strong>Example:</strong> Customer purchasing behavior segmentation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q7: Unsupervised learning models are used for what kind of data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Unlabeled data.</li>
+                <li><strong>Explanation:</strong> Since no ground-truth output targets are provided, unsupervised models analyze raw, unlabeled data to find structures, clusters, anomalies, or dimensions without manual supervision.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q8: What is reinforcement learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A technique where an agent learns to behave in an environment by receiving rewards or penalties.</li>
+                <li><strong>Explanation:</strong> Reinforcement learning is based on trial-and-error. An active agent performs actions in an environment, receives state feedback and numeric rewards or penalties, and learns an optimal action policy to maximize cumulative rewards over time.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q9: What is a dataset?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A collection of data points or observations used to train and test machine learning models.</li>
+                <li><strong>Explanation:</strong> A dataset is typically structured in rows (representing individual samples or instances) and columns (representing independent features and the target label).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q10: What are training and testing data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Subsets of the dataset used for model creation and performance evaluation.</li>
+                <li><strong>Explanation:</strong> <ul><li><strong>Training data:</strong> The primary subset (usually 70-80%) used to adjust model weights and parameters.</li><li><strong>Testing data:</strong> A separate, held-out subset (usually 20-30%) used exclusively to verify model generalization on unseen data.</li></ul></li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q11: What is overfitting?</h4>
+              <ul>
+                <li><strong>Answer:</strong> When a model memorizes the training data and performs poorly on new data.</li>
+                <li><strong>Explanation:</strong> Overfitting happens when a model becomes overly complex, fitting the noise and random fluctuations of the training set rather than the actual underlying relationship. It can be corrected using regularization, simplifying the model architecture, or adding more training data.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q12: What is underfitting?</h4>
+              <ul>
+                <li><strong>Answer:</strong> When a model is too simple to learn the underlying patterns in the data.</li>
+                <li><strong>Explanation:</strong> Underfitting occurs when the model lacks capacity to capture features (e.g., using a linear model for highly non-linear data). It results in poor performance on both training and test data, and can be fixed by increasing model complexity or engineering better features.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q13: What is the curse of dimensionality?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The exponential increase in volume associated with adding extra dimensions to a space.</li>
+                <li><strong>Explanation:</strong> As the number of features (dimensions) grows, data points become highly sparse in high-dimensional space. This sparsity makes it difficult for algorithms to find clusters or patterns, requiring exponentially more data to prevent overfitting.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q14: What is a feature in Machine Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An individual, measurable property or characteristic used as input to a model.</li>
+                <li><strong>Explanation:</strong> Features represent the inputs to a machine learning system. For instance, in a model predicting house prices, the square footage, number of bedrooms, and zip code are features.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q15: What is feature engineering?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The process of using domain knowledge to select, modify, or create features for a model.</li>
+                <li><strong>Explanation:</strong> Feature engineering transforms raw, messy data variables into structured inputs that better represent the underlying problem to the model, significantly improving accuracy and training efficiency.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q16: What is feature scaling?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Normalizing the numerical ranges of independent features to a similar scale.</li>
+                <li><strong>Explanation:</strong> Since distance-based and gradient-descent algorithms calculate mathematical differences, features with large numeric ranges (like income) will dominate features with small ranges (like age). Scaling (e.g., Min-Max Normalization or Standardization) sets them to a uniform range (0-1 or mean=0, std=1).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q17: What is a label?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The correct output target value in supervised learning.</li>
+                <li><strong>Explanation:</strong> A label represents the ground-truth answer. In a dataset of labeled emails, the label is the binary tag 'Spam' or 'Inbox'.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q18: What is classification?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A supervised learning task of predicting discrete categories or classes.</li>
+                <li><strong>Explanation:</strong> Classification predicts a categorical label. Examples include binary classification (predicting yes/no, default/repay) and multi-class classification (predicting image tags like cat, dog, or truck).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q19: What is regression?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A supervised learning task of predicting continuous numerical values.</li>
+                <li><strong>Explanation:</strong> Regression models map inputs to real-numbered values. Examples include predicting the sale price of a house, future temperature readings, or stock index trends.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q20: What is clustering?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An unsupervised learning task of grouping similar data points together.</li>
+                <li><strong>Explanation:</strong> Clustering algorithms analyze unlabeled data points and partition them into subgroups (clusters) such that items within the same cluster share high similarity, while items in separate clusters are highly distinct.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q21: What is Generative AI?</h4>
+              <ul>
+                <li><strong>Answer:</strong> AI models that create entirely new content (text, images, code, videos, etc.).</li>
+                <li><strong>Explanation:</strong> Generative AI models learn the underlying probability distribution of their training datasets (e.g., language syntax or pixel patterns) to generate unique, realistic outputs that mimic human creations.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q22: What is an LLM?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A Large Language Model trained on massive text data to generate human-like language.</li>
+                <li><strong>Explanation:</strong> LLMs contain billions of parameters and are trained using deep learning techniques to perform natural language processing tasks, such as translating, summarizing, coding, and chatting.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q23: GPT model is primarily based on?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Transformer Architecture</li>
+                <li><strong>Explanation:</strong> The Transformer architecture relies on self-attention mechanisms to process text tokens in parallel. This enables models like GPT to capture long-range dependencies and context in language much better than older sequential models like RNNs.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q24: What does GPT stand for?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Generative Pre-trained Transformer</li>
+                <li><strong>Explanation:</strong> <strong>Generative</strong> indicates it creates new text; <strong>Pre-trained</strong> means it was trained on a large corpus of text to learn general grammar; and <strong>Transformer</strong> is the underlying attention-based neural network model.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q25: What is hallucination in AI?</h4>
+              <ul>
+                <li><strong>Answer:</strong> When an AI confidently generates factually incorrect or ungrounded outputs.</li>
+                <li><strong>Explanation:</strong> Because LLMs are statistical token prediction engines rather than factual databases, they sometimes predict word sequences that sound fluent and confident but are completely fabricated or incorrect.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q26: Why do LLMs hallucinate?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Statistical next-token prediction behavior and lack of real-world verification.</li>
+                <li><strong>Explanation:</strong> LLMs lack internal logic to verify facts; they calculate probability distributions over words. Hallucinations are caused by gaps or biases in training data, outdated info, or ambiguous instructions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q27: What is a prompt?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The input text or instruction given to guide an AI model's output.</li>
+                <li><strong>Explanation:</strong> Prompts direct the model's response. A prompt can be a question, a system instruction, or a paragraph of context that the model uses to generate its response.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q28: What is prompt engineering?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The practice of designing and refining inputs to get optimal outputs from generative models.</li>
+                <li><strong>Explanation:</strong> It involves structuring prompts using templates, context tags, role-play framing, and constraints to ensure the LLM returns accurate, formatted, and safe responses.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q29: What is fine-tuning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Training a pre-trained model further on a specific, smaller dataset.</li>
+                <li><strong>Explanation:</strong> Fine-tuning updates a model's internal weights to adapt its general language knowledge to a niche task, industry vocabulary, or customized output structure.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q30: What is Retrieval-Augmented Generation (RAG)?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A technique that retrieves external database facts to guide LLM generation.</li>
+                <li><strong>Explanation:</strong> RAG intercepts user queries, queries a database or vector index to find relevant documents, appends those documents to the prompt as context, and sends it to the LLM. This provides factual, updated answers and limits hallucinations.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q31: What is tokenization?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Breaking raw text down into smaller semantic units called tokens.</li>
+                <li><strong>Explanation:</strong> Before an LLM can process text, it splits sentences into words, subwords, or characters. These tokens are then mapped to unique integer IDs in the model's vocabulary list.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q32: What is an embedding?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A high-dimensional numerical vector representation of data that captures semantic meaning.</li>
+                <li><strong>Explanation:</strong> Embeddings represent words or phrases as vectors of numbers (e.g., 1536 dimensions). Words with similar semantic meanings have vectors close to each other, allowing algorithms to perform fast similarity searches.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q33: What is context window?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The maximum amount of text (tokens) an LLM can process in a single execution.</li>
+                <li><strong>Explanation:</strong> The context window covers both the input prompt and the generated response. If a prompt exceeds the model's context window limit, older text is cut off or forgotten by the model.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q34: What is temperature in an LLM?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A hyperparameter controlling the creativity and randomness of outputs.</li>
+                <li><strong>Explanation:</strong> A low temperature (close to 0) makes the model pick only the highest-probability words, leading to predictable and conservative text. A high temperature (close to 1) increases entropy, leading to creative and varied phrasing.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q35: What is zero-shot learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A model performing a task without seeing any prior examples in the prompt.</li>
+                <li><strong>Explanation:</strong> Zero-shot relies entirely on the model's pre-trained knowledge. You instruct the model to perform a task (e.g., 'Translate this to German: Hello') and it does so directly.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q36: What is one-shot learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Providing the model with exactly one example in the prompt before the task query.</li>
+                <li><strong>Explanation:</strong> Showing one example help clarify output formats, styling, or special rules before the actual query is processed.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q37: What is few-shot learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Providing the model with a few examples (2 to 5) in the prompt.</li>
+                <li><strong>Explanation:</strong> Few-shot learning is highly effective for teaching LLMs complex formatting requirements, specific parsing patterns, or domain-specific logic in-context without retraining model weights.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q38: What is a neural network?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A computational model inspired by biological brains, built of interconnected nodes.</li>
+                <li><strong>Explanation:</strong> Neural networks consist of an input layer, hidden layers, and an output layer. Nodes process inputs using mathematical weights, biases, and activation functions, adjusting parameters during training via backpropagation.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q39: What is an epoch?</h4>
+              <ul>
+                <li><strong>Answer:</strong> One complete training cycle where the entire dataset is passed through the model.</li>
+                <li><strong>Explanation:</strong> During one epoch, the model processes every sample in the training set forward (to predict) and backward (to calculate gradients and update weights) exactly once.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q40: What is a loss function?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A mathematical formula that measures the error of a model's predictions.</li>
+                <li><strong>Explanation:</strong> The loss function outputs a number representing how far the model's predictions are from the ground-truth target. The goal of training is to minimize this loss value.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q41: What is gradient descent?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An optimization algorithm used to minimize prediction errors.</li>
+                <li><strong>Explanation:</strong> Gradient descent calculates the mathematical gradient (derivative) of the loss function with respect to model parameters and updates the weights in the opposite direction of the gradient to find the lowest loss.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q42: What is an activation function?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A mathematical function that introduces non-linearity into a neural network.</li>
+                <li><strong>Explanation:</strong> Non-linearity is essential; without it, a neural network behaves like a single linear regression model, failing to solve complex non-linear problems. Common functions include ReLU, Sigmoid, and Tanh.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q43: Give some applications of AI.</h4>
+              <ul>
+                <li><strong>Answer:</strong> Chatbots, autonomous driving, medical diagnostics, recommendations, and biometrics.</li>
+                <li><strong>Explanation:</strong> AI is integrated into search engines, speech-to-text translators, industrial robots, automatic credit scoring, crop monitoring systems, and automated security cameras.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q44: Give examples of Machine Learning applications.</h4>
+              <ul>
+                <li><strong>Answer:</strong> Spam filtering, recommendation systems, fraud detection, and predictive maintenance.</li>
+                <li><strong>Explanation:</strong> Machine learning powers product recommendations (Amazon/Netflix), dynamic ride-share pricing (Uber), weather forecasting, and automated stock trading engines.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q45: What is computer vision?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A field of AI enabling computers to process and extract features from images/videos.</li>
+                <li><strong>Explanation:</strong> Computer vision models classify images, segment object boundaries, detect motion, and run facial recognition (e.g., Face ID, autonomous driving camera feeds).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q46: What is Natural Language Processing (NLP)?</h4>
+              <ul>
+                <li><strong>Answer:</strong> A branch of AI focused on computer understanding of human language.</li>
+                <li><strong>Explanation:</strong> NLP covers machine translation, sentiment analysis, speech recognition, auto-correct systems, text summarization, and interactive conversational agents.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q47: What is recommendation system?</h4>
+              <ul>
+                <li><strong>Answer:</strong> An information filtering system predicting user preferences.</li>
+                <li><strong>Explanation:</strong> Recommendation systems leverage user history and profile similarity (using Content-Based Filtering or Collaborative Filtering) to suggest products, movies, or articles.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q48: What is virtualization?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Creating virtual instances of hardware, servers, storage, or network resources.</li>
+                <li><strong>Explanation:</strong> By using a hypervisor layer, virtualization splits physical hardware into multiple isolated Virtual Machines (VMs), allowing efficient sharing of physical server nodes.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q49: What is the advantage of virtualization in computing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Better resource utilization, isolation, scalability, and cost reduction.</li>
+                <li><strong>Explanation:</strong> It eliminates underutilized physical servers, isolates application crashes to their respective VMs, enables instant snapshots/migration, and speeds up test environment setup.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q50: What is cloud computing?</h4>
+              <ul>
+                <li><strong>Answer:</strong> The on-demand internet delivery of servers, databases, and software on a pay-as-you-go basis.</li>
+                <li><strong>Explanation:</strong> Instead of building and maintaining physical data centers, companies rent compute, storage, and networking capacity from cloud providers (AWS, Azure, GCP).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q51: Difference between AI and Automation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Automation follows hardcoded rules; AI learns and makes dynamic decisions.</li>
+                <li><strong>Explanation:</strong> Automation executes repetitive, predetermined tasks (like industrial factory lines). AI analyzes variables, learns from feedback loops, and handles novel inputs independently.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q52: Is every AI system a Machine Learning system?</h4>
+              <ul>
+                <li><strong>Answer:</strong> No, rule-based expert systems are AI but do not use Machine Learning.</li>
+                <li><strong>Explanation:</strong> Early AI relied on hand-crafted 'if-then' expert systems. These exhibit intelligence, but because they do not extract patterns from data, they are not machine learning systems.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q53: Can Machine Learning work without data?</h4>
+              <ul>
+                <li><strong>Answer:</strong> No, data is mandatory to train models.</li>
+                <li><strong>Explanation:</strong> Data serves as the experience from which ML models learn. Without datasets, models cannot adjust parameters, define boundaries, or optimize predictions.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q54: Which learning method is used for spam detection?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Supervised Learning.</li>
+                <li><strong>Explanation:</strong> Spam detection utilizes historical email datasets marked explicitly as 'Spam' or 'Ham' to train classification algorithms.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q55: Which learning method is used for customer segmentation?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Unsupervised Learning.</li>
+                <li><strong>Explanation:</strong> Customer segmentation groups clients based on purchase trends without prior category labels, leveraging clustering models like K-Means.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q56: Which algorithm is used for clustering?</h4>
+              <ul>
+                <li><strong>Answer:</strong> K-Means (most common answer).</li>
+                <li><strong>Explanation:</strong> K-Means is an unsupervised clustering algorithm that groups data points into 'K' clusters by iteratively assigning them to the nearest cluster centroid based on distance.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q57: What is the main goal of Machine Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> To generalize patterns from training data to make accurate predictions on unseen data.</li>
+                <li><strong>Explanation:</strong> Generalization is the core objective. The model must learn trends, rather than memorizing individual training samples, to perform accurately in the real world.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q58: What is bias in Machine Learning?</h4>
+              <ul>
+                <li><strong>Answer:</strong> Systematic errors caused by simplistic model assumptions.</li>
+                <li><strong>Explanation:</strong> High bias leads to underfitting. It occurs when a model is too simple to capture the complexity of the data (e.g., treating a curved relationship as a straight line).</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q59: Why is data preprocessing important?</h4>
+              <ul>
+                <li><strong>Answer:</strong> It cleans raw, messy data so machine learning models can learn effectively.</li>
+                <li><strong>Explanation:</strong> Preprocessing cleans the inputs by imputing missing values, removing duplicates, scaling ranges, and encoding category text so mathematical algorithms don't experience skewed results.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <h4 style="color: var(--accent-aiml); margin-bottom: 4px; font-size: 1.1rem;">Q60: Why is data important in AI?</h4>
+              <ul>
+                <li><strong>Answer:</strong> AI models are statistical mappings constructed entirely from data.</li>
+                <li><strong>Explanation:</strong> The accuracy, fairness, and utility of an AI system are limited by its training data. Biased, small, or low-quality data results in biased and inaccurate predictions.</li>
               </ul>
             </div>
 
